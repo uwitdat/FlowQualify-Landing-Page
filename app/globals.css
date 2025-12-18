@@ -1,26 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: rgb(10, 9, 9);
+  --foreground: #ffffff;
+  --primary: rgb(194, 89, 194);
+  --primary-hover: rgb(174, 69, 174);
+  --secondary: rgb(156, 163, 175);
+  --surface: rgb(20, 19, 19);
+  --surface-light: rgb(30, 29, 29);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-surface: var(--surface);
+  --font-sans: var(--font-plus-jakarta);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
 }
