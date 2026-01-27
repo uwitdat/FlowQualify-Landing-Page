@@ -9,6 +9,8 @@ import { COMPANY_NAME } from "../config/constants";
 const navigation = [
   { name: "Features", href: "#features" },
   { name: "How It Works", href: "#how-it-works" },
+  { name: "Demos", href: "#demos" },
+  { name: "Why FlowQualify", href: "#why" },
   { name: "Testimonials", href: "#testimonials" },
   { name: "Contact", href: "#contact" },
 ];
@@ -79,7 +81,7 @@ export default function Header() {
             href="#contact"
             className="text-sm/6 font-semibold text-white hover:text-[rgb(194,89,194)] transition-colors"
           >
-            Book a Call <span aria-hidden="true">→</span>
+            Get Started <span aria-hidden="true">→</span>
           </a>
         </div>
       </nav>
@@ -126,7 +128,7 @@ export default function Header() {
                   href="#contact"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-[rgb(194,89,194)] hover:bg-white/5"
                 >
-                  Book a Call
+                  Get Started
                 </a>
               </div>
             </div>

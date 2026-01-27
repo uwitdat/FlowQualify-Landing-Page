@@ -1,68 +1,37 @@
 "use client";
 
 import FadeIn from "../components/fade-in";
-import { COMPANY_NAME, COMPANY_NAME_SHORT } from "../config/constants";
 
 const testimonials = [
   {
-    body: `Before ${COMPANY_NAME_SHORT}, I was constantly stuck in DMs answering the same questions. Now every lead comes in pre-qualified with budget and timeline, and my calendar is full of serious buyers.`,
+    body: "Before FlowQualify, I was constantly stuck in DMs and texts answering the same questions. Now every lead comes in pre-qualified with budget, timeline, and project scope. My calendar is full of serious homeowners ready to book.",
     author: {
-      name: "Sarah Thompson",
-      handle: "sarah_thompson_realty",
-      imageUrl:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      name: "Andrew Paiano",
+      handle: "Paiano Contracting Inc.",
+      website: "https://www.paianocontracting.com/",
     },
   },
   {
-    body: `We used to miss a lot of inquiries that came in after hours. ${COMPANY_NAME_SHORT} handles intake while we sleep and sends us clean summaries in the morning. Our front-desk workload is way lighter.`,
+    body: "We used to miss a lot of inquiries that came in after hours and on weekends. FlowQualify engages every lead instantly and sends us clean briefs with project details and photos. Our team only talks to qualified prospects.",
     author: {
-      name: "Michael Foster",
-      handle: "fosterclinic",
-      imageUrl:
-        "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      name: "Daniel P.",
+      handle: "Sposa Millwork",
+      website: "https://www.sposakitchens.com/",
     },
   },
   {
-    body: `As a coach, I only want to talk to people who are actually ready to commit. ${COMPANY_NAME_SHORT} filters out the tire-kickers and sends me detailed profiles of the ones who fit my program.`,
+    body: "As a kitchen and bath renovator, I only want to meet people who have budget and timeline. FlowQualify filters out the tire-kickers and sends me detailed profiles with talking points. I never walk into a call cold.",
     author: {
       name: "Dries Vincent",
-      handle: "driesvincent_coaching",
-      imageUrl:
-        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-  },
-  {
-    body: `We plugged ${COMPANY_NAME_SHORT} into WhatsApp and Instagram and finally stopped losing track of conversations. Every lead is logged, structured, and routed to the right person automatically.`,
-    author: {
-      name: "Lindsay Walton",
-      handle: "waltoncreative",
-      imageUrl:
-        "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-  },
-  {
-    body: `For home services, speed matters. Now when a request comes in, ${COMPANY_NAME_SHORT} collects photos, location, and budget before my team ever gets involved. It's cut a ton of back-and-forth.`,
-    author: {
-      name: "Courtney Henry",
-      handle: "henryhomeservices",
-      imageUrl:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-  },
-  {
-    body: `We tried generic chatbots before and they just annoyed people. ${COMPANY_NAME_SHORT} feels like a real assistant, and the structured data it sends into our CRM is honestly the best part.`,
-    author: {
-      name: "Tom Cook",
-      handle: "tomcook_saas",
-      imageUrl:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      handle: "V.D Kitchen & Bath",
+      website: "https://example.com",
     },
   },
 ];
 
 export default function Testimonials() {
   return (
-    <div id="testimonials" className="bg-[rgb(10,9,9)] py-24 sm:py-24">
+    <div id="testimonials" className="bg-[rgb(10,9,9)] py-24 sm:py-24 border-t border-white/5">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <FadeIn>
           <div className="mx-auto max-w-2xl text-center">
@@ -70,7 +39,7 @@ export default function Testimonials() {
               Testimonials
             </h2>
             <p className="mt-2 text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-              Teams using {COMPANY_NAME} to automate intake and qualification
+              Contractors using FlowQualify to qualify leads 24/7
             </p>
           </div>
         </FadeIn>
@@ -84,18 +53,21 @@ export default function Testimonials() {
                     <blockquote className="text-[rgb(156,163,175)]">
                       <p>{`"${testimonial.body}"`}</p>
                     </blockquote>
-                    <figcaption className="mt-6 flex items-center gap-x-4">
-                      <img
-                        alt={testimonial.author.name}
-                        src={testimonial.author.imageUrl}
-                        className="size-10 rounded-full bg-[rgb(20,19,19)]"
-                      />
-                      <div>
-                        <div className="font-semibold text-white">
-                          {testimonial.author.name}
-                        </div>
-                        <div className="text-[rgb(156,163,175)]">{`@${testimonial.author.handle}`}</div>
+                    <figcaption className="mt-6">
+                      <div className="font-semibold text-white">
+                        {testimonial.author.name}
                       </div>
+                      <div className="text-[rgb(156,163,175)]">
+                        {testimonial.author.handle}
+                      </div>
+                      <a
+                        href={testimonial.author.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-2 inline-block text-sm font-medium text-[rgb(194,89,194)] hover:underline"
+                      >
+                        Visit website →
+                      </a>
                     </figcaption>
                   </figure>
                 </div>

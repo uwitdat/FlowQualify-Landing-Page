@@ -1,8 +1,14 @@
 import { COMPANY_NAME } from "../config/constants";
 
+export const metadata = {
+  title: "Privacy Policy",
+  description: `How ${COMPANY_NAME} handles data and messages. We do not sell personal data.`,
+  alternates: { canonical: "/privacy-policy" },
+};
+
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-[rgb(10,9,9)] px-6 py-24 lg:px-8">
+    <main className="min-h-screen bg-[rgb(10,9,9)] px-6 py-24 lg:px-8">
       <div className="mx-auto max-w-3xl">
         <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
           {COMPANY_NAME} Privacy Policy
@@ -27,6 +33,6 @@ export default function PrivacyPolicy() {
           </p>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

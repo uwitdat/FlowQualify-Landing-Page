@@ -1,8 +1,25 @@
 "use client";
 
+import {
+  CpuChipIcon,
+  ChartBarIcon,
+  PhotoIcon,
+  CalendarDaysIcon,
+  ChatBubbleBottomCenterTextIcon,
+  Square3Stack3DIcon,
+} from "@heroicons/react/24/outline";
 import Logo from "../components/logo";
 import FadeIn from "../components/fade-in";
-import { COMPANY_NAME } from "../config/constants";
+import { ACCENT_COLORS } from "../config/constants";
+
+const benefits = [
+  { icon: CpuChipIcon, label: "AI engages every lead instantly" },
+  { icon: ChartBarIcon, label: "Smart lead scoring and prioritization" },
+  { icon: PhotoIcon, label: "Image analysis for project understanding" },
+  { icon: CalendarDaysIcon, label: "Automated appointment booking" },
+  { icon: ChatBubbleBottomCenterTextIcon, label: "Pre-call talking points" },
+  { icon: Square3Stack3DIcon, label: "Complete pipeline dashboard" },
+] as const;
 
 export const Hero = () => {
   return (
@@ -16,40 +33,54 @@ export const Hero = () => {
                   <Logo className="h-11 w-11" />
 
                   <p className="mt-8 text-xs font-semibold uppercase tracking-wide text-[rgb(194,89,194)]">
-                    Automated intake & lead qualification
+                    AI-Powered Lead Qualification for Contractors
                   </p>
 
                   <h1 className="mt-4 text-pretty text-5xl font-semibold tracking-tight text-white sm:text-7xl">
-                    Stop wasting time on{" "}
+                    Never miss a{" "}
                     <span className="text-[rgb(194,89,194)]">
-                      unqualified leads.
-                    </span>
+                      qualified lead
+                    </span>{" "}
+                    again.
                   </h1>
 
                   <p className="mt-8 text-pretty text-lg font-medium text-[rgb(156,163,175)] sm:text-xl/8">
-                    {COMPANY_NAME} designs and runs a custom intake assistant
-                    for your business. It asks the right questions, filters out
-                    bad fits, and sends you only structured, qualified leads —
-                    24/7 on WhatsApp, SMS, or DMs.
+                    FlowQualify automates your entire lead qualification process
+                    with AI that engages leads 24/7 via SMS, email, Facebook, and
+                    Instagram. Get intelligent lead scoring, image analysis,
+                    automated appointment booking, and detailed briefs—all while
+                    you focus on closing deals.
                   </p>
 
-                  <p className="mt-4 text-sm text-[rgb(156,163,175)]">
-                    Done-for-you setup, no tech skills required. You focus on
-                    closing, we handle the back-and-forth.
-                  </p>
+                  <ul className="mt-6 grid gap-3 text-sm text-[rgb(156,163,175)] sm:grid-cols-2">
+                    {benefits.map(({ icon: Icon, label }, i) => {
+                      const c = ACCENT_COLORS[i % ACCENT_COLORS.length];
+                      return (
+                        <li key={label} className="flex items-center gap-3">
+                          <span
+                            className="flex size-8 shrink-0 items-center justify-center rounded-lg"
+                            style={{ backgroundColor: c.muted, color: c.main }}
+                          >
+                            <Icon className="size-4" aria-hidden />
+                          </span>
+                          {label}
+                        </li>
+                      );
+                    })}
+                  </ul>
 
-                  <div className="mt-10 flex items-center gap-x-6">
+                  <div className="mt-10 flex items-center gap-x-4">
                     <a
                       href="#contact"
-                      className="rounded-md bg-[rgb(194,89,194)] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[rgb(174,69,174)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(194,89,194)] transition-colors"
+                      className="rounded-md bg-[rgb(115,45,115)] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[rgb(95,35,95)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(115,45,115)] transition-colors"
                     >
-                      Book a free strategy call
+                      Get Started
                     </a>
                     <a
-                      href="#features"
+                      href="#demos"
                       className="text-sm/6 font-semibold text-white hover:text-[rgb(194,89,194)] transition-colors"
                     >
-                      Learn more <span aria-hidden="true">→</span>
+                      See How It Works <span aria-hidden="true">→</span>
                     </a>
                   </div>
                 </div>
@@ -68,11 +99,19 @@ export const Hero = () => {
                   aria-hidden="true"
                   className="absolute -inset-y-px left-1/2 -z-10 ml-10 w-[200%] skew-x-[-30deg] bg-[rgb(194,89,194)] opacity-20 ring-1 ring-inset ring-white md:ml-20 lg:ml-36"
                 />
-                <div className="relative px-6 pt-8 sm:pt-16 md:pl-16 md:pr-0">
+                <div className="relative px-3 pt-4 sm:pt-5 md:pl-5 md:pr-0">
                   <div className="mx-auto max-w-2xl md:mx-0 md:max-w-none">
-                    <div className="w-screen overflow-hidden rounded-tl-xl bg-[rgb(10,9,9)]">
-                      <div className="px-6 pb-14 pt-6">
-                        {/* Your code example / chat mockup goes here */}
+                    <div className="w-full max-w-3xl overflow-hidden rounded-tl-xl bg-[rgb(10,9,9)]">
+                      <div className="relative w-full h-[min(580px,72vh)]">
+                        <video
+                          src={process.env.NEXT_PUBLIC_VIDEO_FLOW_DEMO || "/videos/flow-demo.mp4"}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="h-full w-full object-contain"
+                          aria-label="FlowQualify demo"
+                        />
                       </div>
                     </div>
                   </div>
