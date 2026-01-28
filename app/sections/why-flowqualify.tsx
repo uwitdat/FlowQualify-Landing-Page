@@ -3,6 +3,7 @@
 import FadeIn from "../components/fade-in";
 import { CheckBadgeIcon } from "@heroicons/react/24/outline";
 import { ACCENT_COLORS } from "../config/constants";
+//
 
 const differentiators = [
   "Real image understanding with vision AI",
@@ -71,9 +72,7 @@ export default function WhyFlowQualify() {
 
         <FadeIn delay={200}>
           <div className="mx-auto mt-20 max-w-2xl text-center">
-            <h3 className="text-lg font-semibold text-white">
-              Perfect For
-            </h3>
+            <h3 className="text-lg font-semibold text-white">Perfect For</h3>
             <p className="mt-4 flex flex-wrap justify-center gap-2 text-[rgb(156,163,175)]">
               {perfectFor.map((item, i) => (
                 <span key={item}>
