@@ -7,6 +7,7 @@ import Testimonials from "./sections/testimonials";
 import WhatIs from "./sections/what-is";
 import WhyFlowQualify from "./sections/why-flowqualify";
 import { META_DESCRIPTION } from "./config/constants";
+//
 
 export const metadata = {
   description: META_DESCRIPTION,
