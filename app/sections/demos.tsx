@@ -14,7 +14,7 @@ const demos = [
   {
     src: process.env.NEXT_PUBLIC_VIDEO_DEMO_2 || "/videos/demo-2.mp4",
     title: "Demo 2",
-    description: "AI-powered lead qualification.",
+    description: "Scheduling and Qualification",
     icon: VideoCameraIcon,
   },
 ];
@@ -47,11 +47,11 @@ export default function Demos() {
             return (
             <FadeIn key={demo.src} delay={index * 100}>
               <div className="flex flex-col">
-                <div className="overflow-hidden rounded-xl bg-[rgb(20,19,19)] ring-1 ring-white/10">
+                <div className="aspect-video overflow-hidden rounded-xl bg-[rgb(20,19,19)] ring-1 ring-white/10">
                   <video
                     src={demo.src}
                     controls
-                    className="h-auto w-full"
+                    className="h-full w-full object-contain"
                     preload="metadata"
                     aria-label={`${demo.title} video`}
                   >

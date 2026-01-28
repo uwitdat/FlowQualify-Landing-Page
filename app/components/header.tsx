@@ -10,7 +10,6 @@ const navigation = [
   { name: "Features", href: "#features" },
   { name: "How It Works", href: "#how-it-works" },
   { name: "Demos", href: "#demos" },
-  { name: "Why FlowQualify", href: "#why" },
   { name: "Testimonials", href: "#testimonials" },
   { name: "Contact", href: "#contact" },
 ];
@@ -79,7 +78,7 @@ export default function Header() {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a
             href="#contact"
-            className="text-sm/6 font-semibold text-white hover:text-[rgb(194,89,194)] transition-colors"
+            className="rounded-md bg-[rgb(194,89,194)] px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[rgb(174,69,174)] transition-colors"
           >
             Get Started <span aria-hidden="true">→</span>
           </a>
@@ -126,7 +125,7 @@ export default function Header() {
               <div className="py-6">
                 <a
                   href="#contact"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-[rgb(194,89,194)] hover:bg-white/5"
+                  className="-mx-3 block rounded-lg bg-[rgb(194,89,194)] px-4 py-3 text-center text-base font-semibold text-white hover:bg-[rgb(174,69,174)] transition-colors"
                 >
                   Get Started
                 </a>
