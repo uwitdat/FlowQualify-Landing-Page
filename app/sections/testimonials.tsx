@@ -19,14 +19,14 @@ const testimonials = [
       website: "https://www.sposakitchens.com/",
     },
   },
-  {
-    body: "As a kitchen and bath renovator, I only want to meet people who have budget and timeline. FlowQualify filters out the tire-kickers and sends me detailed profiles with talking points. I never walk into a call cold.",
-    author: {
-      name: "Dries Vincent",
-      handle: "V.D Kitchen & Bath",
-      website: "https://example.com",
-    },
-  },
+  // {
+  //   body: "As a kitchen and bath renovator, I only want to meet people who have budget and timeline. FlowQualify filters out the tire-kickers and sends me detailed profiles with talking points. I never walk into a call cold.",
+  //   author: {
+  //     name: "Dries Vincent",
+  //     handle: "V.D Kitchen & Bath",
+  //     website: "https://example.com",
+  //   },
+  // },
 ];
 
 export default function Testimonials() {
