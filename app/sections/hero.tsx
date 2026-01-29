@@ -8,7 +8,6 @@ import {
   ChatBubbleBottomCenterTextIcon,
   Square3Stack3DIcon,
 } from "@heroicons/react/24/outline";
-import Logo from "../components/logo";
 import FadeIn from "../components/fade-in";
 import { ACCENT_COLORS } from "../config/constants";
 
@@ -30,9 +29,7 @@ export const Hero = () => {
             <div className="mx-auto max-w-2xl">
               <FadeIn>
                 <div className="max-w-lg">
-                  <Logo className="h-11 w-11" />
-
-                  <p className="mt-8 text-xs font-semibold uppercase tracking-wide text-[rgb(194,89,194)]">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-[rgb(194,89,194)]">
                     AI-Powered Lead Qualification for Contractors
                   </p>
 
