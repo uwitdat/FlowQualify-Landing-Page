@@ -33,6 +33,21 @@ export default function Header() {
   // Calculate opacity: fade out after 100px, fade back in when scrolling back up
   const opacity = scrollY > 100 ? 0 : 1;
 
+  const handleMobileNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    if (href.startsWith("#")) {
+      window.history.pushState(null, "", href);
+    }
+    const id = href.startsWith("#") ? href.slice(1) : href;
+    const el = id ? document.getElementById(id) : null;
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        el?.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  };
+
   return (
     <header
       className="sticky top-0 z-50 transition-opacity duration-300"
@@ -116,6 +131,7 @@ export default function Header() {
                   <a
                     key={item.name}
                     href={item.href}
+                    onClick={(e) => handleMobileNavClick(e, item.href)}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
                   >
                     {item.name}
@@ -125,6 +141,7 @@ export default function Header() {
               <div className="py-6">
                 <a
                   href="#contact"
+                  onClick={(e) => handleMobileNavClick(e, "#contact")}
                   className="-mx-3 block rounded-lg bg-[rgb(194,89,194)] px-4 py-3 text-center text-base font-semibold text-white hover:bg-[rgb(174,69,174)] transition-colors"
                 >
                   Get Started
