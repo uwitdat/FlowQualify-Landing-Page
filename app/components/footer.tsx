@@ -12,6 +12,12 @@ export default function Footer() {
           >
             Privacy Policy
           </Link>
+          <Link
+            href="/terms-of-service"
+            className="hover:text-[rgb(194,89,194)] transition-colors"
+          >
+            Terms of Service
+          </Link>
         </div>
         <p className="mt-4 text-center text-sm/6 text-[rgb(156,163,175)]">
           &copy; {new Date().getFullYear()} {COMPANY_NAME}, Inc. All rights
