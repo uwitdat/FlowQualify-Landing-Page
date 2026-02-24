@@ -14,10 +14,10 @@ export default function WhatIs() {
             What is FlowQualify?
           </h2>
           <p className="mt-6 text-xl text-[rgb(209,213,219)] sm:text-2xl">
-            FlowQualify is an AI-powered lead qualification platform designed
-            specifically for contractors. It automatically engages with leads
-            via SMS, email, Facebook, and Instagram, qualifying them 24/7 while
-            you sleep.
+            FlowQualify is an AI qualification layer for contractors. It works
+            with the leads you already get—from your site, social, or
+            referrals—and qualifies them around the clock so only the right ones
+            land on your calendar.
           </p>
         </FadeIn>
       </div>

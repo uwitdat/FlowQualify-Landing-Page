@@ -30,7 +30,7 @@ export const Hero = () => {
               <FadeIn>
                 <div className="max-w-lg">
                   <p className="text-xs font-semibold uppercase tracking-wide text-[rgb(194,89,194)]">
-                    AI-Powered Lead Qualification for Contractors
+                    Qualify the leads you already have
                   </p>
 
                   <h1 className="mt-4 text-pretty text-5xl font-semibold tracking-tight text-white sm:text-7xl">
@@ -42,11 +42,10 @@ export const Hero = () => {
                   </h1>
 
                   <p className="mt-8 text-pretty text-lg font-medium text-[rgb(156,163,175)] sm:text-xl/8">
-                    FlowQualify automates your entire lead qualification process
-                    with AI that engages leads 24/7 via SMS, email, Facebook, and
-                    Instagram. Get intelligent lead scoring, image analysis,
-                    automated appointment booking, and detailed briefs—all while
-                    you focus on closing deals.
+                    FlowQualify engages your leads 24/7 via SMS, email, Facebook,
+                    and Instagram—scoring them, pulling scope from photos, and
+                    booking only the ones that meet your bar. You focus on
+                    closing; we handle the intake.
                   </p>
 
                   <ul className="mt-6 grid gap-3 text-sm text-[rgb(156,163,175)] sm:grid-cols-2">

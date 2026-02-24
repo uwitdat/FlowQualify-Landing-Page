@@ -8,10 +8,12 @@ import Logo from "./logo";
 import { COMPANY_NAME } from "../config/constants";
 
 const navigation = [
+  { name: "What's Qualified", href: "#what-qualified" },
   { name: "Features", href: "#features" },
   { name: "How It Works", href: "#how-it-works" },
-  { name: "Demos", href: "#demos" },
-  { name: "Testimonials", href: "#testimonials" },
+  { name: "Results", href: "#results" },
+  { name: "Benchmarks", href: "#benchmarks" },
+  { name: "FAQ", href: "#faq" },
   { name: "Contact", href: "#contact" },
 ];
 
