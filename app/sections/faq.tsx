@@ -8,7 +8,7 @@ const faqs = [
   {
     question: "Do you run ads or bring us new leads?",
     answer:
-      "Nope. We’re built for what happens after the lead shows up. You (or your current setup) get the traffic; we handle the conversation—who they are, what they want, budget, timeline—and only send you the ones that meet your bar. No ad spend, no lead gen; just smarter use of the inquiries you already get.",
+      "Yes. We run ads on Meta and Instagram to bring in new leads. We also qualify every lead that comes in—who they are, what they want, budget, timeline—and only send you the ones that meet your bar. So you get both the traffic and the filter: we handle the conversation and only put bookable appointments on your calendar.",
   },
   {
     question: "What does the AI actually do?",
