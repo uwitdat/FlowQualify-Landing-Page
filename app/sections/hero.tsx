@@ -1,123 +1,143 @@
 "use client";
 
 import {
-  CpuChipIcon,
-  ChartBarIcon,
-  PhotoIcon,
+  BoltIcon,
   CalendarDaysIcon,
-  ChatBubbleBottomCenterTextIcon,
-  Square3Stack3DIcon,
+  DocumentTextIcon,
+  PlayIcon,
+  MegaphoneIcon,
 } from "@heroicons/react/24/outline";
+import { StarIcon } from "@heroicons/react/24/solid";
 import FadeIn from "../components/fade-in";
-import { ACCENT_COLORS } from "../config/constants";
 
-const benefits = [
-  { icon: CpuChipIcon, label: "AI engages every lead instantly" },
-  { icon: ChartBarIcon, label: "Smart lead scoring and prioritization" },
-  { icon: PhotoIcon, label: "Image analysis for project understanding" },
-  { icon: CalendarDaysIcon, label: "Automated appointment booking" },
-  { icon: ChatBubbleBottomCenterTextIcon, label: "Pre-call talking points" },
-  { icon: Square3Stack3DIcon, label: "Complete pipeline dashboard" },
-] as const;
+const features = [
+  {
+    icon: CalendarDaysIcon,
+    label: "Booked appointments, not dead leads",
+    iconBoxClass:
+      "bg-[rgb(232,138,232)]/20 border-[rgb(232,138,232)]/50 text-[rgb(232,138,232)]",
+  },
+  {
+    icon: DocumentTextIcon,
+    label: "Full project brief before every visit",
+    iconBoxClass:
+      "bg-[rgb(34,211,238)]/20 border-[rgb(34,211,238)]/50 text-[rgb(34,211,238)]",
+  },
+  {
+    icon: BoltIcon,
+    label: "AI responds in seconds — 24/7",
+    iconBoxClass: "bg-amber-400/20 border-amber-400/50 text-amber-400",
+  },
+  {
+    icon: MegaphoneIcon,
+    label: "Ads targeting homeowners ready to buy",
+    iconBoxClass: "bg-emerald-400/20 border-emerald-400/50 text-emerald-400",
+  },
+];
 
 export const Hero = () => {
   return (
     <div className="bg-[rgb(10,9,9)]">
-      <div className="relative isolate overflow-hidden bg-gradient-to-b from-[rgb(194,89,194)]/10">
-        <div className="mx-auto max-w-7xl pb-24 pt-10 sm:pb-32 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-40">
-          <div className="px-6 lg:px-0 lg:pt-4">
-            <div className="mx-auto max-w-2xl">
-              <FadeIn>
-                <div className="max-w-lg">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-[rgb(194,89,194)]">
-                    Qualify the leads you already have
-                  </p>
-
-                  <h1 className="mt-4 text-pretty text-5xl font-semibold tracking-tight text-white sm:text-7xl">
-                    Never miss a{" "}
-                    <span className="text-[rgb(194,89,194)]">
-                      qualified lead
-                    </span>{" "}
-                    again.
-                  </h1>
-
-                  <p className="mt-8 text-pretty text-lg font-medium text-[rgb(156,163,175)] sm:text-xl/8">
-                    FlowQualify engages your leads 24/7 via SMS, email, Facebook,
-                    and Instagram—scoring them, pulling scope from photos, and
-                    booking only the ones that meet your bar. You focus on
-                    closing; we handle the intake.
-                  </p>
-
-                  <ul className="mt-6 grid gap-3 text-sm text-[rgb(156,163,175)] sm:grid-cols-2">
-                    {benefits.map(({ icon: Icon, label }, i) => {
-                      const c = ACCENT_COLORS[i % ACCENT_COLORS.length];
-                      return (
-                        <li key={label} className="flex items-center gap-3">
-                          <span
-                            className="flex size-8 shrink-0 items-center justify-center rounded-lg"
-                            style={{ backgroundColor: c.muted, color: c.main }}
-                          >
-                            <Icon className="size-4" aria-hidden />
-                          </span>
-                          {label}
-                        </li>
-                      );
-                    })}
-                  </ul>
-
-                  <div className="mt-10 flex items-center gap-x-4">
-                    <a
-                      href="#contact"
-                      className="rounded-md bg-[rgb(115,45,115)] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[rgb(95,35,95)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(115,45,115)] transition-colors"
-                    >
-                      Get Started
-                    </a>
-                    <a
-                      href="#demos"
-                      className="text-sm/6 font-semibold text-white hover:text-[rgb(194,89,194)] transition-colors"
-                    >
-                      See How It Works <span aria-hidden="true">→</span>
-                    </a>
+      <div className="relative isolate overflow-hidden bg-gradient-to-b from-[rgb(232,138,232)]/10">
+        <div className="mx-auto max-w-7xl px-4 pt-6 pb-24 sm:px-6 sm:pb-32 lg:pt-12 lg:pb-40">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_auto] lg:gap-8 xl:gap-12 lg:items-center">
+            {/* Left column — copy and CTAs (takes remaining space); center when stacked, left when side-by-side */}
+            <FadeIn>
+              <div className="min-w-0 text-center lg:text-left">
+                <div className="flex justify-center lg:justify-start">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-amber-400/60 bg-amber-400/10 px-4 py-2">
+                    <StarIcon
+                      className="size-5 shrink-0 text-amber-400"
+                      aria-hidden
+                    />
+                    <span className="text-sm font-semibold text-white">
+                      Built For & Trusted by Home Remodelers
+                    </span>
                   </div>
                 </div>
-              </FadeIn>
-            </div>
-          </div>
 
-          <div className="mt-20 sm:mt-24 md:mx-auto md:max-w-2xl lg:mx-0 lg:mt-0 lg:w-screen">
-            <div
-              aria-hidden="true"
-              className="absolute inset-y-0 right-1/2 -z-10 -mr-10 w-[200%] skew-x-[-30deg] bg-[rgb(20,19,19)] shadow-xl shadow-[rgb(194,89,194)]/10 ring-1 ring-white/5 md:-mr-20 lg:-mr-36"
-            />
-            <div className="shadow-lg md:rounded-3xl">
-              <div className="bg-[rgb(194,89,194)] [clip-path:inset(0)] md:[clip-path:inset(0_round_theme(borderRadius.3xl))]">
-                <div
-                  aria-hidden="true"
-                  className="absolute -inset-y-px left-1/2 -z-10 ml-10 w-[200%] skew-x-[-30deg] bg-[rgb(194,89,194)] opacity-20 ring-1 ring-inset ring-white md:ml-20 lg:ml-36"
-                />
-                <div className="relative px-3 pt-4 sm:pt-5 md:pl-5 md:pr-0">
-                  <div className="mx-auto max-w-2xl md:mx-0 md:max-w-none">
-                    <div className="w-full max-w-3xl overflow-hidden rounded-tl-xl bg-[rgb(10,9,9)]">
-                      <div className="relative w-full h-[min(580px,72vh)]">
-                        <video
-                          src={process.env.NEXT_PUBLIC_VIDEO_FLOW_DEMO || "/videos/flow-demo.mp4"}
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          className="h-full w-full object-contain"
-                          aria-label="FlowQualify demo"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10 md:rounded-3xl"
-                  />
+                <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                  Stop Chasing Leads.
+                  <br />
+                  <span className="text-[rgb(232,138,232)]">
+                    Start Closing Jobs.
+                  </span>
+                </h1>
+
+                <p className="mt-6 mx-auto max-w-lg text-base leading-relaxed text-[rgb(209,213,219)] lg:mx-0">
+                  FlowQualify runs your{" "}
+                  <span className="font-semibold text-emerald-400">
+                    Meta ads
+                  </span>
+                  , qualifies every lead via{" "}
+                  <span className="font-semibold text-[rgb(34,211,238)]">
+                    Messenger
+                  </span>{" "}
+                  in real-time, and delivers a{" "}
+                  <span className="font-semibold text-[rgb(232,138,232)]">
+                    full project brief
+                  </span>{" "}
+                  before every appointment.
+                </p>
+
+                <div className="mt-8 flex justify-center lg:justify-start">
+                  <ul className="grid w-full max-w-xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-x-20 sm:gap-y-3">
+                    {features.map(({ icon: Icon, label, iconBoxClass }) => (
+                      <li
+                        key={label}
+                        className="flex min-w-0 items-center gap-3"
+                      >
+                        <span
+                          className={`flex size-10 shrink-0 items-center justify-center rounded-lg border ${iconBoxClass}`}
+                        >
+                          <Icon className="size-5" aria-hidden />
+                        </span>
+                        <span className="whitespace-nowrap text-xs font-medium text-white sm:text-sm">
+                          {label}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-10 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-2 rounded-lg border-2 border-white/40 bg-[rgb(125,48,125)] px-6 py-3.5 text-base font-semibold text-white shadow-sm hover:border-white/60 hover:bg-[rgb(105,38,105)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(125,48,125)] transition-colors"
+                  >
+                    Book An Appointment
+                    {/* <ArrowRightIcon className="size-5" aria-hidden /> */}
+                  </a>
+                  <a
+                    href="#how-it-works"
+                    className="inline-flex items-center gap-2 rounded-lg border-2 border-[rgb(232,138,232)] bg-transparent px-6 py-3.5 text-base font-semibold text-white hover:bg-[rgb(232,138,232)]/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(232,138,232)] transition-colors"
+                  >
+                    <PlayIcon className="size-5" aria-hidden />
+                    See How It Works
+                  </a>
                 </div>
               </div>
-            </div>
+            </FadeIn>
+
+            {/* Right column — video placeholder, aligned right to give left column more room */}
+            <FadeIn delay={100} className="lg:justify-self-end">
+              <div className="flex flex-col items-center gap-4">
+                <div className="relative flex aspect-[9/16] max-h-[620px] w-full max-w-[320px] items-center justify-center rounded-2xl border-2 border-dashed border-white/20 bg-white/[0.03] lg:max-w-[380px] lg:max-h-[680px]">
+                  <div className="text-center px-6">
+                    <p className="text-sm font-medium text-[rgb(156,163,175)]">
+                      Video coming soon
+                    </p>
+                    <p className="mt-1 text-xs text-[rgb(107,114,128)]">
+                      Placeholder for demo or explainer
+                    </p>
+                  </div>
+                </div>
+                <p className="flex items-center gap-2 text-sm font-semibold text-amber-400">
+                  <BoltIcon className="size-4 shrink-0" aria-hidden />
+                  Booked & Qualified In Under 7 Minutes
+                </p>
+              </div>
+            </FadeIn>
           </div>
         </div>
 

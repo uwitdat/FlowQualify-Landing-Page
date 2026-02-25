@@ -6,6 +6,7 @@ import { ACCENT_COLORS } from "../config/constants";
 //
 
 const differentiators = [
+  "Meta and Instagram ads that fill your pipeline",
   "Real image understanding with vision AI",
   "Pricing-grounded knowledge base (RAG)",
   "Contractor-specific business logic",
@@ -14,14 +15,6 @@ const differentiators = [
   "Automated follow-up and booking",
   "Custom rules per contractor",
   "Lead scoring and prioritization",
-];
-
-const perfectFor = [
-  "Home improvement contractors",
-  "Hardscaping and landscaping companies",
-  "Kitchen and bathroom renovators",
-  "General contractors",
-  "Any service-based business with high-ticket projects",
 ];
 
 export default function WhyFlowQualify() {
@@ -33,11 +26,11 @@ export default function WhyFlowQualify() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <FadeIn>
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-base font-semibold text-[rgb(194,89,194)]">
+            <h2 className="text-base font-semibold text-[rgb(232,138,232)]">
               Why FlowQualify?
             </h2>
             <p className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-              Unlike simple chatbots, FlowQualify is a complete lead
+              Unlike simple chatbots, FlowQualify is lead gen and a complete
               qualification engine
             </p>
           </div>
@@ -64,27 +57,11 @@ export default function WhyFlowQualify() {
               );
             })}
           </ul>
-          <p className="mt-10 text-center text-lg font-medium text-[rgb(194,89,194)]">
+          <p className="mt-10 text-center text-lg font-medium text-[rgb(232,138,232)]">
             This isn&apos;t AI fluff—it&apos;s a true backend engine that works
             24/7.
           </p>
         </div>
-
-        <FadeIn delay={200}>
-          <div className="mx-auto mt-20 max-w-2xl text-center">
-            <h3 className="text-lg font-semibold text-white">Perfect For</h3>
-            <p className="mt-4 flex flex-wrap justify-center gap-2 text-[rgb(156,163,175)]">
-              {perfectFor.map((item, i) => (
-                <span key={item}>
-                  {item}
-                  {i < perfectFor.length - 1 && (
-                    <span className="mx-1.5 text-white/40">•</span>
-                  )}
-                </span>
-              ))}
-            </p>
-          </div>
-        </FadeIn>
       </div>
     </div>
   );

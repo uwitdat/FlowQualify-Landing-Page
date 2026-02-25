@@ -1,66 +1,38 @@
 "use client";
 
 import {
+  MegaphoneIcon,
   ChatBubbleLeftRightIcon,
-  ChartBarIcon,
-  PhotoIcon,
-  BookOpenIcon,
   CalendarDaysIcon,
-  DocumentTextIcon,
-  Square3Stack3DIcon,
-  SparklesIcon,
+  BanknotesIcon,
 } from "@heroicons/react/24/outline";
 import FadeIn from "../components/fade-in";
 import { ACCENT_COLORS } from "../config/constants";
 
 const features = [
   {
-    name: "AI-Powered Conversations",
+    name: "Ads that fill your pipeline",
     description:
-      "Automated lead engagement across SMS, email, Facebook, and Instagram. Natural conversations that collect project details, budget, timeline, and location. Customizable AI persona that matches your brand voice. Instant responses to every lead, even at 2 AM.",
+      "We run your Meta and Instagram ads so you get a steady stream of leads. No in-house ads team, no guessing—just more opportunities.",
+    icon: MegaphoneIcon,
+  },
+  {
+    name: "Qualification that runs 24/7",
+    description:
+      "We engage every lead instantly, collect budget and timeline, and only book the ones that meet your bar. Your calendar fills with appointments that close.",
     icon: ChatBubbleLeftRightIcon,
   },
   {
-    name: "Intelligent Lead Scoring",
+    name: "Booked appointments, not chaos",
     description:
-      "Automatic scoring based on budget, engagement, urgency, and buying signals. See which leads are ready to book vs. need nurturing. Focus your time on high-value opportunities. Track pipeline value and conversion metrics.",
-    icon: ChartBarIcon,
-  },
-  {
-    name: "Smart Image Analysis",
-    description:
-      "AI analyzes photos uploaded by homeowners. Extracts project scope, obstacles, and recommended solutions. Understands surface types, elevation, and existing features. Provides detailed briefs before you even call.",
-    icon: PhotoIcon,
-  },
-  {
-    name: "Knowledge Base Integration",
-    description:
-      "Upload your portfolio, pricing, FAQs, and process docs. AI pulls similar projects to build trust with leads. Grounded answers based on your actual work. Personalized recommendations from your past projects.",
-    icon: BookOpenIcon,
-  },
-  {
-    name: "Automated Appointment Booking",
-    description:
-      "AI pushes qualified leads to your calendar. Integrates with Google Calendar and Outlook. View all appointments in one place. Never double-book or miss a consultation.",
+      "Qualified leads land on your calendar with full briefs and talking points. You show up ready to close—no screening, no chasing.",
     icon: CalendarDaysIcon,
   },
   {
-    name: "Pre-Call Talking Points",
+    name: "Revenue you can count on",
     description:
-      "AI analyzes conversations and generates actionable talking points. Know what to discuss based on pain points, preferences, and goals. Never walk into a call unprepared. Context-specific insights for every appointment.",
-    icon: DocumentTextIcon,
-  },
-  {
-    name: "Complete Dashboard",
-    description:
-      "Real-time pipeline value and lead metrics. Track qualified leads, bookings, and revenue. See which sources convert best. Monitor AI response times and engagement rates.",
-    icon: Square3Stack3DIcon,
-  },
-  {
-    name: "Contractor-Specific AI",
-    description:
-      "Built for home improvement, hardscaping, landscaping, kitchen and bath, and general contractors. State machine for intelligent qualification. Multi-step conversational workflows. Custom rules per contractor.",
-    icon: SparklesIcon,
+      "More qualified appointments mean more signed contracts. We handle lead gen and intake; you focus on delivering and getting paid.",
+    icon: BanknotesIcon,
   },
 ];
 
@@ -73,21 +45,21 @@ export default function Features() {
       <div className="max-w-7xl px-6 lg:px-8">
         <FadeIn>
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base/7 font-semibold text-[rgb(194,89,194)]">
-              Key Features
+            <h2 className="text-base/7 font-semibold text-[rgb(232,138,232)]">
+              What you get
             </h2>
             <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-balance">
-              Everything you need to qualify leads 24/7
+              Leads and appointments without the grind
             </p>
             <p className="mt-6 text-lg/8 text-[rgb(156,163,175)]">
-              From first touch to booked consultation—AI handles the entire
-              qualification process so you focus on closing deals.
+              We run ads, qualify every lead, and book only the right
+              appointments. You get a full calendar and more revenue.
             </p>
           </div>
         </FadeIn>
 
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-6xl">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-12 lg:max-w-none lg:grid-cols-2 lg:gap-y-14">
+        <div className="mx-auto mt-16 max-w-4xl">
+          <dl className="grid gap-10 sm:grid-cols-2">
             {features.map((feature, index) => {
               const color = ACCENT_COLORS[index % ACCENT_COLORS.length];
               const Icon = feature.icon;
@@ -95,7 +67,7 @@ export default function Features() {
                 <FadeIn
                   key={feature.name}
                   delay={index * 80}
-                  className="relative pl-16"
+                  className="relative pl-14"
                 >
                   <div
                     className="absolute left-0 top-0 flex size-10 items-center justify-center rounded-lg"

@@ -8,13 +8,10 @@ import Logo from "./logo";
 import { COMPANY_NAME } from "../config/constants";
 
 const navigation = [
-  { name: "What's Qualified", href: "#what-qualified" },
-  { name: "Features", href: "#features" },
   { name: "How It Works", href: "#how-it-works" },
   { name: "Results", href: "#results" },
   { name: "Benchmarks", href: "#benchmarks" },
   { name: "FAQ", href: "#faq" },
-  { name: "Contact", href: "#contact" },
 ];
 
 export default function Header() {
@@ -85,7 +82,7 @@ export default function Header() {
             <a
               key={item.name}
               href={item.href}
-              className="text-sm/6 font-semibold text-white hover:text-[rgb(194,89,194)] transition-colors"
+              className="text-sm/6 font-semibold text-white hover:text-[rgb(232,138,232)] transition-colors"
             >
               {item.name}
             </a>
@@ -96,7 +93,7 @@ export default function Header() {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a
             href="#contact"
-            className="rounded-md bg-[rgb(194,89,194)] px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[rgb(174,69,174)] transition-colors"
+            className="rounded-md bg-[rgb(232,138,232)] px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[rgb(215,118,215)] transition-colors"
           >
             Get Started <span aria-hidden="true">→</span>
           </a>
@@ -145,7 +142,7 @@ export default function Header() {
                 <a
                   href="#contact"
                   onClick={(e) => handleMobileNavClick(e, "#contact")}
-                  className="-mx-3 block rounded-lg bg-[rgb(194,89,194)] px-4 py-3 text-center text-base font-semibold text-white hover:bg-[rgb(174,69,174)] transition-colors"
+                  className="-mx-3 block rounded-lg bg-[rgb(232,138,232)] px-4 py-3 text-center text-base font-semibold text-white hover:bg-[rgb(215,118,215)] transition-colors"
                 >
                   Get Started
                 </a>

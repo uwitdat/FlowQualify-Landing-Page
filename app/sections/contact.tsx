@@ -14,18 +14,18 @@ export default function Contact() {
             Get Started Today
           </h2>
           <p className="mt-4 text-lg/8 text-[rgb(156,163,175)]">
-            Stop losing leads to slow responses. Let FlowQualify qualify your
-            leads automatically while you focus on what you do best—delivering
-            exceptional work.
+            Get more leads from Meta and Instagram—and qualify them
+            automatically so your calendar fills with appointments that close.
+            Stop losing leads to slow responses; we handle ads and intake.
           </p>
           <p className="mt-4 text-xl font-medium text-white">
-            Ready to transform your lead qualification process?
+            Ready for lead gen and qualification that actually converts?
           </p>
           <p className="mt-8 text-lg text-[rgb(156,163,175)]">
             Interested? Get in touch at:{" "}
             <a
               href="mailto:emails@flowqualify.app"
-              className="font-medium text-[rgb(194,89,194)] hover:underline"
+              className="font-medium text-[rgb(232,138,232)] hover:underline"
             >
               emails@flowqualify.app
             </a>

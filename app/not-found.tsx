@@ -15,7 +15,7 @@ export default function NotFound() {
       </p>
       <Link
         href="/"
-        className="mt-8 text-[rgb(194,89,194)] hover:underline"
+        className="mt-8 text-[rgb(232,138,232)] hover:underline"
       >
         ← Back to FlowQualify
       </Link>

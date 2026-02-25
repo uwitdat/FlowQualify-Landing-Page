@@ -29,7 +29,7 @@ export default function DataDeletion() {
             Email{" "}
             <a
               href="mailto:support@flowqualify.app"
-              className="text-[rgb(194,89,194)] hover:underline"
+              className="text-[rgb(232,138,232)] hover:underline"
             >
               support@flowqualify.app
             </a>{" "}
@@ -52,7 +52,7 @@ export default function DataDeletion() {
             For more about how we use data, see our{" "}
             <Link
               href="/privacy-policy"
-              className="text-[rgb(194,89,194)] hover:underline"
+              className="text-[rgb(232,138,232)] hover:underline"
             >
               Privacy Policy
             </Link>

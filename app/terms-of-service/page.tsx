@@ -38,7 +38,7 @@ export default function TermsOfService() {
             otherwise using the Service, you agree to these Terms and our{" "}
             <Link
               href="/privacy-policy"
-              className="text-[rgb(194,89,194)] hover:underline"
+              className="text-[rgb(232,138,232)] hover:underline"
             >
               Privacy Policy
             </Link>
@@ -127,7 +127,7 @@ export default function TermsOfService() {
               Our collection and use of personal data is described in our{" "}
               <Link
                 href="/privacy-policy"
-                className="text-[rgb(194,89,194)] hover:underline"
+                className="text-[rgb(232,138,232)] hover:underline"
               >
                 Privacy Policy
               </Link>
@@ -281,7 +281,7 @@ export default function TermsOfService() {
               about these Terms or the Service, contact us at{" "}
               <a
                 href="mailto:emails@flowqualify.app"
-                className="text-[rgb(194,89,194)] hover:underline"
+                className="text-[rgb(232,138,232)] hover:underline"
               >
                 emails@flowqualify.app
               </a>

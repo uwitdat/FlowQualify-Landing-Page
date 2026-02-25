@@ -60,7 +60,7 @@ export default function PrivacyPolicy() {
             at{" "}
             <a
               href="mailto:support@flowqualify.app"
-              className="text-[rgb(194,89,194)] hover:underline"
+              className="text-[rgb(232,138,232)] hover:underline"
             >
               support@flowqualify.app
             </a>
@@ -70,7 +70,7 @@ export default function PrivacyPolicy() {
             details, see our{" "}
             <Link
               href="/data-deletion"
-              className="text-[rgb(194,89,194)] hover:underline"
+              className="text-[rgb(232,138,232)] hover:underline"
             >
               Data deletion
             </Link>{" "}

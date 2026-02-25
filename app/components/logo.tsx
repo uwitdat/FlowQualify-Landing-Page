@@ -9,7 +9,7 @@ export default function Logo({ className = "h-8 w-8" }: LogoProps) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
-      className={`shrink-0 text-[rgb(194,89,194)] ${className}`}
+      className={`shrink-0 text-[rgb(232,138,232)] ${className}`}
     >
       <rect
         x="5"

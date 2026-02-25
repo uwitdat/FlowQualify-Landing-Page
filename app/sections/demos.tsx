@@ -28,7 +28,7 @@ export default function Demos() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <FadeIn>
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base font-semibold text-[rgb(194,89,194)]">
+            <h2 className="text-base font-semibold text-[rgb(232,138,232)]">
               Demos
             </h2>
             <p className="mt-2 text-4xl font-semibold tracking-tight text-white sm:text-5xl">

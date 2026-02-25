@@ -8,13 +8,13 @@ export default function Footer() {
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-[rgb(156,163,175)]">
           <Link
             href="/privacy-policy"
-            className="hover:text-[rgb(194,89,194)] transition-colors"
+            className="hover:text-[rgb(232,138,232)] transition-colors"
           >
             Privacy Policy
           </Link>
           <Link
             href="/terms-of-service"
-            className="hover:text-[rgb(194,89,194)] transition-colors"
+            className="hover:text-[rgb(232,138,232)] transition-colors"
           >
             Terms of Service
           </Link>
