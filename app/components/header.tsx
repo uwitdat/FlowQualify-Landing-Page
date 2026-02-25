@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Dialog, DialogPanel } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 import Logo from "./logo";
 import { COMPANY_NAME } from "../config/constants";
 
@@ -15,6 +16,8 @@ const navigation = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
+  const isOptIn = pathname === "/opt-in";
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
 
@@ -64,43 +67,56 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Mobile hamburger */}
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(true)}
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
+        {isOptIn ? (
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 rounded-md px-3.5 py-2 text-sm font-semibold text-white hover:text-[rgb(232,138,232)] transition-colors"
           >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon aria-hidden="true" className="size-6" />
-          </button>
-        </div>
+            <ArrowLeftIcon className="size-5" aria-hidden />
+            Back
+          </Link>
+        ) : (
+          <>
+            {/* Mobile hamburger */}
+            <div className="flex lg:hidden">
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(true)}
+                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
+              >
+                <span className="sr-only">Open main menu</span>
+                <Bars3Icon aria-hidden="true" className="size-6" />
+              </button>
+            </div>
 
-        {/* Desktop nav */}
-        <div className="hidden lg:flex lg:gap-x-12">
-          {navigation.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="text-sm/6 font-semibold text-white hover:text-[rgb(232,138,232)] transition-colors"
-            >
-              {item.name}
-            </a>
-          ))}
-        </div>
+            {/* Desktop nav */}
+            <div className="hidden lg:flex lg:gap-x-12">
+              {navigation.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm/6 font-semibold text-white hover:text-[rgb(232,138,232)] transition-colors"
+                >
+                  {item.name}
+                </a>
+              ))}
+            </div>
 
-        {/* CTA in header */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a
-            href="#contact"
-            className="rounded-md bg-[rgb(232,138,232)] px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[rgb(215,118,215)] transition-colors"
-          >
-            Get Started <span aria-hidden="true">→</span>
-          </a>
-        </div>
+            {/* CTA in header */}
+            <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+              <Link
+                href="/opt-in"
+                className="rounded-md bg-[rgb(232,138,232)] px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[rgb(215,118,215)] transition-colors"
+              >
+                Get Started <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </>
+        )}
       </nav>
 
-      {/* Mobile navigation */}
+      {/* Mobile navigation (only when not on opt-in) */}
+      {!isOptIn && (
       <Dialog
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
@@ -139,18 +155,19 @@ export default function Header() {
                 ))}
               </div>
               <div className="py-6">
-                <a
-                  href="#contact"
-                  onClick={(e) => handleMobileNavClick(e, "#contact")}
+                <Link
+                  href="/opt-in"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg bg-[rgb(232,138,232)] px-4 py-3 text-center text-base font-semibold text-white hover:bg-[rgb(215,118,215)] transition-colors"
                 >
                   Get Started
-                </a>
+                </Link>
               </div>
             </div>
           </div>
         </DialogPanel>
       </Dialog>
+      )}
     </header>
   );
 }

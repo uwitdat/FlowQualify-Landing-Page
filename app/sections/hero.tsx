@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
   BoltIcon,
   CalendarDaysIcon,
@@ -38,7 +39,7 @@ const features = [
 export const Hero = () => {
   return (
     <div className="bg-[rgb(10,9,9)]">
-      <div className="relative isolate overflow-hidden bg-gradient-to-b from-[rgb(232,138,232)]/10">
+      <div className="relative isolate overflow-hidden bg-gradient-to-br from-[rgb(232,138,232)]/10 via-[rgb(10,9,9)] to-[#000201]">
         <div className="mx-auto max-w-7xl px-4 pt-6 pb-24 sm:px-6 sm:pb-32 lg:pt-12 lg:pb-40">
           <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_auto] lg:gap-8 xl:gap-12 lg:items-center">
             {/* Left column — copy and CTAs (takes remaining space); center when stacked, left when side-by-side */}
@@ -101,36 +102,38 @@ export const Hero = () => {
                 </div>
 
                 <div className="mt-10 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
-                  <a
-                    href="#contact"
+                  <Link
+                    href="/opt-in"
                     className="inline-flex items-center gap-2 rounded-lg border-2 border-white/40 bg-[rgb(125,48,125)] px-6 py-3.5 text-base font-semibold text-white shadow-sm hover:border-white/60 hover:bg-[rgb(105,38,105)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(125,48,125)] transition-colors"
                   >
                     Book An Appointment
                     {/* <ArrowRightIcon className="size-5" aria-hidden /> */}
-                  </a>
-                  <a
-                    href="#how-it-works"
+                  </Link>
+                  <Link
+                    href="/opt-in"
                     className="inline-flex items-center gap-2 rounded-lg border-2 border-[rgb(232,138,232)] bg-transparent px-6 py-3.5 text-base font-semibold text-white hover:bg-[rgb(232,138,232)]/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(232,138,232)] transition-colors"
                   >
                     <PlayIcon className="size-5" aria-hidden />
                     See How It Works
-                  </a>
+                  </Link>
                 </div>
               </div>
             </FadeIn>
 
-            {/* Right column — video placeholder, aligned right to give left column more room */}
+            {/* Right column — video, aligned right to give left column more room */}
             <FadeIn delay={100} className="lg:justify-self-end">
-              <div className="flex flex-col items-center gap-4">
-                <div className="relative flex aspect-[9/16] max-h-[620px] w-full max-w-[320px] items-center justify-center rounded-2xl border-2 border-dashed border-white/20 bg-white/[0.03] lg:max-w-[380px] lg:max-h-[680px]">
-                  <div className="text-center px-6">
-                    <p className="text-sm font-medium text-[rgb(156,163,175)]">
-                      Video coming soon
-                    </p>
-                    <p className="mt-1 text-xs text-[rgb(107,114,128)]">
-                      Placeholder for demo or explainer
-                    </p>
-                  </div>
+              <div className="flex flex-col items-center gap-4 min-w-0">
+                <div className="relative aspect-[9/16] max-h-[620px] w-full max-w-[320px] overflow-hidden rounded-2xl bg-[#000201] lg:max-w-[380px] lg:max-h-[680px]">
+                  <video
+                    src={process.env.NEXT_PUBLIC_VIDEO_CHAT || "/videos/chat.mp4"}
+                    className="h-full w-full object-cover"
+                    playsInline
+                    muted
+                    loop
+                    autoPlay
+                    preload="metadata"
+                    aria-label="FlowQualify chat qualification demo"
+                  />
                 </div>
                 <p className="flex items-center gap-2 text-sm font-semibold text-amber-400">
                   <BoltIcon className="size-4 shrink-0" aria-hidden />

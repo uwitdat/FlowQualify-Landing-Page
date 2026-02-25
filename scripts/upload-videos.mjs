@@ -19,6 +19,8 @@ const files = [
   { path: "public/videos/flow-demo.mp4", name: "videos/flow-demo.mp4", env: "NEXT_PUBLIC_VIDEO_FLOW_DEMO" },
   { path: "public/videos/demo-1.mp4", name: "videos/demo-1.mp4", env: "NEXT_PUBLIC_VIDEO_DEMO_1" },
   { path: "public/videos/demo-2.mp4", name: "videos/demo-2.mp4", env: "NEXT_PUBLIC_VIDEO_DEMO_2" },
+  { path: "public/videos/MainVideo.mp4", name: "videos/MainVideo.mp4", env: "NEXT_PUBLIC_VIDEO_MAIN" },
+  { path: "public/videos/chat.mp4", name: "videos/chat.mp4", env: "NEXT_PUBLIC_VIDEO_CHAT" },
 ];
 
 console.log("Uploading to Vercel Blob…\n");
