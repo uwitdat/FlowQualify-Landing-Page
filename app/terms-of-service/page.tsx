@@ -184,7 +184,59 @@ export default function TermsOfService() {
           <hr className="border-white/10" />
 
           <h2 className="mt-8 text-xl font-semibold text-white">
-            8. Intellectual Property
+            8. Google Calendar integration
+          </h2>
+
+          <h3 className="mt-6 text-lg font-semibold text-white">
+            Permission to use your calendar
+          </h3>
+          <p>
+            If you connect your Google Calendar to {COMPANY_NAME}, you grant us
+            permission to access the calendars you authorize for the purposes of:
+            (1) reading your calendar to determine availability, (2) creating,
+            updating, and deleting calendar events for appointments booked
+            through {COMPANY_NAME}, and (3) syncing appointment details with
+            your calendar. You may revoke this access at any time by
+            disconnecting Google Calendar in your account or app settings.
+          </p>
+
+          <h3 className="mt-6 text-lg font-semibold text-white">
+            Your responsibility
+          </h3>
+          <p>
+            You are responsible for ensuring that connecting your Google
+            Calendar does not violate any agreement you have with Google or any
+            third party, and that you have the right to authorize us to access
+            the calendar(s) you connect. You are responsible for the accuracy of
+            the availability and scheduling information that results from your
+            calendar connection.
+          </p>
+
+          <h3 className="mt-6 text-lg font-semibold text-white">
+            No warranty
+          </h3>
+          <p>
+            Calendar integration is provided “as is.” We do not guarantee
+            uninterrupted or error-free syncing with Google Calendar. We are not
+            responsible for Google’s services, availability, or changes to
+            Google’s APIs or policies. Any issues arising from Google’s services
+            or your Google account are between you and Google.
+          </p>
+
+          <h3 className="mt-6 text-lg font-semibold text-white">
+            Disconnecting
+          </h3>
+          <p>
+            When you disconnect Google Calendar, we will stop accessing your
+            calendar. Existing appointment records in {COMPANY_NAME} may remain
+            for our legitimate business and record-keeping purposes, but we will
+            no longer read from or write to your Google Calendar.
+          </p>
+
+          <hr className="border-white/10" />
+
+          <h2 className="mt-8 text-xl font-semibold text-white">
+            9. Intellectual Property
           </h2>
           <p>
             We own or license the Service, including its design, software, and
@@ -198,7 +250,7 @@ export default function TermsOfService() {
           <hr className="border-white/10" />
 
           <h2 className="mt-8 text-xl font-semibold text-white">
-            9. Disclaimers
+            10. Disclaimers
           </h2>
           <p className="uppercase tracking-wide text-white/90">
             THE SERVICE IS PROVIDED “AS IS” AND “AS AVAILABLE.” WE DISCLAIM ALL
@@ -211,7 +263,7 @@ export default function TermsOfService() {
           <hr className="border-white/10" />
 
           <h2 className="mt-8 text-xl font-semibold text-white">
-            10. Limitation of Liability
+            11. Limitation of Liability
           </h2>
           <p className="uppercase tracking-wide text-white/90">
             TO THE MAXIMUM EXTENT PERMITTED BY LAW, FLOWQUALIFY AND ITS
@@ -228,7 +280,7 @@ export default function TermsOfService() {
           <hr className="border-white/10" />
 
           <h2 className="mt-8 text-xl font-semibold text-white">
-            11. Indemnification
+            12. Indemnification
           </h2>
           <p>
             You agree to indemnify and hold harmless {COMPANY_NAME} and its
@@ -243,7 +295,7 @@ export default function TermsOfService() {
           <hr className="border-white/10" />
 
           <h2 className="mt-8 text-xl font-semibold text-white">
-            12. Changes to the Terms
+            13. Changes to the Terms
           </h2>
           <p>
             We may update these Terms from time to time. We will post the
@@ -256,7 +308,7 @@ export default function TermsOfService() {
           <hr className="border-white/10" />
 
           <h2 className="mt-8 text-xl font-semibold text-white">
-            13. General
+            14. General
           </h2>
           <ul className="list-disc space-y-2 pl-6">
             <li>
