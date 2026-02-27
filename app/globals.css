@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: rgb(10, 9, 9);
-  --foreground: #ffffff;
+  --background: #ffffff;
+  --foreground: #0F172A;
   --primary: rgb(232, 138, 232);
   --primary-hover: rgb(215, 118, 215);
   --secondary: rgb(156, 163, 175);
@@ -21,6 +21,21 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Stripe-style vertical rails — fixed left & right of content */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  top: 58px; /* start below the sticky header */
+  bottom: 0;
+  width: 1px;
+  background: #E8EEF3;
+  pointer-events: none;
+  z-index: 40;
+}
+body::before { left:  max(8px, calc(50% - 650px)); }
+body::after  { right: max(8px, calc(50% - 650px)); }
 
 body {
   background: var(--background);

@@ -1,28 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import FadeIn from "../components/fade-in";
-import { StarIcon } from "@heroicons/react/24/solid";
-
-function StarRating({ rating }: { rating: number }) {
-  const full = Math.floor(rating);
-  const hasHalf = rating % 1 >= 0.5;
-  return (
-    <div className="flex items-center gap-0.5" role="img" aria-label={`${rating} out of 5 stars`}>
-      {[1, 2, 3, 4, 5].map((i) => (
-        <span key={i} className="text-amber-400">
-          {i <= full ? (
-            <StarIcon className="size-5 sm:size-6" aria-hidden />
-          ) : i === full + 1 && hasHalf ? (
-            <StarIcon className="size-5 opacity-60 sm:size-6" aria-hidden />
-          ) : (
-            <StarIcon className="size-5 opacity-30 sm:size-6" aria-hidden />
-          )}
-        </span>
-      ))}
-    </div>
-  );
-}
 
 const testimonials = [
   {
@@ -45,86 +23,147 @@ const testimonials = [
     },
     image: "/testimonials/sposa.jpg",
   },
-  // {
-  //   body: "As a kitchen and bath renovator, I only want to meet people who have budget and timeline. FlowQualify filters out the tire-kickers and sends me detailed profiles with talking points. I never walk into a call cold.",
-  //   author: {
-  //     name: "Dries Vincent",
-  //     handle: "V.D Kitchen & Bath",
-  //     website: "https://example.com",
-  //   },
-  // },
 ];
 
 export default function Testimonials() {
   return (
-    <div
-      id="testimonials"
-      className="relative border-t border-white/5 bg-[rgb(10,9,9)] py-24 sm:py-32"
-    >
-      <div
-        className="absolute inset-0 bg-gradient-to-b from-[rgb(232,138,232)]/5 via-transparent to-transparent pointer-events-none"
-        aria-hidden
-      />
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <FadeIn>
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-base font-semibold uppercase tracking-wider text-[rgb(232,138,232)]">
-              Testimonials
-            </h2>
-            <p className="mt-4 text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-              What contractors are saying
-            </p>
-            <p className="mt-3 text-lg text-[rgb(156,163,175)]">
-              Real results from lead gen and qualification.
-            </p>
-          </div>
-        </FadeIn>
+    <section id="testimonials" style={{ background: "#fff", padding: "100px 24px", borderTop: "1px solid #F1F5F9", position: "relative", overflow: "hidden" }}>
+      <style>{`
+        /* Subtle background orbs */
+        .tm-orb-left {
+          position: absolute; top: -80px; left: -80px;
+          width: 400px; height: 400px; border-radius: 50%;
+          background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%);
+          pointer-events: none;
+        }
+        .tm-orb-right {
+          position: absolute; bottom: -80px; right: -80px;
+          width: 360px; height: 360px; border-radius: 50%;
+          background: radial-gradient(circle, rgba(124,58,237,0.05) 0%, transparent 70%);
+          pointer-events: none;
+        }
+        .tm-wrap { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
+        .tm-eyebrow {
+          display: inline-block; font-size: 12px; font-weight: 800;
+          letter-spacing: 0.1em; text-transform: uppercase;
+          color: #8B5CF6; margin-bottom: 16px;
+        }
+        .tm-title {
+          font-size: 40px; font-weight: 900; color: #0F172A;
+          letter-spacing: -0.025em; line-height: 1.15; margin: 0 0 14px;
+        }
+        .tm-sub { font-size: 16px; color: #64748B; line-height: 1.6; margin: 0; }
+        .tm-grid {
+          display: grid; grid-template-columns: 1fr 1fr;
+          gap: 24px; margin-top: 56px;
+        }
+        .tm-card {
+          background: #fff;
+          border: 1px solid #E2E8F0;
+          border-radius: 20px;
+          padding: 32px;
+          box-shadow: 0 4px 24px rgba(0,0,0,0.04), 0 1px 4px rgba(0,0,0,0.03);
+          transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.2s ease;
+          position: relative;
+          overflow: hidden;
+        }
+        .tm-card::before {
+          content: '';
+          position: absolute; top: 0; left: 0; right: 0;
+          height: 3px;
+          background: linear-gradient(90deg, #8B5CF6, #7C3AED);
+          border-radius: 20px 20px 0 0;
+        }
+        .tm-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 16px 48px rgba(139,92,246,0.12), 0 4px 12px rgba(0,0,0,0.06);
+          border-color: #C4B5FD;
+        }
+        .tm-quote-mark {
+          font-size: 64px; line-height: 1; color: #EDE9FE;
+          font-family: Georgia, serif; position: absolute;
+          top: 24px; right: 28px; user-select: none; pointer-events: none;
+        }
+        .tm-stars { display: flex; gap: 3px; margin-bottom: 16px; }
+        .tm-star { color: #F59E0B; font-size: 16px; }
+        .tm-body {
+          font-size: 15px; color: #334155; line-height: 1.75;
+          margin: 0 0 28px; font-style: italic;
+        }
+        .tm-footer {
+          display: flex; align-items: center; gap: 12px;
+          padding-top: 20px; border-top: 1px solid #F1F5F9;
+        }
+        .tm-avatar {
+          width: 44px; height: 44px; border-radius: 50%;
+          border: 2px solid #DDD6FE; overflow: hidden; flex-shrink: 0;
+        }
+        .tm-name { font-size: 14px; font-weight: 800; color: #0F172A; }
+        .tm-handle { font-size: 12px; color: #94A3B8; margin-top: 1px; }
+        .tm-link {
+          margin-left: auto; font-size: 12px; font-weight: 700;
+          color: #7C3AED; text-decoration: none;
+          background: #F5F3FF; border: 1px solid #DDD6FE;
+          padding: 6px 14px; border-radius: 999px;
+          transition: background 0.15s, border-color 0.15s;
+          white-space: nowrap; flex-shrink: 0;
+        }
+        .tm-link:hover { background: #EDE9FE; border-color: #C4B5FD; }
+        @media (max-width: 700px) {
+          .tm-grid { grid-template-columns: 1fr; }
+          .tm-title { font-size: 30px; }
+        }
+      `}</style>
 
-        <div className="relative mx-auto mt-16 grid max-w-5xl gap-8 sm:mt-20 lg:grid-cols-2">
-          {testimonials.map((testimonial, index) => (
-            <FadeIn key={testimonial.author.handle} delay={index * 80}>
-              <figure className="group relative flex flex-col rounded-2xl border border-white/40 bg-white/[0.04] p-8 shadow-sm ring-1 ring-white/20 transition hover:border-white/50 hover:ring-white/30">
-                <div className="flex items-start gap-3">
-                  <span className="relative size-12 shrink-0 overflow-hidden rounded-full border border-white">
-                    <Image
-                      src={testimonial.image}
-                      alt=""
-                      width={48}
-                      height={48}
-                      className="object-cover"
-                      sizes="48px"
-                    />
-                  </span>
-                  <div className="min-w-0 flex-1">
-                    <StarRating rating={testimonial.stars} />
-                    <blockquote className="mt-4 text-base leading-relaxed text-[rgb(209,213,219)]">
-                      <p>{`"${testimonial.body}"`}</p>
-                    </blockquote>
-                  </div>
+      <div className="tm-orb-left" />
+      <div className="tm-orb-right" />
+
+      <div className="tm-wrap">
+        <div style={{ textAlign: "center" }}>
+          <span className="tm-eyebrow">Testimonials</span>
+          <h2 className="tm-title">What contractors are saying</h2>
+          <p className="tm-sub">Real results from remodelers using FlowQualify.</p>
+        </div>
+
+        <div className="tm-grid">
+          {testimonials.map((t, i) => (
+            <figure key={i} className="tm-card" style={{ margin: 0 }}>
+              <span className="tm-quote-mark">&ldquo;</span>
+              <div className="tm-stars">
+                {Array.from({ length: t.stars }).map((_, j) => (
+                  <span key={j} className="tm-star">★</span>
+                ))}
+              </div>
+              <blockquote className="tm-body">
+                &ldquo;{t.body}&rdquo;
+              </blockquote>
+              <figcaption className="tm-footer">
+                <div className="tm-avatar">
+                  <Image
+                    src={t.image}
+                    alt={t.author.name}
+                    width={44}
+                    height={44}
+                    style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                  />
                 </div>
-                <figcaption className="mt-8 flex flex-wrap items-center gap-3 pt-6">
-                  <div>
-                    <div className="font-semibold text-white">
-                      {testimonial.author.name}
-                    </div>
-                    <div className="text-sm text-[rgb(156,163,175)]">
-                      {testimonial.author.handle}
-                    </div>
-                  </div>
-                  <a
-                    href={testimonial.author.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="ml-auto rounded-full border border-white/50 bg-[rgb(232,138,232)]/30 px-4 py-2 text-sm font-medium text-white transition hover:bg-[rgb(232,138,232)]/50 hover:border-white/70"
-                  >
-                    Visit website →
-                  </a>
-                </figcaption>
-              </figure>
-            </FadeIn>
+                <div>
+                  <div className="tm-name">{t.author.name}</div>
+                  <div className="tm-handle">{t.author.handle}</div>
+                </div>
+                <a
+                  href={t.author.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="tm-link"
+                >
+                  Visit website →
+                </a>
+              </figcaption>
+            </figure>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,120 +1,407 @@
 "use client";
 
-import FadeIn from "../components/fade-in";
-import {
-  ChatBubbleBottomCenterTextIcon,
-  CalendarDaysIcon,
-  CheckBadgeIcon,
-} from "@heroicons/react/24/outline";
-import { FaFacebookF } from "react-icons/fa";
-import { ACCENT_COLORS } from "../config/constants";
+import { useEffect, useRef, useState } from "react";
+import FlowBackground from "../components/FlowBackground";
 
-const steps = [
-  {
-    number: "01",
-    title: "We Run Your Meta Ads",
-    description:
-      "Targeted campaigns built for kitchen & bath remodelers. We handle creative, spend, and targeting — you never touch it.",
-    icon: FaFacebookF,
-    badges: ["Geographic Targeting", "Budget Qualification", "Intent Verification"],
-  },
-  {
-    number: "02",
-    title: "AI Qualifies Every Lead",
-    description:
-      "The moment someone clicks, our AI opens a Messenger chat and collects budget, timeline, and scope automatically — 24/7.",
-    icon: ChatBubbleBottomCenterTextIcon,
-    badges: ["Budget Verification", "Timeline Assessment", "Auto-Scoring"],
-  },
-  {
-    number: "03",
-    title: "Appointments Land With Full Briefs",
-    description:
-      "Every booking includes a project brief: budget confirmed, scope outlined, photos attached. No surprises when you show up.",
-    icon: CalendarDaysIcon,
-    badges: ["Exclusive Scheduling", "Project Brief", "Photo Analysis"],
-  },
-  {
-    number: "04",
-    title: "You Show Up and Close",
-    description:
-      "No chasing. No cold calls. No wasted drive-outs. Every appointment is pre-screened and ready for your quote.",
-    icon: CheckBadgeIcon,
-    badges: ["Pre-Screened Leads", "Zero Cold Calls", "High-Intent Only"],
-  },
-];
+const TOTAL = 4;
+const DURATION = 5000;
 
 export default function HowItWorks() {
+  const [current, setCurrent] = useState(0);
+  const [cycleKey, setCycleKey] = useState(0);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCurrent((c) => (c + 1) % TOTAL);
+      setCycleKey((k) => k + 1);
+    }, DURATION);
+    timerRef.current = id;
+    return () => clearInterval(id);
+  }, []);
+
+  const handleDotClick = (i: number) => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    setCurrent(i);
+    setCycleKey((k) => k + 1);
+    const id = setInterval(() => {
+      setCurrent((c) => (c + 1) % TOTAL);
+      setCycleKey((k) => k + 1);
+    }, DURATION);
+    timerRef.current = id;
+  };
+
   return (
-    <div
-      id="how-it-works"
-      className="bg-[rgb(10,9,9)] py-24 sm:py-32 border-t border-white/5"
-    >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <FadeIn>
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-[rgb(232,138,232)]">
-              How it works
+    <>
+      <style>{`
+        .hiw-section { padding: 96px 24px; background: #ffffff; position: relative; }
+        .hiw-container { max-width: 1120px; margin: 0 auto; position: relative; z-index: 1; }
+
+        .hiw-header { text-align: center; max-width: 620px; margin: 0 auto 64px; }
+        .hiw-title {
+          font-size: 36px; font-weight: 800; color: #0F172A;
+          letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 14px;
+        }
+        .hiw-title span { color: #1a6b8a; }
+        .hiw-subtitle { font-size: 16px; color: #374151; line-height: 1.65; }
+
+        .hiw-grid {
+          display: grid;
+          grid-template-columns: 1fr 36px 1fr 36px 1fr 36px 1fr;
+          align-items: stretch;
+          gap: 0;
+          overflow: visible;
+        }
+
+        .hiw-card {
+          background: white;
+          border: 1.5px solid #CBD5E1;
+          border-radius: 20px;
+          padding: 28px;
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          overflow: hidden;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+          transition: border-color 0.4s ease,
+                      background 0.4s ease,
+                      box-shadow 0.4s ease;
+          z-index: 1;
+          cursor: pointer;
+        }
+        .hiw-card.active {
+          border-color: #CBD5E1;
+          background: white;
+          z-index: 10;
+          animation: hiwCardPulse 2.4s ease-in-out infinite;
+        }
+        @keyframes hiwCardPulse {
+          0%   { transform: scale(1.0);  box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+          50%  { transform: scale(1.10); box-shadow: 0 20px 52px rgba(0,0,0,0.12); }
+          100% { transform: scale(1.0);  box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+        }
+
+        .hiw-progress { display: none; }
+
+        /* Step labels use amber as secondary brand color */
+        .hiw-step-label {
+          font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+          color: #C9A84C; text-transform: uppercase; margin-bottom: 14px;
+          transition: color 0.4s ease;
+        }
+        .hiw-card.active .hiw-step-label { color: #B8922E; }
+
+        .hiw-icon-badge {
+          width: 48px; height: 48px; border-radius: 10px;
+          background: #F1F5F9;
+          display: flex; align-items: center; justify-content: center;
+          margin-bottom: 16px; flex-shrink: 0;
+          transition: background 0.45s ease, transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
+        }
+        .hiw-card.active .hiw-icon-badge { background: linear-gradient(135deg, #0d5c73, #1a6b8a); transform: scale(1.18); }
+        .hiw-icon-badge svg { stroke: #8B9DC3; transition: stroke 0.4s ease; }
+        .hiw-card.active .hiw-icon-badge svg { stroke: #FFFFFF; }
+
+        .hiw-card-title {
+          font-size: 17px; font-weight: 700; color: #0F172A; margin-bottom: 8px;
+          transition: color 0.4s ease, font-size 0.4s ease;
+        }
+        .hiw-card.active .hiw-card-title { color: #0F172A; font-size: 18.5px; }
+
+        .hiw-card-desc {
+          font-size: 12.5px; color: #374151; line-height: 1.6; margin-bottom: 18px;
+          transition: color 0.4s ease;
+        }
+        .hiw-card.active .hiw-card-desc { color: #1F2937; }
+
+        .hiw-mockup {
+          margin-top: auto; border-radius: 10px;
+          background: white; border: 1px solid #E2E8F0; padding: 14px;
+          transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.4s ease;
+        }
+        .hiw-card.active .hiw-mockup {
+          transform: scale(1.03);
+          box-shadow: 0 4px 16px rgba(59,130,246,0.13);
+          border-color: #BFDBFE;
+        }
+
+        .hiw-bubble { margin-bottom: 4px; display: flex; align-items: flex-end; }
+        .hiw-bubble.bot  { justify-content: flex-start; }
+        .hiw-bubble.user { justify-content: flex-end; }
+        .hiw-bubble span {
+          padding: 5px 8px; border-radius: 8px; font-size: 7.5px;
+          line-height: 1.4; max-width: 82%;
+        }
+        .hiw-bubble.user span { background: #0084FF; color: #FFFFFF; border-bottom-right-radius: 2px; }
+        .hiw-bubble.bot  span { background: #E4E6EB; color: #1C1E21; border-bottom-left-radius: 2px; }
+        .hiw-av {
+          width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0;
+          display: flex; align-items: center; justify-content: center;
+        }
+        .hiw-av-bot  { background: #16A34A; margin-right: 5px; }
+        .hiw-av-user { background: #CBD5E1; margin-left: 5px; }
+
+
+        .hiw-conn-wrap {
+          display: flex; align-items: center; justify-content: center;
+          height: 100%; padding: 0 4px;
+        }
+        .hiw-conn-inner {
+          width: 100%; height: 3px;
+          background: #E2E8F0; border-radius: 999px;
+          position: relative; overflow: hidden;
+          display: flex; align-items: center;
+          transition: background 0.4s ease;
+        }
+        .hiw-conn-dot {
+          position: absolute; left: 50%; top: 50%;
+          transform: translate(-50%, -50%);
+          width: 10px; height: 10px; border-radius: 50%;
+          background: white; border: 2px solid #CBD5E1;
+          z-index: 2; transition: border-color 0.4s ease, background 0.4s ease;
+        }
+        /* Connectors use amber when active */
+        .hiw-conn-wrap.active .hiw-conn-dot  { border-color: #C9A84C; background: #C9A84C; }
+        .hiw-conn-wrap.active .hiw-conn-inner { background: #F5E0A0; }
+
+        .hiw-dots { display: flex; justify-content: center; gap: 8px; margin-top: 40px; }
+        .hiw-dot {
+          width: 8px; height: 8px; border-radius: 50%;
+          background: #CBD5E1; cursor: pointer;
+          transition: all 0.35s ease;
+        }
+        /* Active dot uses amber gradient */
+        .hiw-dot.active { width: 26px; border-radius: 4px; background: linear-gradient(90deg, #C9A84C, #B8922E); }
+
+        @media (max-width: 768px) {
+          .hiw-grid { grid-template-columns: 1fr; }
+          .hiw-conn-wrap { display: none; }
+        }
+      `}</style>
+
+      <section className="hiw-section">
+        <FlowBackground />
+        <div className="hiw-container">
+
+          {/* Header */}
+          <div className="hiw-header">
+            <h2 className="hiw-title">
+              From Ad Click to <span>Booked Job</span> —<br />On Autopilot. At Any Scale.
             </h2>
-            <p className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-              From ad click to booked job —
-              <br />
-              <span className="text-[rgb(232,138,232)]">on autopilot.</span>
+            <p className="hiw-subtitle">
+              We <strong>run the ads</strong>, <strong>qualify the leads</strong>, and <strong>book the calls</strong> — all on autopilot. You just show up.
             </p>
           </div>
-        </FadeIn>
 
-        <div className="mx-auto mt-16 grid max-w-6xl gap-6 sm:grid-cols-2">
-          {steps.map((step, index) => {
-            const c = ACCENT_COLORS[index % ACCENT_COLORS.length];
-            const isMeta = index === 0;
-            const metaBlue = "#1877F2";
-            const metaBlueMuted = "rgba(24, 119, 242, 0.2)";
-            const Icon = step.icon;
-            return (
-              <FadeIn key={step.title} delay={index * 80}>
-                <div className="rounded-2xl border border-white/40 bg-white/[0.04] p-6 shadow-sm ring-1 ring-white/20">
-                  <div className="flex items-center gap-3">
-                    <span
-                      className="flex size-10 items-center justify-center rounded-lg bg-white/10 text-sm font-bold tabular-nums text-white ring-1 ring-white/20"
-                      aria-hidden
-                    >
-                      {step.number}
-                    </span>
-                    <div
-                      className="flex size-12 items-center justify-center rounded-full border"
-                      style={{
-                        backgroundColor: isMeta ? metaBlueMuted : c.muted,
-                        borderColor: isMeta ? metaBlue : c.main,
-                        color: isMeta ? metaBlue : c.main,
-                      }}
-                      aria-hidden
-                    >
-                      <Icon className="size-6" aria-hidden />
+          {/* 5-col grid: card · connector · card · connector · card */}
+          <div className="hiw-grid">
+
+            {/* Card 1 */}
+            <div className={`hiw-card${current === 0 ? " active" : ""}`} onClick={() => handleDotClick(0)}>
+              <div key={`prog-0-${current === 0 ? cycleKey : "idle"}`} className="hiw-progress" />
+              <div className="hiw-step-label">Step 01</div>
+              <div className="hiw-icon-badge">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg>
+              </div>
+              <h3 className="hiw-card-title">Homeowner Clicks Ad</h3>
+              <p className="hiw-card-desc">
+                Your ad reaches in-market homeowners in your area.
+              </p>
+              {/* Simplified Facebook ad mockup */}
+              <div className="hiw-mockup" style={{ padding: 0, overflow: "hidden" }}>
+                <div style={{ background: "linear-gradient(135deg, #1877F2, #0D65D9)", padding: "8px 12px", display: "flex", alignItems: "center", gap: "7px" }}>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="rgba(219,234,254,0.95)">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                  <div style={{ fontSize: "8px", fontWeight: 700, color: "#fff", letterSpacing: "0.02em" }}>Sponsored · Kitchen &amp; Bath</div>
+                </div>
+                <div style={{ padding: "10px 12px", background: "#F8FAFC" }}>
+                  <div style={{ fontSize: "8.5px", fontWeight: 700, color: "#0F172A", marginBottom: "5px", lineHeight: 1.3 }}>Kitchen &amp; Bath Remodeling</div>
+                  <div style={{ fontSize: "7.5px", color: "#374151", marginBottom: "10px", lineHeight: 1.5 }}>
+                    Get a free quote — we serve homeowners within 25 miles.
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                    <div style={{ background: "linear-gradient(135deg, #1877F2, #3B82F6)", color: "white", fontSize: "7px", fontWeight: 700, padding: "4px 10px", borderRadius: "4px" }}>
+                      Send Message →
                     </div>
                   </div>
-                    <h3 className="mt-4 text-xl font-semibold text-white sm:text-2xl">
-                      {step.title}
-                    </h3>
-                    <p className="mt-3 text-[15px] leading-relaxed text-[rgb(209,213,219)]">
-                      {step.description}
-                    </p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {step.badges.map((badge) => (
-                        <span
-                          key={badge}
-                          className="rounded-full border border-[rgb(34,211,238)]/40 bg-[rgb(34,211,238)]/20 px-3 py-1 text-xs font-medium text-[rgb(34,211,238)]"
-                        >
-                          {badge}
-                        </span>
-                      ))}
-                    </div>
                 </div>
-              </FadeIn>
-            );
-          })}
+              </div>
+            </div>
+
+            {/* Connector 1→2 */}
+            <div className={`hiw-conn-wrap${current === 0 ? " active" : ""}`}>
+              <div className="hiw-conn-inner">
+                <div className="hiw-conn-dot" />
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className={`hiw-card${current === 1 ? " active" : ""}`} onClick={() => handleDotClick(1)}>
+              <div key={`prog-1-${current === 1 ? cycleKey : "idle"}`} className="hiw-progress" />
+              <div className="hiw-step-label">Step 02</div>
+              <div className="hiw-icon-badge">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+              </div>
+              <h3 className="hiw-card-title">AI Qualifies in Messenger</h3>
+              <p className="hiw-card-desc">
+                Scope, budget, and timeline qualified instantly — no forms.
+              </p>
+              <div className="hiw-mockup">
+                <div className="hiw-bubble user">
+                  <span>Hey, I want a kitchen remodel quote</span>
+                  <div className="hiw-av hiw-av-user">
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none">
+                      <circle cx="12" cy="8" r="4" fill="#94A3B8"/>
+                      <path d="M4 20c0-3.314 3.582-6 8-6s8 2.686 8 6" fill="#94A3B8"/>
+                    </svg>
+                  </div>
+                </div>
+                <div className="hiw-bubble bot">
+                  <div className="hiw-av hiw-av-bot">
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="white">
+                      <path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10.5z"/>
+                      <rect x="9" y="13" width="6" height="8" fill="white" opacity="0.6"/>
+                    </svg>
+                  </div>
+                  <span>What&apos;s your budget range?</span>
+                </div>
+                <div className="hiw-bubble user">
+                  <span>Around $25–30k</span>
+                  <div className="hiw-av hiw-av-user">
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none">
+                      <circle cx="12" cy="8" r="4" fill="#94A3B8"/>
+                      <path d="M4 20c0-3.314 3.582-6 8-6s8 2.686 8 6" fill="#94A3B8"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Connector 2→3 */}
+            <div className={`hiw-conn-wrap${current === 1 ? " active" : ""}`}>
+              <div className="hiw-conn-inner">
+                <div className="hiw-conn-dot" />
+              </div>
+            </div>
+
+            {/* Card 3 — Lead Summary */}
+            <div className={`hiw-card${current === 2 ? " active" : ""}`} onClick={() => handleDotClick(2)}>
+              <div key={`prog-2-${current === 2 ? cycleKey : "idle"}`} className="hiw-progress" />
+              <div className="hiw-step-label">Step 03</div>
+              <div className="hiw-icon-badge">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                  <line x1="10" y1="9" x2="8" y2="9" />
+                </svg>
+              </div>
+              <h3 className="hiw-card-title">Lead Summary Generated</h3>
+              <p className="hiw-card-desc">
+                A ready-to-use project brief lands in your CRM, email, or text.
+              </p>
+              {/* Simplified brief mockup — teal header to match brand */}
+              <div className="hiw-mockup" style={{ padding: 0, overflow: "hidden" }}>
+                <div style={{ background: "linear-gradient(135deg, #0d5c73, #1a6b8a)", padding: "8px 12px", display: "flex", alignItems: "center", gap: "7px" }}>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(186,230,253,0.9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" />
+                  </svg>
+                  <div style={{ fontSize: "8px", fontWeight: 700, color: "#fff" }}>Estimator Brief · Sarah M.</div>
+                </div>
+                <div style={{ padding: "10px 12px", background: "#F0F9FF" }}>
+                  <div style={{ marginBottom: "6px" }}>
+                    <div style={{ fontSize: "7.5px", color: "#374151", lineHeight: 1.5 }}>
+                      <strong style={{ color: "#0F172A" }}>Project:</strong> Kitchen — cabinets, countertops &amp; island
+                    </div>
+                  </div>
+                  <div style={{ marginBottom: "10px" }}>
+                    <div style={{ fontSize: "7.5px", color: "#374151", lineHeight: 1.5 }}>
+                      <strong style={{ color: "#0F172A" }}>Budget:</strong> $25k–$30k &nbsp;·&nbsp; Ready in 2 months
+                    </div>
+                  </div>
+                  <div style={{ display: "flex", gap: "4px" }}>
+                    <div style={{ background: "#DBEAFE", borderRadius: "4px", padding: "2px 6px", fontSize: "6.5px", fontWeight: 700, color: "#1E40AF" }}>✉ Email</div>
+                    <div style={{ background: "#D1FAE5", borderRadius: "4px", padding: "2px 6px", fontSize: "6.5px", fontWeight: 700, color: "#065F46" }}>💬 SMS</div>
+                    <div style={{ background: "rgba(201,168,76,0.14)", borderRadius: "4px", padding: "2px 6px", fontSize: "6.5px", fontWeight: 700, color: "#92400E" }}>🔗 CRM</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Connector 3→4 */}
+            <div className={`hiw-conn-wrap${current === 2 ? " active" : ""}`}>
+              <div className="hiw-conn-inner">
+                <div className="hiw-conn-dot" />
+              </div>
+            </div>
+
+            {/* Card 4 — Booked */}
+            <div className={`hiw-card${current === 3 ? " active" : ""}`} onClick={() => handleDotClick(3)}>
+              <div key={`prog-3-${current === 3 ? cycleKey : "idle"}`} className="hiw-progress" />
+              <div className="hiw-step-label">Step 04</div>
+              <div className="hiw-icon-badge">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                  <polyline points="9 16 11 18 15 14" />
+                </svg>
+              </div>
+              <h3 className="hiw-card-title">Confirmed Appointment Booked</h3>
+              <p className="hiw-card-desc">
+                Only qualified homeowners reach your calendar.
+              </p>
+              {/* Simplified confirmed appointment mockup */}
+              <div className="hiw-mockup" style={{ padding: 0, overflow: "hidden" }}>
+                <div style={{ background: "linear-gradient(135deg, #059669, #10B981)", padding: "8px 12px", display: "flex", alignItems: "center", gap: "7px" }}>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(209,250,229,0.95)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <div style={{ fontSize: "8px", fontWeight: 700, color: "#fff" }}>Confirmed · Sarah M.</div>
+                </div>
+                <div style={{ padding: "10px 12px", background: "#F0FDF4" }}>
+                  <div style={{ marginBottom: "6px" }}>
+                    <div style={{ fontSize: "8px", fontWeight: 700, color: "#0F172A", lineHeight: 1.4 }}>
+                      Thu, Mar 6 · 10:00 AM
+                    </div>
+                  </div>
+                  <div style={{ marginBottom: "10px" }}>
+                    <div style={{ fontSize: "7.5px", color: "#374151", lineHeight: 1.5 }}>
+                      $28k · Kitchen remodel, ready in 2 months
+                    </div>
+                  </div>
+                  <div style={{ display: "flex", gap: "4px" }}>
+                    <div style={{ background: "#D1FAE5", borderRadius: "4px", padding: "2px 6px", fontSize: "6.5px", fontWeight: 700, color: "#065F46" }}>✓ Qualified</div>
+                    <div style={{ background: "rgba(201,168,76,0.14)", borderRadius: "4px", padding: "2px 6px", fontSize: "6.5px", fontWeight: 700, color: "#92400E" }}>📅 Booked</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Progress dots */}
+          <div className="hiw-dots">
+            {[0, 1, 2, 3].map((i) => (
+              <div
+                key={i}
+                className={`hiw-dot${current === i ? " active" : ""}`}
+                onClick={() => handleDotClick(i)}
+              />
+            ))}
+          </div>
+
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }

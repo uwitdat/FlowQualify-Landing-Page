@@ -2,8 +2,9 @@ import Benchmarks from "./sections/benchmarks";
 import FAQ from "./sections/faq";
 import { Hero } from "./sections/hero";
 import HowItWorks from "./sections/how-it-works";
-import Results from "./sections/results";
+import MessageAds from "./sections/message-ads";
 import Testimonials from "./sections/testimonials";
+
 import { META_DESCRIPTION } from "./config/constants";
 //
 
@@ -17,8 +18,8 @@ export default function Home() {
     <main>
       <Hero />
       <HowItWorks />
-      <Results />
       <Benchmarks />
+      <MessageAds />
       <FAQ />
       <Testimonials />
     </main>

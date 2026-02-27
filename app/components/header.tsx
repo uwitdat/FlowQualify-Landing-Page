@@ -17,7 +17,7 @@ const navigation = [
 
 export default function Header() {
   const pathname = usePathname();
-  const isOptIn = pathname === "/opt-in";
+  const isOptIn = pathname === "/opt-in" || pathname === "/apply" || pathname === "/book";
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
 
@@ -58,19 +58,20 @@ export default function Header() {
     >
       <nav
         aria-label="Global"
-        className="flex items-center justify-between bg-[rgb(10,9,9)]/90 backdrop-blur-md border-b border-white/5 p-2 lg:px-8"
+        className="flex items-center justify-between bg-white backdrop-blur-md p-2 lg:px-8"
+        style={{ borderBottom: "1px solid #E4ECEF" }}
       >
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
+          <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2.5">
             <span className="sr-only">{COMPANY_NAME}</span>
-            <Logo className="h-12 w-12" />
+            <span className="font-black tracking-tight text-[#0F172A]" style={{ fontSize: "17px", fontWeight: 900, letterSpacing: "-0.02em" }}>FlowQualify</span>
           </Link>
         </div>
 
         {isOptIn ? (
           <Link
             href="/"
-            className="inline-flex items-center gap-2 rounded-md px-3.5 py-2 text-sm font-semibold text-white hover:text-[rgb(232,138,232)] transition-colors"
+            className="inline-flex items-center gap-2 rounded-md px-3.5 py-2 text-sm font-semibold text-gray-600 hover:text-gray-900 transition-colors"
           >
             <ArrowLeftIcon className="size-5" aria-hidden />
             Back
@@ -82,7 +83,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(true)}
-                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
+                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
               >
                 <span className="sr-only">Open main menu</span>
                 <Bars3Icon aria-hidden="true" className="size-6" />
@@ -90,12 +91,12 @@ export default function Header() {
             </div>
 
             {/* Desktop nav */}
-            <div className="hidden lg:flex lg:gap-x-12">
+            <div className="hidden lg:flex lg:gap-x-10">
               {navigation.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-sm/6 font-semibold text-white hover:text-[rgb(232,138,232)] transition-colors"
+                  className="text-sm font-semibold text-gray-800 hover:text-gray-950 transition-colors"
                 >
                   {item.name}
                 </a>
@@ -106,7 +107,8 @@ export default function Header() {
             <div className="hidden lg:flex lg:flex-1 lg:justify-end">
               <Link
                 href="/opt-in"
-                className="rounded-md bg-[rgb(232,138,232)] px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[rgb(215,118,215)] transition-colors"
+                className="rounded-xl px-4 py-2 text-sm font-bold text-white transition-all hover:-translate-y-px"
+                style={{ background: "linear-gradient(135deg, #0d5c73 0%, #1a6b8a 55%, #1e92b0 100%)", boxShadow: "0 2px 12px rgba(26,107,138,0.35)" }}
               >
                 Get Started <span aria-hidden="true">→</span>
               </Link>
@@ -123,16 +125,16 @@ export default function Header() {
         className="lg:hidden"
       >
         <div className="fixed inset-0 z-50" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[rgb(10,9,9)] p-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
+        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100">
           <div className="flex items-center justify-between">
-            <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
+            <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
               <span className="sr-only">{COMPANY_NAME}</span>
-              <Logo className="h-8 w-8" />
+              <span className="text-sm font-black tracking-tight text-[#0F172A]" style={{ fontWeight: 900 }}>FlowQualify</span>
             </Link>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
-              className="-m-2.5 rounded-md p-2.5 text-white"
+              className="-m-2.5 rounded-md p-2.5 text-gray-700"
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon aria-hidden="true" className="size-6" />
@@ -141,14 +143,14 @@ export default function Header() {
 
           {/* Mobile links */}
           <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-white/10">
+            <div className="-my-6 divide-y divide-gray-100">
               <div className="space-y-2 py-6">
                 {navigation.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
                     onClick={(e) => handleMobileNavClick(e, item.href)}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-700 hover:bg-gray-50"
                   >
                     {item.name}
                   </a>
@@ -158,7 +160,8 @@ export default function Header() {
                 <Link
                   href="/opt-in"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="-mx-3 block rounded-lg bg-[rgb(232,138,232)] px-4 py-3 text-center text-base font-semibold text-white hover:bg-[rgb(215,118,215)] transition-colors"
+                  className="-mx-3 block rounded-xl px-4 py-3 text-center text-base font-bold text-white transition-colors"
+                  style={{ background: "linear-gradient(135deg, #0d5c73 0%, #1a6b8a 55%, #1e92b0 100%)" }}
                 >
                   Get Started
                 </Link>
