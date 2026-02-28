@@ -1,239 +1,436 @@
 "use client";
 
+import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
-import FlowBackground from "../components/FlowBackground";
-import SplineScene from "../components/SplineScene";
+import { CheckBadgeIcon, ArrowTrendingUpIcon } from "@heroicons/react/24/outline";
+import { StarIcon } from "@heroicons/react/24/solid";
+import { ACCENT_SECONDARY, BUTTON_PRIMARY, HERO_PANEL_BG } from "../config/constants";
+import { GridPattern } from "../components/ui/grid-pattern";
+import { HeroChatDemo } from "../components/HeroChatDemo";
+
+function useCountUp(target: number, active: boolean, durationMs = 1200, decimals = 0, delayMs = 0) {
+  const [value, setValue] = useState(0);
+  const [started, setStarted] = useState(false);
+  // When cards hide (loop restart), delay reset so user doesn't see numbers snap to 0
+  const RESET_DELAY_MS = 500;
+  useEffect(() => {
+    if (!active) {
+      const id = setTimeout(() => {
+        setStarted(false);
+        setValue(0);
+      }, RESET_DELAY_MS);
+      return () => clearTimeout(id);
+    }
+    const t = setTimeout(() => setStarted(true), delayMs);
+    return () => clearTimeout(t);
+  }, [active, delayMs]);
+  useEffect(() => {
+    if (!started) return;
+    const start = performance.now();
+    const startVal = 0;
+    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+    let rafId: number;
+    const tick = (now: number) => {
+      const elapsed = now - start;
+      const t = Math.min(elapsed / durationMs, 1);
+      const eased = easeOutCubic(t);
+      const current = startVal + (target - startVal) * eased;
+      setValue(decimals > 0 ? Math.round(current * Math.pow(10, decimals)) / Math.pow(10, decimals) : Math.round(current));
+      if (t < 1) rafId = requestAnimationFrame(tick);
+    };
+    rafId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafId);
+  }, [started, target, durationMs, decimals]);
+  return value;
+}
 
 export const Hero = () => {
+  const [chatProgress, setChatProgress] = useState(0);
+  const [showBookingNotification, setShowBookingNotification] = useState(false);
+  const [trustLineVisible, setTrustLineVisible] = useState(false);
+
+  const onChatProgress = useCallback((visibleCount: number) => {
+    setChatProgress(visibleCount);
+  }, []);
+  const onBookingNotificationShow = useCallback(() => {
+    setShowBookingNotification(true);
+  }, []);
+  const onLoopRestart = useCallback(() => {
+    setShowBookingNotification(false);
+    setTrustLineVisible(false);
+  }, []);
+
+  const card1Visible = chatProgress >= 2;
+  const card2Visible = chatProgress >= 5;
+  const card3Visible = showBookingNotification;
+
+  useEffect(() => {
+    if (!showBookingNotification) return;
+    const t = setTimeout(() => setTrustLineVisible(true), 1400);
+    return () => clearTimeout(t);
+  }, [showBookingNotification]);
+
+  const countLeads = useCountUp(12.4, card1Visible, 1100, 1, 150);
+  const countAppointments = useCountUp(847, card2Visible, 1100, 0, 150);
+  const countCloseRate = useCountUp(84, card3Visible, 1100, 0, 150);
+
   return (
     <>
       <style>{`
         .hero-section {
           background: #ffffff;
-          padding: 100px 20px 104px;
+          padding: 0 0 40px 32px;
           position: relative;
-          overflow: hidden;
+          overflow: visible;
+          min-height: calc(100vh + 40px);
+          display: flex;
+          align-items: stretch;
+          margin-bottom: -32px;
         }
-
-        .hero-container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; pointer-events: none; }
-        .hero-container a,
-        .hero-container button,
-        .hero-container .hero-eyebrow,
-        .hero-container .hero-video-bare,
-        .hero-container .hero-social-row { pointer-events: auto; }
-
-        .hero-grid {
+        .hero-container {
+          width: 100%;
+          min-height: 100%;
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 56px;
-          align-items: center;
+          gap: 0;
+          align-items: stretch;
         }
-
-        /* Eyebrow pill */
-        .hero-eyebrow {
-          display: inline-flex; align-items: center; gap: 10px;
-          background: #ffffff;
-          border-radius: 999px;
-          padding: 8px 20px 8px 8px; margin-bottom: 26px;
+        .hero-left {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          text-align: left;
+          margin: 48px 48px 64px 52px;
+          max-width: 600px;
         }
-        .hero-eyebrow-text {
-          font-size: 14px; font-weight: 700; color: #1a6b8a;
-          letter-spacing: 0.01em; white-space: nowrap;
-        }
-
-        /* Headline */
         .hero-h1 {
-          font-size: 62px; font-weight: 900; line-height: 1.04;
-          color: #0F172A; letter-spacing: -0.03em; margin-bottom: 22px;
+          font-size: clamp(40px, 5vw, 62px);
+          font-weight: 900;
+          line-height: 1.08;
+          color: #0F172A;
+          letter-spacing: -0.03em;
+          margin: 0 0 20px;
         }
         .hero-grad {
-          color: #1a6b8a;
+          color: ${BUTTON_PRIMARY};
         }
-
-        /* Subhead */
         .hero-subhead {
-          font-size: 17px; line-height: 1.72; color: #374151;
-          max-width: 436px; margin-bottom: 32px;
+          font-size: 17px;
+          line-height: 1.65;
+          color: #64748B;
+          max-width: 480px;
+          margin: 0 0 32px;
         }
-
-        /* Pay-per tag */
-        .hero-ppa-tag {
-          display: inline-flex; align-items: center; gap: 7px;
-          background: #F0F9FF;
-          border-radius: 6px; padding: 6px 12px; margin-bottom: 18px;
-          box-shadow: 0 0 14px rgba(26,107,138,0.30), 0 0 28px rgba(26,107,138,0.12), 0 2px 6px rgba(26,107,138,0.10);
-        }
-        .hero-ppa-dot {
-          width: 7px; height: 7px; border-radius: 50%;
-          background: #1a6b8a; flex-shrink: 0;
-          box-shadow: 0 0 6px rgba(26,107,138,0.6);
-        }
-        .hero-ppa-text {
-          font-size: 12.5px; font-weight: 700; color: #1a6b8a;
-          letter-spacing: 0.03em;
-        }
-
-        /* CTA row */
         .hero-cta-row {
-          display: flex; align-items: center; gap: 20px;
-          margin-bottom: 52px; flex-wrap: wrap;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 28px;
+          flex-wrap: wrap;
         }
         .hero-btn-primary {
-          display: inline-flex; align-items: center; gap: 10px;
-          background: linear-gradient(135deg, #0d5c73 0%, #1a6b8a 55%, #1e92b0 100%);
-          color: #fff; font-size: 15px; font-weight: 800;
-          padding: 16px 34px; border-radius: 14px; text-decoration: none;
-          box-shadow: 0 4px 28px rgba(26,107,138,0.45), 0 1px 4px rgba(0,0,0,0.10);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          background: transparent;
+          color: ${BUTTON_PRIMARY};
+          font-size: 15px;
+          font-weight: 700;
+          padding: 12px 24px;
+          border-radius: 999px;
+          text-decoration: none;
           letter-spacing: -0.01em;
-          transition: transform 0.18s ease, box-shadow 0.18s ease;
-          cursor: pointer; white-space: nowrap; border: none;
+          transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
+          cursor: pointer;
+          white-space: nowrap;
+          border: 1px solid ${BUTTON_PRIMARY};
         }
         .hero-btn-primary:hover {
           transform: translateY(-2px);
-          box-shadow: 0 14px 44px rgba(26,107,138,0.55), 0 4px 12px rgba(30,146,176,0.30);
+          background: ${BUTTON_PRIMARY};
+          color: #fff;
         }
-        .hero-btn-arrow { display: inline-block; transition: transform 0.18s ease; }
-        .hero-btn-primary:hover .hero-btn-arrow { transform: translateX(3px); }
-
         .hero-btn-ghost {
-          display: inline-flex; align-items: center; gap: 8px;
-          color: #64748B; font-size: 14px; font-weight: 600;
-          text-decoration: none; cursor: pointer;
-          transition: color 0.2s ease; white-space: nowrap;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          color: #0F172A;
+          font-size: 15px;
+          font-weight: 600;
+          text-decoration: none;
+          cursor: pointer;
+          padding: 12px 24px;
+          border-radius: 999px;
+          border: 1px solid #000;
+          background: #fff;
+          transition: border-color 0.2s ease, background 0.2s ease;
+          white-space: nowrap;
         }
-        .hero-btn-ghost:hover { color: #0F172A; }
-        .hero-play-btn {
-          width: 30px; height: 30px; border-radius: 50%;
-          background: #F1F5F9;
-          display: flex; align-items: center; justify-content: center;
-          flex-shrink: 0; transition: background 0.2s ease;
+        .hero-btn-ghost:hover {
+          border-color: #000;
+          background: rgba(0, 0, 0, 0.04);
         }
-        .hero-btn-ghost:hover .hero-play-btn { background: #E2E8F0; }
-
-        /* Social proof */
-        .hero-social-row { display: flex; align-items: center; gap: 14px; }
-        .hero-av-stack { display: flex; }
-        .hero-av {
-          width: 34px; height: 34px; border-radius: 50%;
-          border: 2.5px solid #fff; margin-left: -10px;
-          display: flex; align-items: center; justify-content: center;
-          font-size: 12px; font-weight: 800; color: white;
+        .hero-tagline {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 13px;
+          font-weight: 600;
+          letter-spacing: 0.02em;
         }
-        .hero-av:first-child { margin-left: 0; }
-        .hero-av-1 { background: linear-gradient(135deg, #3B82F6, #2563EB); }
-        .hero-av-2 { background: linear-gradient(135deg, #06B6D4, #0891B2); }
-        .hero-av-3 { background: linear-gradient(135deg, #6366F1, #4F46E5); }
-        .hero-av-4 { background: linear-gradient(135deg, #10B981, #059669); }
-        .hero-social-copy { font-size: 13px; color: #64748B; line-height: 1.55; }
-        .hero-social-copy strong { color: #0F172A; font-weight: 700; }
-        .hero-stars { color: #F59E0B; font-size: 13px; letter-spacing: 1.5px; }
-
-        /* Right column — video */
-        .hero-video-col { display: flex; justify-content: flex-end; align-items: center; }
-        .hero-video-bare {
-          width: 282px; height: 590px;
-          border-radius: 44px;
+        .hero-tagline svg { flex-shrink: 0; width: 18px; height: 18px; }
+        .hero-right {
+          position: relative;
+          width: 100%;
+          min-height: 100%;
+          border-top-left-radius: 24px;
+          border-bottom-left-radius: 24px;
+          background: ${HERO_PANEL_BG};
           overflow: hidden;
-          border: 9px solid #1a1a1a;
-          box-shadow:
-            inset 0 0 0 1px rgba(255,255,255,0.10),
-            0 28px 64px rgba(0,0,0,0.20);
         }
-        .hero-video-bare video {
-          width: 100%; height: 100%;
-          object-fit: cover; display: block;
+        .hero-panel-trust {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          padding: 96px 20px 16px;
+          z-index: 10;
+          font-size: 15px;
+          font-weight: 600;
+          color: #fff;
+          text-align: center;
+          letter-spacing: 0.02em;
+          opacity: 0;
+          transition: opacity 1.2s ease 0.3s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
         }
-
-        @media (max-width: 920px) {
-          .hero-grid { grid-template-columns: 1fr; }
-          .hero-h1 { font-size: 40px; }
-          .hero-video-col { display: none; }
+        .hero-panel-trust.hero-panel-trust-visible {
+          opacity: 1;
+        }
+        .hero-panel-trust svg {
+          width: 18px;
+          height: 18px;
+          flex-shrink: 0;
+          color: rgba(255, 255, 255, 0.95);
+        }
+        .hero-right-inner {
+          position: absolute;
+          inset: 0;
+        }
+        .hero-stat-row {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          display: flex;
+          gap: 8px;
+          padding: 12px 12px 18px;
+          z-index: 15;
+          box-sizing: border-box;
+        }
+        .hero-stat-card {
+          flex: 1;
+          min-width: 0;
+          background: rgba(15, 23, 42, 0.82);
+          border: 1px solid rgba(148, 163, 184, 0.22);
+          border-radius: 18px;
+          padding: 18px 16px;
+          opacity: 0;
+          transform: translateY(10px) scale(0.96);
+          transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+          pointer-events: none;
+          overflow: hidden;
+        }
+        .hero-stat-card.hero-stat-card-visible {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+          pointer-events: auto;
+        }
+        .hero-stat-label {
+          font-size: 16px;
+          font-weight: 700;
+          color: #fff;
+          letter-spacing: 0.02em;
+          margin-bottom: 8px;
+          position: relative;
+        }
+        .hero-stat-value {
+          font-size: 24px;
+          font-weight: 800;
+          color: #fff;
+          letter-spacing: -0.04em;
+          line-height: 1.15;
+          font-variant-numeric: tabular-nums;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        .hero-stat-change {
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+          font-size: 12px;
+          font-weight: 800;
+          color: rgba(153, 246, 228, 1);
+          margin-top: 10px;
+          padding: 4px 8px;
+          border-radius: 8px;
+          background: rgba(13, 148, 136, 0.35);
+          letter-spacing: 0.02em;
+        }
+        .hero-stat-change svg { width: 15px; height: 15px; flex-shrink: 0; color: rgba(153, 246, 228, 0.95); }
+        /* Mobile: trust line above panel; metrics below chat */
+        .hero-trust-above {
+          display: none;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          font-size: 14px;
+          font-weight: 600;
+          color: #0F172A;
+          letter-spacing: 0.02em;
+          margin-bottom: 12px;
+        }
+        .hero-trust-above svg { width: 18px; height: 18px; flex-shrink: 0; color: rgb(180, 83, 9); }
+        @media (max-width: 900px) {
+          .hero-section { padding: 80px 20px 64px; }
+          .hero-container { grid-template-columns: 1fr; gap: 40px; align-items: center; }
+          .hero-left { align-items: center; text-align: center; margin: 0; max-width: none; padding: 0 8px; }
+          .hero-subhead { text-align: center; margin-left: auto; margin-right: auto; }
+          .hero-cta-row { justify-content: center; }
+          .hero-tagline { display: flex; justify-content: center; text-align: center; flex-wrap: wrap; max-width: 100%; }
+          .hero-right { min-height: 280px; border-radius: 24px; display: flex; flex-direction: column; }
+          .hero-panel-trust { display: none; }
+          .hero-trust-above { display: flex; }
+          .hero-right-inner { position: relative; flex: 1; min-height: 220px; }
+          .hero-stat-row { position: static; display: flex; padding: 14px 12px 18px; border-top: 1px solid rgba(148, 163, 184, 0.2); }
+        }
+        /* 400px and below: no room for metrics; fix margins/overflow */
+        @media (max-width: 400px) {
+          .hero-section { padding: 72px 16px 48px; overflow-x: hidden; }
+          .hero-container { overflow-x: hidden; }
+          .hero-left { margin: 0 0 24px; padding: 0; }
+          .hero-tagline { font-size: 12px; gap: 6px; }
+          .hero-right { min-height: 240px; border-radius: 20px; }
+          .hero-right-inner { min-height: 200px; }
+          .hero-stat-row { display: none !important; }
         }
       `}</style>
 
       <section className="hero-section">
-        {/* Animated mesh background — sits at z-index 0, content at z-index 1 */}
-        <FlowBackground />
-        <SplineScene />
-
         <div className="hero-container">
-          <div className="hero-grid">
-
-            {/* ── Left column ── */}
-            <div>
-              <div className="hero-eyebrow">
-                <div style={{ width: "28px", height: "28px", borderRadius: "50%", background: "#1a6b8a", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, boxShadow: "0 0 12px rgba(26,107,138,0.50)" }}>
-                  {/* Calendar-check icon */}
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                    <line x1="16" y1="2" x2="16" y2="6" />
-                    <line x1="8" y1="2" x2="8" y2="6" />
-                    <line x1="3" y1="10" x2="21" y2="10" />
-                    <polyline points="9 16 11 18 15 14" />
-                  </svg>
-                </div>
-                <span className="hero-eyebrow-text">Done-For-You Lead Generation for Kitchen &amp; Bathroom Remodelers</span>
-              </div>
-
-              <h1 className="hero-h1">
-                Qualified<br />
-                Kitchen &amp; Bath<br />
-                <span className="hero-grad">Appointments —</span><br />
-                Ready to Close.
-              </h1>
-
-              <div className="hero-ppa-tag">
-                <div className="hero-ppa-dot" />
-                <span className="hero-ppa-text">Pay Per Qualified Appointment Basis</span>
-              </div>
-
-              <p className="hero-subhead">
-                Every lead is fully pre-qualified in chat — budget, scope, and timeline confirmed before it ever hits your calendar.
+          {/* Left half — all text content */}
+          <div className="hero-left">
+            <h1 className="hero-h1">
+              Qualified
+              <br />
+              Appointments
+              <br />
+              <span className="hero-grad">Ready to Close.</span>
+            </h1>
+            <p className="hero-subhead">
+              Every lead is fully pre-qualified in chat — budget, scope, and
+              timeline confirmed before it ever hits your calendar.
+            </p>
+            <div className="hero-cta-row">
+              <Link href="/opt-in" className="hero-btn-primary">
+                Book Demo
+              </Link>
+              <Link href="/opt-in" className="hero-btn-ghost">
+                How It Works
+              </Link>
+            </div>
+            <p className="hero-tagline" style={{ color: ACCENT_SECONDARY }}>
+              <CheckBadgeIcon aria-hidden />
+              Done For You Lead Generation For Home Remodelers
+            </p>
+          </div>
+          {/* Right half — rounded panel; on mobile, trust line above and metrics below chat */}
+          <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
+            <p className="hero-trust-above">
+              <StarIcon aria-hidden />
+              Over 50+ remodelers trust FlowQualify
+            </p>
+            <div className="hero-right">
+              <p className={`hero-panel-trust ${trustLineVisible ? "hero-panel-trust-visible" : ""}`}>
+                <StarIcon aria-hidden />
+                Over 50+ remodelers trust FlowQualify
               </p>
-
-              <div className="hero-cta-row">
-                <Link href="/opt-in" className="hero-btn-primary">
-                  Book Your Demo Call
-                  <span className="hero-btn-arrow">→</span>
-                </Link>
-                <Link href="/opt-in" className="hero-btn-ghost">
-                  <span className="hero-play-btn">
-                    <svg width="10" height="12" viewBox="0 0 10 12" fill="none">
-                      <path d="M1 1.5L9 6L1 10.5V1.5Z" fill="#64748B" />
-                    </svg>
-                  </span>
-                  See How It Works
-                </Link>
+              <div className="hero-right-inner">
+            <div
+              className="absolute inset-0 overflow-hidden"
+              aria-hidden
+              style={{
+                maskImage: `linear-gradient(to right, transparent 0%, black 16%, black 84%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)`,
+                WebkitMaskImage: `linear-gradient(to right, transparent 0%, black 16%, black 84%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)`,
+                maskComposite: "intersect",
+                WebkitMaskComposite: "source-in",
+              }}
+            >
+              <GridPattern
+                width={72}
+                height={72}
+                x={-1}
+                y={-1}
+                className="fill-white/[0.06] stroke-white/[0.08]"
+                squareClassName="fill-white/[0.08]"
+                squares={(() => {
+                  const out: Array<[number, number]> = [];
+                  for (let i = 0; i < 20; i += 4) {
+                    for (let j = 0; j < 20; j += 4) {
+                      out.push([i + 2, j + 2]);
+                    }
+                  }
+                  return out;
+                })()}
+              />
+            </div>
+            <div
+              className="absolute inset-0 pointer-events-none"
+              aria-hidden
+              style={{
+                background: `
+                  linear-gradient(to right, rgba(30, 41, 59, 0.4) 0%, transparent 14%, transparent 86%, rgba(30, 41, 59, 0.4) 100%),
+                  linear-gradient(to bottom, rgba(30, 41, 59, 0.35) 0%, transparent 16%, transparent 84%, rgba(30, 41, 59, 0.35) 100%)
+                `,
+              }}
+            />
+            <HeroChatDemo
+              onBookingNotificationShow={onBookingNotificationShow}
+              onLoopRestart={onLoopRestart}
+              onChatProgress={onChatProgress}
+            />
               </div>
-
-              <div className="hero-social-row">
-                <div className="hero-av-stack">
-                  <div className="hero-av hero-av-1">M</div>
-                  <div className="hero-av hero-av-2">T</div>
-                  <div className="hero-av hero-av-3">R</div>
-                  <div className="hero-av hero-av-4">J</div>
-                </div>
-                <div className="hero-social-copy">
-                  <div className="hero-stars">★★★★★</div>
-                  <strong>50+ remodelers</strong> trust FlowQualify
-                </div>
+            {/* Metric cards — bottom row; on mobile flows below chat */}
+            <div className="hero-stat-row">
+              <div className={`hero-stat-card ${card1Visible ? "hero-stat-card-visible" : ""}`}>
+                <div className="hero-stat-label">Qualified Leads</div>
+                <div className="hero-stat-value">{countLeads}K</div>
+                <span className="hero-stat-change">
+                  <ArrowTrendingUpIcon aria-hidden />
+                  +34%
+                </span>
+              </div>
+              <div className={`hero-stat-card ${card2Visible ? "hero-stat-card-visible" : ""}`}>
+                <div className="hero-stat-label">Appointments Set</div>
+                <div className="hero-stat-value">{countAppointments}</div>
+                <span className="hero-stat-change">
+                  <ArrowTrendingUpIcon aria-hidden />
+                  +28%
+                </span>
+              </div>
+              <div className={`hero-stat-card ${card3Visible ? "hero-stat-card-visible" : ""}`}>
+                <div className="hero-stat-label">Close Rate</div>
+                <div className="hero-stat-value">{countCloseRate}%</div>
+                <span className="hero-stat-change">
+                  <ArrowTrendingUpIcon aria-hidden />
+                  +46%
+                </span>
               </div>
             </div>
-
-            {/* ── Right column — video ── */}
-            <div className="hero-video-col">
-              <div className="hero-video-bare">
-                <video
-                  src={process.env.NEXT_PUBLIC_VIDEO_CHAT || "/videos/chat.mp4"}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                />
-              </div>
-            </div>
-
+          </div>
           </div>
         </div>
       </section>

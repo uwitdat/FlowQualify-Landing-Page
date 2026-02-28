@@ -6,14 +6,14 @@ export default function Contact() {
   return (
     <div
       id="contact"
-      className="isolate bg-[rgb(10,9,9)] px-6 py-24 sm:py-24 lg:px-8 border-t border-white/5"
+      className="isolate bg-background px-6 py-24 sm:py-24 lg:px-8 border-t border-border"
     >
       <FadeIn>
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl">
             Get Started Today
           </h2>
-          <p className="mt-4 text-lg/8 text-[rgb(156,163,175)]">
+          <p className="mt-4 text-lg/8 text-text-secondary">
             Get more leads from Meta and Instagram—and qualify them
             automatically so your calendar fills with appointments that close.
             Stop losing leads to slow responses; we handle ads and intake.
@@ -21,11 +21,11 @@ export default function Contact() {
           <p className="mt-4 text-xl font-medium text-white">
             Ready for lead gen and qualification that actually converts?
           </p>
-          <p className="mt-8 text-lg text-[rgb(156,163,175)]">
+          <p className="mt-8 text-lg text-text-secondary">
             Interested? Get in touch at:{" "}
             <a
               href="mailto:emails@flowqualify.app"
-              className="font-medium text-[rgb(232,138,232)] hover:underline"
+              className="font-medium text-accent hover:underline"
             >
               emails@flowqualify.app
             </a>

@@ -9,16 +9,22 @@ export const metadata = {
 
 export default function TermsOfService() {
   return (
-    <main className="min-h-screen bg-[rgb(10,9,9)] px-6 py-24 lg:px-8">
+    <main className="min-h-screen bg-background px-6 py-24 lg:px-8">
       <div className="mx-auto max-w-3xl">
-        <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-sm font-600 text-accent hover:underline mb-8"
+        >
+          ← Back to home
+        </Link>
+        <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
           Terms of Service
         </h1>
-        <p className="mt-4 text-lg text-[rgb(156,163,175)]">
-          <strong className="text-white">Last updated:</strong> February 2026
+        <p className="mt-4 text-lg text-text-secondary">
+          <strong className="text-foreground">Last updated:</strong> February 2026
         </p>
 
-        <div className="mt-10 space-y-6 text-lg text-[rgb(156,163,175)]">
+        <div className="mt-10 space-y-6 text-lg text-text-secondary">
           <p>
             Welcome to {COMPANY_NAME}. These Terms of Service (“Terms”) govern
             your use of the {COMPANY_NAME} website, platform, and related
@@ -27,9 +33,9 @@ export default function TermsOfService() {
             agree to be bound by these Terms.
           </p>
 
-          <hr className="border-white/10" />
+          <hr className="border-border" />
 
-          <h2 className="mt-8 text-xl font-semibold text-white">
+          <h2 className="mt-8 text-xl font-semibold text-foreground">
             1. Acceptance of Terms
           </h2>
           <p>
@@ -38,16 +44,16 @@ export default function TermsOfService() {
             otherwise using the Service, you agree to these Terms and our{" "}
             <Link
               href="/privacy-policy"
-              className="text-[rgb(232,138,232)] hover:underline"
+              className="text-accent hover:underline"
             >
               Privacy Policy
             </Link>
             . If you do not agree, do not use the Service.
           </p>
 
-          <hr className="border-white/10" />
+          <hr className="border-border" />
 
-          <h2 className="mt-8 text-xl font-semibold text-white">
+          <h2 className="mt-8 text-xl font-semibold text-foreground">
             2. Description of the Service
           </h2>
           <p>
@@ -71,9 +77,9 @@ export default function TermsOfService() {
             notice where practicable.
           </p>
 
-          <hr className="border-white/10" />
+          <hr className="border-border" />
 
-          <h2 className="mt-8 text-xl font-semibold text-white">
+          <h2 className="mt-8 text-xl font-semibold text-foreground">
             3. Your Account and Responsibilities
           </h2>
           <ul className="list-disc space-y-2 pl-6">
@@ -90,9 +96,9 @@ export default function TermsOfService() {
             </li>
           </ul>
 
-          <hr className="border-white/10" />
+          <hr className="border-border" />
 
-          <h2 className="mt-8 text-xl font-semibold text-white">
+          <h2 className="mt-8 text-xl font-semibold text-foreground">
             4. Acceptable Use
           </h2>
           <p>You agree not to:</p>
@@ -117,9 +123,9 @@ export default function TermsOfService() {
             have violated these Terms or acceptable use.
           </p>
 
-          <hr className="border-white/10" />
+          <hr className="border-border" />
 
-          <h2 className="mt-8 text-xl font-semibold text-white">
+          <h2 className="mt-8 text-xl font-semibold text-foreground">
             5. Data and Privacy
           </h2>
           <ul className="list-disc space-y-2 pl-6">
@@ -127,7 +133,7 @@ export default function TermsOfService() {
               Our collection and use of personal data is described in our{" "}
               <Link
                 href="/privacy-policy"
-                className="text-[rgb(232,138,232)] hover:underline"
+                className="text-accent hover:underline"
               >
                 Privacy Policy
               </Link>
@@ -145,9 +151,9 @@ export default function TermsOfService() {
             </li>
           </ul>
 
-          <hr className="border-white/10" />
+          <hr className="border-border" />
 
-          <h2 className="mt-8 text-xl font-semibold text-white">
+          <h2 className="mt-8 text-xl font-semibold text-foreground">
             6. AI and Automated Messaging
           </h2>
           <ul className="list-disc space-y-2 pl-6">
@@ -168,9 +174,9 @@ export default function TermsOfService() {
             </li>
           </ul>
 
-          <hr className="border-white/10" />
+          <hr className="border-border" />
 
-          <h2 className="mt-8 text-xl font-semibold text-white">
+          <h2 className="mt-8 text-xl font-semibold text-foreground">
             7. Third-Party Services
           </h2>
           <p>
@@ -181,9 +187,9 @@ export default function TermsOfService() {
             third-party services.
           </p>
 
-          <hr className="border-white/10" />
+          <hr className="border-border" />
 
-          <h2 className="mt-8 text-xl font-semibold text-white">
+          <h2 className="mt-8 text-xl font-semibold text-foreground">
             8. Intellectual Property
           </h2>
           <p>
@@ -195,12 +201,12 @@ export default function TermsOfService() {
             and to use your content to provide and improve the Service).
           </p>
 
-          <hr className="border-white/10" />
+          <hr className="border-border" />
 
-          <h2 className="mt-8 text-xl font-semibold text-white">
+          <h2 className="mt-8 text-xl font-semibold text-foreground">
             9. Disclaimers
           </h2>
-          <p className="uppercase tracking-wide text-white/90">
+          <p className="uppercase tracking-wide text-foreground/90">
             THE SERVICE IS PROVIDED “AS IS” AND “AS AVAILABLE.” WE DISCLAIM ALL
             WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
             IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
@@ -208,12 +214,12 @@ export default function TermsOfService() {
             WILL BE UNINTERRUPTED, ERROR-FREE, OR SECURE.
           </p>
 
-          <hr className="border-white/10" />
+          <hr className="border-border" />
 
-          <h2 className="mt-8 text-xl font-semibold text-white">
+          <h2 className="mt-8 text-xl font-semibold text-foreground">
             10. Limitation of Liability
           </h2>
-          <p className="uppercase tracking-wide text-white/90">
+          <p className="uppercase tracking-wide text-foreground/90">
             TO THE MAXIMUM EXTENT PERMITTED BY LAW, FLOWQUALIFY AND ITS
             AFFILIATES, OFFICERS, EMPLOYEES, AND AGENTS SHALL NOT BE LIABLE FOR
             ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE
@@ -225,9 +231,9 @@ export default function TermsOfService() {
             LIMITED TO THE MAXIMUM EXTENT PERMITTED BY LAW.
           </p>
 
-          <hr className="border-white/10" />
+          <hr className="border-border" />
 
-          <h2 className="mt-8 text-xl font-semibold text-white">
+          <h2 className="mt-8 text-xl font-semibold text-foreground">
             11. Indemnification
           </h2>
           <p>
@@ -240,9 +246,9 @@ export default function TermsOfService() {
             law.
           </p>
 
-          <hr className="border-white/10" />
+          <hr className="border-border" />
 
-          <h2 className="mt-8 text-xl font-semibold text-white">
+          <h2 className="mt-8 text-xl font-semibold text-foreground">
             12. Changes to the Terms
           </h2>
           <p>
@@ -253,35 +259,35 @@ export default function TermsOfService() {
             Service.
           </p>
 
-          <hr className="border-white/10" />
+          <hr className="border-border" />
 
-          <h2 className="mt-8 text-xl font-semibold text-white">
+          <h2 className="mt-8 text-xl font-semibold text-foreground">
             13. General
           </h2>
           <ul className="list-disc space-y-2 pl-6">
             <li>
-              <strong className="text-white">Governing law.</strong> These
+              <strong className="text-foreground">Governing law.</strong> These
               Terms are governed by the laws of the jurisdiction in which{" "}
               {COMPANY_NAME} operates, without regard to conflict of law
               principles.
             </li>
             <li>
-              <strong className="text-white">Entire agreement.</strong> These
+              <strong className="text-foreground">Entire agreement.</strong> These
               Terms, together with the Privacy Policy and any order or agreement
               referencing them, constitute the entire agreement between you and{" "}
               {COMPANY_NAME} regarding the Service.
             </li>
             <li>
-              <strong className="text-white">Severability.</strong> If any
+              <strong className="text-foreground">Severability.</strong> If any
               provision of these Terms is held invalid or unenforceable, the
               remaining provisions will remain in effect.
             </li>
             <li>
-              <strong className="text-white">Contact.</strong> For questions
+              <strong className="text-foreground">Contact.</strong> For questions
               about these Terms or the Service, contact us at{" "}
               <a
                 href="mailto:emails@flowqualify.app"
-                className="text-[rgb(232,138,232)] hover:underline"
+                className="text-accent hover:underline"
               >
                 emails@flowqualify.app
               </a>
@@ -289,9 +295,9 @@ export default function TermsOfService() {
             </li>
           </ul>
 
-          <hr className="border-white/10" />
+          <hr className="border-border" />
 
-          <p className="mt-10 text-base text-[rgb(156,163,175)]/80">
+          <p className="mt-10 text-base text-text-secondary/80">
             © {COMPANY_NAME}. All rights reserved.
           </p>
         </div>

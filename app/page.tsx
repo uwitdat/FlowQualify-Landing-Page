@@ -4,6 +4,7 @@ import { Hero } from "./sections/hero";
 import HowItWorks from "./sections/how-it-works";
 import MessageAds from "./sections/message-ads";
 import Testimonials from "./sections/testimonials";
+import FadeIn from "./components/fade-in";
 
 import { META_DESCRIPTION } from "./config/constants";
 //
@@ -17,11 +18,21 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <HowItWorks />
-      <Benchmarks />
-      <MessageAds />
-      <FAQ />
-      <Testimonials />
+      <FadeIn>
+        <HowItWorks />
+      </FadeIn>
+      <FadeIn>
+        <Testimonials />
+      </FadeIn>
+      <FadeIn>
+        <Benchmarks />
+      </FadeIn>
+      <FadeIn>
+        <MessageAds />
+      </FadeIn>
+      <FadeIn>
+        <FAQ />
+      </FadeIn>
     </main>
   );
 }

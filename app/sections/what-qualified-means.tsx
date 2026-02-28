@@ -14,18 +14,18 @@ export default function WhatQualifiedMeans() {
   return (
     <div
       id="what-qualified"
-      className="bg-[rgb(10,9,9)] border-t border-white/5 py-20 sm:py-24"
+      className="bg-background border-t border-border py-20 sm:py-24"
     >
       <div className="mx-auto max-w-3xl px-6 lg:px-8">
         <FadeIn>
           <div className="text-center">
-            <h2 className="text-base font-semibold text-[rgb(232,138,232)]">
+            <h2 className="text-base font-semibold text-accent">
               More appointments. More revenue.
             </h2>
             <p className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
               We get you leads. You get paid.
             </p>
-            <p className="mt-6 text-lg text-[rgb(156,163,175)]">
+            <p className="mt-6 text-lg text-text-secondary">
               No ad management. No intake grind. We run the ads, qualify every
               lead, and put only the right appointments on your calendar.
             </p>
@@ -43,7 +43,7 @@ export default function WhatQualifiedMeans() {
                     style={{ color: c.main }}
                     aria-hidden
                   />
-                  <span className="text-[rgb(209,213,219)]">{item}</span>
+                  <span className="text-foreground">{item}</span>
                 </li>
               </FadeIn>
             );

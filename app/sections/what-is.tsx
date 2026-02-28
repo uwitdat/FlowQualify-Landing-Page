@@ -6,14 +6,14 @@ export default function WhatIs() {
   return (
     <div
       id="what"
-      className="bg-[rgb(10,9,9)] border-t border-white/5 py-20 sm:py-24"
+      className="bg-background border-t border-border py-20 sm:py-24"
     >
       <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
         <FadeIn>
-          <h2 className="text-base font-semibold text-[rgb(232,138,232)]">
+          <h2 className="text-base font-semibold text-accent">
             What is FlowQualify?
           </h2>
-          <p className="mt-6 text-xl text-[rgb(209,213,219)] sm:text-2xl">
+          <p className="mt-6 text-xl text-foreground sm:text-2xl">
             FlowQualify is lead gen and AI qualification for contractors. We run
             Meta and Instagram ads to fill your pipeline, and we qualify every
             lead—from our ads, your site, social, or referrals—around the clock

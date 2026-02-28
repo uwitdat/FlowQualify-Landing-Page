@@ -2,20 +2,63 @@
 
 import Image from "next/image";
 
-const testimonials = [
+type CardBase = { id: string };
+type MetricCard = CardBase & {
+  type: "metric";
+  value: string;
+  label: string;
+  quote: string;
+  image?: string;
+  authorName?: string;
+  website?: string;
+};
+type ProfileCard = CardBase & {
+  type: "profile";
+  quote: string;
+  author: { name: string; handle: string; website?: string };
+  image?: string;
+};
+type QuoteCard = CardBase & {
+  type: "quote";
+  quote: string;
+  title?: string;
+  label?: string;
+};
+type TeamCard = CardBase & {
+  type: "team";
+  quote: string;
+  team: string;
+  description: string;
+  logoImage?: string;
+};
+
+export type TestimonialCard = MetricCard | ProfileCard | QuoteCard | TeamCard;
+
+const cards: TestimonialCard[] = [
   {
-    stars: 5,
-    body: "Before FlowQualify, I was constantly stuck in DMs and texts answering the same questions. Now every lead comes in pre-qualified with budget, timeline, and project scope. My calendar is full of serious homeowners ready to book.",
-    author: {
-      name: "Andrew Paiano",
-      handle: "Paiano Contracting Inc.",
-      website: "https://www.paianocontracting.com/",
-    },
+    id: "metric",
+    type: "metric",
+    value: "3x",
+    label: "more qualified leads",
+    quote: "FlowQualify allowed us to scale our booked calls without adding headcount. Every appointment comes with budget, scope, and timeline already confirmed.",
     image: "/testimonials/paiano.jpg",
+    authorName: "Andrew Paiano",
+    website: "https://www.paianocontracting.com/",
   },
   {
-    stars: 5,
-    body: "We used to miss a lot of inquiries that came in after hours and on weekends. FlowQualify engages every lead instantly and sends us clean briefs with project details and photos. Our team only talks to qualified prospects.",
+    id: "paiano",
+    type: "profile",
+    quote: "Before FlowQualify, I was constantly stuck in DMs and texts answering the same questions. Now every lead comes in pre-qualified with budget, timeline, and project scope. My calendar is full of serious homeowners ready to book.",
+    author: {
+      name: "ProCraft",
+      handle: "General contracting & remodeling",
+    },
+    image: "/testimonials/procraft.png",
+  },
+  {
+    id: "sposa",
+    type: "profile",
+    quote: "We used to miss a lot of inquiries that came in after hours and on weekends. FlowQualify engages every lead instantly and sends us clean briefs with project details and photos. Our team only talks to qualified prospects.",
     author: {
       name: "Daniel P.",
       handle: "Sposa Millwork",
@@ -23,145 +66,338 @@ const testimonials = [
     },
     image: "/testimonials/sposa.jpg",
   },
+  {
+    id: "quote1",
+    type: "quote",
+    title: "Clear insights",
+    label: "Pay only for qualified appointments",
+    quote: "We use FlowQualify because it gives us clear insights on every lead. It stands out. Pay only for qualified appointments — it's a solid choice for remodelers who want to stop chasing tire-kickers.",
+  },
+  {
+    id: "team1",
+    type: "team",
+    quote: "FlowQualify changed how we handle incoming leads. Real-time qualification and booking means we show up to calls that are ready to close.",
+    team: "Jason Ayers",
+    description: "Elite Remodelers",
+    logoImage: "/testimonials/elite.png",
+  },
 ];
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" style={{ background: "#fff", padding: "100px 24px", borderTop: "1px solid #F1F5F9", position: "relative", overflow: "hidden" }}>
+    <section
+      id="testimonials"
+      style={{
+        background: "#fff",
+        padding: "80px 24px 100px",
+        borderTop: "1px solid #F1F5F9",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
       <style>{`
-        /* Subtle background orbs */
-        .tm-orb-left {
-          position: absolute; top: -80px; left: -80px;
-          width: 400px; height: 400px; border-radius: 50%;
-          background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%);
-          pointer-events: none;
-        }
-        .tm-orb-right {
-          position: absolute; bottom: -80px; right: -80px;
-          width: 360px; height: 360px; border-radius: 50%;
-          background: radial-gradient(circle, rgba(124,58,237,0.05) 0%, transparent 70%);
-          pointer-events: none;
-        }
-        .tm-wrap { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
-        .tm-eyebrow {
-          display: inline-block; font-size: 12px; font-weight: 800;
-          letter-spacing: 0.1em; text-transform: uppercase;
-          color: #8B5CF6; margin-bottom: 16px;
-        }
+        .tm-wrap { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+        .tm-header { text-align: center; margin-bottom: 48px; }
         .tm-title {
-          font-size: 40px; font-weight: 900; color: #0F172A;
-          letter-spacing: -0.025em; line-height: 1.15; margin: 0 0 14px;
+          font-size: clamp(28px, 4vw, 38px);
+          font-weight: 800;
+          color: #0F172A;
+          letter-spacing: -0.03em;
+          line-height: 1.2;
+          margin: 0 0 12px;
         }
         .tm-sub { font-size: 16px; color: #64748B; line-height: 1.6; margin: 0; }
+
         .tm-grid {
-          display: grid; grid-template-columns: 1fr 1fr;
-          gap: 24px; margin-top: 56px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
         }
+        @media (min-width: 900px) {
+          .tm-grid { grid-template-columns: repeat(3, 1fr); }
+          .tm-card-span-2 { grid-column: span 2; }
+          .tm-card-span-2-under { grid-column: 2 / span 2; }
+        }
+        @media (max-width: 600px) {
+          .tm-grid { grid-template-columns: 1fr; }
+          .tm-card-span-2 { grid-column: span 1; }
+          .tm-card-span-2-under { grid-column: span 1; }
+        }
+
         .tm-card {
-          background: #fff;
+          background: #F8FAFC;
           border: 1px solid #E2E8F0;
-          border-radius: 20px;
-          padding: 32px;
-          box-shadow: 0 4px 24px rgba(0,0,0,0.04), 0 1px 4px rgba(0,0,0,0.03);
-          transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.2s ease;
+          border-radius: 16px;
+          padding: 24px 26px;
+          box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+          transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
           position: relative;
           overflow: hidden;
         }
-        .tm-card::before {
-          content: '';
-          position: absolute; top: 0; left: 0; right: 0;
-          height: 3px;
-          background: linear-gradient(90deg, #8B5CF6, #7C3AED);
-          border-radius: 20px 20px 0 0;
-        }
         .tm-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 16px 48px rgba(139,92,246,0.12), 0 4px 12px rgba(0,0,0,0.06);
-          border-color: #C4B5FD;
+          border-color: #CBD5E1;
+          box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+          transform: translateY(-2px);
         }
-        .tm-quote-mark {
-          font-size: 64px; line-height: 1; color: #EDE9FE;
-          font-family: Georgia, serif; position: absolute;
-          top: 24px; right: 28px; user-select: none; pointer-events: none;
+
+        .tm-metric-value {
+          font-size: 42px;
+          font-weight: 900;
+          color: rgb(180, 83, 9);
+          letter-spacing: -0.04em;
+          line-height: 1;
+          margin-bottom: 4px;
         }
-        .tm-stars { display: flex; gap: 3px; margin-bottom: 16px; }
-        .tm-star { color: #F59E0B; font-size: 16px; }
-        .tm-body {
-          font-size: 15px; color: #334155; line-height: 1.75;
-          margin: 0 0 28px; font-style: italic;
+        .tm-metric-label { font-size: 14px; font-weight: 600; color: #64748B; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid #E2E8F0; }
+        .tm-metric-card-inner {
+          display: flex;
+          gap: 28px;
+          align-items: stretch;
         }
-        .tm-footer {
-          display: flex; align-items: center; gap: 12px;
-          padding-top: 20px; border-top: 1px solid #F1F5F9;
+        .tm-metric-card-left { flex: 1; min-width: 0; }
+        .tm-metric-card-right {
+          flex-shrink: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .tm-metric-photo {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          overflow: hidden;
+          background: #F1F5F9;
+          margin-bottom: 10px;
+        }
+        .tm-metric-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .tm-metric-author-name { font-size: 14px; font-weight: 800; color: #0F172A; margin: 0; }
+        .tm-metric-author-link { font-size: 13px; font-weight: 600; color: rgb(180, 83, 9); text-decoration: none; margin-top: 4px; }
+        .tm-metric-author-link:hover { text-decoration: underline; }
+        @media (max-width: 640px) {
+          .tm-metric-card-inner { flex-direction: column; }
+          .tm-metric-card-right { align-items: flex-start; text-align: left; }
+        }
+        .tm-quote-card-title { font-size: 24px; font-weight: 800; color: rgb(180, 83, 9); letter-spacing: -0.02em; margin: 0 0 4px; }
+        .tm-quote-card-label { font-size: 14px; font-weight: 600; color: #64748B; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid #E2E8F0; }
+        .tm-quote-card-title.tm-quote-card-title-alone { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid #E2E8F0; }
+        .tm-quote {
+          font-size: 15px;
+          color: #334155;
+          line-height: 1.65;
+          margin: 0;
+        }
+        .tm-quote-mark { color: #E2E8F0; }
+
+        .tm-profile-footer {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-top: 20px;
+          padding-top: 18px;
+          border-top: 1px solid #F1F5F9;
         }
         .tm-avatar {
-          width: 44px; height: 44px; border-radius: 50%;
-          border: 2px solid #DDD6FE; overflow: hidden; flex-shrink: 0;
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          overflow: hidden;
+          flex-shrink: 0;
+          background: #E2E8F0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 16px;
+          font-weight: 800;
+          color: #64748B;
         }
+        .tm-avatar img { width: 100%; height: 100%; object-fit: cover; }
         .tm-name { font-size: 14px; font-weight: 800; color: #0F172A; }
-        .tm-handle { font-size: 12px; color: #94A3B8; margin-top: 1px; }
+        .tm-handle { font-size: 12px; color: #64748B; margin-top: 1px; }
         .tm-link {
-          margin-left: auto; font-size: 12px; font-weight: 700;
-          color: #7C3AED; text-decoration: none;
-          background: #F5F3FF; border: 1px solid #DDD6FE;
-          padding: 6px 14px; border-radius: 999px;
-          transition: background 0.15s, border-color 0.15s;
-          white-space: nowrap; flex-shrink: 0;
+          font-size: 13px; font-weight: 600;
+          color: rgb(180, 83, 9);
+          text-decoration: none;
+          margin-left: auto;
         }
-        .tm-link:hover { background: #EDE9FE; border-color: #C4B5FD; }
-        @media (max-width: 700px) {
-          .tm-grid { grid-template-columns: 1fr; }
-          .tm-title { font-size: 30px; }
+        .tm-link:hover { text-decoration: underline; }
+
+        .tm-team-row {
+          display: flex;
+          align-items: flex-end;
+          gap: 10px;
+          margin-top: 18px;
+          padding-top: 18px;
+          border-top: 1px solid #F1F5F9;
         }
+        .tm-team-logo {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: #F1F5F9;
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 18px;
+          font-weight: 800;
+          color: rgb(180, 83, 9);
+          overflow: hidden;
+        }
+        .tm-team-logo img { display: block; }
+        .tm-team-text {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          min-height: 40px;
+        }
+        .tm-team-name { font-size: 14px; font-weight: 800; color: #0F172A; }
+        .tm-team-desc { font-size: 12px; color: #64748B; margin-top: 1px; }
       `}</style>
 
-      <div className="tm-orb-left" />
-      <div className="tm-orb-right" />
-
       <div className="tm-wrap">
-        <div style={{ textAlign: "center" }}>
-          <span className="tm-eyebrow">Testimonials</span>
-          <h2 className="tm-title">What contractors are saying</h2>
-          <p className="tm-sub">Real results from remodelers using FlowQualify.</p>
+        <div className="tm-header">
+          <h2 className="tm-title">Trusted by remodelers. <span style={{ color: "rgb(180, 83, 9)" }}>Proven</span> in the field.</h2>
+          <p className="tm-sub">
+            Contractors are booking more qualified calls with less back-and-forth. Here&apos;s what they&apos;re saying.
+          </p>
         </div>
 
         <div className="tm-grid">
-          {testimonials.map((t, i) => (
-            <figure key={i} className="tm-card" style={{ margin: 0 }}>
-              <span className="tm-quote-mark">&ldquo;</span>
-              <div className="tm-stars">
-                {Array.from({ length: t.stars }).map((_, j) => (
-                  <span key={j} className="tm-star">★</span>
-                ))}
-              </div>
-              <blockquote className="tm-body">
-                &ldquo;{t.body}&rdquo;
-              </blockquote>
-              <figcaption className="tm-footer">
-                <div className="tm-avatar">
-                  <Image
-                    src={t.image}
-                    alt={t.author.name}
-                    width={44}
-                    height={44}
-                    style={{ objectFit: "cover", width: "100%", height: "100%" }}
-                  />
+          {cards.map((card) => {
+            if (card.type === "metric") {
+              const hasRight = card.image != null && card.authorName != null;
+              return (
+                <div key={card.id} className="tm-card tm-card-span-2">
+                  <div className="tm-metric-card-inner">
+                    <div className="tm-metric-card-left">
+                      <div className="tm-metric-value">{card.value}</div>
+                      <div className="tm-metric-label">{card.label}</div>
+                      <p className="tm-quote">
+                        <span className="tm-quote-mark">&ldquo;</span>
+                        {card.quote}
+                        <span className="tm-quote-mark">&rdquo;</span>
+                      </p>
+                    </div>
+                    {hasRight && (
+                      <div className="tm-metric-card-right">
+                        <div className="tm-metric-photo">
+                          <Image
+                            src={card.image!}
+                            alt={card.authorName!}
+                            width={100}
+                            height={100}
+                            style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                          />
+                        </div>
+                        <div className="tm-metric-author-name">{card.authorName}</div>
+                        {card.website != null ? (
+                          <a href={card.website} target="_blank" rel="noopener noreferrer" className="tm-metric-author-link">
+                            {card.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
+                          </a>
+                        ) : null}
+                      </div>
+                    )}
+                  </div>
                 </div>
-                <div>
-                  <div className="tm-name">{t.author.name}</div>
-                  <div className="tm-handle">{t.author.handle}</div>
+              );
+            }
+            if (card.type === "profile") {
+              const initials = card.author.name
+                .split(" ")
+                .map((n) => n[0])
+                .join("")
+                .slice(0, 2)
+                .toUpperCase();
+              return (
+                <div key={card.id} className="tm-card">
+                  <p className="tm-quote">
+                    <span className="tm-quote-mark">&ldquo;</span>
+                    {card.quote}
+                    <span className="tm-quote-mark">&rdquo;</span>
+                  </p>
+                  <div className="tm-profile-footer">
+                    <div className="tm-avatar">
+                      {card.image ? (
+                        <Image
+                          src={card.image}
+                          alt={card.author.name}
+                          width={44}
+                          height={44}
+                          style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                        />
+                      ) : (
+                        initials
+                      )}
+                    </div>
+                    <div>
+                      <div className="tm-name">{card.author.name}</div>
+                      <div className="tm-handle">{card.author.handle}</div>
+                    </div>
+                    {card.author.website && (
+                      <a
+                        href={card.author.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="tm-link"
+                      >
+                        Visit site →
+                      </a>
+                    )}
+                  </div>
                 </div>
-                <a
-                  href={t.author.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="tm-link"
-                >
-                  Visit website →
-                </a>
-              </figcaption>
-            </figure>
-          ))}
+              );
+            }
+            if (card.type === "quote") {
+              return (
+                <div key={card.id} className={`tm-card${card.id === "quote1" ? " tm-card-span-2" : ""}`}>
+                  {card.title != null && (
+                    <>
+                      <div className={`tm-quote-card-title${card.label == null ? " tm-quote-card-title-alone" : ""}`}>{card.title}</div>
+                      {card.label != null && <div className="tm-quote-card-label">{card.label}</div>}
+                    </>
+                  )}
+                  <p className="tm-quote">
+                    <span className="tm-quote-mark">&ldquo;</span>
+                    {card.quote}
+                    <span className="tm-quote-mark">&rdquo;</span>
+                  </p>
+                </div>
+              );
+            }
+            if (card.type === "team") {
+              const initial = card.team.charAt(0);
+              return (
+                <div key={card.id} className={`tm-card${card.id === "team1" ? " tm-card-span-2 tm-card-span-2-under" : ""}`}>
+                  <p className="tm-quote">
+                    <span className="tm-quote-mark">&ldquo;</span>
+                    {card.quote}
+                    <span className="tm-quote-mark">&rdquo;</span>
+                  </p>
+                  <div className="tm-team-row">
+                    <div className="tm-team-logo">
+                      {card.logoImage ? (
+                        <Image
+                          src={card.logoImage}
+                          alt={card.team}
+                          width={40}
+                          height={40}
+                          style={{ objectFit: "contain", width: "100%", height: "100%" }}
+                        />
+                      ) : (
+                        initial
+                      )}
+                    </div>
+                    <div className="tm-team-text">
+                      <div className="tm-team-name">{card.team}</div>
+                      <div className="tm-team-desc">{card.description}</div>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+            return null;
+          })}
         </div>
       </div>
     </section>

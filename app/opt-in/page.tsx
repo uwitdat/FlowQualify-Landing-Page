@@ -1,5 +1,7 @@
 "use client";
 
+import { BUTTON_PRIMARY, BUTTON_PRIMARY_HOVER } from "../config/constants";
+
 export default function OptInPage() {
   return (
     <div style={{
@@ -10,21 +12,24 @@ export default function OptInPage() {
       flexDirection: "column",
       overflow: "hidden",
     }}>
-      <div style={{
-        maxWidth: "960px",
-        width: "100%",
-        margin: "0 auto",
-        padding: "28px 32px 24px",
-        display: "flex",
-        flexDirection: "column",
-        height: "100%",
-        boxSizing: "border-box",
-      }}>
-
-        {/* Attention line */}
-        <p style={{ textAlign: "center", fontSize: "20px", fontWeight: 700, color: "#0F172A", marginBottom: "10px" }}>
-          Attention: Kitchen &amp; Bathroom Remodelers
-        </p>
+      <style>{`
+        @media (max-width: 600px) {
+          .opt-in-content { padding-top: 96px !important; padding-left: 20px !important; padding-right: 20px !important; }
+        }
+      `}</style>
+      <div
+        className="opt-in-content"
+        style={{
+          maxWidth: "960px",
+          width: "100%",
+          margin: "0 auto",
+          padding: "64px 32px 24px",
+          display: "flex",
+          flexDirection: "column",
+          height: "100%",
+          boxSizing: "border-box",
+        }}
+      >
 
         {/* Main headline */}
         <h1 style={{
@@ -37,14 +42,14 @@ export default function OptInPage() {
           margin: "0 0 16px",
         }}>
           Get{" "}
-          <span style={{ textDecoration: "underline", textDecorationThickness: "4px" }}>
+          <span style={{ textDecoration: "underline", textDecorationThickness: "4px", textDecorationColor: BUTTON_PRIMARY }}>
             12–25 Qualified Appointments
           </span>{" "}
           Every Month — With Homeowners Ready to Start Their Project.
         </h1>
 
         {/* Divider */}
-        <div style={{ borderTop: "1px solid #E2E8F0", margin: "0 auto 14px", maxWidth: "560px", width: "100%" }} />
+        <div style={{ borderTop: "1px solid rgba(180, 83, 9, 0.2)", margin: "0 auto 14px", maxWidth: "560px", width: "100%" }} />
 
         {/* Step indicator */}
         <p style={{ textAlign: "center", fontSize: "14px", color: "#64748B", marginBottom: "14px", fontWeight: 500 }}>
@@ -56,7 +61,7 @@ export default function OptInPage() {
           flex: 1,
           borderRadius: "14px",
           overflow: "hidden",
-          border: "1px solid #E2E8F0",
+          border: "1px solid rgba(180, 83, 9, 0.25)",
           boxShadow: "0 8px 48px rgba(0,0,0,0.12)",
           background: "#000",
           marginBottom: "20px",
@@ -80,23 +85,25 @@ export default function OptInPage() {
             href="/apply"
             style={{
               display: "inline-block",
-              background: "#C9A84C",
+              background: BUTTON_PRIMARY,
               color: "#ffffff",
               fontSize: "20px",
               fontWeight: 800,
               padding: "18px 64px",
               borderRadius: "10px",
               textDecoration: "none",
-              boxShadow: "0 4px 20px rgba(201,168,76,0.35)",
+              boxShadow: "0 4px 20px rgba(180, 83, 9, 0.35)",
               transition: "transform 0.15s ease, box-shadow 0.15s ease",
             }}
             onMouseEnter={e => {
               (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
-              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 12px 36px rgba(201,168,76,0.50)";
+              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 12px 36px rgba(180, 83, 9, 0.5)";
+              (e.currentTarget as HTMLAnchorElement).style.background = BUTTON_PRIMARY_HOVER;
             }}
             onMouseLeave={e => {
               (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
-              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 20px rgba(201,168,76,0.35)";
+              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 20px rgba(180, 83, 9, 0.35)";
+              (e.currentTarget as HTMLAnchorElement).style.background = BUTTON_PRIMARY;
             }}
           >
             Apply To Work With Us!

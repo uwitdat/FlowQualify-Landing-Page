@@ -2,40 +2,32 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0F172A;
-  --primary: rgb(232, 138, 232);
-  --primary-hover: rgb(215, 118, 215);
-  --secondary: rgb(156, 163, 175);
-  --surface: rgb(20, 19, 19);
-  --surface-light: rgb(30, 29, 29);
+  --foreground: rgb(17, 24, 39);
+  --accent: rgb(180, 83, 9);
+  --text-primary: rgb(17, 24, 39);
+  --text-secondary: rgb(107, 114, 128);
+  --primary: rgb(180, 83, 9);
+  --primary-hover: rgb(154, 52, 18);
+  --surface: rgb(249, 250, 251);
+  --surface-light: rgb(243, 244, 246);
+  --border: rgb(229, 231, 235);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
   --color-primary: var(--primary);
   --color-surface: var(--surface);
+  --color-border: var(--border);
   --font-sans: var(--font-plus-jakarta);
 }
 
 html {
   scroll-behavior: smooth;
 }
-
-/* Stripe-style vertical rails — fixed left & right of content */
-body::before,
-body::after {
-  content: '';
-  position: fixed;
-  top: 58px; /* start below the sticky header */
-  bottom: 0;
-  width: 1px;
-  background: #E8EEF3;
-  pointer-events: none;
-  z-index: 40;
-}
-body::before { left:  max(8px, calc(50% - 650px)); }
-body::after  { right: max(8px, calc(50% - 650px)); }
 
 body {
   background: var(--background);

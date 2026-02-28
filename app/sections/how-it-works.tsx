@@ -35,14 +35,20 @@ export default function HowItWorks() {
     <>
       <style>{`
         .hiw-section { padding: 96px 24px; background: #ffffff; position: relative; }
-        .hiw-container { max-width: 1120px; margin: 0 auto; position: relative; z-index: 1; }
+        .hiw-white-wrap {
+          max-width: 1160px; margin: 0 auto;
+          background: #ffffff; border-radius: 24px;
+          padding: 56px 32px 48px;
+          position: relative; z-index: 1;
+        }
+        .hiw-container { max-width: 1120px; margin: 0 auto; position: relative; }
 
         .hiw-header { text-align: center; max-width: 620px; margin: 0 auto 64px; }
         .hiw-title {
           font-size: 36px; font-weight: 800; color: #0F172A;
           letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 14px;
         }
-        .hiw-title span { color: #1a6b8a; }
+        .hiw-title span { color: rgb(180, 83, 9); }
         .hiw-subtitle { font-size: 16px; color: #374151; line-height: 1.65; }
 
         .hiw-grid {
@@ -51,6 +57,7 @@ export default function HowItWorks() {
           align-items: stretch;
           gap: 0;
           overflow: visible;
+          min-width: 0;
         }
 
         .hiw-card {
@@ -65,31 +72,29 @@ export default function HowItWorks() {
           box-shadow: 0 4px 20px rgba(0,0,0,0.07);
           transition: border-color 0.4s ease,
                       background 0.4s ease,
-                      box-shadow 0.4s ease;
+                      box-shadow 0.4s ease,
+                      transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
           z-index: 1;
           cursor: pointer;
+          min-width: 0;
         }
         .hiw-card.active {
-          border-color: #CBD5E1;
+          border-color: rgba(180, 83, 9, 0.4);
           background: white;
           z-index: 10;
-          animation: hiwCardPulse 2.4s ease-in-out infinite;
-        }
-        @keyframes hiwCardPulse {
-          0%   { transform: scale(1.0);  box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
-          50%  { transform: scale(1.10); box-shadow: 0 20px 52px rgba(0,0,0,0.12); }
-          100% { transform: scale(1.0);  box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+          box-shadow: 0 4px 24px rgba(180, 83, 9, 0.12);
+          transform: scale(1.02);
         }
 
         .hiw-progress { display: none; }
 
-        /* Step labels use amber as secondary brand color */
+        /* Step labels — black when inactive, amber when active */
         .hiw-step-label {
           font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
-          color: #C9A84C; text-transform: uppercase; margin-bottom: 14px;
+          color: #0F172A; text-transform: uppercase; margin-bottom: 14px;
           transition: color 0.4s ease;
         }
-        .hiw-card.active .hiw-step-label { color: #B8922E; }
+        .hiw-card.active .hiw-step-label { color: rgb(180, 83, 9); }
 
         .hiw-icon-badge {
           width: 48px; height: 48px; border-radius: 10px;
@@ -98,15 +103,15 @@ export default function HowItWorks() {
           margin-bottom: 16px; flex-shrink: 0;
           transition: background 0.45s ease, transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
         }
-        .hiw-card.active .hiw-icon-badge { background: linear-gradient(135deg, #0d5c73, #1a6b8a); transform: scale(1.18); }
-        .hiw-icon-badge svg { stroke: #8B9DC3; transition: stroke 0.4s ease; }
+        .hiw-card.active .hiw-icon-badge { background: linear-gradient(135deg, rgb(154, 52, 18), rgb(180, 83, 9)); }
+        .hiw-icon-badge svg { stroke: #64748B; transition: stroke 0.4s ease; }
         .hiw-card.active .hiw-icon-badge svg { stroke: #FFFFFF; }
 
         .hiw-card-title {
-          font-size: 17px; font-weight: 700; color: #0F172A; margin-bottom: 8px;
-          transition: color 0.4s ease, font-size 0.4s ease;
+          font-size: 18px; font-weight: 700; color: #0F172A; margin-bottom: 8px;
+          transition: color 0.4s ease;
         }
-        .hiw-card.active .hiw-card-title { color: #0F172A; font-size: 18.5px; }
+        .hiw-card.active .hiw-card-title { color: #0F172A; }
 
         .hiw-card-desc {
           font-size: 12.5px; color: #374151; line-height: 1.6; margin-bottom: 18px;
@@ -120,9 +125,8 @@ export default function HowItWorks() {
           transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.4s ease;
         }
         .hiw-card.active .hiw-mockup {
-          transform: scale(1.03);
-          box-shadow: 0 4px 16px rgba(59,130,246,0.13);
-          border-color: #BFDBFE;
+          box-shadow: 0 4px 16px rgba(180, 83, 9, 0.15);
+          border-color: rgba(180, 83, 9, 0.3);
         }
 
         .hiw-bubble { margin-bottom: 4px; display: flex; align-items: flex-end; }
@@ -132,7 +136,7 @@ export default function HowItWorks() {
           padding: 5px 8px; border-radius: 8px; font-size: 7.5px;
           line-height: 1.4; max-width: 82%;
         }
-        .hiw-bubble.user span { background: #0084FF; color: #FFFFFF; border-bottom-right-radius: 2px; }
+        .hiw-bubble.user span { background: #3B82F6; color: #FFFFFF; border-bottom-right-radius: 2px; }
         .hiw-bubble.bot  span { background: #E4E6EB; color: #1C1E21; border-bottom-left-radius: 2px; }
         .hiw-av {
           width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0;
@@ -157,30 +161,43 @@ export default function HowItWorks() {
           position: absolute; left: 50%; top: 50%;
           transform: translate(-50%, -50%);
           width: 10px; height: 10px; border-radius: 50%;
-          background: white; border: 2px solid #CBD5E1;
+          background: #E2E8F0; border: 2px solid #E2E8F0;
           z-index: 2; transition: border-color 0.4s ease, background 0.4s ease;
         }
-        /* Connectors use amber when active */
-        .hiw-conn-wrap.active .hiw-conn-dot  { border-color: #C9A84C; background: #C9A84C; }
-        .hiw-conn-wrap.active .hiw-conn-inner { background: #F5E0A0; }
+        /* Connectors — theme purple when active */
+        .hiw-conn-wrap.active .hiw-conn-dot  { border-color: rgb(180, 83, 9); background: rgb(180, 83, 9); }
+        .hiw-conn-wrap.active .hiw-conn-inner { background: rgba(180, 83, 9, 0.2); }
 
-        .hiw-dots { display: flex; justify-content: center; gap: 8px; margin-top: 40px; }
-        .hiw-dot {
-          width: 8px; height: 8px; border-radius: 50%;
-          background: #CBD5E1; cursor: pointer;
-          transition: all 0.35s ease;
-        }
-        /* Active dot uses amber gradient */
-        .hiw-dot.active { width: 26px; border-radius: 4px; background: linear-gradient(90deg, #C9A84C, #B8922E); }
-
-        @media (max-width: 768px) {
-          .hiw-grid { grid-template-columns: 1fr; }
+        /* Stack vertically before squish; full mobile tweaks */
+        @media (max-width: 900px) {
+          .hiw-section { padding: 64px 16px 72px; }
+          .hiw-white-wrap { padding: 40px 20px 36px; }
+          .hiw-header { margin-bottom: 40px; }
+          .hiw-title { font-size: 28px; }
+          .hiw-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
           .hiw-conn-wrap { display: none; }
+          .hiw-card { padding: 22px 20px; }
+          .hiw-card.active { transform: none; }
+          .hiw-card-title { font-size: 17px; }
+          .hiw-card-desc { font-size: 12px; }
+          .hiw-mockup { padding: 12px; }
+        }
+        @media (max-width: 480px) {
+          .hiw-section { padding: 48px 12px 56px; }
+          .hiw-white-wrap { padding: 28px 16px 24px; }
+          .hiw-header { margin-bottom: 32px; }
+          .hiw-title { font-size: 24px; }
+          .hiw-card { padding: 18px 16px; }
+          .hiw-card-title { font-size: 16px; }
         }
       `}</style>
 
       <section className="hiw-section">
         <FlowBackground />
+        <div className="hiw-white-wrap">
         <div className="hiw-container">
 
           {/* Header */}
@@ -213,7 +230,7 @@ export default function HowItWorks() {
               </p>
               {/* Simplified Facebook ad mockup */}
               <div className="hiw-mockup" style={{ padding: 0, overflow: "hidden" }}>
-                <div style={{ background: "linear-gradient(135deg, #1877F2, #0D65D9)", padding: "8px 12px", display: "flex", alignItems: "center", gap: "7px" }}>
+                <div style={{ background: "linear-gradient(135deg, #3B82F6, #2563EB)", padding: "8px 12px", display: "flex", alignItems: "center", gap: "7px" }}>
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="rgba(219,234,254,0.95)">
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                   </svg>
@@ -225,7 +242,7 @@ export default function HowItWorks() {
                     Get a free quote — we serve homeowners within 25 miles.
                   </div>
                   <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                    <div style={{ background: "linear-gradient(135deg, #1877F2, #3B82F6)", color: "white", fontSize: "7px", fontWeight: 700, padding: "4px 10px", borderRadius: "4px" }}>
+                    <div style={{ background: "linear-gradient(135deg, #3B82F6, #2563EB)", color: "white", fontSize: "7px", fontWeight: 700, padding: "4px 10px", borderRadius: "4px" }}>
                       Send Message →
                     </div>
                   </div>
@@ -310,7 +327,7 @@ export default function HowItWorks() {
               </p>
               {/* Simplified brief mockup — teal header to match brand */}
               <div className="hiw-mockup" style={{ padding: 0, overflow: "hidden" }}>
-                <div style={{ background: "linear-gradient(135deg, #0d5c73, #1a6b8a)", padding: "8px 12px", display: "flex", alignItems: "center", gap: "7px" }}>
+                <div style={{ background: "linear-gradient(135deg, rgb(154, 52, 18), rgb(180, 83, 9))", padding: "8px 12px", display: "flex", alignItems: "center", gap: "7px" }}>
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(186,230,253,0.9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" />
                   </svg>
@@ -326,11 +343,6 @@ export default function HowItWorks() {
                     <div style={{ fontSize: "7.5px", color: "#374151", lineHeight: 1.5 }}>
                       <strong style={{ color: "#0F172A" }}>Budget:</strong> $25k–$30k &nbsp;·&nbsp; Ready in 2 months
                     </div>
-                  </div>
-                  <div style={{ display: "flex", gap: "4px" }}>
-                    <div style={{ background: "#DBEAFE", borderRadius: "4px", padding: "2px 6px", fontSize: "6.5px", fontWeight: 700, color: "#1E40AF" }}>✉ Email</div>
-                    <div style={{ background: "#D1FAE5", borderRadius: "4px", padding: "2px 6px", fontSize: "6.5px", fontWeight: 700, color: "#065F46" }}>💬 SMS</div>
-                    <div style={{ background: "rgba(201,168,76,0.14)", borderRadius: "4px", padding: "2px 6px", fontSize: "6.5px", fontWeight: 700, color: "#92400E" }}>🔗 CRM</div>
                   </div>
                 </div>
               </div>
@@ -379,27 +391,13 @@ export default function HowItWorks() {
                       $28k · Kitchen remodel, ready in 2 months
                     </div>
                   </div>
-                  <div style={{ display: "flex", gap: "4px" }}>
-                    <div style={{ background: "#D1FAE5", borderRadius: "4px", padding: "2px 6px", fontSize: "6.5px", fontWeight: 700, color: "#065F46" }}>✓ Qualified</div>
-                    <div style={{ background: "rgba(201,168,76,0.14)", borderRadius: "4px", padding: "2px 6px", fontSize: "6.5px", fontWeight: 700, color: "#92400E" }}>📅 Booked</div>
-                  </div>
                 </div>
               </div>
             </div>
 
           </div>
 
-          {/* Progress dots */}
-          <div className="hiw-dots">
-            {[0, 1, 2, 3].map((i) => (
-              <div
-                key={i}
-                className={`hiw-dot${current === i ? " active" : ""}`}
-                onClick={() => handleDotClick(i)}
-              />
-            ))}
-          </div>
-
+        </div>
         </div>
       </section>
     </>

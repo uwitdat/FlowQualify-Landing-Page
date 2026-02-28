@@ -9,12 +9,12 @@ export const metadata = {
 
 export default function DataDeletion() {
   return (
-    <main className="min-h-screen bg-[rgb(10,9,9)] px-6 py-24 lg:px-8">
+    <main className="min-h-screen bg-background px-6 py-24 lg:px-8">
       <div className="mx-auto max-w-3xl">
         <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
           Data deletion
         </h1>
-        <div className="mt-10 space-y-6 text-lg text-[rgb(156,163,175)]">
+        <div className="mt-10 space-y-6 text-lg text-text-secondary">
           <p>
             If you messaged a business’s Facebook Page or Instagram account that
             uses {COMPANY_NAME}, you can request that we delete your
@@ -29,7 +29,7 @@ export default function DataDeletion() {
             Email{" "}
             <a
               href="mailto:support@flowqualify.app"
-              className="text-[rgb(232,138,232)] hover:underline"
+              className="text-accent hover:underline"
             >
               support@flowqualify.app
             </a>{" "}
@@ -52,7 +52,7 @@ export default function DataDeletion() {
             For more about how we use data, see our{" "}
             <Link
               href="/privacy-policy"
-              className="text-[rgb(232,138,232)] hover:underline"
+              className="text-accent hover:underline"
             >
               Privacy Policy
             </Link>

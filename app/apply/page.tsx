@@ -1,6 +1,7 @@
 "use client";
 
 import Script from "next/script";
+import { BUTTON_PRIMARY } from "../config/constants";
 
 const TYPEFORM_ID = "01KJE6PMXSA1T38ZM7TYSQJ0AX";
 
@@ -15,14 +16,21 @@ export default function ApplyPage() {
         flexDirection: "column",
       }}
     >
+      <style>{`
+        @media (max-width: 600px) {
+          .apply-header { padding-top: 96px !important; padding-left: 20px !important; padding-right: 20px !important; }
+        }
+      `}</style>
       {/* Header text */}
       <div
+        className="apply-header"
         style={{
           maxWidth: "760px",
           width: "100%",
           margin: "0 auto",
-          padding: "24px 32px 18px",
+          padding: "64px 32px 18px",
           textAlign: "center",
+          borderBottom: "1px solid rgba(180, 83, 9, 0.2)",
         }}
       >
         <h1
@@ -34,7 +42,7 @@ export default function ApplyPage() {
             margin: "0 0 12px",
           }}
         >
-          <strong>Step 2:</strong> Fill Out The Application Below. Once
+          <strong style={{ color: BUTTON_PRIMARY }}>Step 2:</strong> Fill Out The Application Below. Once
           Complete, You Will Book Your Strategy Call On The Next Step…
         </h1>
 
@@ -52,7 +60,7 @@ export default function ApplyPage() {
           remodeling company, please leave this page.
         </p>
 
-        <hr style={{ border: "none", borderTop: "1px solid #E2E8F0", margin: 0 }} />
+        <hr style={{ border: "none", borderTop: "1px solid rgba(180, 83, 9, 0.2)", margin: 0 }} />
       </div>
 
       {/* Typeform — full width, large enough for Calendly slide */}

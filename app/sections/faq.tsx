@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { BUTTON_PRIMARY, BUTTON_PRIMARY_HOVER } from "../config/constants";
 
 const faqs: { question: string; answer: React.ReactNode }[] = [
   {
@@ -100,7 +101,7 @@ export default function FAQ() {
         .faq-eyebrow {
           display: inline-block; font-size: 12px; font-weight: 800;
           letter-spacing: 0.1em; text-transform: uppercase;
-          color: #8B5CF6; margin-bottom: 16px;
+          color: rgb(180, 83, 9); margin-bottom: 16px;
         }
         .faq-title {
           font-size: 40px; font-weight: 900; color: #0F172A;
@@ -114,7 +115,7 @@ export default function FAQ() {
           overflow: hidden; margin-bottom: 10px;
           transition: border-color 0.15s ease;
         }
-        .faq-item.open { border-color: #C4B5FD; }
+        .faq-item.open { border-color: rgba(180, 83, 9, 0.5); }
         .faq-btn {
           width: 100%; display: flex; align-items: center;
           justify-content: space-between; gap: 16px;
@@ -122,19 +123,22 @@ export default function FAQ() {
           border: none; cursor: pointer; text-align: left;
           transition: background 0.15s ease;
         }
+        .faq-btn .faq-icon { align-self: center; }
         .faq-btn:hover { background: #FAFAFA; }
         .faq-q {
           font-size: 15.5px; font-weight: 700; color: #0F172A; line-height: 1.45;
         }
         .faq-icon {
-          width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
+          width: 26px; height: 26px; min-width: 26px; min-height: 26px;
+          border-radius: 50%; flex-shrink: 0;
           display: flex; align-items: center; justify-content: center;
-          background: #F5F3FF; color: #8B5CF6;
-          font-size: 16px; font-weight: 700; line-height: 1;
-          padding-bottom: 1px;
+          background: rgba(180, 83, 9, 0.12);
+          color: rgb(180, 83, 9);
+          padding: 0;
           transition: background 0.15s ease, transform 0.2s ease;
         }
-        .faq-item.open .faq-icon { background: #8B5CF6; color: #fff; transform: rotate(45deg); }
+        .faq-icon svg { display: block; }
+        .faq-item.open .faq-icon { background: rgb(180, 83, 9); color: #fff; transform: rotate(45deg); }
         .faq-body {
           overflow: hidden; transition: max-height 0.25s ease, opacity 0.2s ease;
           opacity: 0; max-height: 0;
@@ -156,7 +160,7 @@ export default function FAQ() {
         .faq-cta-wrap {
           max-width: 760px; margin: 72px auto 0;
           background: #ffffff;
-          border: 1px solid #E2E8F0; border-radius: 20px;
+          border: 1px solid rgba(180, 83, 9, 0.2); border-radius: 20px;
           padding: 56px 48px; text-align: center;
           position: relative; overflow: hidden;
         }
@@ -170,17 +174,15 @@ export default function FAQ() {
         }
         .faq-cta-btn {
           display: inline-flex; align-items: center; gap: 10px;
-          background: linear-gradient(135deg, #0d5c73 0%, #1a6b8a 55%, #1e92b0 100%);
+          background: rgb(180, 83, 9);
           color: #fff; font-size: 15px; font-weight: 800;
           padding: 16px 34px; border-radius: 14px; text-decoration: none;
-          box-shadow: 0 4px 28px rgba(26,107,138,0.40), 0 1px 4px rgba(0,0,0,0.10);
           letter-spacing: -0.01em;
-          transition: transform 0.18s ease, box-shadow 0.18s ease;
+          transition: transform 0.18s ease;
           white-space: nowrap;
         }
         .faq-cta-btn:hover {
           transform: translateY(-2px);
-          box-shadow: 0 14px 44px rgba(26,107,138,0.50), 0 4px 12px rgba(30,146,176,0.28);
         }
         .faq-cta-arrow { display: inline-block; transition: transform 0.18s ease; }
         .faq-cta-btn:hover .faq-cta-arrow { transform: translateX(3px); }
@@ -188,7 +190,7 @@ export default function FAQ() {
           display: flex; align-items: center; justify-content: center;
           gap: 6px; margin-top: 20px; flex-wrap: wrap;
         }
-        .faq-cta-trust-dot { color: #C4B5FD; font-size: 10px; }
+        .faq-cta-trust-dot { color: rgba(180, 83, 9, 0.6); font-size: 10px; }
         .faq-cta-trust-item { font-size: 12px; font-weight: 600; color: #94A3B8; }
         @media (max-width: 600px) {
           .faq-cta-wrap { padding: 40px 24px; }
@@ -215,7 +217,12 @@ export default function FAQ() {
                   aria-expanded={isOpen}
                 >
                   <span className="faq-q">{faq.question}</span>
-                  <span className="faq-icon">+</span>
+                  <span className="faq-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                      <line x1="12" y1="5" x2="12" y2="19" />
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                  </span>
                 </button>
                 <div className="faq-body" style={{ maxHeight: isOpen ? 600 : 0 }}>
                   <div className="faq-answer">
