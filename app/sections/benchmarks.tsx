@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import type { ReactNode } from "react";
 import FlowBackground from "../components/FlowBackground";
 import { BUTTON_PRIMARY, BUTTON_PRIMARY_HOVER, DEMO_ACCENT, DEMO_ACCENT_HOVER } from "../config/constants";
@@ -3010,8 +3010,48 @@ const tagIcons: Record<string, ReactNode> = {
   ),
 };
 
+/* Minimum fraction of container height the line has at progress 0 (so default is visibly tall) */
+const DIVIDER_MIN_HEIGHT_FRACTION = 0.5;
+
 /* ─── Main section ───────────────────────────────────────────────── */
 export default function Benchmarks() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const rowsRef = useRef<HTMLDivElement>(null);
+  const [dividerHeightPx, setDividerHeightPx] = useState(0);
+
+  useEffect(() => {
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        const sectionEl = sectionRef.current;
+        const rowsEl = rowsRef.current;
+        if (!sectionEl || !rowsEl) {
+          raf = 0;
+          return;
+        }
+        const rect = sectionEl.getBoundingClientRect();
+        const vh = window.innerHeight;
+        /* 0 when section just enters viewport; 1 when section has just left upward */
+        const scrollRange = vh + rect.height;
+        const progress = Math.min(1, Math.max(0, (vh - rect.top) / scrollRange));
+        const maxH = rowsEl.clientHeight;
+        const minH = DIVIDER_MIN_HEIGHT_FRACTION * maxH;
+        const rangeH = maxH - minH;
+        setDividerHeightPx(minH + progress * rangeH);
+        raf = 0;
+      });
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
     <>
       <style>{`
@@ -3045,29 +3085,47 @@ export default function Benchmarks() {
           font-size: 17px; color: #64748B; line-height: 1.7; margin: 0;
         }
 
-        /* Feature rows — 2 columns, border between */
+        /* Feature rows — 2 columns, single continuous divider on large screens */
         .pf-feature-rows {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 80px 0;
           align-items: start;
+          position: relative;
+        }
+        /* Vertical line anchored at top; height in px so it never appears "full" until progress is 1 */
+        @media (min-width: 901px) {
+          .pf-feature-rows::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 1px;
+            height: var(--divider-height-px, 0px);
+            background: #E2E8F0;
+            transform: translateX(-50%);
+            pointer-events: none;
+            will-change: height;
+          }
         }
         .pf-feature-cell {
           padding: 0 40px;
         }
         .pf-feature-cell-left {
-          border-right: 1px solid #E2E8F0;
           padding-right: 48px;
         }
         .pf-feature-cell-right {
           padding-left: 48px;
+        }
+        @media (min-width: 901px) {
+          .pf-feature-cell-left { border-right: none; }
         }
         .pf-row {
           display: block;
         }
         @media (max-width: 900px) {
           .pf-feature-rows { grid-template-columns: 1fr; gap: 56px 0; }
-          .pf-feature-cell-left { border-right: none; padding-right: 40px; padding-bottom: 56px; border-bottom: 1px solid #E2E8F0; }
+          .pf-feature-cell-left { padding-right: 40px; padding-bottom: 56px; border-bottom: 1px solid #E2E8F0; }
           .pf-feature-cell-right { padding-left: 40px; }
         }
         @media (max-width: 480px) {
@@ -3197,7 +3255,7 @@ export default function Benchmarks() {
         .pf-hint-pill { animation: pf-hint-glow 2.2s ease-in-out infinite; }
       `}</style>
 
-      <section className="pf-section">
+      <section ref={sectionRef} className="pf-section">
         <FlowBackground />
         <div className="pf-container">
           {/* ── Header ── */}
@@ -3217,7 +3275,11 @@ export default function Benchmarks() {
           </div>
 
           {/* ── Feature rows ── */}
-          <div className="pf-feature-rows">
+          <div
+            ref={rowsRef}
+            className="pf-feature-rows"
+            style={{ ["--divider-height-px" as string]: `${dividerHeightPx}px` }}
+          >
             {rows.map((row, idx) => {
               const textCol = (
                 <div>

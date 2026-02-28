@@ -34,3 +34,47 @@ body {
   color: var(--foreground);
   font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
 }
+
+/* Stripe borders down left and right, from below hero to bottom of page */
+.app-stripes {
+  position: relative;
+}
+.app-stripes::before,
+.app-stripes::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  background: repeating-linear-gradient(
+    180deg,
+    rgb(180, 83, 9) 0px,
+    rgb(180, 83, 9) 3px,
+    rgba(180, 83, 9, 0.25) 3px,
+    rgba(180, 83, 9, 0.25) 6px
+  );
+  z-index: 40;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.app-stripes.app-stripes-visible::before,
+.app-stripes.app-stripes-visible::after {
+  opacity: 1;
+}
+.app-stripes::before {
+  left: 0;
+}
+.app-stripes::after {
+  right: 0;
+}
+@media (max-width: 1024px) {
+  .app-stripes::before,
+  .app-stripes::after {
+    content: none;
+    display: none !important;
+    width: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+}

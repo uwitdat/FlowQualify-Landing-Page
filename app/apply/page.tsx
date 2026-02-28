@@ -30,7 +30,6 @@ export default function ApplyPage() {
           margin: "0 auto",
           padding: "64px 32px 18px",
           textAlign: "center",
-          borderBottom: "1px solid rgba(180, 83, 9, 0.2)",
         }}
       >
         <h1
@@ -59,8 +58,6 @@ export default function ApplyPage() {
           Kitchen &amp; Bathroom Remodeling business owners. If you do not own a
           remodeling company, please leave this page.
         </p>
-
-        <hr style={{ border: "none", borderTop: "1px solid rgba(180, 83, 9, 0.2)", margin: 0 }} />
       </div>
 
       {/* Typeform — full width, large enough for Calendly slide */}

@@ -4,7 +4,7 @@ import { BUTTON_PRIMARY } from "../config/constants";
 
 export default function Footer() {
   return (
-    <footer style={{ background: "#fff", borderTop: "1px solid rgba(180, 83, 9, 0.15)", padding: "40px 24px" }}>
+    <footer style={{ background: "#fff", padding: "40px 24px" }}>
       <style>{`
         .footer-link {
           font-size: 13px; font-weight: 500; color: #64748B;

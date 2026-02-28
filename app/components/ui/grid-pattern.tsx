@@ -13,6 +13,10 @@ interface GridPatternProps {
   className?: string;
   /** Optional class for filled squares (e.g. fill-white/40 for slightly stronger) */
   squareClassName?: string;
+  /** Stroke color for grid lines (path inside pattern). Use when lines don't inherit from className. */
+  stroke?: string;
+  /** Stroke width for grid lines. Default 0.5. */
+  strokeWidth?: number | string;
   [key: string]: unknown;
 }
 
@@ -25,6 +29,8 @@ function GridPattern({
   squares,
   className,
   squareClassName = "fill-white/35",
+  stroke,
+  strokeWidth = 0.5,
   ...props
 }: GridPatternProps) {
   const id = useId();
@@ -50,6 +56,8 @@ function GridPattern({
           <path
             d={`M.5 ${height}V.5H${width}`}
             fill="none"
+            stroke={stroke}
+            strokeWidth={strokeWidth}
             strokeDasharray={strokeDasharray}
           />
         </pattern>
