@@ -9,19 +9,25 @@ export const metadata = {
 
 export default function PrivacyPolicy() {
   return (
-    <main className="min-h-screen bg-[rgb(10,9,9)] px-6 py-24 lg:px-8">
+    <main className="min-h-screen bg-background px-6 py-24 lg:px-8">
       <div className="mx-auto max-w-3xl">
-        <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-sm font-600 text-accent hover:underline mb-8"
+        >
+          ← Back to home
+        </Link>
+        <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
           {COMPANY_NAME} Privacy Policy
         </h1>
-        <div className="mt-10 space-y-6 text-lg text-[rgb(156,163,175)]">
+        <div className="mt-10 space-y-6 text-lg text-text-secondary">
           <p>
             {COMPANY_NAME} processes messages sent to Facebook Pages and
-            Instagram accounts in order to provide automated responses on
-            behalf of businesses.
+            Instagram accounts in order to provide automated responses on behalf
+            of businesses.
           </p>
 
-          <h2 className="mt-8 text-xl font-semibold text-white">
+          <h2 className="mt-8 text-xl font-semibold text-foreground">
             Data we receive
           </h2>
           <p>
@@ -41,7 +47,7 @@ export default function PrivacyPolicy() {
             marketing.
           </p>
 
-          <h2 className="mt-8 text-xl font-semibold text-white">
+          <h2 className="mt-8 text-xl font-semibold text-foreground">
             Data retention
           </h2>
           <p>
@@ -72,11 +78,11 @@ export default function PrivacyPolicy() {
             How we use it
           </h3>
           <p>
-            We use this access only to: (1) read your calendar to determine
-            when you’re free, (2) create and update booking events when
-            appointments are scheduled, and (3) sync appointment details with
-            your calendar. We do not use your calendar data for advertising or
-            sell it to third parties.
+            We use this access only to: (1) read your calendar to determine when
+            you’re free, (2) create and update booking events when appointments
+            are scheduled, and (3) sync appointment details with your calendar.
+            We do not use your calendar data for advertising or sell it to third
+            parties.
           </p>
 
           <h3 className="mt-6 text-lg font-semibold text-white">
@@ -86,8 +92,8 @@ export default function PrivacyPolicy() {
             We store secure tokens that allow us to access your calendar on your
             behalf (for example, to create new events). We do not store the full
             contents of your calendar. Calendar data we need for a specific
-            action (e.g., creating an event) is processed in real time and is not
-            retained beyond what’s required for that action and for the
+            action (e.g., creating an event) is processed in real time and is
+            not retained beyond what’s required for that action and for the
             appointment record in our product.
           </p>
 
@@ -95,9 +101,9 @@ export default function PrivacyPolicy() {
             Google’s role
           </h3>
           <p>
-            Calendar access is provided by Google. Your use of the integration is
-            also subject to Google’s Privacy Policy. We encourage you to review
-            it.
+            Calendar access is provided by Google. Your use of the integration
+            is also subject to Google’s Privacy Policy. We encourage you to
+            review it.
           </p>
 
           <h3 className="mt-6 text-lg font-semibold text-white">
@@ -110,9 +116,7 @@ export default function PrivacyPolicy() {
             no longer use your stored tokens for calendar access.
           </p>
 
-          <h3 className="mt-6 text-lg font-semibold text-white">
-            Security
-          </h3>
+          <h3 className="mt-6 text-lg font-semibold text-white">Security</h3>
           <p>
             We use industry-standard practices to protect the tokens and any
             calendar-related data we handle, including encryption where
@@ -128,7 +132,7 @@ export default function PrivacyPolicy() {
             at{" "}
             <a
               href="mailto:support@flowqualify.app"
-              className="text-[rgb(232,138,232)] hover:underline"
+              className="text-accent hover:underline"
             >
               support@flowqualify.app
             </a>
@@ -136,22 +140,21 @@ export default function PrivacyPolicy() {
             name/handle of the Page or Instagram account you messaged. We will
             process your request and delete your data within 30 days. For more
             details, see our{" "}
-            <Link
-              href="/data-deletion"
-              className="text-[rgb(232,138,232)] hover:underline"
-            >
+            <Link href="/data-deletion" className="text-accent hover:underline">
               Data deletion
             </Link>{" "}
             page.
           </p>
 
-          <h2 className="mt-8 text-xl font-semibold text-white">Security</h2>
+          <h2 className="mt-8 text-xl font-semibold text-foreground">
+            Security
+          </h2>
           <p>
             We store access tokens and other sensitive data using encryption and
             standard security practices.
           </p>
 
-          <p className="mt-10 text-base text-[rgb(156,163,175)]/80">
+          <p className="mt-10 text-base text-text-secondary/80">
             © 2026 FlowQualify, Inc. All rights reserved.
           </p>
         </div>

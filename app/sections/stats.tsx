@@ -12,7 +12,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <div id="how-it-works" className="bg-[rgb(10,9,9)] py-24 sm:py-32">
+    <div id="how-it-works" className="bg-background py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-none">
           <FadeIn>
@@ -20,7 +20,7 @@ export default function Stats() {
               <h2 className="text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl">
                 Tangible results that drive growth
               </h2>
-              <p className="mt-4 text-lg/8 text-[rgb(156,163,175)]">
+              <p className="mt-4 text-lg/8 text-text-secondary">
                 {COMPANY_NAME} helps businesses respond faster, close more
                 deals, and eliminate repetitive intake work.
               </p>
@@ -31,7 +31,7 @@ export default function Stats() {
             {stats.map((stat, index) => (
               <FadeIn key={stat.id} delay={index * 100}>
                 <div className="flex flex-col bg-white/5 p-8">
-                  <dt className="text-sm/6 font-semibold text-[rgb(156,163,175)]">
+                  <dt className="text-sm/6 font-semibold text-text-secondary">
                     {stat.name}
                   </dt>
                   <dd className="order-first text-3xl font-semibold tracking-tight text-white">

@@ -1,43 +1,64 @@
 "use client";
 
 import Image from "next/image";
-import FadeIn from "../components/fade-in";
-import { StarIcon } from "@heroicons/react/24/solid";
 
-function StarRating({ rating }: { rating: number }) {
-  const full = Math.floor(rating);
-  const hasHalf = rating % 1 >= 0.5;
-  return (
-    <div className="flex items-center gap-0.5" role="img" aria-label={`${rating} out of 5 stars`}>
-      {[1, 2, 3, 4, 5].map((i) => (
-        <span key={i} className="text-amber-400">
-          {i <= full ? (
-            <StarIcon className="size-5 sm:size-6" aria-hidden />
-          ) : i === full + 1 && hasHalf ? (
-            <StarIcon className="size-5 opacity-60 sm:size-6" aria-hidden />
-          ) : (
-            <StarIcon className="size-5 opacity-30 sm:size-6" aria-hidden />
-          )}
-        </span>
-      ))}
-    </div>
-  );
-}
+type CardBase = { id: string };
+type MetricCard = CardBase & {
+  type: "metric";
+  value: string;
+  label: string;
+  quote: string;
+  image?: string;
+  authorName?: string;
+  website?: string;
+};
+type ProfileCard = CardBase & {
+  type: "profile";
+  quote: string;
+  author: { name: string; handle: string; website?: string };
+  image?: string;
+};
+type QuoteCard = CardBase & {
+  type: "quote";
+  quote: string;
+  title?: string;
+  label?: string;
+};
+type TeamCard = CardBase & {
+  type: "team";
+  quote: string;
+  team: string;
+  description: string;
+  logoImage?: string;
+};
 
-const testimonials = [
+export type TestimonialCard = MetricCard | ProfileCard | QuoteCard | TeamCard;
+
+const cards: TestimonialCard[] = [
   {
-    stars: 5,
-    body: "Before FlowQualify, I was constantly stuck in DMs and texts answering the same questions. Now every lead comes in pre-qualified with budget, timeline, and project scope. My calendar is full of serious homeowners ready to book.",
-    author: {
-      name: "Andrew Paiano",
-      handle: "Paiano Contracting Inc.",
-      website: "https://www.paianocontracting.com/",
-    },
+    id: "metric",
+    type: "metric",
+    value: "3x",
+    label: "more qualified leads",
+    quote: "FlowQualify allowed us to scale our booked calls without adding headcount. Every appointment comes with budget, scope, and timeline already confirmed.",
     image: "/testimonials/paiano.jpg",
+    authorName: "Andrew Paiano",
+    website: "https://www.paianocontracting.com/",
   },
   {
-    stars: 5,
-    body: "We used to miss a lot of inquiries that came in after hours and on weekends. FlowQualify engages every lead instantly and sends us clean briefs with project details and photos. Our team only talks to qualified prospects.",
+    id: "paiano",
+    type: "profile",
+    quote: "Before FlowQualify, I was constantly stuck in DMs and texts answering the same questions. Now every lead comes in pre-qualified with budget, timeline, and project scope. My calendar is full of serious homeowners ready to book.",
+    author: {
+      name: "ProCraft",
+      handle: "General contracting & remodeling",
+    },
+    image: "/testimonials/procraft.png",
+  },
+  {
+    id: "sposa",
+    type: "profile",
+    quote: "We used to miss a lot of inquiries that came in after hours and on weekends. FlowQualify engages every lead instantly and sends us clean briefs with project details and photos. Our team only talks to qualified prospects.",
     author: {
       name: "Daniel P.",
       handle: "Sposa Millwork",
@@ -45,86 +66,340 @@ const testimonials = [
     },
     image: "/testimonials/sposa.jpg",
   },
-  // {
-  //   body: "As a kitchen and bath renovator, I only want to meet people who have budget and timeline. FlowQualify filters out the tire-kickers and sends me detailed profiles with talking points. I never walk into a call cold.",
-  //   author: {
-  //     name: "Dries Vincent",
-  //     handle: "V.D Kitchen & Bath",
-  //     website: "https://example.com",
-  //   },
-  // },
+  {
+    id: "quote1",
+    type: "quote",
+    title: "Clear insights",
+    label: "Pay only for qualified appointments",
+    quote: "We use FlowQualify because it gives us clear insights on every lead. It stands out. Pay only for qualified appointments — it's a solid choice for remodelers who want to stop chasing tire-kickers.",
+  },
+  {
+    id: "team1",
+    type: "team",
+    quote: "FlowQualify changed how we handle incoming leads. Real-time qualification and booking means we show up to calls that are ready to close.",
+    team: "Jason Ayers",
+    description: "Elite Remodelers",
+    logoImage: "/testimonials/elite.png",
+  },
 ];
 
 export default function Testimonials() {
   return (
-    <div
+    <section
       id="testimonials"
-      className="relative border-t border-white/5 bg-[rgb(10,9,9)] py-24 sm:py-32"
+      style={{
+        background: "#fff",
+        padding: "80px 24px 100px",
+        borderTop: "1px solid #F1F5F9",
+        position: "relative",
+        overflow: "hidden",
+      }}
     >
-      <div
-        className="absolute inset-0 bg-gradient-to-b from-[rgb(232,138,232)]/5 via-transparent to-transparent pointer-events-none"
-        aria-hidden
-      />
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <FadeIn>
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-base font-semibold uppercase tracking-wider text-[rgb(232,138,232)]">
-              Testimonials
-            </h2>
-            <p className="mt-4 text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-              What contractors are saying
-            </p>
-            <p className="mt-3 text-lg text-[rgb(156,163,175)]">
-              Real results from lead gen and qualification.
-            </p>
-          </div>
-        </FadeIn>
+      <style>{`
+        .tm-wrap { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+        .tm-header { text-align: center; margin-bottom: 48px; }
+        .tm-title {
+          font-size: clamp(28px, 4vw, 38px);
+          font-weight: 800;
+          color: #0F172A;
+          letter-spacing: -0.03em;
+          line-height: 1.2;
+          margin: 0 0 12px;
+        }
+        .tm-sub { font-size: 16px; color: #64748B; line-height: 1.6; margin: 0; }
 
-        <div className="relative mx-auto mt-16 grid max-w-5xl gap-8 sm:mt-20 lg:grid-cols-2">
-          {testimonials.map((testimonial, index) => (
-            <FadeIn key={testimonial.author.handle} delay={index * 80}>
-              <figure className="group relative flex flex-col rounded-2xl border border-white/40 bg-white/[0.04] p-8 shadow-sm ring-1 ring-white/20 transition hover:border-white/50 hover:ring-white/30">
-                <div className="flex items-start gap-3">
-                  <span className="relative size-12 shrink-0 overflow-hidden rounded-full border border-white">
-                    <Image
-                      src={testimonial.image}
-                      alt=""
-                      width={48}
-                      height={48}
-                      className="object-cover"
-                      sizes="48px"
-                    />
-                  </span>
-                  <div className="min-w-0 flex-1">
-                    <StarRating rating={testimonial.stars} />
-                    <blockquote className="mt-4 text-base leading-relaxed text-[rgb(209,213,219)]">
-                      <p>{`"${testimonial.body}"`}</p>
-                    </blockquote>
+        .tm-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+        }
+        @media (min-width: 900px) {
+          .tm-grid { grid-template-columns: repeat(3, 1fr); }
+          .tm-card-span-2 { grid-column: span 2; }
+          .tm-card-span-2-under { grid-column: 2 / span 2; }
+        }
+        @media (max-width: 600px) {
+          .tm-grid { grid-template-columns: 1fr; }
+          .tm-card-span-2 { grid-column: span 1; }
+          .tm-card-span-2-under { grid-column: span 1; }
+        }
+
+        .tm-card {
+          background: #F8FAFC;
+          border: 1px solid #E2E8F0;
+          border-radius: 16px;
+          padding: 24px 26px;
+          box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+          transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+          position: relative;
+          overflow: hidden;
+        }
+        .tm-card:hover {
+          border-color: #CBD5E1;
+          box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+          transform: translateY(-2px);
+        }
+
+        .tm-metric-value {
+          font-size: 42px;
+          font-weight: 900;
+          color: rgb(180, 83, 9);
+          letter-spacing: -0.04em;
+          line-height: 1;
+          margin-bottom: 4px;
+        }
+        .tm-metric-label { font-size: 14px; font-weight: 600; color: #64748B; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid #E2E8F0; }
+        .tm-metric-card-inner {
+          display: flex;
+          gap: 28px;
+          align-items: stretch;
+        }
+        .tm-metric-card-left { flex: 1; min-width: 0; }
+        .tm-metric-card-right {
+          flex-shrink: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .tm-metric-photo {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          overflow: hidden;
+          background: #F1F5F9;
+          margin-bottom: 10px;
+        }
+        .tm-metric-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .tm-metric-author-name { font-size: 14px; font-weight: 800; color: #0F172A; margin: 0; }
+        .tm-metric-author-link { font-size: 13px; font-weight: 600; color: rgb(180, 83, 9); text-decoration: none; margin-top: 4px; }
+        .tm-metric-author-link:hover { text-decoration: underline; }
+        @media (max-width: 640px) {
+          .tm-metric-card-inner { flex-direction: column; }
+          .tm-metric-card-right { align-items: flex-start; text-align: left; }
+        }
+        .tm-quote-card-title { font-size: 24px; font-weight: 800; color: rgb(180, 83, 9); letter-spacing: -0.02em; margin: 0 0 4px; }
+        .tm-quote-card-label { font-size: 14px; font-weight: 600; color: #64748B; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid #E2E8F0; }
+        .tm-quote-card-title.tm-quote-card-title-alone { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid #E2E8F0; }
+        .tm-quote {
+          font-size: 15px;
+          color: #334155;
+          line-height: 1.65;
+          margin: 0;
+        }
+        .tm-quote-mark { color: #E2E8F0; }
+
+        .tm-profile-footer {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-top: 20px;
+          padding-top: 18px;
+          border-top: 1px solid #F1F5F9;
+        }
+        .tm-avatar {
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          overflow: hidden;
+          flex-shrink: 0;
+          background: #E2E8F0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 16px;
+          font-weight: 800;
+          color: #64748B;
+        }
+        .tm-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .tm-name { font-size: 14px; font-weight: 800; color: #0F172A; }
+        .tm-handle { font-size: 12px; color: #64748B; margin-top: 1px; }
+        .tm-link {
+          font-size: 13px; font-weight: 600;
+          color: rgb(180, 83, 9);
+          text-decoration: none;
+          margin-left: auto;
+        }
+        .tm-link:hover { text-decoration: underline; }
+
+        .tm-team-row {
+          display: flex;
+          align-items: flex-end;
+          gap: 10px;
+          margin-top: 18px;
+          padding-top: 18px;
+          border-top: 1px solid #F1F5F9;
+        }
+        .tm-team-logo {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: #F1F5F9;
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 18px;
+          font-weight: 800;
+          color: rgb(180, 83, 9);
+          overflow: hidden;
+        }
+        .tm-team-logo img { display: block; }
+        .tm-team-text {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          min-height: 40px;
+        }
+        .tm-team-name { font-size: 14px; font-weight: 800; color: #0F172A; }
+        .tm-team-desc { font-size: 12px; color: #64748B; margin-top: 1px; }
+      `}</style>
+
+      <div className="tm-wrap">
+        <div className="tm-header">
+          <h2 className="tm-title">Trusted by remodelers. <span style={{ color: "rgb(180, 83, 9)" }}>Proven</span> in the field.</h2>
+          <p className="tm-sub">
+            Contractors are booking more qualified calls with less back-and-forth. Here&apos;s what they&apos;re saying.
+          </p>
+        </div>
+
+        <div className="tm-grid">
+          {cards.map((card) => {
+            if (card.type === "metric") {
+              const hasRight = card.image != null && card.authorName != null;
+              return (
+                <div key={card.id} className="tm-card tm-card-span-2">
+                  <div className="tm-metric-card-inner">
+                    <div className="tm-metric-card-left">
+                      <div className="tm-metric-value">{card.value}</div>
+                      <div className="tm-metric-label">{card.label}</div>
+                      <p className="tm-quote">
+                        <span className="tm-quote-mark">&ldquo;</span>
+                        {card.quote}
+                        <span className="tm-quote-mark">&rdquo;</span>
+                      </p>
+                    </div>
+                    {hasRight && (
+                      <div className="tm-metric-card-right">
+                        <div className="tm-metric-photo">
+                          <Image
+                            src={card.image!}
+                            alt={card.authorName!}
+                            width={100}
+                            height={100}
+                            style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                          />
+                        </div>
+                        <div className="tm-metric-author-name">{card.authorName}</div>
+                        {card.website != null ? (
+                          <a href={card.website} target="_blank" rel="noopener noreferrer" className="tm-metric-author-link">
+                            {card.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
+                          </a>
+                        ) : null}
+                      </div>
+                    )}
                   </div>
                 </div>
-                <figcaption className="mt-8 flex flex-wrap items-center gap-3 pt-6">
-                  <div>
-                    <div className="font-semibold text-white">
-                      {testimonial.author.name}
+              );
+            }
+            if (card.type === "profile") {
+              const initials = card.author.name
+                .split(" ")
+                .map((n) => n[0])
+                .join("")
+                .slice(0, 2)
+                .toUpperCase();
+              return (
+                <div key={card.id} className="tm-card">
+                  <p className="tm-quote">
+                    <span className="tm-quote-mark">&ldquo;</span>
+                    {card.quote}
+                    <span className="tm-quote-mark">&rdquo;</span>
+                  </p>
+                  <div className="tm-profile-footer">
+                    <div className="tm-avatar">
+                      {card.image ? (
+                        <Image
+                          src={card.image}
+                          alt={card.author.name}
+                          width={44}
+                          height={44}
+                          style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                        />
+                      ) : (
+                        initials
+                      )}
                     </div>
-                    <div className="text-sm text-[rgb(156,163,175)]">
-                      {testimonial.author.handle}
+                    <div>
+                      <div className="tm-name">{card.author.name}</div>
+                      <div className="tm-handle">{card.author.handle}</div>
+                    </div>
+                    {card.author.website && (
+                      <a
+                        href={card.author.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="tm-link"
+                      >
+                        Visit site →
+                      </a>
+                    )}
+                  </div>
+                </div>
+              );
+            }
+            if (card.type === "quote") {
+              return (
+                <div key={card.id} className={`tm-card${card.id === "quote1" ? " tm-card-span-2" : ""}`}>
+                  {card.title != null && (
+                    <>
+                      <div className={`tm-quote-card-title${card.label == null ? " tm-quote-card-title-alone" : ""}`}>{card.title}</div>
+                      {card.label != null && <div className="tm-quote-card-label">{card.label}</div>}
+                    </>
+                  )}
+                  <p className="tm-quote">
+                    <span className="tm-quote-mark">&ldquo;</span>
+                    {card.quote}
+                    <span className="tm-quote-mark">&rdquo;</span>
+                  </p>
+                </div>
+              );
+            }
+            if (card.type === "team") {
+              const initial = card.team.charAt(0);
+              return (
+                <div key={card.id} className={`tm-card${card.id === "team1" ? " tm-card-span-2 tm-card-span-2-under" : ""}`}>
+                  <p className="tm-quote">
+                    <span className="tm-quote-mark">&ldquo;</span>
+                    {card.quote}
+                    <span className="tm-quote-mark">&rdquo;</span>
+                  </p>
+                  <div className="tm-team-row">
+                    <div className="tm-team-logo">
+                      {card.logoImage ? (
+                        <Image
+                          src={card.logoImage}
+                          alt={card.team}
+                          width={40}
+                          height={40}
+                          style={{ objectFit: "contain", width: "100%", height: "100%" }}
+                        />
+                      ) : (
+                        initial
+                      )}
+                    </div>
+                    <div className="tm-team-text">
+                      <div className="tm-team-name">{card.team}</div>
+                      <div className="tm-team-desc">{card.description}</div>
                     </div>
                   </div>
-                  <a
-                    href={testimonial.author.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="ml-auto rounded-full border border-white/50 bg-[rgb(232,138,232)]/30 px-4 py-2 text-sm font-medium text-white transition hover:bg-[rgb(232,138,232)]/50 hover:border-white/70"
-                  >
-                    Visit website →
-                  </a>
-                </figcaption>
-              </figure>
-            </FadeIn>
-          ))}
+                </div>
+              );
+            }
+            return null;
+          })}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

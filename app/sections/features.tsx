@@ -40,18 +40,18 @@ export default function Features() {
   return (
     <div
       id="features"
-      className="py-20 bg-[rgb(10,9,9)] flex flex-col items-center justify-center border-t border-white/5"
+      className="py-20 bg-background flex flex-col items-center justify-center border-t border-border"
     >
       <div className="max-w-7xl px-6 lg:px-8">
         <FadeIn>
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base/7 font-semibold text-[rgb(232,138,232)]">
+            <h2 className="text-base/7 font-semibold text-accent">
               What you get
             </h2>
             <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-balance">
               Leads and appointments without the grind
             </p>
-            <p className="mt-6 text-lg/8 text-[rgb(156,163,175)]">
+            <p className="mt-6 text-lg/8 text-text-secondary">
               We run ads, qualify every lead, and book only the right
               appointments. You get a full calendar and more revenue.
             </p>
@@ -79,7 +79,7 @@ export default function Features() {
                   <dt className="text-base/7 font-semibold text-white">
                     {feature.name}
                   </dt>
-                  <dd className="mt-2 text-base/7 text-[rgb(156,163,175)]">
+                  <dd className="mt-2 text-base/7 text-text-secondary">
                     {feature.description}
                   </dd>
                 </FadeIn>

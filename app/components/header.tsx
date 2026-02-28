@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Dialog, DialogPanel } from "@headlessui/react";
+import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 import Logo from "./logo";
 import { COMPANY_NAME } from "../config/constants";
@@ -17,24 +17,19 @@ const navigation = [
 
 export default function Header() {
   const pathname = usePathname();
-  const isOptIn = pathname === "/opt-in";
+  const isOptIn = pathname === "/opt-in" || pathname === "/apply" || pathname === "/book";
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    // Check initial scroll position
+    const handleScroll = () => setScrollY(window.scrollY);
     handleScroll();
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Calculate opacity: fade out after 100px, fade back in when scrolling back up
   const opacity = scrollY > 100 ? 0 : 1;
+  const pointerEvents = opacity === 0 ? "none" : "auto";
 
   const handleMobileNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -53,62 +48,72 @@ export default function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 transition-opacity duration-300"
-      style={{ opacity, pointerEvents: opacity === 0 ? "none" : "auto" }}
+      className="fixed top-0 left-0 right-0 z-50 bg-transparent transition-opacity duration-300"
+      style={{ opacity, pointerEvents }}
     >
+      <style>{`
+        @media (min-width: 901px) and (max-width: 1023px) {
+          .header-hamburger-btn { color: white !important; }
+          .header-hamburger-btn:hover { color: rgba(255,255,255,0.85) !important; }
+        }
+      `}</style>
       <nav
         aria-label="Global"
-        className="flex items-center justify-between bg-[rgb(10,9,9)]/90 backdrop-blur-md border-b border-white/5 p-2 lg:px-8"
+        className="flex items-center justify-between h-16 px-4 lg:px-8 max-w-[1400px] mx-auto"
       >
-        <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
+        {/* Left: logo + nav items */}
+        <div className="flex items-center gap-8 lg:gap-10">
+          <Link href="/" className="flex items-center gap-2.5 shrink-0">
             <span className="sr-only">{COMPANY_NAME}</span>
-            <Logo className="h-12 w-12" />
+            <span className="font-black tracking-tight text-[#0F172A]" style={{ fontSize: "17px", fontWeight: 900, letterSpacing: "-0.02em" }}>
+              <span>Flow</span>
+              <span style={{ color: "rgb(180, 83, 9)" }}>Qualify</span>
+            </span>
           </Link>
+
+          {!isOptIn && (
+            <div className="hidden lg:flex items-center gap-8">
+              {navigation.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-semibold text-gray-700 hover:text-[#0F172A] transition-colors"
+                >
+                  {item.name}
+                </a>
+              ))}
+            </div>
+          )}
         </div>
 
+        {/* Right: CTA */}
         {isOptIn ? (
           <Link
             href="/"
-            className="inline-flex items-center gap-2 rounded-md px-3.5 py-2 text-sm font-semibold text-white hover:text-[rgb(232,138,232)] transition-colors"
+            className="inline-flex items-center gap-2 rounded-md px-3.5 py-2 text-sm font-semibold text-gray-600 hover:text-gray-900 transition-colors"
           >
             <ArrowLeftIcon className="size-5" aria-hidden />
             Back
           </Link>
         ) : (
           <>
-            {/* Mobile hamburger */}
             <div className="flex lg:hidden">
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(true)}
-                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
+                className="header-hamburger-btn -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
               >
                 <span className="sr-only">Open main menu</span>
                 <Bars3Icon aria-hidden="true" className="size-6" />
               </button>
             </div>
 
-            {/* Desktop nav */}
-            <div className="hidden lg:flex lg:gap-x-12">
-              {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-sm/6 font-semibold text-white hover:text-[rgb(232,138,232)] transition-colors"
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-
-            {/* CTA in header */}
-            <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <div className="hidden lg:flex items-center">
               <Link
                 href="/opt-in"
-                className="rounded-md bg-[rgb(232,138,232)] px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[rgb(215,118,215)] transition-colors"
+                className="rounded-full px-6 py-2.5 text-sm font-semibold text-white bg-transparent border border-white hover:border-white/80 transition-colors"
               >
-                Get Started <span aria-hidden="true">→</span>
+                Book Demo
               </Link>
             </div>
           </>
@@ -120,19 +125,28 @@ export default function Header() {
       <Dialog
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
-        className="lg:hidden"
+        className="lg:hidden relative z-50"
       >
-        <div className="fixed inset-0 z-50" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[rgb(10,9,9)] p-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
+        <DialogBackdrop
+          transition
+          className="fixed inset-0 z-50 bg-black/20 transition duration-300 ease-out data-[closed]:opacity-0"
+        />
+        <DialogPanel
+          transition
+          className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100 transition duration-300 ease-out data-[closed]:translate-x-full"
+        >
           <div className="flex items-center justify-between">
-            <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
+            <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
               <span className="sr-only">{COMPANY_NAME}</span>
-              <Logo className="h-8 w-8" />
+              <span className="text-sm font-black tracking-tight text-[#0F172A]" style={{ fontWeight: 900 }}>
+              <span>Flow</span>
+              <span style={{ color: "rgb(180, 83, 9)" }}>Qualify</span>
+            </span>
             </Link>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
-              className="-m-2.5 rounded-md p-2.5 text-white"
+              className="-m-2.5 rounded-md p-2.5 text-gray-700"
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon aria-hidden="true" className="size-6" />
@@ -141,14 +155,14 @@ export default function Header() {
 
           {/* Mobile links */}
           <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-white/10">
+            <div className="-my-6 divide-y divide-gray-100">
               <div className="space-y-2 py-6">
                 {navigation.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
                     onClick={(e) => handleMobileNavClick(e, item.href)}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-700 hover:bg-gray-50"
                   >
                     {item.name}
                   </a>
@@ -158,9 +172,9 @@ export default function Header() {
                 <Link
                   href="/opt-in"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="-mx-3 block rounded-lg bg-[rgb(232,138,232)] px-4 py-3 text-center text-base font-semibold text-white hover:bg-[rgb(215,118,215)] transition-colors"
+                  className="-mx-3 block rounded-full px-5 py-3 text-center text-base font-semibold text-white bg-transparent border border-white hover:border-white/80 transition-colors"
                 >
-                  Get Started
+                  Book Demo
                 </Link>
               </div>
             </div>

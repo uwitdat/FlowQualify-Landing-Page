@@ -23,18 +23,18 @@ export default function Demos() {
   return (
     <div
       id="demos"
-      className="bg-[rgb(10,9,9)] py-24 sm:py-32 border-t border-white/5"
+      className="bg-background py-24 sm:py-32 border-t border-border"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <FadeIn>
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base font-semibold text-[rgb(232,138,232)]">
+            <h2 className="text-base font-semibold text-accent">
               Demos
             </h2>
             <p className="mt-2 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
               Watch FlowQualify in action
             </p>
-            <p className="mt-6 text-lg text-[rgb(156,163,175)]">
+            <p className="mt-6 text-lg text-text-secondary">
               Use the controls to play, pause, rewind, and scrub through each
               demo.
             </p>
@@ -47,7 +47,7 @@ export default function Demos() {
             return (
             <FadeIn key={demo.src} delay={index * 100}>
               <div className="flex flex-col">
-                <div className="aspect-video overflow-hidden rounded-xl bg-[rgb(20,19,19)] ring-1 ring-white/10">
+                <div className="aspect-video overflow-hidden rounded-xl bg-surface ring-1 ring-border">
                   <video
                     src={demo.src}
                     controls
@@ -67,7 +67,7 @@ export default function Demos() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white">{demo.title}</h3>
-                    <p className="mt-0.5 text-sm text-[rgb(156,163,175)]">
+                    <p className="mt-0.5 text-sm text-text-secondary">
                       {demo.description}
                     </p>
                   </div>

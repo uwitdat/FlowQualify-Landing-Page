@@ -21,12 +21,12 @@ export default function WhyFlowQualify() {
   return (
     <div
       id="why"
-      className="bg-[rgb(10,9,9)] py-24 sm:py-32 border-t border-white/5"
+      className="bg-background py-24 sm:py-32 border-t border-border"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <FadeIn>
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-base font-semibold text-[rgb(232,138,232)]">
+            <h2 className="text-base font-semibold text-accent">
               Why FlowQualify?
             </h2>
             <p className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
@@ -51,13 +51,13 @@ export default function WhyFlowQualify() {
                       style={{ color: c.main }}
                       aria-hidden="true"
                     />
-                    <span className="text-[rgb(209,213,219)]">{item}</span>
+                    <span className="text-foreground">{item}</span>
                   </FadeIn>
                 </li>
               );
             })}
           </ul>
-          <p className="mt-10 text-center text-lg font-medium text-[rgb(232,138,232)]">
+          <p className="mt-10 text-center text-lg font-medium text-accent">
             This isn&apos;t AI fluff—it&apos;s a true backend engine that works
             24/7.
           </p>
