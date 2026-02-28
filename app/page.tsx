@@ -5,6 +5,8 @@ import HowItWorks from "./sections/how-it-works";
 import MessageAds from "./sections/message-ads";
 import Testimonials from "./sections/testimonials";
 import FadeIn from "./components/fade-in";
+import Footer from "./components/footer";
+import StripeLayoutWrapper from "./components/StripeLayoutWrapper";
 
 import { META_DESCRIPTION } from "./config/constants";
 //
@@ -18,21 +20,24 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <FadeIn>
-        <HowItWorks />
-      </FadeIn>
-      <FadeIn>
-        <Testimonials />
-      </FadeIn>
-      <FadeIn>
-        <Benchmarks />
-      </FadeIn>
-      <FadeIn>
-        <MessageAds />
-      </FadeIn>
-      <FadeIn>
-        <FAQ />
-      </FadeIn>
+      <StripeLayoutWrapper>
+        <FadeIn>
+          <HowItWorks />
+        </FadeIn>
+        <FadeIn>
+          <Testimonials />
+        </FadeIn>
+        <FadeIn>
+          <Benchmarks />
+        </FadeIn>
+        <FadeIn>
+          <MessageAds />
+        </FadeIn>
+        <FadeIn>
+          <FAQ />
+        </FadeIn>
+        <Footer />
+      </StripeLayoutWrapper>
     </main>
   );
 }

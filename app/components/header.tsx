@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 import Logo from "./logo";
-import { COMPANY_NAME } from "../config/constants";
+import { COMPANY_NAME, BUTTON_PRIMARY, BUTTON_PRIMARY_HOVER } from "../config/constants";
 
 const navigation = [
   { name: "How It Works", href: "#how-it-works" },
@@ -56,6 +56,7 @@ export default function Header() {
           .header-hamburger-btn { color: white !important; }
           .header-hamburger-btn:hover { color: rgba(255,255,255,0.85) !important; }
         }
+        .header-book-demo:hover { background: ${BUTTON_PRIMARY} !important; color: #fff !important; }
       `}</style>
       <nav
         aria-label="Global"
@@ -111,7 +112,16 @@ export default function Header() {
             <div className="hidden lg:flex items-center">
               <Link
                 href="/opt-in"
-                className="rounded-full px-6 py-2.5 text-sm font-semibold text-white bg-transparent border border-white hover:border-white/80 transition-colors"
+                className="rounded-full px-6 py-2.5 text-sm font-semibold bg-transparent border transition-colors"
+                style={{ color: BUTTON_PRIMARY, borderColor: BUTTON_PRIMARY }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = BUTTON_PRIMARY;
+                  e.currentTarget.style.color = "#fff";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                  e.currentTarget.style.color = BUTTON_PRIMARY;
+                }}
               >
                 Book Demo
               </Link>
@@ -172,7 +182,8 @@ export default function Header() {
                 <Link
                   href="/opt-in"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="-mx-3 block rounded-full px-5 py-3 text-center text-base font-semibold text-white bg-transparent border border-white hover:border-white/80 transition-colors"
+                  className="header-book-demo -mx-3 block rounded-full px-5 py-3 text-center text-base font-semibold border transition-colors"
+                  style={{ color: BUTTON_PRIMARY, borderColor: BUTTON_PRIMARY, background: "transparent" }}
                 >
                   Book Demo
                 </Link>

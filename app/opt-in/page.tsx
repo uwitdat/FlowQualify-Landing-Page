@@ -1,8 +1,11 @@
 "use client";
 
+import { useRef } from "react";
 import { BUTTON_PRIMARY, BUTTON_PRIMARY_HOVER } from "../config/constants";
 
 export default function OptInPage() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   return (
     <div style={{
       height: "100vh",
@@ -68,14 +71,17 @@ export default function OptInPage() {
           minHeight: 0,
         }}>
           <video
+            ref={videoRef}
             src={process.env.NEXT_PUBLIC_VIDEO_MAIN || "/videos/MainVideo.mp4"}
             style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
             controls
             autoPlay
-            muted
             playsInline
             preload="metadata"
             aria-label="FlowQualify overview and how it works"
+            onLoadedMetadata={() => {
+              if (videoRef.current) videoRef.current.volume = 1;
+            }}
           />
         </div>
 
@@ -92,17 +98,14 @@ export default function OptInPage() {
               padding: "18px 64px",
               borderRadius: "10px",
               textDecoration: "none",
-              boxShadow: "0 4px 20px rgba(180, 83, 9, 0.35)",
-              transition: "transform 0.15s ease, box-shadow 0.15s ease",
+              transition: "transform 0.15s ease",
             }}
             onMouseEnter={e => {
               (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
-              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 12px 36px rgba(180, 83, 9, 0.5)";
               (e.currentTarget as HTMLAnchorElement).style.background = BUTTON_PRIMARY_HOVER;
             }}
             onMouseLeave={e => {
               (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
-              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 20px rgba(180, 83, 9, 0.35)";
               (e.currentTarget as HTMLAnchorElement).style.background = BUTTON_PRIMARY;
             }}
           >
