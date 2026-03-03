@@ -1,9 +1,10 @@
 import Benchmarks from "./sections/benchmarks";
-import FAQ from "./sections/faq";
 import { Hero } from "./sections/hero";
 import HowItWorks from "./sections/how-it-works";
-import MessageAds from "./sections/message-ads";
 import Testimonials from "./sections/testimonials";
+import AppPanels from "./sections/app-panels";
+import PitchBanner from "./sections/pitch-banner";
+import DoorCta from "./sections/door-cta";
 import FadeIn from "./components/fade-in";
 import Footer from "./components/footer";
 import StripeLayoutWrapper from "./components/StripeLayoutWrapper";
@@ -20,6 +21,8 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <PitchBanner />
+      <AppPanels />
       <StripeLayoutWrapper>
         <FadeIn>
           <HowItWorks />
@@ -31,10 +34,7 @@ export default function Home() {
           <Benchmarks />
         </FadeIn>
         <FadeIn>
-          <MessageAds />
-        </FadeIn>
-        <FadeIn>
-          <FAQ />
+          <DoorCta />
         </FadeIn>
         <Footer />
       </StripeLayoutWrapper>

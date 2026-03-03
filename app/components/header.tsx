@@ -52,10 +52,6 @@ export default function Header() {
       style={{ opacity, pointerEvents }}
     >
       <style>{`
-        @media (min-width: 901px) and (max-width: 1023px) {
-          .header-hamburger-btn { color: white !important; }
-          .header-hamburger-btn:hover { color: rgba(255,255,255,0.85) !important; }
-        }
         .header-book-demo:hover { background: ${BUTTON_PRIMARY} !important; color: #fff !important; }
       `}</style>
       <nav
@@ -73,7 +69,7 @@ export default function Header() {
           </Link>
 
           {!isOptIn && (
-            <div className="hidden lg:flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-8">
               {navigation.map((item) => (
                 <a
                   key={item.name}
@@ -98,7 +94,7 @@ export default function Header() {
           </Link>
         ) : (
           <>
-            <div className="flex lg:hidden">
+            <div className="flex md:hidden">
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(true)}
@@ -109,7 +105,7 @@ export default function Header() {
               </button>
             </div>
 
-            <div className="hidden lg:flex items-center">
+            <div className="hidden md:flex items-center">
               <Link
                 href="/opt-in"
                 className="rounded-full px-6 py-2.5 text-sm font-semibold bg-transparent border transition-colors"
@@ -135,7 +131,7 @@ export default function Header() {
       <Dialog
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
-        className="lg:hidden relative z-50"
+        className="md:hidden relative z-50"
       >
         <DialogBackdrop
           transition

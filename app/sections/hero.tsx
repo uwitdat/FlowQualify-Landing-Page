@@ -6,7 +6,7 @@ import {
   CheckBadgeIcon,
   ArrowTrendingUpIcon,
 } from "@heroicons/react/24/outline";
-import { ACCENT_SECONDARY, BUTTON_PRIMARY } from "../config/constants";
+import { ACCENT_SECONDARY, BUTTON_PRIMARY, BUTTON_PRIMARY_HOVER } from "../config/constants";
 import { HeroChatDemo } from "../components/HeroChatDemo";
 
 function useCountUp(
@@ -65,6 +65,7 @@ export const Hero = () => {
   return (
     <>
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap');
         .hero-section {
           background: #ffffff;
           padding: 0 0 40px 32px;
@@ -77,18 +78,24 @@ export const Hero = () => {
         }
         .hero-container {
           width: 100%;
+          max-width: 1400px;
+          margin: 0 auto;
           min-height: 100%;
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 0;
           align-items: stretch;
+          padding: 0 16px;
+        }
+        @media (min-width: 1024px) {
+          .hero-container { padding: 0 32px; }
         }
         .hero-left {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
           text-align: left;
-          margin: 80px 48px 64px 52px;
+          margin: 80px 48px 64px 0;
           max-width: 600px;
         }
         .hero-left-content {
@@ -127,23 +134,24 @@ export const Hero = () => {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          background: transparent;
-          color: ${BUTTON_PRIMARY};
+          background: ${BUTTON_PRIMARY};
+          color: #fff;
           font-size: 15px;
           font-weight: 700;
           padding: 12px 24px;
           border-radius: 999px;
           text-decoration: none;
           letter-spacing: -0.01em;
-          transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
+          transition: transform 0.18s ease, background 0.18s ease;
           cursor: pointer;
           white-space: nowrap;
           border: 1px solid ${BUTTON_PRIMARY};
         }
         .hero-btn-primary:hover {
           transform: translateY(-2px);
-          background: ${BUTTON_PRIMARY};
+          background: ${BUTTON_PRIMARY_HOVER};
           color: #fff;
+          border-color: ${BUTTON_PRIMARY_HOVER};
         }
         .hero-btn-ghost {
           display: inline-flex;
@@ -165,15 +173,46 @@ export const Hero = () => {
           border-color: #000;
           background: rgba(0, 0, 0, 0.04);
         }
+        .hero-annotation-wrap {
+          position: relative;
+          margin: -4px 0 28px;
+          max-width: 400px;
+          display: inline-block;
+        }
+        .hero-annotation-text {
+          font-family: 'Caveat', cursive;
+          font-size: 18px;
+          font-weight: 500;
+          color: rgba(180, 83, 9, 0.82);
+          line-height: 1.45;
+          margin: 0;
+          padding: 10px 14px;
+          border: 1.5px solid rgba(180, 83, 9, 0.25);
+          border-radius: 5px;
+          background: rgba(180, 83, 9, 0.04);
+          transform: rotate(-0.8deg);
+          display: block;
+        }
+        .hero-annotation-arrow {
+          position: absolute;
+          right: -92px;
+          top: 50%;
+          transform: translateY(-65%);
+          width: 88px;
+          height: 58px;
+          overflow: visible;
+          pointer-events: none;
+        }
         .hero-tagline {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          font-size: 13px;
+          font-size: 14px;
           font-weight: 600;
           letter-spacing: 0.02em;
+          margin-bottom: 20px;
         }
-        .hero-tagline svg { flex-shrink: 0; width: 18px; height: 18px; }
+        .hero-tagline svg { flex-shrink: 0; width: 16px; height: 16px; }
         .hero-right-col {
           position: relative;
           width: 100%;
@@ -246,7 +285,7 @@ export const Hero = () => {
           .hero-subhead { text-align: center; margin-left: auto; margin-right: auto; margin-bottom: 28px; font-size: 15px; line-height: 1.6; }
           .hero-cta-row { justify-content: center; margin-bottom: 24px; gap: 10px; }
           .hero-btn-primary, .hero-btn-ghost { font-size: 14px; padding: 10px 18px; }
-          .hero-tagline { display: flex; justify-content: center; text-align: center; flex-wrap: wrap; max-width: 100%; margin-top: 16px; }
+          .hero-tagline { display: flex; justify-content: center; text-align: center; flex-wrap: wrap; max-width: 100%; margin-top: 16px; margin-bottom: 20px; }
           .hero-stat-row { justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
           .hero-stat-card { min-width: 0; flex: 1 1 140px; max-width: 220px; padding: 14px 12px; }
           .hero-stat-card:nth-child(2), .hero-stat-card:nth-child(2).hero-stat-card-visible { transform: translateY(0) translateX(0); }
@@ -295,16 +334,20 @@ export const Hero = () => {
           {/* Left half — all text content */}
           <div className="hero-left">
             <div className="hero-left-content">
+              <p className="hero-tagline" style={{ color: ACCENT_SECONDARY }}>
+                <CheckBadgeIcon aria-hidden />
+                Done For You Lead Generation For Home Remodelers
+              </p>
               <h1 className="hero-h1">
-                Qualified
-                <br />
-                Appointments
-                <br />
-                <span className="hero-grad">Ready to Close.</span>
+                Fill your calendar with{" "}
+                <span className="hero-grad">qualified appointments.</span>
               </h1>
               <p className="hero-subhead">
-                Every lead is fully pre-qualified in chat — budget, scope, and
-                timeline confirmed before it ever hits your calendar.
+                FlowQualify is a turnkey, performance-based lead generation
+                system for{" "}
+                <span style={{ color: BUTTON_PRIMARY, fontWeight: 700 }}>contractors &amp; remodelers</span>
+                {" "}who want a calendar
+                consistently filled with exclusive, qualified jobs.
               </p>
               <div className="hero-cta-row">
                 <Link href="/opt-in" className="hero-btn-primary">
@@ -314,10 +357,6 @@ export const Hero = () => {
                   How It Works
                 </Link>
               </div>
-              <p className="hero-tagline" style={{ color: ACCENT_SECONDARY }}>
-                <CheckBadgeIcon aria-hidden />
-                Done For You Lead Generation For Home Remodelers
-              </p>
             </div>
             <div className="hero-stat-row">
               <div

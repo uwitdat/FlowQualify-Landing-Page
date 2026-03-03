@@ -174,9 +174,17 @@ export default function Testimonials() {
         .tm-metric-author-name { font-size: 14px; font-weight: 800; color: #0F172A; margin: 0; }
         .tm-metric-author-link { font-size: 13px; font-weight: 600; color: rgb(180, 83, 9); text-decoration: none; margin-top: 4px; }
         .tm-metric-author-link:hover { text-decoration: underline; }
-        @media (max-width: 640px) {
-          .tm-metric-card-inner { flex-direction: column; }
+        @media (max-width: 768px) {
+          .tm-metric-card-inner { flex-direction: column; gap: 20px; }
           .tm-metric-card-right { align-items: flex-start; text-align: left; }
+          .tm-metric-value { font-size: 36px; }
+          .tm-metric-photo { width: 80px; height: 80px; }
+          .tm-card.tm-card-span-2 { padding: 20px 22px; }
+        }
+        @media (max-width: 640px) {
+          .tm-metric-card-inner { gap: 18px; }
+          .tm-metric-value { font-size: 32px; }
+          .tm-metric-photo { width: 72px; height: 72px; }
         }
         .tm-quote-card-title { font-size: 24px; font-weight: 800; color: rgb(180, 83, 9); letter-spacing: -0.02em; margin: 0 0 4px; }
         .tm-quote-card-label { font-size: 14px; font-weight: 600; color: #64748B; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid #E2E8F0; }
