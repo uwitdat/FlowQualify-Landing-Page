@@ -200,31 +200,6 @@ export default function Integrations() {
                 <path d="M221,209 C227,208 234,208 236,209" stroke="#f9f0d9" strokeWidth="0.7" strokeLinecap="round" strokeOpacity="0.5"/>
               </g>
 
-              {/* ── SPARKLES ── */}
-              <g className="cta2-s1" style={{ transformOrigin: "390px 68px" }}>
-                <path d="M390,56 L390,80 M378,68 L402,68 M382,60 L398,76 M382,76 L398,60"
-                  stroke="#ff4db8" strokeWidth="1.8" strokeLinecap="round" strokeOpacity="0.95"/>
-              </g>
-              <g className="cta2-s2" style={{ transformOrigin: "440px 88px" }}>
-                <path d="M440,82 L440,94 M434,88 L446,88"
-                  stroke="#00e5ff" strokeWidth="2.4" strokeLinecap="round" strokeOpacity="0.9"/>
-              </g>
-              <g className="cta2-s3" style={{ transformOrigin: "358px 148px" }}>
-                <path d="M358,141 L358,155 M351,148 L365,148"
-                  stroke="#69ff47" strokeWidth="2.4" strokeLinecap="round" strokeOpacity="0.85"/>
-              </g>
-              <g className="cta2-s4" style={{ transformOrigin: "462px 218px" }}>
-                <path d="M456,212 L468,224 M468,212 L456,224"
-                  stroke="#ff8800" strokeWidth="2.4" strokeLinecap="round" strokeOpacity="0.9"/>
-              </g>
-              <g className="cta2-s5" style={{ transformOrigin: "408px 308px" }}>
-                <path d="M408,301 L408,315 M401,308 L415,308"
-                  stroke="#4d6cff" strokeWidth="2.4" strokeLinecap="round" strokeOpacity="0.9"/>
-              </g>
-              <g className="cta2-s6" style={{ transformOrigin: "478px 158px" }}>
-                <path d="M478,152 L478,164 M472,158 L484,158 M474,154 L482,162 M474,162 L482,154"
-                  stroke="#ffe600" strokeWidth="1.6" strokeLinecap="round" strokeOpacity="0.9"/>
-              </g>
 
             </svg>
           </div>

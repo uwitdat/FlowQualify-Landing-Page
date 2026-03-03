@@ -263,7 +263,7 @@ export const Manifesto = () => {
 
             {/* Paragraph 1 — the "that's not us" */}
             <p className="mf-para">
-              Plenty of agencies run ads, send traffic to a lead form, and call it a day.{" "}
+              Plenty of agencies run ads, send traffic to a form, and call it a day.{" "}
               {/* "That's not us." with natural red hand-drawn underline */}
               <span style={{ position: "relative", display: "inline-block", whiteSpace: "nowrap" }}>
                 <em>That&apos;s not us.</em>
@@ -281,7 +281,7 @@ export const Manifesto = () => {
 
             {/* Paragraph 2 — what FlowQualify does */}
             <p className="mf-para">
-              We qualify every lead through conversation, send you a project brief, then{" "}
+              We qualify every lead through conversation, send you a project brief, and{" "}
               {/* "book real appointments" — natural purple underline */}
               <span style={{ position: "relative", display: "inline-block", whiteSpace: "nowrap" }}>
                 book real appointments
@@ -295,7 +295,7 @@ export const Manifesto = () => {
                   />
                 </svg>
               </span>
-              {" "}on{" "}
+              {" "}directly on{" "}
               {/* "your calendar." — natural green hand-drawn oval */}
               <span style={{ position: "relative", display: "inline-block", whiteSpace: "nowrap" }}>
                 your calendar.

@@ -8,7 +8,7 @@ export default function FeaturesGrid() {
     {
       icon: "💬",
       title: "Intelligent System Qualification",
-      desc: "Our system qualifies every lead in Messenger — scope, budget, and timeline confirmed automatically. No forms, no friction.",
+      desc: "Our system qualifies every lead in Messenger — confirming scope, budget, and timeline through a natural back-and-forth that builds trust and engagement. No forms, no friction.",
     },
     {
       icon: "📋",
@@ -99,7 +99,7 @@ export default function FeaturesGrid() {
               {" "}the Leads.<br />You Close the Jobs.
             </h2>
             <p style={{ fontSize: "16px", color: "rgba(34,21,13,0.55)", lineHeight: 1.6, margin: "16px 0 0", fontWeight: 400 }}>
-              Targeted ads, intelligent lead qualification, and a simple CRM built for remodelers — all working together on <strong style={{ color: "#22150d" }}>auto-pilot</strong> to book your calls automatically.
+              Targeted ads, smart lead qualification, and a CRM built for remodelers — all working together to book calls for you automatically.
             </p>
           </div>
 

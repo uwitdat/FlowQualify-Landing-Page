@@ -37,7 +37,7 @@ export default function UseCases() {
       <section className="uc2-section" id="results">
         <div className="uc2-inner">
           <h2 className="uc2-headline">
-            A smarter system—built for remodelers, by people who understand the grind.
+            A Smarter Lead Generation System—Built for Remodelers.
           </h2>
 
           <div className="uc2-body">
@@ -229,9 +229,6 @@ export default function UseCases() {
                 <text fontFamily="Georgia, 'Times New Roman', serif" fontSize="18" fill="#22150d">
                   <tspan x="8" y="92">without chasing leads or getting buried in</tspan>
                 </text>
-                {/* Natural red underline under "without chasing leads" (~x=8 to x=208) */}
-                <path d="M8,97 C35,94 72,99 112,96 C148,94 178,98 208,96"
-                  stroke="#c94040" strokeWidth="2" strokeLinecap="round" fill="none"/>
 
                 {/* Line 4: all dark text */}
                 <text fontFamily="Georgia, 'Times New Roman', serif" fontSize="18" fill="#22150d">

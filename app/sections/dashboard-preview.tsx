@@ -119,27 +119,25 @@ export const DashboardPreview = () => {
       <section className="dpv-wrap">
         <div className="dpv-inner">
           <p className="dpv-label">Your command center</p>
-          <h2 className="dpv-h2">Every qualified lead, every booked job — one place.</h2>
-          <p className="dpv-sub">All generated on{" "}
+          <h2 className="dpv-h2">Every lead. Every brief. Every booked call — one place.</h2>
+          <p className="dpv-sub">Running on{" "}
             <span style={{ position: "relative", display: "inline-block" }}>
-              auto-pilot
+              autopilot
               <svg
                 style={{ position: "absolute", bottom: "-6px", left: "-2px", width: "calc(100% + 4px)", height: "12px", overflow: "visible" }}
                 viewBox="0 0 100 12" preserveAspectRatio="none"
               >
-                {/* First stroke — slightly wavy */}
                 <path
                   d="M0,5 C12,3 28,7 46,4 C64,1 80,6 100,4"
                   stroke="#C9A84C" strokeWidth="2.2" fill="none" strokeLinecap="round"
                 />
-                {/* Second stroke — offset, natural double-line */}
                 <path
                   d="M0,9 C14,7 30,11 48,8 C66,5 82,10 100,8"
                   stroke="#C9A84C" strokeWidth="1.4" fill="none" strokeLinecap="round" strokeOpacity="0.65"
                 />
               </svg>
             </span>
-            .
+            {" "}while you focus on the work.
           </p>
 
           <div className="dpv-stage">
