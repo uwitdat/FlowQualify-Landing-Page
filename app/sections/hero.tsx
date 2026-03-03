@@ -65,6 +65,7 @@ export const Hero = () => {
   return (
     <>
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap');
         .hero-section {
           background: #ffffff;
           padding: 0 0 40px 32px;
@@ -165,11 +166,41 @@ export const Hero = () => {
           border-color: #000;
           background: rgba(0, 0, 0, 0.04);
         }
+        .hero-annotation-wrap {
+          position: relative;
+          margin: -4px 0 28px;
+          max-width: 400px;
+          display: inline-block;
+        }
+        .hero-annotation-text {
+          font-family: 'Caveat', cursive;
+          font-size: 18px;
+          font-weight: 500;
+          color: rgba(180, 83, 9, 0.82);
+          line-height: 1.45;
+          margin: 0;
+          padding: 10px 14px;
+          border: 1.5px solid rgba(180, 83, 9, 0.25);
+          border-radius: 5px;
+          background: rgba(180, 83, 9, 0.04);
+          transform: rotate(-0.8deg);
+          display: block;
+        }
+        .hero-annotation-arrow {
+          position: absolute;
+          right: -92px;
+          top: 50%;
+          transform: translateY(-65%);
+          width: 88px;
+          height: 58px;
+          overflow: visible;
+          pointer-events: none;
+        }
         .hero-tagline {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          font-size: 13px;
+          font-size: 16px;
           font-weight: 600;
           letter-spacing: 0.02em;
         }
@@ -296,15 +327,48 @@ export const Hero = () => {
           <div className="hero-left">
             <div className="hero-left-content">
               <h1 className="hero-h1">
-                Qualified
-                <br />
-                Appointments
-                <br />
-                <span className="hero-grad">Ready to Close.</span>
+                Fill your calendar with{" "}
+                <span className="hero-grad">qualified appointments.</span>
               </h1>
               <p className="hero-subhead">
-                Every lead is fully pre-qualified in chat — budget, scope, and
-                timeline confirmed before it ever hits your calendar.
+                FlowQualify is a turnkey, performance-based lead generation
+                system for{" "}
+                <span style={{ position: "relative", display: "inline-block", whiteSpace: "nowrap" }}>
+                  contractors &amp; remodelers
+                  <svg
+                    viewBox="0 0 190 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{
+                      position: "absolute",
+                      left: "-2px",
+                      bottom: "-6px",
+                      width: "calc(100% + 4px)",
+                      height: "10px",
+                      overflow: "visible",
+                      pointerEvents: "none",
+                    }}
+                  >
+                    <path
+                      d="M 2 7 C 20 3 50 8 80 5 C 110 2 140 7 165 4 C 172 3 178 5 188 6"
+                      stroke="#22c55e"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                      fill="none"
+                      opacity="0.85"
+                    />
+                    <path
+                      d="M 8 8.5 C 35 6 70 9 105 7 C 135 5 158 8 183 7"
+                      stroke="#22c55e"
+                      strokeWidth="1.2"
+                      strokeLinecap="round"
+                      fill="none"
+                      opacity="0.35"
+                    />
+                  </svg>
+                </span>
+                {" "}who want a calendar
+                consistently filled with exclusive, qualified jobs.
               </p>
               <div className="hero-cta-row">
                 <Link href="/opt-in" className="hero-btn-primary">

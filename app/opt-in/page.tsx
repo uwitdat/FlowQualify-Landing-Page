@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Script from "next/script";
 import { BUTTON_PRIMARY, BUTTON_PRIMARY_HOVER } from "../config/constants";
 
 export default function OptInPage() {
@@ -85,10 +86,11 @@ export default function OptInPage() {
           />
         </div>
 
-        {/* CTA button */}
-        <div style={{ textAlign: "center", paddingBottom: "20px" }}>
-          <a
-            href="/apply"
+        {/* CTA buttons */}
+        <div style={{ textAlign: "center", paddingBottom: "20px", display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
+          <button
+            data-iclosed-link="https://app.iclosed.io/e/FlowQualify/15-min-phone-call-free-project-generation-call"
+            data-embed-type="popup"
             style={{
               display: "inline-block",
               background: BUTTON_PRIMARY,
@@ -97,23 +99,39 @@ export default function OptInPage() {
               fontWeight: 800,
               padding: "18px 64px",
               borderRadius: "10px",
-              textDecoration: "none",
+              border: "none",
+              cursor: "pointer",
               transition: "transform 0.15s ease",
             }}
             onMouseEnter={e => {
-              (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
-              (e.currentTarget as HTMLAnchorElement).style.background = BUTTON_PRIMARY_HOVER;
+              (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-2px)";
+              (e.currentTarget as HTMLButtonElement).style.background = BUTTON_PRIMARY_HOVER;
             }}
             onMouseLeave={e => {
-              (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
-              (e.currentTarget as HTMLAnchorElement).style.background = BUTTON_PRIMARY;
+              (e.currentTarget as HTMLButtonElement).style.transform = "translateY(0)";
+              (e.currentTarget as HTMLButtonElement).style.background = BUTTON_PRIMARY;
             }}
           >
             Apply To Work With Us!
+          </button>
+          <a
+            href="/thank-you"
+            style={{
+              fontSize: "14px",
+              color: "#64748B",
+              textDecoration: "underline",
+              textUnderlineOffset: "3px",
+              cursor: "pointer",
+            }}
+          >
+            Already booked? Go to thank you page →
           </a>
         </div>
 
       </div>
+
+      {/* iClosed popup widget */}
+      <Script src="https://app.iclosed.io/assets/widget.js" strategy="afterInteractive" />
     </div>
   );
 }
