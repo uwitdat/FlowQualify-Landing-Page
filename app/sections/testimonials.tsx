@@ -1,169 +1,120 @@
-"use client";
-
-import Image from "next/image";
-
 const testimonials = [
   {
-    stars: 5,
-    body: "Before FlowQualify, I was constantly stuck in DMs and texts answering the same questions. Now every lead comes in pre-qualified with budget, timeline, and project scope. My calendar is full of serious homeowners ready to book.",
-    author: {
-      name: "Andrew Paiano",
-      handle: "Paiano Contracting Inc.",
-      website: "https://www.paianocontracting.com/",
-    },
-    image: "/testimonials/paiano.jpg",
+    quote:
+      "Before FlowQualify, I was spending 10 hours a week chasing leads that went nowhere. Now I show up to calls with homeowners who already know their budget and are ready to move forward. It's completely changed how I run my business.",
+    name: "Mike R.",
+    title: "Kitchen Remodeler",
+    location: "Chicago, IL",
+    initials: "MR",
   },
   {
-    stars: 5,
-    body: "We used to miss a lot of inquiries that came in after hours and on weekends. FlowQualify engages every lead instantly and sends us clean briefs with project details and photos. Our team only talks to qualified prospects.",
-    author: {
-      name: "Daniel P.",
-      handle: "Sposa Millwork",
-      website: "https://www.sposakitchens.com/",
-    },
-    image: "/testimonials/sposa.jpg",
+    quote:
+      "The AI handles all the back-and-forth in Messenger. By the time a lead hits my calendar, they've already confirmed scope, budget, and timeline. It's like having a full-time salesperson working 24/7 — without the overhead.",
+    name: "Sarah T.",
+    title: "Bathroom Contractor",
+    location: "Phoenix, AZ",
+    initials: "ST",
+  },
+  {
+    quote:
+      "We went from 3–4 random leads a week to 18 qualified appointments last month alone. The pay-per-appointment model means I only pay when it actually works. I wish I had found this two years ago.",
+    name: "James L.",
+    title: "Remodeling Co.",
+    location: "Dallas, TX",
+    initials: "JL",
   },
 ];
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" style={{ background: "#fff", padding: "100px 24px", borderTop: "1px solid #F1F5F9", position: "relative", overflow: "hidden" }}>
+    <>
       <style>{`
-        /* Subtle background orbs */
-        .tm-orb-left {
-          position: absolute; top: -80px; left: -80px;
-          width: 400px; height: 400px; border-radius: 50%;
-          background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%);
-          pointer-events: none;
+        .oh-tm-section {
+          background: #f9f0d9;
+          padding: 96px 24px;
+          border-top: 1px solid rgba(34,21,13,0.10);
         }
-        .tm-orb-right {
-          position: absolute; bottom: -80px; right: -80px;
-          width: 360px; height: 360px; border-radius: 50%;
-          background: radial-gradient(circle, rgba(124,58,237,0.05) 0%, transparent 70%);
-          pointer-events: none;
+        .oh-tm-inner { max-width: 1120px; margin: 0 auto; }
+        .oh-tm-header { text-align: center; margin-bottom: 56px; }
+        .oh-tm-eyebrow {
+          display: inline-block;
+          font-size: 12px; font-weight: 700; color: rgba(34,21,13,0.5);
+          letter-spacing: 0.08em; text-transform: uppercase;
+          margin-bottom: 14px;
         }
-        .tm-wrap { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
-        .tm-eyebrow {
-          display: inline-block; font-size: 12px; font-weight: 800;
-          letter-spacing: 0.1em; text-transform: uppercase;
-          color: #8B5CF6; margin-bottom: 16px;
+        .oh-tm-title {
+          font-size: clamp(28px, 4vw, 40px); font-weight: 900;
+          color: #22150d; line-height: 1.15; letter-spacing: -0.02em; margin: 0;
         }
-        .tm-title {
-          font-size: 40px; font-weight: 900; color: #0F172A;
-          letter-spacing: -0.025em; line-height: 1.15; margin: 0 0 14px;
+        .oh-tm-grid {
+          display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
         }
-        .tm-sub { font-size: 16px; color: #64748B; line-height: 1.6; margin: 0; }
-        .tm-grid {
-          display: grid; grid-template-columns: 1fr 1fr;
-          gap: 24px; margin-top: 56px;
+        .oh-tm-card {
+          background: #ede4cc;
+          border: 1px solid rgba(34,21,13,0.12);
+          border-radius: 14px; padding: 32px 28px;
+          display: flex; flex-direction: column;
+          transition: border-color 0.2s, transform 0.2s;
         }
-        .tm-card {
-          background: #fff;
-          border: 1px solid #E2E8F0;
-          border-radius: 20px;
-          padding: 32px;
-          box-shadow: 0 4px 24px rgba(0,0,0,0.04), 0 1px 4px rgba(0,0,0,0.03);
-          transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.2s ease;
-          position: relative;
-          overflow: hidden;
+        .oh-tm-card:hover {
+          border-color: rgba(34,21,13,0.28);
+          transform: translateY(-2px);
         }
-        .tm-card::before {
-          content: '';
-          position: absolute; top: 0; left: 0; right: 0;
-          height: 3px;
-          background: linear-gradient(90deg, #8B5CF6, #7C3AED);
-          border-radius: 20px 20px 0 0;
+        .oh-tm-stars {
+          font-size: 14px; color: #22150d;
+          letter-spacing: 2px; margin-bottom: 20px;
         }
-        .tm-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 16px 48px rgba(139,92,246,0.12), 0 4px 12px rgba(0,0,0,0.06);
-          border-color: #C4B5FD;
+        .oh-tm-quote {
+          font-size: 15px; color: rgba(34,21,13,0.75);
+          line-height: 1.7; flex: 1; margin: 0 0 28px;
+          font-style: italic;
         }
-        .tm-quote-mark {
-          font-size: 64px; line-height: 1; color: #EDE9FE;
-          font-family: Georgia, serif; position: absolute;
-          top: 24px; right: 28px; user-select: none; pointer-events: none;
-        }
-        .tm-stars { display: flex; gap: 3px; margin-bottom: 16px; }
-        .tm-star { color: #F59E0B; font-size: 16px; }
-        .tm-body {
-          font-size: 15px; color: #334155; line-height: 1.75;
-          margin: 0 0 28px; font-style: italic;
-        }
-        .tm-footer {
+        .oh-tm-footer {
           display: flex; align-items: center; gap: 12px;
-          padding-top: 20px; border-top: 1px solid #F1F5F9;
+          padding-top: 20px;
+          border-top: 1px solid rgba(34,21,13,0.10);
         }
-        .tm-avatar {
-          width: 44px; height: 44px; border-radius: 50%;
-          border: 2px solid #DDD6FE; overflow: hidden; flex-shrink: 0;
+        .oh-tm-avatar {
+          width: 40px; height: 40px; border-radius: 50%;
+          background: #22150d; color: #f9f0d9;
+          display: flex; align-items: center; justify-content: center;
+          font-size: 13px; font-weight: 800; flex-shrink: 0;
         }
-        .tm-name { font-size: 14px; font-weight: 800; color: #0F172A; }
-        .tm-handle { font-size: 12px; color: #94A3B8; margin-top: 1px; }
-        .tm-link {
-          margin-left: auto; font-size: 12px; font-weight: 700;
-          color: #7C3AED; text-decoration: none;
-          background: #F5F3FF; border: 1px solid #DDD6FE;
-          padding: 6px 14px; border-radius: 999px;
-          transition: background 0.15s, border-color 0.15s;
-          white-space: nowrap; flex-shrink: 0;
+        .oh-tm-name {
+          font-size: 14px; font-weight: 800; color: #22150d; margin: 0;
         }
-        .tm-link:hover { background: #EDE9FE; border-color: #C4B5FD; }
-        @media (max-width: 700px) {
-          .tm-grid { grid-template-columns: 1fr; }
-          .tm-title { font-size: 30px; }
+        .oh-tm-meta {
+          font-size: 12px; color: rgba(34,21,13,0.5); margin: 2px 0 0;
+        }
+        @media (max-width: 900px) {
+          .oh-tm-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
         }
       `}</style>
 
-      <div className="tm-orb-left" />
-      <div className="tm-orb-right" />
+      <section className="oh-tm-section" id="testimonials">
+        <div className="oh-tm-inner">
+          <div className="oh-tm-header">
+            <span className="oh-tm-eyebrow">What remodelers say</span>
+            <h2 className="oh-tm-title">Real results from real contractors</h2>
+          </div>
 
-      <div className="tm-wrap">
-        <div style={{ textAlign: "center" }}>
-          <span className="tm-eyebrow">Testimonials</span>
-          <h2 className="tm-title">What contractors are saying</h2>
-          <p className="tm-sub">Real results from remodelers using FlowQualify.</p>
-        </div>
-
-        <div className="tm-grid">
-          {testimonials.map((t, i) => (
-            <figure key={i} className="tm-card" style={{ margin: 0 }}>
-              <span className="tm-quote-mark">&ldquo;</span>
-              <div className="tm-stars">
-                {Array.from({ length: t.stars }).map((_, j) => (
-                  <span key={j} className="tm-star">★</span>
-                ))}
+          <div className="oh-tm-grid">
+            {testimonials.map((t) => (
+              <div key={t.name} className="oh-tm-card">
+                <div className="oh-tm-stars">★★★★★</div>
+                <p className="oh-tm-quote">&ldquo;{t.quote}&rdquo;</p>
+                <div className="oh-tm-footer">
+                  <div className="oh-tm-avatar">{t.initials}</div>
+                  <div>
+                    <p className="oh-tm-name">{t.name}</p>
+                    <p className="oh-tm-meta">{t.title} · {t.location}</p>
+                  </div>
+                </div>
               </div>
-              <blockquote className="tm-body">
-                &ldquo;{t.body}&rdquo;
-              </blockquote>
-              <figcaption className="tm-footer">
-                <div className="tm-avatar">
-                  <Image
-                    src={t.image}
-                    alt={t.author.name}
-                    width={44}
-                    height={44}
-                    style={{ objectFit: "cover", width: "100%", height: "100%" }}
-                  />
-                </div>
-                <div>
-                  <div className="tm-name">{t.author.name}</div>
-                  <div className="tm-handle">{t.author.handle}</div>
-                </div>
-                <a
-                  href={t.author.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="tm-link"
-                >
-                  Visit website →
-                </a>
-              </figcaption>
-            </figure>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
