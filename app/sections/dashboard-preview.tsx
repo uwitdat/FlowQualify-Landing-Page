@@ -263,8 +263,6 @@ export const DashboardPreview = () => {
                 <rect x="185" y="0" width="675" height="490" fill="#0f0f0f"/>
                 <text x="205" y="28" fontSize="19" fill="#f0ebe0" fontFamily="Inter,sans-serif" fontWeight="700">Leads</text>
                 <text x="205" y="44" fontSize="9.5" fill="rgba(255,255,255,0.28)" fontFamily="Inter,sans-serif">All contacts and leads for A &amp; B Renovations</text>
-                <rect x="755" y="12" width="92" height="26" rx="6" fill="rgba(224,36,131,0.85)"/>
-                <text x="801" y="29" textAnchor="middle" fontSize="9.5" fill="white" fontFamily="Inter,sans-serif" fontWeight="600">+ Create Lead</text>
                 <rect x="205" y="54" width="642" height="26" rx="5" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.07)" strokeWidth="1"/>
                 <text x="220" y="71" fontSize="9.5" fill="rgba(255,255,255,0.18)" fontFamily="Inter,sans-serif">Search by name, email, phone, project...</text>
                 <rect x="205" y="88" width="100" height="22" rx="5" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.07)" strokeWidth="1"/>

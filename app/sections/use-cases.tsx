@@ -221,8 +221,8 @@ export default function UseCases() {
                 <text fontFamily="Georgia, 'Times New Roman', serif" fontSize="18" fill="#22150d">
                   <tspan x="8" y="62">focus on building great work—</tspan>
                 </text>
-                {/* Green natural underline under "building great work" (~x=90 to x=272) */}
-                <path d="M90,67 C118,64 152,69 192,66 C222,64 248,68 272,66"
+                {/* Green natural underline under "building great work" (~x=90 to x=240) */}
+                <path d="M90,67 C115,64 148,69 182,66 C208,64 228,68 240,66"
                   stroke="#3a7a50" strokeWidth="2" strokeLinecap="round" fill="none"/>
 
                 {/* Line 3: all dark text */}

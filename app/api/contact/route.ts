@@ -4,7 +4,7 @@ import { Resend } from "resend";
 const TO_EMAIL = "emails@flowqualify.app";
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL ?? "onboarding@resend.dev";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY ?? "");
 
 export async function POST(request: Request) {
   if (!process.env.RESEND_API_KEY) {
