@@ -12,14 +12,14 @@ const NAV_ITEMS = [
 ];
 
 const leads = [
-  { name: "Margaret Thatch", sub: "+1(416)509 2939", project: "Kitchen Renovation", budget: "$50,000–100,000", state: "Ready to Book", hv: true, date: "3/2/2026" },
-  { name: "Martine", sub: "lawmartin481@gmail.com", project: "kitchen renovation", budget: "$40,000", state: "Ready to Book", hv: true, date: "3/2/2026" },
-  { name: "Pete Lannisport", sub: "+1(647)964 3925", project: "Kitchen Renovation", budget: "$100,000–200,000", state: "Ready to Book", hv: true, date: "3/2/2026" },
-  { name: "Alia Alexander", sub: "+1(647)202 2494", project: "kitchen remodel", budget: "$18,000", state: "Qualifying", hv: false, date: "3/2/2026" },
-  { name: "Huey Lewis", sub: "+1(416)928 3923", project: "kitchen renovation", budget: "$65,000", state: "Qualifying", hv: false, date: "3/2/2026" },
-  { name: "Saul Goodman", sub: "+1(416)827 2844", project: "Basement Reno", budget: "$45,000", state: "Qualifying", hv: false, date: "3/2/2026" },
-  { name: "Hector Salamanca", sub: "+1(647)982 4939", project: "Full kitchen reno", budget: "$75,000", state: "Qualifying", hv: false, date: "3/2/2026" },
-  { name: "Dan", sub: "danspergler@gmail.com", project: "Cabinet Refacing", budget: "$20,000", state: "Ready to Book", hv: false, date: "2/25/2026" },
+  { name: "Jennifer Walsh", sub: "+1(416)509 2939", project: "Kitchen Renovation", budget: "$50,000–100,000", state: "Ready to Book", hv: true, date: "3/2/2026" },
+  { name: "Martine Webb", sub: "martine.webb@gmail.com", project: "kitchen renovation", budget: "$40,000", state: "Ready to Book", hv: true, date: "3/2/2026" },
+  { name: "David Park", sub: "+1(647)964 3925", project: "Kitchen Renovation", budget: "$100,000–200,000", state: "Ready to Book", hv: true, date: "3/2/2026" },
+  { name: "Rachel Kim", sub: "+1(647)202 2494", project: "kitchen remodel", budget: "$18,000", state: "Qualifying", hv: false, date: "3/2/2026" },
+  { name: "Michael Torres", sub: "+1(416)928 3923", project: "kitchen renovation", budget: "$65,000", state: "Qualifying", hv: false, date: "3/2/2026" },
+  { name: "Sarah Chen", sub: "+1(416)827 2844", project: "Basement Reno", budget: "$45,000", state: "Qualifying", hv: false, date: "3/2/2026" },
+  { name: "James Okonkwo", sub: "+1(647)982 4939", project: "Full kitchen reno", budget: "$75,000", state: "Qualifying", hv: false, date: "3/2/2026" },
+  { name: "Daniel Foster", sub: "daniel.foster@gmail.com", project: "Cabinet Refacing", budget: "$20,000", state: "Ready to Book", hv: false, date: "2/25/2026" },
 ];
 
 function StateBadge({ state }: { state: string }) {
@@ -171,6 +171,11 @@ export default function AppPanels() {
           .apnl-stage { height: 420px; }
           .apnl-center { height: 400px; width: 96vw; }
         }
+        @media (max-width: 645px) {
+          .apnl-stage { display: none; }
+          .apnl-section { padding: 56px 24px 48px; }
+          .apnl-header { margin-bottom: 0; }
+        }
       `}</style>
 
       <section className="apnl-section">
@@ -179,32 +184,7 @@ export default function AppPanels() {
           <h2 className="apnl-title">Every lead, every brief, every booked call —<br />one place.</h2>
           <p className="apnl-sub">
             Running on{" "}
-            <span style={{ position: "relative", display: "inline-block" }}>
-              autopilot
-              <svg
-                viewBox="0 0 82 8"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                style={{
-                  position: "absolute",
-                  left: "-2px",
-                  bottom: "-5px",
-                  width: "calc(100% + 4px)",
-                  height: "8px",
-                  overflow: "visible",
-                  pointerEvents: "none",
-                }}
-              >
-                <path
-                  d="M 1 5 C 12 2 24 7 36 4 C 48 1 60 6 72 3 C 76 2 79 3 81 4"
-                  stroke="rgb(180,83,9)"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  fill="none"
-                  opacity="0.8"
-                />
-              </svg>
-            </span>
+            <span style={{ color: "rgb(180,83,9)", fontWeight: 700 }}>autopilot</span>
             {" "}while you focus on the work.
           </p>
         </div>
@@ -234,8 +214,8 @@ export default function AppPanels() {
                 <div style={{ fontSize: 10, fontWeight: 700, color: "#0F172A", marginBottom: 9 }}>Contact Information</div>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "7px 10px" }}>
                   {[
-                    ["First Name", "Margaret"], ["Last Name", "Thatch"],
-                    ["Phone", "+1 (416) 509-2939"], ["Email", "margaret@gmail.com"],
+                    ["First Name", "Jennifer"], ["Last Name", "Walsh"],
+                    ["Phone", "+1 (416) 509-2939"], ["Email", "jennifer.walsh@gmail.com"],
                     ["City", "Toronto"], ["Postal Code", "M2M4L9"],
                     ["Assigned To", "Alex B."], ["Lead Source", "Facebook Ad"],
                   ].map(([l, v]) => (
@@ -369,12 +349,12 @@ export default function AppPanels() {
               </div>
               <div style={{ fontSize: 8.5, lineHeight: 1.55, color: "#374151" }}>
                 <div style={{ fontWeight: 700, color: "#0F172A", marginBottom: 9, fontSize: 9, padding: "6px 8px", background: "#F8FAFC", borderRadius: 5 }}>
-                  Estimator Brief — Kitchen Renovation for Margaret Thatch
+                  Estimator Brief — Kitchen Renovation for Jennifer Walsh
                 </div>
                 {[
                   {
                     title: "1. Location & Contact",
-                    items: ["Client: Margaret Thatch", "Phone: +1 (416) 509-2939", "Email: margaret@gmail.com", "City: Toronto, ON  |  Postal: M2M4L9", "📍 4.4 km from your base"],
+                    items: ["Client: Jennifer Walsh", "Phone: +1 (416) 509-2939", "Email: jennifer.walsh@gmail.com", "City: Toronto, ON  |  Postal: M2M4L9", "📍 4.4 km from your base"],
                   },
                   {
                     title: "2. Project Overview & Goals",

@@ -1,10 +1,20 @@
+const ICON_COLORS = {
+  orange: "#B45309",
+  teal: "#0D9488",
+  blue: "#2563EB",
+  green: "#16A34A",
+  violet: "#7C3AED",
+  rose: "#E11D48",
+} as const;
+
 const CARDS = [
   {
     tag: "Ad Management",
     title: "Ads That Find Buyers",
     desc: "Highly creative targeted Facebook & Instagram campaigns reaching high-intent and affluent homeowners in your area.",
+    iconColor: ICON_COLORS.orange,
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(180,83,9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={ICON_COLORS.orange} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 8.01c0-2.22-1.79-4.01-4-4.01H6L2 9l4 5h12c2.21 0 4-1.79 4-4V8.01z" />
         <line x1="6" y1="1" x2="6" y2="5" />
         <line x1="6" y1="19" x2="6" y2="23" />
@@ -17,8 +27,9 @@ const CARDS = [
     tag: "Intelligent Qualification",
     title: "Every Lead Pre-Screened",
     desc: "Budget, scope, timeline & more confirmed in natural back and forth conversation before they ever hit your calendar.",
+    iconColor: ICON_COLORS.teal,
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(180,83,9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={ICON_COLORS.teal} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
       </svg>
     ),
@@ -27,8 +38,9 @@ const CARDS = [
     tag: "Estimator Brief",
     title: "Walk In Knowing the Deal",
     desc: "A full project brief — budget, scope, risks — lands in your inbox & CRM the moment a lead qualifies.",
+    iconColor: ICON_COLORS.blue,
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(180,83,9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={ICON_COLORS.blue} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
         <polyline points="14 2 14 8 20 8" />
         <line x1="16" y1="13" x2="8" y2="13" />
@@ -40,8 +52,9 @@ const CARDS = [
     tag: "Automated Booking",
     title: "Appointments Automatically Booked",
     desc: "Qualified homeowners land on your calendar automatically. Zero back-and-forth.",
+    iconColor: ICON_COLORS.green,
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(180,83,9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={ICON_COLORS.green} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
         <line x1="16" y1="2" x2="16" y2="6" />
         <line x1="8" y1="2" x2="8" y2="6" />
@@ -54,8 +67,9 @@ const CARDS = [
     tag: "CRM",
     title: "Your Pipeline, Organized",
     desc: "Every lead tracked, scored, and prioritized. High-value prospects flagged and ready to act on.",
+    iconColor: ICON_COLORS.violet,
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(180,83,9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={ICON_COLORS.violet} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <line x1="8" y1="6" x2="21" y2="6" />
         <line x1="8" y1="12" x2="21" y2="12" />
         <line x1="8" y1="18" x2="21" y2="18" />
@@ -69,8 +83,9 @@ const CARDS = [
     tag: "Done For You",
     title: "We Handle Everything",
     desc: "Ads, Systems integration, booking, CRM — fully managed. You just show up, close the job.",
+    iconColor: ICON_COLORS.rose,
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(180,83,9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={ICON_COLORS.rose} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
         <polyline points="22 4 12 14.01 9 11.01" />
       </svg>
@@ -159,8 +174,18 @@ export default function Benchmarks() {
         <div className="bm2-grid">
           {CARDS.map((card) => (
             <div key={card.tag} className="bm2-card">
-              <div className="bm2-icon">{card.icon}</div>
-              <div className="bm2-tag">{card.tag}</div>
+              <div
+                className="bm2-icon"
+                style={{
+                  background: `${card.iconColor}18`,
+                  border: `1px solid ${card.iconColor}40`,
+                }}
+              >
+                {card.icon}
+              </div>
+              <div className="bm2-tag" style={{ color: card.iconColor }}>
+                {card.tag}
+              </div>
               <h3 className="bm2-card-title">{card.title}</h3>
               <p className="bm2-desc">{card.desc}</p>
             </div>

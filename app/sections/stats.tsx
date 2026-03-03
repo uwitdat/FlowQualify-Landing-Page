@@ -12,7 +12,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <div id="how-it-works" className="bg-background py-24 sm:py-32">
+    <div className="bg-background py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-none">
           <FadeIn>

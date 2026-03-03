@@ -114,18 +114,6 @@ export default function OptInPage() {
           >
             Apply To Work With Us!
           </button>
-          <a
-            href="/thank-you"
-            style={{
-              fontSize: "14px",
-              color: "#64748B",
-              textDecoration: "underline",
-              textUnderlineOffset: "3px",
-              cursor: "pointer",
-            }}
-          >
-            Already booked? Go to thank you page →
-          </a>
         </div>
 
       </div>
