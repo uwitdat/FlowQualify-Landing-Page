@@ -127,10 +127,9 @@ export default function Benchmarks() {
           border: 1.5px solid #E2E8F0;
           border-radius: 16px;
           background: #ffffff;
-          transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+          transition: border-color 0.2s ease, transform 0.2s ease;
         }
         .bm2-card:hover {
-          box-shadow: 0 6px 24px rgba(180,83,9,0.10);
           border-color: rgba(180,83,9,0.3);
           transform: translateY(-2px);
         }
@@ -163,7 +162,7 @@ export default function Benchmarks() {
         }
       `}</style>
 
-      <section className="bm2-section">
+      <section id="benchmarks" className="bm2-section">
         <div className="bm2-header">
           <span className="bm2-eyebrow">What We Do</span>
           <h2 className="bm2-title">

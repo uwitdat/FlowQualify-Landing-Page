@@ -2,8 +2,6 @@ import Benchmarks from "./sections/benchmarks";
 import { Hero } from "./sections/hero";
 import HowItWorks from "./sections/how-it-works";
 import Testimonials from "./sections/testimonials";
-import AppPanels from "./sections/app-panels";
-import PitchBanner from "./sections/pitch-banner";
 import DoorCta from "./sections/door-cta";
 import FadeIn from "./components/fade-in";
 import Footer from "./components/footer";
@@ -21,8 +19,6 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <PitchBanner />
-      <AppPanels />
       <StripeLayoutWrapper>
         <FadeIn>
           <HowItWorks />
