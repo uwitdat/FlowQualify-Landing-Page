@@ -9,10 +9,10 @@ import Logo from "./logo";
 import { COMPANY_NAME, BUTTON_PRIMARY, BUTTON_PRIMARY_HOVER } from "../config/constants";
 
 const navigation = [
-  { name: "How It Works", href: "#how-it-works" },
-  { name: "Results", href: "#results" },
-  { name: "Benchmarks", href: "#benchmarks" },
-  { name: "FAQ", href: "#faq" },
+  { name: "How It Works", href: "/opt-in" },
+  { name: "Results", href: "#how-it-works" },
+  { name: "What We Do", href: "#benchmarks" },
+  { name: "Testimonials", href: "#testimonials" },
 ];
 
 export default function Header() {
@@ -32,18 +32,19 @@ export default function Header() {
   const pointerEvents = opacity === 0 ? "none" : "auto";
 
   const handleMobileNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
     setMobileMenuOpen(false);
     if (href.startsWith("#")) {
+      e.preventDefault();
       window.history.pushState(null, "", href);
-    }
-    const id = href.startsWith("#") ? href.slice(1) : href;
-    const el = id ? document.getElementById(id) : null;
-    requestAnimationFrame(() => {
+      const id = href.slice(1);
+      const el = id ? document.getElementById(id) : null;
       requestAnimationFrame(() => {
-        el?.scrollIntoView({ behavior: "smooth" });
+        requestAnimationFrame(() => {
+          el?.scrollIntoView({ behavior: "smooth" });
+        });
       });
-    });
+    }
+    // else: let default navigation happen (e.g. to /opt-in)
   };
 
   return (

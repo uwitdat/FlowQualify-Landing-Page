@@ -2,8 +2,6 @@ import Benchmarks from "./sections/benchmarks";
 import { Hero } from "./sections/hero";
 import HowItWorks from "./sections/how-it-works";
 import Testimonials from "./sections/testimonials";
-import AppPanels from "./sections/app-panels";
-import PitchBanner from "./sections/pitch-banner";
 import DoorCta from "./sections/door-cta";
 import PerformanceMetrics from "./sections/performance-metrics";
 import FadeIn from "./components/fade-in";
@@ -12,6 +10,8 @@ import StripeLayoutWrapper from "./components/StripeLayoutWrapper";
 import StripeSectionWrapper from "./components/StripeSectionWrapper";
 
 import { META_DESCRIPTION } from "./config/constants";
+import PitchBanner from "./sections/pitch-banner";
+import AppPanels from "./sections/app-panels";
 //
 
 export const metadata = {

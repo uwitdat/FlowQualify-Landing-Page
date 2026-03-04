@@ -1,17 +1,18 @@
 import Link from "next/link";
-import { COMPANY_NAME } from "../config/constants";
-import { BUTTON_PRIMARY } from "../config/constants";
+import { COMPANY_NAME, BUTTON_PRIMARY } from "../config/constants";
 
 export default function Footer() {
   return (
-    <footer style={{ background: "#fff", padding: "40px 24px" }}>
+    <>
       <style>{`
         .footer-link {
           font-size: 13px; font-weight: 500; color: #64748B;
           text-decoration: none; transition: color 0.15s;
         }
-        .footer-link:hover { color: rgb(180, 83, 9); }
+        .footer-link:hover { color: ${BUTTON_PRIMARY}; }
       `}</style>
+
+      <footer style={{ background: "#fff", padding: "40px 24px" }}>
       <div style={{ maxWidth: "960px", margin: "0 auto", display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
 
         {/* Brand */}
@@ -33,5 +34,6 @@ export default function Footer() {
 
       </div>
     </footer>
+    </>
   );
 }
