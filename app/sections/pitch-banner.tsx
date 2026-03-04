@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { BUTTON_PRIMARY, HERO_PANEL_BG } from "../config/constants";
 
 const WORDS = ["successful", "driven", "high-quality", "ambitious", "results-focused"];
 const INTERVAL_MS = 900;
-const ORANGE = "rgb(180, 83, 9)";
 
 export default function PitchBanner() {
   const [index, setIndex] = useState(0);
@@ -40,31 +40,21 @@ export default function PitchBanner() {
     <>
       <style>{`
         .pb-section {
-          background: #ffffff;
-          padding: 56px 24px 60px;
-          text-align: center;
           position: relative;
+          padding: 0 0 72px;
+        }
+        .pb-curve-wrap {
+          margin: 0 8px;
           overflow: hidden;
         }
-        .pb-wave {
-          position: absolute;
-          left: 0;
+        @media (max-width: 1024px) {
+          .pb-curve-wrap { margin: 0; }
+        }
+        .pb-curve {
           width: 100%;
-          height: 32px;
-          pointer-events: none;
-          line-height: 0;
-        }
-        .pb-wave svg {
-          width: 100%;
-          height: 100%;
-          display: block;
-        }
-        .pb-wave-top {
-          top: -1px;
-        }
-        .pb-wave-bottom {
-          bottom: -1px;
-          transform: scaleY(-1);
+          position: relative;
+          background: ${HERO_PANEL_BG};
+          padding: 80px 0 80px;
         }
         .pb-content {
           position: relative;
@@ -72,6 +62,8 @@ export default function PitchBanner() {
           opacity: 0;
           transform: translateY(16px);
           transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+          text-align: center;
+          padding: 0 24px;
         }
         .pb-section.pb-in-view .pb-content {
           opacity: 1;
@@ -80,13 +72,13 @@ export default function PitchBanner() {
         .pb-text {
           font-size: clamp(26px, 4vw, 46px);
           font-weight: 800;
-          color: #0F172A;
+          color: #fff;
           letter-spacing: -0.02em;
           line-height: 1.2;
           margin: 0;
         }
         .pb-word {
-          color: ${ORANGE};
+          color: ${BUTTON_PRIMARY};
           display: inline-block;
           min-width: 1ch;
           transition: opacity 0.22s ease, transform 0.22s ease;
@@ -100,32 +92,18 @@ export default function PitchBanner() {
         ref={sectionRef}
         className={`pb-section${inView ? " pb-in-view" : ""}`}
       >
-        {/* Top wave curve */}
-        <div className="pb-wave pb-wave-top" aria-hidden>
-          <svg viewBox="0 0 1200 32" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <path
-              d="M0 16 C200 0 400 32 600 16 C800 0 1000 32 1200 16 L1200 32 L0 32 Z"
-              fill="#ffffff"
-            />
-          </svg>
-        </div>
-        {/* Bottom wave curve */}
-        <div className="pb-wave pb-wave-bottom" aria-hidden>
-          <svg viewBox="0 0 1200 32" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <path
-              d="M0 16 C200 0 400 32 600 16 C800 0 1000 32 1200 16 L1200 32 L0 32 Z"
-              fill="#ffffff"
-            />
-          </svg>
-        </div>
-        <div className="pb-content">
-          <p className="pb-text">
-            Made for{" "}
-            <span className={`pb-word${fading ? " pb-word-fade" : ""}`}>
-              {WORDS[index]}
-            </span>{" "}
-            remodelers.
-          </p>
+        <div className="pb-curve-wrap">
+          <div className="pb-curve">
+            <div className="pb-content">
+              <p className="pb-text">
+                Made for{" "}
+                <span className={`pb-word${fading ? " pb-word-fade" : ""}`}>
+                  {WORDS[index]}
+                </span>{" "}
+                remodelers.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </>

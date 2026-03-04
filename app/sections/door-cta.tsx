@@ -81,8 +81,8 @@ export default function DoorCta() {
           <line x1="132" y1="90" x2="132" y2="156" stroke="#E2E8F0" strokeWidth="1.2" />
           {/* Highlighted “booked” cell */}
           <rect x="70" y="114" width="28" height="18" rx="6" fill="rgb(180,83,9)" fillOpacity="0.18" stroke="rgb(180,83,9)" strokeWidth="1.5" />
-          {/* Checkmark */}
-          <path d="M 78 126 L 84 132 L 96 118" stroke="rgb(180,83,9)" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          {/* Checkmark — sized to sit inside cell with padding */}
+          <path d="M 75 123 L 80 128 L 93 117" stroke="rgb(180,83,9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
         </svg>
 
         <h2 className="door-cta-headline">Get started — right away.</h2>

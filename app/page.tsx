@@ -5,9 +5,11 @@ import Testimonials from "./sections/testimonials";
 import AppPanels from "./sections/app-panels";
 import PitchBanner from "./sections/pitch-banner";
 import DoorCta from "./sections/door-cta";
+import PerformanceMetrics from "./sections/performance-metrics";
 import FadeIn from "./components/fade-in";
 import Footer from "./components/footer";
 import StripeLayoutWrapper from "./components/StripeLayoutWrapper";
+import StripeSectionWrapper from "./components/StripeSectionWrapper";
 
 import { META_DESCRIPTION } from "./config/constants";
 //
@@ -21,8 +23,10 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <PitchBanner />
-      <AppPanels />
+      <StripeSectionWrapper>
+        <PitchBanner />
+        <AppPanels />
+      </StripeSectionWrapper>
       <StripeLayoutWrapper>
         <FadeIn>
           <HowItWorks />
@@ -33,6 +37,7 @@ export default function Home() {
         <FadeIn>
           <Benchmarks />
         </FadeIn>
+        <PerformanceMetrics />
         <FadeIn>
           <DoorCta />
         </FadeIn>
