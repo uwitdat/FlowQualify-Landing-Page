@@ -3,6 +3,10 @@
 import { ReactNode } from "react";
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 
+/** Smooth scroll-reveal: trigger once, engaging ease. */
+const REVEAL_EASING = "cubic-bezier(0.22, 1, 0.36, 1)";
+const REVEAL_DURATION_MS = 900;
+
 interface FadeInProps {
   children: ReactNode;
   delay?: number;
@@ -17,27 +21,26 @@ export default function FadeIn({
   direction = "up",
 }: FadeInProps) {
   const { ref, isIntersecting } = useIntersectionObserver({
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px",
+    threshold: 0.08,
+    rootMargin: "0px 0px -40px 0px",
   });
 
   const directionClasses = {
-    up: "translate-y-8",
-    down: "-translate-y-8",
-    left: "translate-x-8",
-    right: "-translate-x-8",
+    up: "translate-y-10",
+    down: "-translate-y-10",
+    left: "translate-x-10",
+    right: "-translate-x-10",
     fade: "",
   };
 
   return (
     <div
       ref={ref}
-      className={`transition-all duration-700 ease-out ${
-        isIntersecting
-          ? "opacity-100 translate-y-0 translate-x-0"
-          : `opacity-0 ${directionClasses[direction]}`
-      } ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      className={`${isIntersecting ? "opacity-100 translate-y-0 translate-x-0 scale-100" : `opacity-0 ${directionClasses[direction]} scale-[0.98]`} ${className}`}
+      style={{
+        transition: `opacity ${REVEAL_DURATION_MS}ms ${REVEAL_EASING}, transform ${REVEAL_DURATION_MS}ms ${REVEAL_EASING}`,
+        transitionDelay: `${delay}ms`,
+      }}
     >
       {children}
     </div>
