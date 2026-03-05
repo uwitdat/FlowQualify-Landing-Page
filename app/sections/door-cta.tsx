@@ -11,6 +11,21 @@ export default function DoorCta() {
           flex-direction: column;
           align-items: center;
           text-align: center;
+          position: relative;
+        }
+        .door-cta-visual {
+          position: relative;
+        }
+        @keyframes door-cta-flow {
+          0% { opacity: 0; }
+          100% { opacity: 0.6; }
+        }
+        .door-cta-pipeline-path {
+          animation: door-cta-flow 0.8s ease-out forwards;
+        }
+        .door-cta-section .door-cta-headline {
+          position: relative;
+          z-index: 1;
         }
         .door-cta-headline {
           font-size: clamp(30px, 4vw, 48px);
@@ -56,36 +71,42 @@ export default function DoorCta() {
       `}</style>
 
       <section className="door-cta-section">
-        {/* Calendar + check — qualified appointments / get started */}
+        <div className="door-cta-visual">
         <svg
-          width="200"
+          width="280"
           height="240"
-          viewBox="0 0 200 240"
+          viewBox="0 0 280 240"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           style={{ overflow: "visible" }}
         >
-          {/* Soft glow behind calendar */}
-          <ellipse cx="100" cy="115" rx="75" ry="70" fill="rgba(180,83,9,0.06)" />
-          {/* Calendar card */}
-          <rect x="45" y="50" width="110" height="130" rx="14" fill="#ffffff" stroke="#E2E8F0" strokeWidth="2" />
-          {/* Calendar header bar */}
-          <rect x="45" y="50" width="110" height="32" rx="14" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="2" strokeLinejoin="round" />
-          <rect x="49" y="54" width="102" height="24" rx="10" fill="rgb(180,83,9)" fillOpacity="0.12" />
-          {/* Grid lines — month grid */}
-          <line x1="68" y1="90" x2="132" y2="90" stroke="#E2E8F0" strokeWidth="1.2" />
-          <line x1="68" y1="112" x2="132" y2="112" stroke="#E2E8F0" strokeWidth="1.2" />
-          <line x1="68" y1="134" x2="132" y2="134" stroke="#E2E8F0" strokeWidth="1.2" />
-          <line x1="68" y1="90" x2="68" y2="156" stroke="#E2E8F0" strokeWidth="1.2" />
-          <line x1="100" y1="90" x2="100" y2="156" stroke="#E2E8F0" strokeWidth="1.2" />
-          <line x1="132" y1="90" x2="132" y2="156" stroke="#E2E8F0" strokeWidth="1.2" />
-          {/* Highlighted “booked” cell */}
-          <rect x="70" y="114" width="28" height="18" rx="6" fill="rgb(180,83,9)" fillOpacity="0.18" stroke="rgb(180,83,9)" strokeWidth="1.5" />
-          {/* Checkmark — sized to sit inside cell with padding */}
-          <path d="M 75 123 L 80 128 L 93 117" stroke="rgb(180,83,9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          <ellipse cx="185" cy="115" rx="75" ry="70" fill="rgba(180,83,9,0.06)" />
+            <g fill="rgba(180,83,9,0.15)" stroke="rgb(180,83,9)" strokeWidth="1.2">
+              <circle cx="32" cy="75" r="12" />
+              <circle cx="32" cy="115" r="12" />
+              <circle cx="32" cy="155" r="12" />
+            </g>
+            <path d="M 48 75 Q 70 95 90 115 L 125 115" stroke="rgb(180,83,9)" strokeWidth="2" strokeDasharray="6 4" strokeLinecap="round" fill="none" opacity="0.5" className="door-cta-pipeline-path" />
+            <path d="M 48 115 L 125 115" stroke="rgb(180,83,9)" strokeWidth="2" strokeDasharray="6 4" strokeLinecap="round" fill="none" opacity="0.5" className="door-cta-pipeline-path" style={{ animationDelay: "0.15s" }} />
+            <path d="M 48 155 Q 70 135 90 115 L 125 115" stroke="rgb(180,83,9)" strokeWidth="2" strokeDasharray="6 4" strokeLinecap="round" fill="none" opacity="0.5" className="door-cta-pipeline-path" style={{ animationDelay: "0.3s" }} />
+            <rect x="125" y="50" width="110" height="130" rx="14" fill="#ffffff" stroke="#E2E8F0" strokeWidth="2" />
+            <rect x="125" y="50" width="110" height="32" rx="14" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="2" strokeLinejoin="round" />
+            <rect x="129" y="54" width="102" height="24" rx="10" fill="rgb(180,83,9)" fillOpacity="0.12" />
+            <line x1="148" y1="90" x2="212" y2="90" stroke="#E2E8F0" strokeWidth="1.2" />
+            <line x1="148" y1="112" x2="212" y2="112" stroke="#E2E8F0" strokeWidth="1.2" />
+            <line x1="148" y1="134" x2="212" y2="134" stroke="#E2E8F0" strokeWidth="1.2" />
+            <line x1="148" y1="90" x2="148" y2="156" stroke="#E2E8F0" strokeWidth="1.2" />
+            <line x1="180" y1="90" x2="180" y2="156" stroke="#E2E8F0" strokeWidth="1.2" />
+            <line x1="212" y1="90" x2="212" y2="156" stroke="#E2E8F0" strokeWidth="1.2" />
+            <rect x="150" y="114" width="28" height="18" rx="6" fill="rgb(180,83,9)" fillOpacity="0.18" stroke="rgb(180,83,9)" strokeWidth="1.5" />
+            <path d="M 155 123 L 160 128 L 173 117" stroke="rgb(180,83,9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
         </svg>
+        </div>
 
         <h2 className="door-cta-headline">Get started — right away.</h2>
+        <p className="door-cta-sub">
+          Tell us about your business. We'll reach out within 24 hours to see if we're a fit.
+        </p>
         <a href="/opt-in" className="door-cta-btn">
           Apply To Work With Us
           <span className="door-cta-arrow">→</span>

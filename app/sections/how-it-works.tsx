@@ -75,6 +75,17 @@ function renderParagraph(
   return nodes;
 }
 
+/** Full text for layout (invisible) so height is reserved and no jerk on scroll. */
+function renderFullParagraph(parts: { text: string; style?: React.CSSProperties }[]) {
+  return parts.map((part, i) =>
+    part.style ? (
+      <span key={i} style={part.style}>{part.text}</span>
+    ) : (
+      part.text
+    )
+  );
+}
+
 export default function HowItWorks() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
@@ -126,7 +137,18 @@ export default function HowItWorks() {
         }
         .hiw2-body {
           width: 100%;
-          min-height: 200px;
+          position: relative;
+        }
+        .hiw2-body-layout {
+          visibility: hidden;
+          width: 100%;
+          pointer-events: none;
+        }
+        .hiw2-body-visible {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
         }
         .hiw2-p1 {
           font-size: clamp(24px, 3vw, 42px);
@@ -143,18 +165,6 @@ export default function HowItWorks() {
           line-height: 1.25;
           letter-spacing: -0.028em;
           margin: 0;
-        }
-        .hiw2-cursor {
-          display: inline-block;
-          width: 3px;
-          height: 0.9em;
-          background: #0F172A;
-          margin-left: 2px;
-          vertical-align: text-bottom;
-          animation: hiw2-blink 0.9s step-end infinite;
-        }
-        @keyframes hiw2-blink {
-          50% { opacity: 0; }
         }
         @media (max-width: 540px) {
           .hiw2-section { padding: 60px 18px; }
@@ -179,19 +189,20 @@ export default function HowItWorks() {
         </div>
         <div className="hiw2-wrap">
           <div className="hiw2-body">
-            <p className="hiw2-p1">
-              {inView ? renderParagraph(P1_PARTS, visibleChars, 0) : null}
-              {visibleChars > 0 && visibleChars <= p1Len && visibleChars < totalChars && (
-                <span className="hiw2-cursor" aria-hidden />
-              )}
-            </p>
-
-            <p className="hiw2-main">
-              {inView ? renderParagraph(P2_PARTS, visibleChars, p2Start) : null}
-              {(visibleChars > p1Len && visibleChars < totalChars) || (visibleChars >= totalChars && totalChars > 0) ? (
-                <span className="hiw2-cursor" aria-hidden />
-              ) : null}
-            </p>
+            {/* Invisible full text reserves height so typewriter doesn't cause layout shift */}
+            <div className="hiw2-body-layout" aria-hidden>
+              <p className="hiw2-p1">{renderFullParagraph(P1_PARTS)}</p>
+              <p className="hiw2-main">{renderFullParagraph(P2_PARTS)}</p>
+            </div>
+            {/* Visible typewriter layer overlaid in same space */}
+            <div className="hiw2-body-visible">
+              <p className="hiw2-p1">
+                {inView ? renderParagraph(P1_PARTS, visibleChars, 0) : null}
+              </p>
+              <p className="hiw2-main">
+                {inView ? renderParagraph(P2_PARTS, visibleChars, p2Start) : null}
+              </p>
+            </div>
           </div>
         </div>
       </section>

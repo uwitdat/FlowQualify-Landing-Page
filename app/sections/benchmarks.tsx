@@ -1,3 +1,7 @@
+"use client";
+
+import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
+
 const ICON_COLORS = {
   orange: "#B45309",
   teal: "#0D9488",
@@ -93,7 +97,15 @@ const CARDS = [
   },
 ];
 
+const STAGGER_MS = 70;
+const REVEAL_EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
+
 export default function Benchmarks() {
+  const { ref, isIntersecting } = useIntersectionObserver({
+    threshold: 0.1,
+    rootMargin: "0px 0px -60px 0px",
+  });
+
   return (
     <>
       <style>{`
@@ -104,6 +116,22 @@ export default function Benchmarks() {
         .bm2-header {
           text-align: center;
           margin-bottom: 52px;
+          opacity: 0;
+          transform: translateY(24px);
+          transition: opacity 0.75s ${REVEAL_EASE}, transform 0.75s ${REVEAL_EASE};
+        }
+        .bm2-section.bm2-revealed .bm2-header {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .bm2-card-reveal {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.6s ${REVEAL_EASE}, transform 0.6s ${REVEAL_EASE};
+        }
+        .bm2-section.bm2-revealed .bm2-card-reveal {
+          opacity: 1;
+          transform: translateY(0);
         }
         .bm2-eyebrow {
           font-size: 11px; font-weight: 800; letter-spacing: 0.1em;
@@ -162,7 +190,7 @@ export default function Benchmarks() {
         }
       `}</style>
 
-      <section id="benchmarks" className="bm2-section">
+      <section id="benchmarks" className={`bm2-section${isIntersecting ? " bm2-revealed" : ""}`} ref={ref}>
         <div className="bm2-header">
           <span className="bm2-eyebrow">What We Do</span>
           <h2 className="bm2-title">
@@ -171,22 +199,28 @@ export default function Benchmarks() {
         </div>
 
         <div className="bm2-grid">
-          {CARDS.map((card) => (
-            <div key={card.tag} className="bm2-card">
-              <div
-                className="bm2-icon"
-                style={{
-                  background: `${card.iconColor}18`,
-                  border: `1px solid ${card.iconColor}40`,
-                }}
-              >
-                {card.icon}
+          {CARDS.map((card, index) => (
+            <div
+              key={card.tag}
+              className="bm2-card-reveal"
+              style={{ transitionDelay: isIntersecting ? `${120 + index * STAGGER_MS}ms` : "0ms" }}
+            >
+              <div className="bm2-card">
+                <div
+                  className="bm2-icon"
+                  style={{
+                    background: `${card.iconColor}18`,
+                    border: `1px solid ${card.iconColor}40`,
+                  }}
+                >
+                  {card.icon}
+                </div>
+                <div className="bm2-tag" style={{ color: card.iconColor }}>
+                  {card.tag}
+                </div>
+                <h3 className="bm2-card-title">{card.title}</h3>
+                <p className="bm2-desc">{card.desc}</p>
               </div>
-              <div className="bm2-tag" style={{ color: card.iconColor }}>
-                {card.tag}
-              </div>
-              <h3 className="bm2-card-title">{card.title}</h3>
-              <p className="bm2-desc">{card.desc}</p>
             </div>
           ))}
         </div>

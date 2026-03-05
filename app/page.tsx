@@ -34,14 +34,16 @@ export default function Home() {
         <FadeIn>
           <Testimonials />
         </FadeIn>
+        <Benchmarks />
         <FadeIn>
-          <Benchmarks />
+          <PerformanceMetrics />
         </FadeIn>
-        <PerformanceMetrics />
         <FadeIn>
           <DoorCta />
         </FadeIn>
-        <Footer />
+        <FadeIn delay={100}>
+          <Footer />
+        </FadeIn>
       </StripeLayoutWrapper>
     </main>
   );
