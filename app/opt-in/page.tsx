@@ -58,7 +58,7 @@ export default function OptInPage() {
         </h2>
 
         {/* Closing line */}
-        <p style={{ textAlign: "center", fontSize: "15px", color: "#64748B", lineHeight: 1.6, margin: "0 auto 28px", maxWidth: "540px" }}>
+        <p style={{ textAlign: "center", fontSize: "clamp(16px, 2.2vw, 22px)", color: "#0F172A", lineHeight: 1.6, margin: "0 auto 28px", maxWidth: "540px" }}>
           Most marketing agencies hand you a lead and leave you to figure out the rest. We built something different. See how it works below.
         </p>
 
@@ -81,7 +81,7 @@ export default function OptInPage() {
         >
           <video
             ref={videoRef}
-            src={process.env.NEXT_PUBLIC_VIDEO_MAIN || "/videos/MainVideo.mp4"}
+            src={process.env.NEXT_PUBLIC_VIDEO_MAIN || "/videos/FlowMainVideo.mp4"}
             style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
             controls
             autoPlay
