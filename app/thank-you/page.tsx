@@ -116,6 +116,24 @@ export default function ThankYouPage() {
         }
         .ty-page { animation: ty-fade-up 0.5s ease both; }
 
+        /* ── Email confirmation banner ── */
+        .ty-email-banner {
+          background: #ecfdf5;
+          border: 1px solid #a7f3d0;
+          border-radius: 9999px;
+          padding: 14px 24px;
+          text-align: center;
+          font-size: 15px;
+          font-weight: 600;
+          color: #166534;
+          margin: 0 auto;
+          max-width: 560px;
+          box-sizing: border-box;
+        }
+        @media (max-width: 600px) {
+          .ty-email-banner { font-size: 14px; padding: 12px 20px; }
+        }
+
         /* ── Hero ── */
         .ty-hero {
           background: #ffffff;
@@ -349,6 +367,13 @@ export default function ThankYouPage() {
         {/* ── Body ── */}
         <div className="ty-body">
 
+          {/* Email sent — confirm in inbox */}
+          <div style={{ marginBottom: "24px" }}>
+            <p className="ty-email-banner" role="status">
+              Email sent. Check your inbox for an email with all the details — confirm your appointment there.
+            </p>
+          </div>
+
           <div className="ty-callout">
             <span style={{ fontSize: "20px" }}>📋</span>
             <span className="ty-callout-text">A quick overview before our call — takes 2 minutes to read.</span>
@@ -428,11 +453,6 @@ export default function ThankYouPage() {
           </div>
 
           <hr className="ty-hr" />
-
-          {/* ── 15-Minute Call ── */}
-          <div className="ty-section">
-            <img src="/15minute.png" alt="What to Expect on Your 15-Minute Call" className="ty-diagram" style={{ borderRadius: "14px" }} />
-          </div>
 
           {/* Blue callout */}
           <div className="ty-callout ty-callout-blue" style={{ marginBottom: "64px" }}>
