@@ -57,11 +57,6 @@ export default function OptInPage() {
           Get <span style={{ color: BUTTON_PRIMARY }}>15–25</span> Qualified Appointments Every Month — No Chasing. No Monthly Fees. No Contracts
         </h2>
 
-        {/* Paragraph */}
-        <p style={{ textAlign: "center", fontSize: "16px", color: "#64748B", lineHeight: 1.6, margin: "0 auto 16px", maxWidth: "560px" }}>
-          Every homeowner is qualified and warmed up before they ever reach you — you walk into every call with their scope, budget, timeline, photos & more already in hand.
-        </p>
-
         {/* Closing line */}
         <p style={{ textAlign: "center", fontSize: "15px", color: "#64748B", lineHeight: 1.6, margin: "0 auto 28px", maxWidth: "540px" }}>
           Most marketing agencies hand you a lead and leave you to figure out the rest. We built something different. See how it works below.
