@@ -41,7 +41,7 @@ export default function OptInPage() {
           textTransform: "uppercase",
           margin: "0 0 14px",
         }}>
-          Kitchen &amp; Bath Remodelers Doing $1M+/Year
+          Attention: Kitchen &amp; Bath Remodelers
         </p>
 
         {/* Subheadline */}
