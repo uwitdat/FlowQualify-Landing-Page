@@ -20,6 +20,7 @@ const files = [
   { path: "public/videos/demo-1.mp4", name: "videos/demo-1.mp4", env: "NEXT_PUBLIC_VIDEO_DEMO_1" },
   { path: "public/videos/demo-2.mp4", name: "videos/demo-2.mp4", env: "NEXT_PUBLIC_VIDEO_DEMO_2" },
   { path: "public/videos/FlowMainVideo.mp4", name: "videos/FlowMainVideo.mp4", env: "NEXT_PUBLIC_VIDEO_MAIN" },
+  { path: "public/videos/thank-you.mp4", name: "videos/thank-you.mp4", env: "NEXT_PUBLIC_VIDEO_THANK_YOU" },
   { path: "public/videos/chat.mp4", name: "videos/chat.mp4", env: "NEXT_PUBLIC_VIDEO_CHAT" },
 ];
 

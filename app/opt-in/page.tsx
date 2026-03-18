@@ -54,12 +54,12 @@ export default function OptInPage() {
           margin: "0 auto 20px",
           maxWidth: "640px",
         }}>
-          Get <span style={{ color: BUTTON_PRIMARY }}>15–25</span> Qualified Appointments Every Month — No Chasing. No Monthly Fees. No Contracts
+          Get <span style={{ color: BUTTON_PRIMARY }}>15–25</span> Qualified Appointments Every Month — No Contracts. No Monthly Fees.
         </h2>
 
         {/* Closing line */}
-        <p style={{ textAlign: "center", fontSize: "clamp(16px, 2.2vw, 22px)", color: "#0F172A", lineHeight: 1.6, margin: "0 auto 28px", maxWidth: "540px" }}>
-          Most marketing agencies hand you a lead and leave you to figure out the rest. We built something different. See how it works below.
+        <p style={{ textAlign: "center", fontSize: "clamp(20px, 2.8vw, 28px)", fontWeight: 800, color: "#0F172A", lineHeight: 1.3, margin: "0 auto 28px", maxWidth: "640px" }}>
+          Most marketing agencies hand you a lead and leave you to figure out the rest. We built something different.
         </p>
 
         {/* Step indicator */}

@@ -374,6 +374,19 @@ export default function ThankYouPage() {
             </p>
           </div>
 
+          {/* Thank-you video */}
+          <div style={{ marginBottom: "32px", borderRadius: "14px", overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,0.1)", border: "1px solid #E2E8F0" }}>
+            <video
+              src={process.env.NEXT_PUBLIC_VIDEO_THANK_YOU || "/videos/thank-you.mp4"}
+              controls
+              autoPlay
+              playsInline
+              preload="metadata"
+              style={{ display: "block", width: "100%", aspectRatio: "16/9", objectFit: "cover" }}
+              aria-label="Thank you video"
+            />
+          </div>
+
           <div className="ty-callout">
             <span style={{ fontSize: "20px" }}>📋</span>
             <span className="ty-callout-text">A quick overview before our call — takes 2 minutes to read.</span>
