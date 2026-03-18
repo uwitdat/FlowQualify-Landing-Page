@@ -95,7 +95,7 @@ export default function ThankYouPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div style={{ minHeight: "100vh", background: "#ffffff", fontFamily: "system-ui, -apple-system, sans-serif" }}>
+    <div style={{ minHeight: "100vh", background: "#ffffff", fontFamily: "var(--font-plus-jakarta), system-ui, sans-serif" }}>
       <style>{`
         @keyframes ty-fade-up {
           from { opacity: 0; transform: translateY(16px); }
@@ -138,37 +138,42 @@ export default function ThankYouPage() {
         .ty-hero {
           background: #ffffff;
           border-bottom: 1px solid #F1F5F9;
-          padding: 72px 24px 68px;
+          padding: 64px 24px 40px;
           text-align: center;
           position: relative;
           overflow: hidden;
         }
         .ty-hero-glow {
           position: absolute; inset: 0; pointer-events: none;
-          background: radial-gradient(ellipse 55% 60% at 50% 0%, rgba(180,83,9,0.07) 0%, transparent 70%);
+          background: radial-gradient(ellipse 60% 55% at 50% 0%, rgba(180,83,9,0.06) 0%, transparent 70%);
         }
-        .ty-hero-check {
-          width: 72px; height: 72px; border-radius: 50%;
-          background: rgb(180,83,9);
-          display: inline-flex; align-items: center; justify-content: center;
-          margin-bottom: 24px;
-          animation: ty-check-pop 0.55s cubic-bezier(0.34,1.56,0.64,1) 0.1s both, ty-float 3s ease-in-out 0.7s infinite;
-          box-shadow: 0 0 0 12px rgba(180,83,9,0.1), 0 0 0 24px rgba(180,83,9,0.05);
+        .ty-hero-badge {
+          display: inline-flex; align-items: center; gap: 7px;
+          background: #F0FDF4; border: 1px solid #86EFAC;
+          border-radius: 100px; padding: 6px 16px;
+          font-size: 13px; font-weight: 700; color: #166534;
+          margin-bottom: 28px;
+          animation: ty-check-pop 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
+        }
+        .ty-hero-badge-dot {
+          width: 7px; height: 7px; border-radius: 50%;
+          background: #22c55e; flex-shrink: 0;
+          box-shadow: 0 0 0 3px rgba(34,197,94,0.2);
         }
         .ty-hero-eyebrow {
           display: block;
-          font-size: clamp(44px, 7vw, 72px);
+          font-size: clamp(52px, 8vw, 80px);
           font-weight: 900;
           color: #0F172A;
-          letter-spacing: -0.035em;
-          line-height: 1.05;
+          letter-spacing: -0.04em;
+          line-height: 1.0;
           margin-bottom: 8px;
           position: relative;
         }
         .ty-hero-eyebrow-wrap {
           display: inline-block;
           position: relative;
-          margin-bottom: 20px;
+          margin-bottom: 24px;
         }
         .ty-hero-eyebrow-underline {
           position: absolute;
@@ -179,31 +184,30 @@ export default function ThankYouPage() {
           pointer-events: none;
         }
         .ty-hero-h1 {
-          font-size: clamp(18px, 2.5vw, 24px);
-          font-weight: 600;
+          font-size: clamp(17px, 2.2vw, 22px);
+          font-weight: 500;
           color: #64748B;
           letter-spacing: -0.01em;
-          line-height: 1.4;
-          margin: 16px auto 0;
-          max-width: 480px;
+          line-height: 1.5;
+          margin: 20px auto 0;
+          max-width: 440px;
         }
-        .ty-hero-h1 span { color: rgb(180,83,9); font-weight: 700; }
-        .ty-hero-chips {
+        .ty-hero-h1 strong { color: #0F172A; font-weight: 700; }
+        .ty-hero-steps {
           display: flex; align-items: center; justify-content: center;
-          gap: 10px; margin-top: 28px; flex-wrap: wrap;
+          gap: 8px; margin-top: 32px; flex-wrap: wrap;
         }
-        .ty-hero-chip {
-          display: inline-flex; align-items: center; gap: 6px;
+        .ty-hero-step {
+          display: inline-flex; align-items: center; gap: 7px;
           background: #F8FAFC; border: 1px solid #E2E8F0;
-          border-radius: 100px; padding: 6px 16px;
-          font-size: 12px; font-weight: 600; color: #64748B;
+          border-radius: 100px; padding: 7px 16px;
+          font-size: 12.5px; font-weight: 600; color: #475569;
         }
-        .ty-hero-chip-dot { width: 6px; height: 6px; border-radius: 50%; background: rgb(180,83,9); flex-shrink: 0; }
-
-        /* ── Sparkle decorations ── */
-        .ty-sparkle {
-          position: absolute; pointer-events: none;
-          animation: ty-sparkle 2.8s ease-in-out infinite;
+        .ty-hero-step-check {
+          width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0;
+          background: rgb(180,83,9); color: #fff;
+          display: inline-flex; align-items: center; justify-content: center;
+          font-size: 9px; font-weight: 900;
         }
 
         .ty-body  { max-width: 780px; margin: 0 auto; padding: 56px 24px 96px; }
@@ -299,34 +303,19 @@ export default function ThankYouPage() {
           {/* Glow layer */}
           <div className="ty-hero-glow" />
 
-          {/* Sparkle decorations */}
-          <svg className="ty-sparkle" style={{ top: "18%", left: "12%", animationDelay: "0s" }} width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M10 1 L11.5 8.5 L19 10 L11.5 11.5 L10 19 L8.5 11.5 L1 10 L8.5 8.5 Z" fill="rgb(180,83,9)" opacity="0.35" />
-          </svg>
-          <svg className="ty-sparkle" style={{ top: "25%", right: "10%", animationDelay: "0.9s" }} width="14" height="14" viewBox="0 0 20 20" fill="none">
-            <path d="M10 1 L11.5 8.5 L19 10 L11.5 11.5 L10 19 L8.5 11.5 L1 10 L8.5 8.5 Z" fill="rgb(180,83,9)" opacity="0.25" />
-          </svg>
-          <svg className="ty-sparkle" style={{ bottom: "20%", left: "18%", animationDelay: "1.6s" }} width="10" height="10" viewBox="0 0 20 20" fill="none">
-            <path d="M10 1 L11.5 8.5 L19 10 L11.5 11.5 L10 19 L8.5 11.5 L1 10 L8.5 8.5 Z" fill="#0F172A" opacity="0.12" />
-          </svg>
-          <svg className="ty-sparkle" style={{ bottom: "28%", right: "16%", animationDelay: "0.5s" }} width="12" height="12" viewBox="0 0 20 20" fill="none">
-            <path d="M10 1 L11.5 8.5 L19 10 L11.5 11.5 L10 19 L8.5 11.5 L1 10 L8.5 8.5 Z" fill="#0F172A" opacity="0.1" />
-          </svg>
-
-          {/* Check icon */}
+          {/* Confirmed badge */}
           <div>
-            <div className="ty-hero-check">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
+            <div className="ty-hero-badge">
+              <span className="ty-hero-badge-dot" />
+              Call Confirmed
             </div>
           </div>
 
-          {/* Eyebrow — big celebratory heading */}
+          {/* Main heading */}
           <div>
             <div className="ty-hero-eyebrow-wrap">
               <div className="ty-hero-eyebrow">
-                🎯 You&apos;re Booked
+                You&apos;re In.
               </div>
               {/* Hand-drawn orange underline */}
               <svg
@@ -358,8 +347,8 @@ export default function ThankYouPage() {
 
           {/* Subtitle */}
           <h1 className="ty-hero-h1">
-            Here&apos;s What You&apos;re{" "}
-            <span>Getting Into</span>
+            Here&apos;s what to expect{" "}
+            <strong>before our call.</strong>
           </h1>
 
         </div>
@@ -375,7 +364,7 @@ export default function ThankYouPage() {
           </div>
 
           {/* Thank-you video */}
-          <div style={{ marginBottom: "32px", borderRadius: "14px", overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,0.1)", border: "1px solid #E2E8F0" }}>
+          <div style={{ marginBottom: "40px", borderRadius: "14px", overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,0.1)", border: "1px solid #E2E8F0" }}>
             <video
               src={process.env.NEXT_PUBLIC_VIDEO_THANK_YOU || "/videos/thank-you.mp4"}
               controls
@@ -387,92 +376,9 @@ export default function ThankYouPage() {
             />
           </div>
 
-          <div className="ty-callout">
-            <span style={{ fontSize: "20px" }}>📋</span>
-            <span className="ty-callout-text">A quick overview before our call — takes 2 minutes to read.</span>
-          </div>
-
-          <hr className="ty-hr" />
-
-          {/* ── Section 1: Old Agency Approach ── */}
-          <div className="ty-section">
-            <h2>The Old Traditional Agency Approach (and Why It Fails)</h2>
-            <p style={{ color: "#64748B" }}>Most contractors have tried marketing before. Here&apos;s why it didn&apos;t work.</p>
-            <img src="/TLF.png" alt="Traditional Lead Form diagram" className="ty-diagram" />
-            <p style={{ marginTop: "24px" }}>
-              Here&apos;s what that &ldquo;Old Way&rdquo; actually looks like — a multi-step form homeowners are sent after clicking an ad:
-            </p>
-            <p style={{ fontWeight: 700, color: "#0F172A", marginBottom: "8px" }}>The Old Way:</p>
-            <ul className="ty-old-list">
-              <li>Homeowner clicks your ad and hits a generic form</li>
-              <li>Most don&apos;t finish it or give you almost no info</li>
-              <li>You follow up hours later with <strong>no rapport</strong> and a cold lead</li>
-              <li>They&apos;ve usually talked to someone else or forgotten the inquiry</li>
-              <li>You still paid for the click but never got a real chance at the job</li>
-            </ul>
-            <div style={{ marginTop: "20px", padding: "14px 18px", background: "#FEF2F2", borderLeft: "4px solid #EF4444", borderRadius: "0 8px 8px 0" }}>
-              <p style={{ margin: 0, fontSize: "15px", color: "#7F1D1D", fontWeight: 600 }}>
-                Cold forms create cold leads — no rapport and no natural engagement built.
-              </p>
-            </div>
-          </div>
-
-          <hr className="ty-hr" />
-
-          {/* ── Section 2: How FlowQualify Fixes This ── */}
-          <div className="ty-section">
-            <h2>How FlowQualify Fixes This</h2>
+          {/* Full System Flow diagram */}
+          <div style={{ marginBottom: "48px" }}>
             <img src="/FSF.png" alt="Full System Flow diagram" className="ty-diagram" />
-            <p style={{ marginTop: "20px" }}>
-              When a homeowner clicks your ad, Messenger opens instantly — no form, no landing page.
-            </p>
-            <p>
-              Over 70% of homeowners prefer messaging over filling out forms when reaching out to a contractor for the first time — especially through paid ads.
-            </p>
-            <p>
-              Our system responds accordingly, qualifies them on project type, budget, timeline, and photos, then{" "}
-              <strong>books them directly to your calendar and sends you confirmation.</strong>
-            </p>
-          </div>
-
-          <hr className="ty-hr" />
-
-          {/* ── Section 3: Messenger Qualification ── */}
-          <div className="ty-section">
-            <h2>Qualification / Intelligent Conversation through DMs</h2>
-            <img src="/messenger-edited.png" alt="Messenger qualification conversation" className="ty-diagram" />
-            <p className="ty-diagram-caption">This is what real qualification looks like — a natural conversation that builds rapport, gathers details, and warms the homeowner before you get involved.</p>
-            <p style={{ marginTop: "20px" }}>
-              When the chat ends, our system turns the whole conversation into an{" "}
-              <strong>Estimator Brief</strong> sent to your email and uploaded into our CRM — scope, budget, timeline, photos, and notes. You walk in prepared.
-            </p>
-          </div>
-
-          <hr className="ty-hr" />
-
-          {/* ── Section 4: Estimator Brief ── */}
-          <div className="ty-section">
-            <h2>Lead Details Sent to Your Email</h2>
-            <img src="/estimatorbrief.png" alt="Estimator Brief" className="ty-diagram" />
-            <p className="ty-diagram-caption">A detailed, structured, ready-to-use estimator brief covering scope, budget, materials, risks, measurements, and next steps — all done automatically.</p>
-            <p style={{ marginTop: "20px" }}>
-              Every lead, conversation, estimator brief, photo, and project detail is{" "}
-              <strong>automatically organized inside your custom CRM</strong>. You can see every lead that comes through — qualified or unqualified — and revisit them anytime.
-            </p>
-            <p>
-              The good leads — the ones ready to book — get dropped right onto your calendar with <strong>all their project details sent to your email.</strong>
-            </p>
-            <p style={{ fontWeight: 800, color: "#0F172A" }}>You are not doing any of this manually.</p>
-          </div>
-
-          <hr className="ty-hr" />
-
-          {/* Blue callout */}
-          <div className="ty-callout ty-callout-blue" style={{ marginBottom: "64px" }}>
-            <span style={{ fontSize: "20px" }}>📅</span>
-            <span className="ty-callout-text">
-              We&apos;ll walk through exactly how this applies to your market on the call. See you then.
-            </span>
           </div>
 
           <hr className="ty-hr" />

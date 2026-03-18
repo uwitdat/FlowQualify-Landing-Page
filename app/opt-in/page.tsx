@@ -34,14 +34,21 @@ export default function OptInPage() {
         {/* Headline */}
         <p style={{
           textAlign: "center",
-          fontSize: "clamp(13px, 1.4vw, 15px)",
-          fontWeight: 700,
-          color: "#64748B",
-          letterSpacing: "0.1em",
+          fontSize: "clamp(18px, 2.5vw, 26px)",
+          fontWeight: 900,
+          color: "#0F172A",
+          letterSpacing: "-0.01em",
           textTransform: "uppercase",
-          margin: "0 0 14px",
+          margin: "0 0 16px",
+          animation: "pulse-attention 2s ease-in-out infinite",
         }}>
-          Attention: Kitchen &amp; Bath Remodelers
+          <style>{`
+            @keyframes pulse-attention {
+              0%, 100% { opacity: 1; transform: scale(1); }
+              50% { opacity: 0.85; transform: scale(1.02); }
+            }
+          `}</style>
+          🚨 Attention: Kitchen &amp; Bath Remodelers
         </p>
 
         {/* Subheadline */}
