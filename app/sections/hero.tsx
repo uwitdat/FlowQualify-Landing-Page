@@ -336,7 +336,7 @@ export const Hero = () => {
             <div className="hero-left-content">
               <p className="hero-tagline" style={{ color: ACCENT_SECONDARY }}>
                 <CheckBadgeIcon aria-hidden />
-                Done-for-you booked appointments for remodelers
+                Only Pay per Qualified Appointment
               </p>
               <h1 className="hero-h1">
                 Fill your calendar with{" "}

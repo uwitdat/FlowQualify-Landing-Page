@@ -154,6 +154,9 @@ export default function OptInPage() {
           >
             Apply To Work With Us!
           </button>
+
+          {/* Trust badge */}
+          <span style={{ fontSize: "13px", fontWeight: 600, color: "#64748B", marginTop: "4px" }}>✓ Only Pay per Qualified Appointment</span>
         </div>
 
       </div>
