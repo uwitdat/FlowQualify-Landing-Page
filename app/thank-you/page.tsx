@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Script from "next/script";
 import { BUTTON_PRIMARY } from "../config/constants";
 
 const faqs: { question: string; answer: React.ReactNode }[] = [

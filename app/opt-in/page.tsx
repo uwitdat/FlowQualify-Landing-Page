@@ -129,7 +129,7 @@ export default function OptInPage() {
         {/* CTA buttons */}
         <div style={{ textAlign: "center", paddingBottom: "20px", display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
           <button
-            data-iclosed-link="https://app.iclosed.io/e/FlowQualify/15-min-phone-call-free-project-generation-call"
+            data-iclosed-link="https://app.iclosed.io/e/FlowQualify/strategy-call-see-if-flowqualify-is-a-fit"
             data-embed-type="popup"
             style={{
               display: "inline-block",
