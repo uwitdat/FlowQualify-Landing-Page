@@ -27,8 +27,8 @@ function StateBadge({ state }: { state: string }) {
   return (
     <span style={{
       fontSize: 8, fontWeight: 700, padding: "2px 6px", borderRadius: 20,
-      background: ready ? "#DBEAFE" : "#FEF9C3",
-      color: ready ? "#1D4ED8" : "#92400E",
+      background: ready ? "rgb(219, 234, 254)" : "rgb(254, 249, 195)",
+      color: ready ? "rgb(29, 78, 216)" : "rgb(146, 64, 14)",
       whiteSpace: "nowrap",
     }}>{state}</span>
   );
@@ -38,14 +38,14 @@ function Sidebar() {
   return (
     <div style={{
       width: 128, flexShrink: 0,
-      borderRight: "1px solid #E2E8F0",
-      background: "#fff",
+      borderRight: "1px solid rgb(226, 232, 240)",
+      background: "rgb(255, 255, 255)",
       display: "flex", flexDirection: "column",
       padding: "0",
       overflow: "hidden",
     }}>
       {/* Logo */}
-      <div style={{ padding: "11px 10px 10px", borderBottom: "1px solid #F1F5F9" }}>
+      <div style={{ padding: "11px 10px 10px", borderBottom: "1px solid rgb(241, 245, 249)" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
           <div style={{ width: 16, height: 16, borderRadius: 4, background: "rgb(180,83,9)", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <svg width="9" height="9" viewBox="0 0 24 24" fill="white"><circle cx="12" cy="12" r="9" stroke="white" strokeWidth="2" fill="none"/><circle cx="12" cy="12" r="4" fill="white"/></svg>
@@ -54,7 +54,7 @@ function Sidebar() {
         </div>
       </div>
       {/* Back arrow */}
-      <div style={{ padding: "6px 10px 2px", fontSize: 12, color: "#94A3B8", cursor: "pointer" }}>‹</div>
+      <div style={{ padding: "6px 10px 2px", fontSize: 12, color: "rgb(148, 163, 184)", cursor: "pointer" }}>‹</div>
       {/* Nav items */}
       <div style={{ flex: 1 }}>
         {NAV_ITEMS.map(item => (
@@ -62,7 +62,7 @@ function Sidebar() {
             padding: "6px 10px",
             fontSize: 9.5,
             fontWeight: item.active ? 700 : 400,
-            color: item.active ? "rgb(180,83,9)" : "#374151",
+            color: item.active ? "rgb(180,83,9)" : "rgb(55, 65, 81)",
             background: item.active ? "rgba(180,83,9,0.06)" : "transparent",
             borderLeft: item.active ? "2px solid rgb(180,83,9)" : "2px solid transparent",
             cursor: "pointer",
@@ -72,10 +72,10 @@ function Sidebar() {
         ))}
       </div>
       {/* Personal */}
-      <div style={{ borderTop: "1px solid #F1F5F9", paddingTop: 6 }}>
-        <div style={{ padding: "2px 10px 4px", fontSize: 7.5, fontWeight: 700, color: "#94A3B8", letterSpacing: "0.07em", textTransform: "uppercase" }}>Personal</div>
+      <div style={{ borderTop: "1px solid rgb(241, 245, 249)", paddingTop: 6 }}>
+        <div style={{ padding: "2px 10px 4px", fontSize: 7.5, fontWeight: 700, color: "rgb(148, 163, 184)", letterSpacing: "0.07em", textTransform: "uppercase" }}>Personal</div>
         {["Mode: Light", "Settings", "Integrations"].map(item => (
-          <div key={item} style={{ padding: "5px 10px", fontSize: 9, color: "#64748B" }}>{item}</div>
+          <div key={item} style={{ padding: "5px 10px", fontSize: 9, color: "rgb(100, 116, 139)" }}>{item}</div>
         ))}
       </div>
     </div>
@@ -87,7 +87,7 @@ export default function AppPanels() {
     <>
       <style>{`
         .apnl-section {
-          background: #ffffff;
+          background: rgb(255, 255, 255);
           padding: 80px 24px 40px;
           overflow: hidden;
         }
@@ -104,10 +104,10 @@ export default function AppPanels() {
         }
         .apnl-title {
           font-size: clamp(28px, 3.5vw, 40px); font-weight: 900;
-          color: #0F172A; letter-spacing: -0.025em; line-height: 1.15;
+          color: rgb(15, 23, 42); letter-spacing: -0.025em; line-height: 1.15;
           margin: 0 0 12px;
         }
-        .apnl-sub { font-size: 16px; color: #64748B; margin: 0; line-height: 1.5; }
+        .apnl-sub { font-size: 16px; color: rgb(100, 116, 139); margin: 0; line-height: 1.5; }
 
         /* Stage — wide enough to show all 3 panels with clear gaps */
         .apnl-stage {
@@ -120,8 +120,8 @@ export default function AppPanels() {
         /* Shared panel */
         .apnl-panel {
           position: absolute;
-          background: #ffffff;
-          border: 1px solid #E2E8F0;
+          background: rgb(255, 255, 255);
+          border: 1px solid rgb(226, 232, 240);
           border-radius: 12px;
           box-shadow: 0 8px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.05);
           overflow: hidden;
@@ -157,8 +157,8 @@ export default function AppPanels() {
 
         .apnl-phead {
           display: flex; align-items: center; gap: 8px;
-          padding: 10px 14px; border-bottom: 1px solid #E2E8F0;
-          background: #F8FAFC; flex-shrink: 0;
+          padding: 10px 14px; border-bottom: 1px solid rgb(226, 232, 240);
+          background: rgb(248, 250, 252); flex-shrink: 0;
         }
 
         @media (max-width: 1200px) {
@@ -194,15 +194,15 @@ export default function AppPanels() {
           {/* ── Left: Lead Details ── */}
           <div className="apnl-panel apnl-left">
             <div className="apnl-phead">
-              <span style={{ fontSize: 13, fontWeight: 700, color: "#0F172A" }}>Lead Details</span>
-              <span style={{ fontSize: 9, fontWeight: 700, padding: "2px 6px", borderRadius: 4, background: "#D1FAE5", color: "#065F46" }}>Ready to Book</span>
+              <span style={{ fontSize: 13, fontWeight: 700, color: "rgb(15, 23, 42)" }}>Lead Details</span>
+              <span style={{ fontSize: 9, fontWeight: 700, padding: "2px 6px", borderRadius: 4, background: "rgb(209, 250, 229)", color: "rgb(6, 95, 70)" }}>Ready to Book</span>
             </div>
             {/* Tabs */}
-            <div style={{ display: "flex", borderBottom: "1px solid #E2E8F0", padding: "0 6px" }}>
+            <div style={{ display: "flex", borderBottom: "1px solid rgb(226, 232, 240)", padding: "0 6px" }}>
               {["Lead Details", "Insights", "Est. Brief", "Appts", "Actions"].map((tab, i) => (
                 <span key={tab} style={{
                   fontSize: 8.5, fontWeight: i === 0 ? 700 : 500, padding: "7px 7px",
-                  color: i === 0 ? "rgb(180,83,9)" : "#64748B",
+                  color: i === 0 ? "rgb(180,83,9)" : "rgb(100, 116, 139)",
                   borderBottom: i === 0 ? "2px solid rgb(180,83,9)" : "2px solid transparent",
                   whiteSpace: "nowrap",
                 }}>{tab}</span>
@@ -210,8 +210,8 @@ export default function AppPanels() {
             </div>
             <div style={{ overflowY: "auto", height: "calc(100% - 72px)" }}>
               {/* Contact Information — 2-col grid */}
-              <div style={{ padding: "12px 14px", borderBottom: "1px solid #F1F5F9" }}>
-                <div style={{ fontSize: 10, fontWeight: 700, color: "#0F172A", marginBottom: 9 }}>Contact Information</div>
+              <div style={{ padding: "12px 14px", borderBottom: "1px solid rgb(241, 245, 249)" }}>
+                <div style={{ fontSize: 10, fontWeight: 700, color: "rgb(15, 23, 42)", marginBottom: 9 }}>Contact Information</div>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "7px 10px" }}>
                   {[
                     ["First Name", "Jennifer"], ["Last Name", "Walsh"],
@@ -220,42 +220,42 @@ export default function AppPanels() {
                     ["Assigned To", "Alex B."], ["Lead Source", "Facebook Ad"],
                   ].map(([l, v]) => (
                     <div key={l}>
-                      <div style={{ fontSize: 7.5, color: "#94A3B8", fontWeight: 600, marginBottom: 2 }}>{l}</div>
-                      <div style={{ fontSize: 9, fontWeight: 600, color: "#0F172A", wordBreak: "break-all" }}>{v}</div>
+                      <div style={{ fontSize: 7.5, color: "rgb(148, 163, 184)", fontWeight: 600, marginBottom: 2 }}>{l}</div>
+                      <div style={{ fontSize: 9, fontWeight: 600, color: "rgb(15, 23, 42)", wordBreak: "break-all" }}>{v}</div>
                     </div>
                   ))}
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: 4, marginTop: 8, padding: "5px 8px", background: "#F0FDF4", borderRadius: 5 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 4, marginTop: 8, padding: "5px 8px", background: "rgb(240, 253, 244)", borderRadius: 5 }}>
                   <span style={{ fontSize: 9.5 }}>📍</span>
-                  <span style={{ fontSize: 8.5, color: "#10B981", fontWeight: 600 }}>4.4 km from your base</span>
+                  <span style={{ fontSize: 8.5, color: "rgb(16, 185, 129)", fontWeight: 600 }}>4.4 km from your base</span>
                 </div>
               </div>
               {/* Project Details */}
-              <div style={{ padding: "12px 14px", borderBottom: "1px solid #F1F5F9" }}>
-                <div style={{ fontSize: 10, fontWeight: 700, color: "#0F172A", marginBottom: 9 }}>Project Details</div>
+              <div style={{ padding: "12px 14px", borderBottom: "1px solid rgb(241, 245, 249)" }}>
+                <div style={{ fontSize: 10, fontWeight: 700, color: "rgb(15, 23, 42)", marginBottom: 9 }}>Project Details</div>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "7px 10px" }}>
                   {[
                     ["Project Type", "Kitchen Renovation"], ["Budget Range", "$50,000–$100,000"],
                     ["Timeline", "Just exploring"], ["Homeowner", "Yes"],
                   ].map(([l, v]) => (
                     <div key={l}>
-                      <div style={{ fontSize: 7.5, color: "#94A3B8", fontWeight: 600, marginBottom: 2 }}>{l}</div>
-                      <div style={{ fontSize: 9, fontWeight: 600, color: "#0F172A" }}>{v}</div>
+                      <div style={{ fontSize: 7.5, color: "rgb(148, 163, 184)", fontWeight: 600, marginBottom: 2 }}>{l}</div>
+                      <div style={{ fontSize: 9, fontWeight: 600, color: "rgb(15, 23, 42)" }}>{v}</div>
                     </div>
                   ))}
                 </div>
               </div>
               {/* Form Data */}
               <div style={{ padding: "12px 14px" }}>
-                <div style={{ fontSize: 10, fontWeight: 700, color: "#0F172A", marginBottom: 9 }}>Form Data</div>
+                <div style={{ fontSize: 10, fontWeight: 700, color: "rgb(15, 23, 42)", marginBottom: 9 }}>Form Data</div>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "7px 10px" }}>
                   {[
                     ["Ad Name", "Kitchen Reno – GTA"], ["Campaign", "Spring 2026"],
                     ["Form Submitted", "3/2/2026"], ["Ad Set", "Toronto Homeowners"],
                   ].map(([l, v]) => (
                     <div key={l}>
-                      <div style={{ fontSize: 7.5, color: "#94A3B8", fontWeight: 600, marginBottom: 2 }}>{l}</div>
-                      <div style={{ fontSize: 9, fontWeight: 600, color: "#0F172A" }}>{v}</div>
+                      <div style={{ fontSize: 7.5, color: "rgb(148, 163, 184)", fontWeight: 600, marginBottom: 2 }}>{l}</div>
+                      <div style={{ fontSize: 9, fontWeight: 600, color: "rgb(15, 23, 42)" }}>{v}</div>
                     </div>
                   ))}
                 </div>
@@ -270,51 +270,51 @@ export default function AppPanels() {
               {/* Main leads area */}
               <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
                 {/* Header */}
-                <div style={{ padding: "12px 16px", borderBottom: "1px solid #E2E8F0" }}>
-                  <div style={{ fontSize: 17, fontWeight: 700, color: "#0F172A", lineHeight: 1.2 }}>Leads</div>
-                  <div style={{ fontSize: 10, color: "#64748B", marginTop: 2 }}>All contacts and leads for A &amp; B Renovations</div>
+                <div style={{ padding: "12px 16px", borderBottom: "1px solid rgb(226, 232, 240)" }}>
+                  <div style={{ fontSize: 17, fontWeight: 700, color: "rgb(15, 23, 42)", lineHeight: 1.2 }}>Leads</div>
+                  <div style={{ fontSize: 10, color: "rgb(100, 116, 139)", marginTop: 2 }}>All contacts and leads for A &amp; B Renovations</div>
                 </div>
                 {/* Search + filters */}
-                <div style={{ padding: "7px 14px", borderBottom: "1px solid #E2E8F0", display: "flex", gap: 7, alignItems: "center" }}>
-                  <div style={{ flex: 1, background: "#F8FAFC", border: "1px solid #E2E8F0", borderRadius: 6, padding: "4px 10px", fontSize: 9.5, color: "#94A3B8" }}>
+                <div style={{ padding: "7px 14px", borderBottom: "1px solid rgb(226, 232, 240)", display: "flex", gap: 7, alignItems: "center" }}>
+                  <div style={{ flex: 1, background: "rgb(248, 250, 252)", border: "1px solid rgb(226, 232, 240)", borderRadius: 6, padding: "4px 10px", fontSize: 9.5, color: "rgb(148, 163, 184)" }}>
                     🔍 Search by name, email, phone, project...
                   </div>
                   {["All States ▼", "Recently Updated ▼"].map(f => (
-                    <div key={f} style={{ fontSize: 8.5, fontWeight: 600, padding: "4px 8px", borderRadius: 6, border: "1px solid #E2E8F0", color: "#374151", background: "#fff", whiteSpace: "nowrap" }}>{f}</div>
+                    <div key={f} style={{ fontSize: 8.5, fontWeight: 600, padding: "4px 8px", borderRadius: 6, border: "1px solid rgb(226, 232, 240)", color: "rgb(55, 65, 81)", background: "rgb(255, 255, 255)", whiteSpace: "nowrap" }}>{f}</div>
                   ))}
                 </div>
                 {/* High value banner */}
                 <div style={{ padding: "6px 14px", background: "rgba(16,185,129,0.07)", borderBottom: "1px solid rgba(16,185,129,0.18)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <span style={{ fontSize: 9.5, color: "#065F46" }}>
+                  <span style={{ fontSize: 9.5, color: "rgb(6, 95, 70)" }}>
                     <strong>High Value Leads</strong> are highlighted in green.
                   </span>
                   <div style={{ display: "flex", gap: 5 }}>
                     {["Show All High Value", "High Value + Ready to Book"].map(btn => (
-                      <span key={btn} style={{ fontSize: 7.5, fontWeight: 700, padding: "2px 6px", borderRadius: 4, border: "1px solid #10B981", color: "#065F46", background: "#fff", whiteSpace: "nowrap" }}>{btn}</span>
+                      <span key={btn} style={{ fontSize: 7.5, fontWeight: 700, padding: "2px 6px", borderRadius: 4, border: "1px solid rgb(16, 185, 129)", color: "rgb(6, 95, 70)", background: "rgb(255, 255, 255)", whiteSpace: "nowrap" }}>{btn}</span>
                     ))}
                   </div>
                 </div>
                 {/* Table */}
                 <div style={{ flex: 1, overflow: "hidden" }}>
-                  <div style={{ display: "grid", gridTemplateColumns: "2fr 1.4fr 1.4fr 1.1fr 0.8fr", padding: "5px 14px", borderBottom: "1px solid #E2E8F0" }}>
+                  <div style={{ display: "grid", gridTemplateColumns: "2fr 1.4fr 1.4fr 1.1fr 0.8fr", padding: "5px 14px", borderBottom: "1px solid rgb(226, 232, 240)" }}>
                     {["CONTACT", "PROJECT", "BUDGET", "STATE", "UPDATED"].map(h => (
-                      <span key={h} style={{ fontSize: 7.5, fontWeight: 700, color: "#94A3B8", letterSpacing: "0.06em" }}>{h}</span>
+                      <span key={h} style={{ fontSize: 7.5, fontWeight: 700, color: "rgb(148, 163, 184)", letterSpacing: "0.06em" }}>{h}</span>
                     ))}
                   </div>
                   {leads.map((lead, i) => (
                     <div key={i} style={{
                       display: "grid", gridTemplateColumns: "2fr 1.4fr 1.4fr 1.1fr 0.8fr",
-                      padding: "7px 14px", borderBottom: "1px solid #F1F5F9",
-                      background: lead.hv ? "rgba(16,185,129,0.04)" : "#fff", alignItems: "center",
+                      padding: "7px 14px", borderBottom: "1px solid rgb(241, 245, 249)",
+                      background: lead.hv ? "rgba(16,185,129,0.04)" : "rgb(255, 255, 255)", alignItems: "center",
                     }}>
                       <div>
-                        <div style={{ fontSize: 10, fontWeight: 700, color: "#0F172A" }}>{lead.name}</div>
-                        <div style={{ fontSize: 8, color: "#64748B", marginTop: 1 }}>{lead.sub}</div>
+                        <div style={{ fontSize: 10, fontWeight: 700, color: "rgb(15, 23, 42)" }}>{lead.name}</div>
+                        <div style={{ fontSize: 8, color: "rgb(100, 116, 139)", marginTop: 1 }}>{lead.sub}</div>
                       </div>
-                      <div style={{ fontSize: 9.5, color: "#374151" }}>{lead.project}</div>
-                      <div style={{ fontSize: 9.5, color: "#374151" }}>{lead.budget}</div>
+                      <div style={{ fontSize: 9.5, color: "rgb(55, 65, 81)" }}>{lead.project}</div>
+                      <div style={{ fontSize: 9.5, color: "rgb(55, 65, 81)" }}>{lead.budget}</div>
                       <div><StateBadge state={lead.state} /></div>
-                      <div style={{ fontSize: 8.5, color: "#94A3B8" }}>{lead.date}</div>
+                      <div style={{ fontSize: 8.5, color: "rgb(148, 163, 184)" }}>{lead.date}</div>
                     </div>
                   ))}
                 </div>
@@ -325,15 +325,15 @@ export default function AppPanels() {
           {/* ── Right: Estimator Brief ── */}
           <div className="apnl-panel apnl-right">
             <div className="apnl-phead">
-              <span style={{ fontSize: 13, fontWeight: 700, color: "#0F172A" }}>Lead Details</span>
-              <span style={{ fontSize: 9, fontWeight: 700, padding: "2px 6px", borderRadius: 4, background: "#D1FAE5", color: "#065F46" }}>Ready to Book</span>
+              <span style={{ fontSize: 13, fontWeight: 700, color: "rgb(15, 23, 42)" }}>Lead Details</span>
+              <span style={{ fontSize: 9, fontWeight: 700, padding: "2px 6px", borderRadius: 4, background: "rgb(209, 250, 229)", color: "rgb(6, 95, 70)" }}>Ready to Book</span>
             </div>
             {/* Tabs — Est. Brief active */}
-            <div style={{ display: "flex", borderBottom: "1px solid #E2E8F0", padding: "0 6px" }}>
+            <div style={{ display: "flex", borderBottom: "1px solid rgb(226, 232, 240)", padding: "0 6px" }}>
               {["Lead Details", "Insights", "Est. Brief", "Appts", "Actions"].map((tab, i) => (
                 <span key={tab} style={{
                   fontSize: 8.5, fontWeight: i === 2 ? 700 : 500, padding: "7px 7px",
-                  color: i === 2 ? "rgb(180,83,9)" : "#64748B",
+                  color: i === 2 ? "rgb(180,83,9)" : "rgb(100, 116, 139)",
                   borderBottom: i === 2 ? "2px solid rgb(180,83,9)" : "2px solid transparent",
                   whiteSpace: "nowrap",
                 }}>{tab}</span>
@@ -342,13 +342,13 @@ export default function AppPanels() {
             {/* Brief */}
             <div style={{ padding: "10px 14px 10px", overflowY: "auto", height: "calc(100% - 72px)" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#0F172A", display: "flex", alignItems: "center", gap: 5 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "rgb(15, 23, 42)", display: "flex", alignItems: "center", gap: 5 }}>
                   <span>📋</span> Estimator Brief
                 </div>
                 <span style={{ fontSize: 8.5, color: "rgb(180,83,9)", fontWeight: 600, cursor: "pointer" }}>Regenerate</span>
               </div>
-              <div style={{ fontSize: 8.5, lineHeight: 1.55, color: "#374151" }}>
-                <div style={{ fontWeight: 700, color: "#0F172A", marginBottom: 9, fontSize: 9, padding: "6px 8px", background: "#F8FAFC", borderRadius: 5 }}>
+              <div style={{ fontSize: 8.5, lineHeight: 1.55, color: "rgb(55, 65, 81)" }}>
+                <div style={{ fontWeight: 700, color: "rgb(15, 23, 42)", marginBottom: 9, fontSize: 9, padding: "6px 8px", background: "rgb(248, 250, 252)", borderRadius: 5 }}>
                   Estimator Brief — Kitchen Renovation for Jennifer Walsh
                 </div>
                 {[
@@ -385,10 +385,10 @@ export default function AppPanels() {
                     items: ["Send portfolio of similar kitchen renovations within 24 hrs", "Follow up with itemized estimate within 3 business days", "Offer financing options if budget concern arises"],
                   },
                 ].map((sec, si) => (
-                  <div key={si} style={{ marginBottom: 9, paddingBottom: 9, borderBottom: si < 7 ? "1px solid #F1F5F9" : "none" }}>
-                    <div style={{ fontWeight: 700, color: "#0F172A", marginBottom: 4, fontSize: 8.5 }}>{sec.title}</div>
+                  <div key={si} style={{ marginBottom: 9, paddingBottom: 9, borderBottom: si < 7 ? "1px solid rgb(241, 245, 249)" : "none" }}>
+                    <div style={{ fontWeight: 700, color: "rgb(15, 23, 42)", marginBottom: 4, fontSize: 8.5 }}>{sec.title}</div>
                     {sec.items.map((item, ii) => (
-                      <div key={ii} style={{ paddingLeft: 8, marginBottom: 2, color: "#475569", fontSize: 8 }}>— {item}</div>
+                      <div key={ii} style={{ paddingLeft: 8, marginBottom: 2, color: "rgb(71, 85, 105)", fontSize: 8 }}>— {item}</div>
                     ))}
                   </div>
                 ))}
