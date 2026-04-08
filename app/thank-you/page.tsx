@@ -50,7 +50,7 @@ const faqs: { question: string; answer: React.ReactNode }[] = [
   {
     question: "How many appointments can I expect per month?",
     answer:
-      "It depends on your market, project type, and ad budget — but most remodelers start seeing 5–15 qualified appointments per month. During onboarding we'll recommend a volume that fits your current capacity, and you can scale up or dial back at any point.",
+      "It depends on your market, project type, and ad budget — but most remodelers start seeing 5–25 qualified appointments per month. During onboarding we'll recommend a volume that fits your current capacity, and you can scale up or dial back at any point.",
   },
   {
     question: "What if a lead doesn't show up?",
