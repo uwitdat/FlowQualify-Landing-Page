@@ -153,7 +153,7 @@ export default function OptInPage() {
               (e.currentTarget as HTMLButtonElement).style.background = BUTTON_PRIMARY;
             }}
           >
-            Apply To Work With Us!
+            Apply For My Free Strategy Call
           </button>
 
           {/* Trust badge */}
