@@ -157,7 +157,10 @@ export default function OptInPage() {
           </button>
 
           {/* Trust badge */}
-          <span style={{ fontSize: "13px", fontWeight: 600, color: "#64748B", marginTop: "4px" }}>✓ Only Pay per Qualified Appointment</span>
+          <span style={{ fontSize: "13px", fontWeight: 700, color: "#64748B", marginTop: "4px", display: "flex", alignItems: "center", gap: "6px" }}>
+            <span style={{ color: "#16a34a", fontSize: "15px" }}>✓</span>
+            <span><span style={{ color: "#0F172A" }}>Zero risk.</span> Only pay for appointments that show up.</span>
+          </span>
         </div>
 
       </div>
