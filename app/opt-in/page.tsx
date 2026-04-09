@@ -14,7 +14,7 @@ export default function OptInPage() {
       minHeight: "100vh",
     }}>
       <style>{`
-        .opt-in-video-wrap { aspect-ratio: 16/9; height: auto; }
+        .opt-in-video-wrap { width: 100%; }
         @media (max-width: 600px) {
           .opt-in-content { padding-top: 80px !important; padding-left: 20px !important; padding-right: 20px !important; }
         }
@@ -67,14 +67,16 @@ export default function OptInPage() {
         {/* Supporting line */}
         <p style={{
           textAlign: "center",
-          fontSize: "clamp(16px, 2vw, 20px)",
+          fontSize: "clamp(15px, 1.9vw, 19px)",
           fontWeight: 500,
           color: "#475569",
-          lineHeight: 1.5,
+          lineHeight: 1.6,
           margin: "0 auto 12px",
-          maxWidth: "520px",
+          maxWidth: "580px",
         }}>
-          No contracts. No monthly fees. No chasing cold leads.
+          No contracts. No monthly fees. No junk leads —{" "}
+          <br className="hidden sm:block" />
+          only real homeowners actively looking to remodel.
         </p>
 
         {/* Accent line */}
@@ -113,7 +115,7 @@ export default function OptInPage() {
           <video
             ref={videoRef}
             src={process.env.NEXT_PUBLIC_VIDEO_MAIN || "/videos/FlowMainVideo.mp4"}
-            style={{ display: "block", width: "100%", height: "100%" }}
+            style={{ display: "block", width: "100%", height: "auto" }}
             controls
             autoPlay
             playsInline
