@@ -14,10 +14,9 @@ export default function OptInPage() {
       minHeight: "100vh",
     }}>
       <style>{`
-        .opt-in-video-wrap { height: 520px; }
+        .opt-in-video-wrap { aspect-ratio: 16/9; height: auto; }
         @media (max-width: 600px) {
           .opt-in-content { padding-top: 80px !important; padding-left: 20px !important; padding-right: 20px !important; }
-          .opt-in-video-wrap { height: 320px; }
         }
       `}</style>
       <div
@@ -114,7 +113,7 @@ export default function OptInPage() {
           <video
             ref={videoRef}
             src={process.env.NEXT_PUBLIC_VIDEO_MAIN || "/videos/FlowMainVideo.mp4"}
-            style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+            style={{ display: "block", width: "100%", height: "100%" }}
             controls
             autoPlay
             playsInline
