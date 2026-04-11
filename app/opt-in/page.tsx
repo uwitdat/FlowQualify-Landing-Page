@@ -90,7 +90,7 @@ export default function OptInPage() {
           margin: "0 auto 12px",
           maxWidth: "600px",
         }}>
-          We generate, qualify &amp; book — homeowners pre-screened for budget ($15K+), timeline &amp; project fit.
+          We generate, qualify, book &amp; nurture — homeowners pre-screened for budget ($15K+), timeline &amp; project fit.
         </p>
 
         {/* Divider */}
