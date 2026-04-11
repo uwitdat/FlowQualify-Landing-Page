@@ -138,7 +138,7 @@ export default function OptInPage() {
           maxWidth: "620px",
         }}>
           Most agencies hand you a lead and leave you to figure it out.{" "}
-          <span style={{ color: BUTTON_PRIMARY, textDecoration: "underline", textUnderlineOffset: "3px" }}>We built something different.</span>
+          <span style={{ color: BUTTON_PRIMARY, textDecoration: "underline", textUnderlineOffset: "3px" }}>We built something different specifically for kitchen &amp; bath remodelers.</span>
         </p>
 
         {/* CTA buttons */}
@@ -171,13 +171,8 @@ export default function OptInPage() {
             Book Your Free Strategy Call
           </button>
 
-          {/* Built for line */}
-          <span style={{ fontSize: "12px", fontWeight: 600, color: "#94A3B8" }}>
-            Built specifically for kitchen &amp; bath remodelers.
-          </span>
-
           {/* Trust badge */}
-          <span style={{ fontSize: "13px", fontWeight: 700, color: "#64748B", marginTop: "0px", display: "flex", alignItems: "center", gap: "6px" }}>
+          <span style={{ fontSize: "13px", fontWeight: 700, color: "#64748B", marginTop: "4px", display: "flex", alignItems: "center", gap: "6px" }}>
             <span style={{ color: "#16a34a", fontSize: "15px" }}>✓</span>
             <span><span style={{ color: "#0F172A" }}>Zero risk.</span> Only pay for appointments that show up.</span>
           </span>
