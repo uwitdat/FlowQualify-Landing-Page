@@ -90,7 +90,7 @@ export default function OptInPage() {
           margin: "0 auto 12px",
           maxWidth: "600px",
         }}>
-          We generate, qualify, book &amp; nurture — homeowners pre-screened for budget ($15K+), timeline &amp; project fit.
+          We generate, qualify, and book appointments directly on your calendar — homeowners pre-screened for budget ($15K+), timeline, and project intent.
         </p>
 
         {/* Divider */}
@@ -171,8 +171,13 @@ export default function OptInPage() {
             Book Your Free Strategy Call
           </button>
 
+          {/* Built for line */}
+          <span style={{ fontSize: "12px", fontWeight: 600, color: "#94A3B8" }}>
+            Built specifically for kitchen &amp; bath remodelers.
+          </span>
+
           {/* Trust badge */}
-          <span style={{ fontSize: "13px", fontWeight: 700, color: "#64748B", marginTop: "4px", display: "flex", alignItems: "center", gap: "6px" }}>
+          <span style={{ fontSize: "13px", fontWeight: 700, color: "#64748B", marginTop: "0px", display: "flex", alignItems: "center", gap: "6px" }}>
             <span style={{ color: "#16a34a", fontSize: "15px" }}>✓</span>
             <span><span style={{ color: "#0F172A" }}>Zero risk.</span> Only pay for appointments that show up.</span>
           </span>
