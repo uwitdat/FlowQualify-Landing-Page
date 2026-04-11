@@ -17,6 +17,9 @@ export default function OptInPage() {
         .opt-in-video-wrap { width: 100%; }
         @media (max-width: 600px) {
           .opt-in-content { padding-top: 80px !important; padding-left: 20px !important; padding-right: 20px !important; }
+          .opt-in-cta-btn { width: 100% !important; padding: 16px 24px !important; font-size: 17px !important; }
+          .opt-in-sub { font-size: 12.5px !important; }
+          .opt-in-gta { font-size: 10px !important; }
         }
       `}</style>
       <div
@@ -33,7 +36,7 @@ export default function OptInPage() {
         {/* Headline */}
         <p style={{
           textAlign: "center",
-          fontSize: "clamp(18px, 2.5vw, 26px)",
+          fontSize: "clamp(20px, 2.8vw, 28px)",
           fontWeight: 900,
           color: "#0F172A",
           letterSpacing: "-0.01em",
@@ -50,46 +53,44 @@ export default function OptInPage() {
           🚨 Attention: Kitchen &amp; Bath Remodelers
         </p>
 
+        {/* GTA sub-line */}
+        <p className="opt-in-gta" style={{
+          textAlign: "center",
+          fontSize: "clamp(11px, 1.3vw, 13px)",
+          fontWeight: 600,
+          color: "#94A3B8",
+          letterSpacing: "0.04em",
+          textTransform: "uppercase",
+          margin: "-10px 0 18px",
+        }}>
+          Serving select remodelers across Toronto/GTA and surrounding areas
+        </p>
+
         {/* Subheadline */}
         <h1 style={{
           textAlign: "center",
-          fontSize: "clamp(28px, 4.5vw, 48px)",
+          fontSize: "clamp(26px, 4vw, 44px)",
           fontWeight: 900,
           color: "#0F172A",
           lineHeight: 1.1,
           letterSpacing: "-0.03em",
           margin: "0 auto 16px",
-          maxWidth: "680px",
+          maxWidth: "740px",
         }}>
-          Get <span style={{ color: BUTTON_PRIMARY }}>15–25</span> Qualified Appointments Every Month
+          Get <span style={{ color: BUTTON_PRIMARY }}>15–25</span> Qualified Kitchen &amp; Bath Appointments Every Month
         </h1>
 
         {/* Supporting line */}
-        <p style={{
+        <p className="opt-in-sub" style={{
           textAlign: "center",
-          fontSize: "clamp(15px, 1.9vw, 19px)",
+          fontSize: "clamp(13px, 1.5vw, 16px)",
           fontWeight: 500,
           color: "#475569",
-          lineHeight: 1.6,
+          lineHeight: 1.65,
           margin: "0 auto 12px",
-          maxWidth: "580px",
+          maxWidth: "600px",
         }}>
-          No contracts. No monthly fees. No junk leads —{" "}
-          <br className="hidden sm:block" />
-          only real homeowners actively looking to remodel.
-        </p>
-
-        {/* Accent line */}
-        <p style={{
-          textAlign: "center",
-          fontSize: "clamp(15px, 1.8vw, 18px)",
-          fontWeight: 700,
-          color: "#0F172A",
-          margin: "0 auto 28px",
-          maxWidth: "520px",
-        }}>
-          Most agencies hand you a lead and leave you to figure it out.{" "}
-          <span style={{ color: BUTTON_PRIMARY, textDecoration: "underline", textUnderlineOffset: "3px" }}>We built something different.</span>
+          We generate, qualify &amp; book — homeowners pre-screened for budget ($15K+), timeline &amp; project fit.
         </p>
 
         {/* Divider */}
@@ -97,10 +98,10 @@ export default function OptInPage() {
 
         {/* Step indicator */}
         <p style={{ textAlign: "center", fontSize: "14px", color: "#64748B", marginBottom: "16px", fontWeight: 500 }}>
-          <strong style={{ color: "#0F172A" }}>Step 1 of 2:</strong> Watch the Video Below
+          See how the system works (2 min)
         </p>
 
-        {/* Video — fixed height so it's a good size; page scrolls normally */}
+        {/* Video */}
         <div
           className="opt-in-video-wrap"
           style={{
@@ -109,7 +110,7 @@ export default function OptInPage() {
             border: "1px solid rgba(180, 83, 9, 0.25)",
             boxShadow: "0 8px 48px rgba(0,0,0,0.12)",
             background: "#000",
-            marginBottom: "24px",
+            marginBottom: "16px",
           }}
         >
           <video
@@ -127,11 +128,25 @@ export default function OptInPage() {
           />
         </div>
 
+        {/* Accent line below video */}
+        <p style={{
+          textAlign: "center",
+          fontSize: "clamp(13px, 1.5vw, 15px)",
+          fontWeight: 700,
+          color: "#0F172A",
+          margin: "0 auto 20px",
+          maxWidth: "620px",
+        }}>
+          Most agencies hand you a lead and leave you to figure it out.{" "}
+          <span style={{ color: BUTTON_PRIMARY, textDecoration: "underline", textUnderlineOffset: "3px" }}>We built something different.</span>
+        </p>
+
         {/* CTA buttons */}
         <div style={{ textAlign: "center", paddingBottom: "20px", display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
           <button
             data-iclosed-link="https://app.iclosed.io/e/FlowQualify/strategy-call-see-if-flowqualify-is-a-fit"
             data-embed-type="popup"
+            className="opt-in-cta-btn"
             style={{
               display: "inline-block",
               background: BUTTON_PRIMARY,
