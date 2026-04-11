@@ -18,8 +18,9 @@ export default function OptInPage() {
         @media (max-width: 600px) {
           .opt-in-content { padding-top: 80px !important; padding-left: 20px !important; padding-right: 20px !important; }
           .opt-in-cta-btn { width: 100% !important; padding: 16px 24px !important; font-size: 17px !important; }
-          .opt-in-sub { font-size: 12.5px !important; }
+          .opt-in-sub { font-size: 12px !important; }
           .opt-in-gta { font-size: 10px !important; }
+          .opt-in-accent p { font-size: 12.5px !important; }
         }
       `}</style>
       <div
@@ -129,17 +130,14 @@ export default function OptInPage() {
         </div>
 
         {/* Accent line below video */}
-        <p style={{
-          textAlign: "center",
-          fontSize: "clamp(13px, 1.5vw, 15px)",
-          fontWeight: 700,
-          color: "#0F172A",
-          margin: "0 auto 20px",
-          maxWidth: "620px",
-        }}>
-          Most agencies hand you a lead and leave you to figure it out.{" "}
-          <span style={{ color: BUTTON_PRIMARY, textDecoration: "underline", textUnderlineOffset: "3px" }}>We built something different specifically for kitchen &amp; bath remodelers.</span>
-        </p>
+        <div className="opt-in-accent" style={{ textAlign: "center", margin: "0 auto 20px", maxWidth: "560px" }}>
+          <p style={{ fontSize: "clamp(13px, 1.5vw, 15px)", fontWeight: 500, color: "#64748B", margin: "0 0 4px" }}>
+            Most agencies hand you a lead and leave you to figure&nbsp;it&nbsp;out.
+          </p>
+          <p style={{ fontSize: "clamp(13px, 1.5vw, 15px)", fontWeight: 700, color: BUTTON_PRIMARY, textDecoration: "underline", textUnderlineOffset: "3px", margin: 0 }}>
+            We built something different — for kitchen&nbsp;&amp;&nbsp;bath&nbsp;remodelers.
+          </p>
+        </div>
 
         {/* CTA buttons */}
         <div style={{ textAlign: "center", paddingBottom: "20px", display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
