@@ -19,7 +19,7 @@ export default function OptInPage() {
           .opt-in-content { padding-top: 80px !important; padding-left: 20px !important; padding-right: 20px !important; }
           .opt-in-cta-btn { width: 100% !important; padding: 16px 24px !important; font-size: 17px !important; }
           .opt-in-sub { font-size: 12px !important; }
-          .opt-in-gta { font-size: 10px !important; }
+          .opt-in-gta { font-size: 11px !important; white-space: nowrap; }
           .opt-in-accent p { font-size: 12.5px !important; }
         }
       `}</style>
@@ -59,12 +59,12 @@ export default function OptInPage() {
           textAlign: "center",
           fontSize: "clamp(11px, 1.3vw, 13px)",
           fontWeight: 600,
-          color: "#94A3B8",
-          letterSpacing: "0.04em",
+          color: "#0F172A",
+          letterSpacing: "0.03em",
           textTransform: "uppercase",
           margin: "-10px 0 18px",
         }}>
-          Serving select remodelers across Toronto/GTA and surrounding areas
+          For Kitchen &amp; Bath Remodelers in Toronto &amp; the GTA
         </p>
 
         {/* Subheadline */}
@@ -91,7 +91,7 @@ export default function OptInPage() {
           margin: "0 auto 12px",
           maxWidth: "600px",
         }}>
-          We generate, qualify, and book appointments directly on your calendar — homeowners pre-screened for budget ($15K+), timeline, and project intent.
+          We generate, qualify, and book appointments directly on your calendar — homeowners pre-screened for <strong>serious project budgets</strong> and <strong>ready-to-start timelines</strong>.
         </p>
 
         {/* Divider */}
@@ -132,7 +132,7 @@ export default function OptInPage() {
         {/* Accent line below video */}
         <div className="opt-in-accent" style={{ textAlign: "center", margin: "0 auto 20px", maxWidth: "560px" }}>
           <p style={{ fontSize: "clamp(13px, 1.5vw, 15px)", fontWeight: 500, color: "#64748B", margin: "0 0 4px" }}>
-            Most agencies hand you a lead and leave you to figure&nbsp;it&nbsp;out.
+            Most agencies send leads.
           </p>
           <p style={{ fontSize: "clamp(13px, 1.5vw, 15px)", fontWeight: 700, color: BUTTON_PRIMARY, textDecoration: "underline", textUnderlineOffset: "3px", margin: 0 }}>
             We built something different — for kitchen&nbsp;&amp;&nbsp;bath&nbsp;remodelers.
