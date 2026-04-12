@@ -16,7 +16,7 @@ export default function OptInPage() {
       <style>{`
         .opt-in-video-wrap { width: 100%; }
         @media (max-width: 600px) {
-          .opt-in-content { padding-top: 80px !important; padding-left: 20px !important; padding-right: 20px !important; }
+          .opt-in-content { padding-top: 60px !important; padding-left: 20px !important; padding-right: 20px !important; }
           .opt-in-cta-btn { width: 100% !important; padding: 16px 24px !important; font-size: 17px !important; }
           .opt-in-sub { font-size: 12px !important; }
           .opt-in-gta { font-size: 11px !important; white-space: nowrap; }
@@ -29,7 +29,7 @@ export default function OptInPage() {
           maxWidth: "780px",
           width: "100%",
           margin: "0 auto",
-          padding: "64px 32px 48px",
+          padding: "48px 32px 40px",
           boxSizing: "border-box",
         }}
       >
@@ -62,7 +62,7 @@ export default function OptInPage() {
           color: "#0F172A",
           letterSpacing: "0.03em",
           textTransform: "uppercase",
-          margin: "-10px 0 18px",
+          margin: "-10px 0 14px",
         }}>
           For Kitchen &amp; Bath Remodelers in Toronto &amp; the GTA
         </p>
@@ -78,7 +78,7 @@ export default function OptInPage() {
           margin: "0 auto 16px",
           maxWidth: "740px",
         }}>
-          Get <span style={{ color: BUTTON_PRIMARY }}>15–25</span> Qualified Kitchen &amp; Bath Appointments Every Month
+          Get <span style={{ color: BUTTON_PRIMARY }}>15–25</span> Pre-Qualified Appointments Every Month
         </h1>
 
         {/* Supporting line */}
@@ -95,10 +95,10 @@ export default function OptInPage() {
         </p>
 
         {/* Divider */}
-        <hr style={{ border: "none", borderTop: "1px solid #E2E8F0", margin: "0 auto 20px", maxWidth: "480px" }} />
+        <hr style={{ border: "none", borderTop: "1px solid #E2E8F0", margin: "0 auto 16px", maxWidth: "480px" }} />
 
         {/* Step indicator */}
-        <p style={{ textAlign: "center", fontSize: "14px", color: "#64748B", marginBottom: "16px", fontWeight: 500 }}>
+        <p style={{ textAlign: "center", fontSize: "14px", color: "#64748B", marginBottom: "12px", fontWeight: 500 }}>
           See how the system works (2 min)
         </p>
 
@@ -130,12 +130,12 @@ export default function OptInPage() {
         </div>
 
         {/* Accent line below video */}
-        <div className="opt-in-accent" style={{ textAlign: "center", margin: "0 auto 20px", maxWidth: "560px" }}>
+        <div className="opt-in-accent" style={{ textAlign: "center", margin: "0 auto 16px", maxWidth: "560px" }}>
           <p style={{ fontSize: "clamp(13px, 1.5vw, 15px)", fontWeight: 500, color: "#64748B", margin: "0 0 4px" }}>
             Most agencies send leads.
           </p>
           <p style={{ fontSize: "clamp(13px, 1.5vw, 15px)", fontWeight: 700, color: BUTTON_PRIMARY, textDecoration: "underline", textUnderlineOffset: "3px", margin: 0 }}>
-            We built something different — for kitchen&nbsp;&amp;&nbsp;bath&nbsp;remodelers.
+            We built something different.
           </p>
         </div>
 
