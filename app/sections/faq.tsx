@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { BUTTON_PRIMARY, BUTTON_PRIMARY_HOVER } from "../config/constants";
+import { BUTTON_PRIMARY, BUTTON_PRIMARY_HOVER, PAGE_BACKGROUND } from "../config/constants";
 
 const faqs: { question: string; answer: React.ReactNode }[] = [
   {
@@ -95,13 +95,13 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" style={{ background: "#fff", padding: "100px 24px" }}>
+    <section id="faq" style={{ background: PAGE_BACKGROUND, padding: "100px 24px" }}>
       <style>{`
         .faq-wrap { max-width: 760px; margin: 0 auto; }
         .faq-eyebrow {
           display: inline-block; font-size: 12px; font-weight: 800;
           letter-spacing: 0.1em; text-transform: uppercase;
-          color: rgb(180, 83, 9); margin-bottom: 16px;
+          color: rgb(79, 70, 229); margin-bottom: 16px;
         }
         .faq-title {
           font-size: 40px; font-weight: 900; color: #0F172A;
@@ -115,7 +115,7 @@ export default function FAQ() {
           overflow: hidden; margin-bottom: 10px;
           transition: border-color 0.15s ease;
         }
-        .faq-item.open { border-color: rgba(180, 83, 9, 0.5); }
+        .faq-item.open { border-color: rgba(79, 70, 229, 0.5); }
         .faq-btn {
           width: 100%; display: flex; align-items: center;
           justify-content: space-between; gap: 16px;
@@ -132,13 +132,13 @@ export default function FAQ() {
           width: 26px; height: 26px; min-width: 26px; min-height: 26px;
           border-radius: 50%; flex-shrink: 0;
           display: flex; align-items: center; justify-content: center;
-          background: rgba(180, 83, 9, 0.12);
-          color: rgb(180, 83, 9);
+          background: rgba(79, 70, 229, 0.12);
+          color: rgb(79, 70, 229);
           padding: 0;
           transition: background 0.15s ease, transform 0.2s ease;
         }
         .faq-icon svg { display: block; }
-        .faq-item.open .faq-icon { background: rgb(180, 83, 9); color: #fff; transform: rotate(45deg); }
+        .faq-item.open .faq-icon { background: rgb(79, 70, 229); color: #fff; transform: rotate(45deg); }
         .faq-body {
           overflow: hidden; transition: max-height 0.25s ease, opacity 0.2s ease;
           opacity: 0; max-height: 0;
@@ -160,7 +160,7 @@ export default function FAQ() {
         .faq-cta-wrap {
           max-width: 760px; margin: 72px auto 0;
           background: #ffffff;
-          border: 1px solid rgba(180, 83, 9, 0.2); border-radius: 20px;
+          border: 1px solid rgba(79, 70, 229, 0.2); border-radius: 20px;
           padding: 56px 48px; text-align: center;
           position: relative; overflow: hidden;
         }
@@ -174,7 +174,7 @@ export default function FAQ() {
         }
         .faq-cta-btn {
           display: inline-flex; align-items: center; gap: 10px;
-          background: rgb(180, 83, 9);
+          background: rgb(79, 70, 229);
           color: #fff; font-size: 15px; font-weight: 800;
           padding: 16px 34px; border-radius: 14px; text-decoration: none;
           letter-spacing: -0.01em;
@@ -190,7 +190,7 @@ export default function FAQ() {
           display: flex; align-items: center; justify-content: center;
           gap: 6px; margin-top: 20px; flex-wrap: wrap;
         }
-        .faq-cta-trust-dot { color: rgba(180, 83, 9, 0.6); font-size: 10px; }
+        .faq-cta-trust-dot { color: rgba(79, 70, 229, 0.6); font-size: 10px; }
         .faq-cta-trust-item { font-size: 12px; font-weight: 600; color: #94A3B8; }
         @media (max-width: 600px) {
           .faq-cta-wrap { padding: 40px 24px; }

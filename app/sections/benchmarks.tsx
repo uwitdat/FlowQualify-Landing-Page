@@ -1,6 +1,7 @@
 "use client";
 
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
+import { PAGE_BACKGROUND } from "../config/constants";
 
 const ICON_COLORS = {
   orange: "#B45309",
@@ -110,7 +111,7 @@ export default function Benchmarks() {
     <>
       <style>{`
         .bm2-section {
-          background: #ffffff;
+          background: ${PAGE_BACKGROUND};
           padding: 96px 24px;
         }
         .bm2-header {
@@ -135,7 +136,7 @@ export default function Benchmarks() {
         }
         .bm2-eyebrow {
           font-size: 11px; font-weight: 800; letter-spacing: 0.1em;
-          text-transform: uppercase; color: rgb(180,83,9);
+          text-transform: uppercase; color: rgb(79,70,229);
           display: block; margin-bottom: 10px;
         }
         .bm2-title {
@@ -158,18 +159,18 @@ export default function Benchmarks() {
           transition: border-color 0.2s ease, transform 0.2s ease;
         }
         .bm2-card:hover {
-          border-color: rgba(180,83,9,0.3);
+          border-color: rgba(79,70,229,0.3);
           transform: translateY(-2px);
         }
         .bm2-icon {
           width: 44px; height: 44px; border-radius: 10px;
-          background: rgba(180,83,9,0.09);
+          background: rgba(79,70,229,0.09);
           display: flex; align-items: center; justify-content: center;
           margin-bottom: 16px;
         }
         .bm2-tag {
           font-size: 10.5px; font-weight: 800; letter-spacing: 0.08em;
-          text-transform: uppercase; color: rgb(180,83,9);
+          text-transform: uppercase; color: rgb(79,70,229);
           margin-bottom: 7px;
         }
         .bm2-card-title {

@@ -145,15 +145,15 @@ export default function ThankYouPage() {
         }
         .ty-hero-glow {
           position: absolute; inset: 0; pointer-events: none;
-          background: radial-gradient(ellipse 55% 60% at 50% 0%, rgba(180,83,9,0.07) 0%, transparent 70%);
+          background: radial-gradient(ellipse 55% 60% at 50% 0%, rgba(79,70,229,0.07) 0%, transparent 70%);
         }
         .ty-hero-check {
           width: 72px; height: 72px; border-radius: 50%;
-          background: rgb(180,83,9);
+          background: rgb(79,70,229);
           display: inline-flex; align-items: center; justify-content: center;
           margin-bottom: 24px;
           animation: ty-check-pop 0.55s cubic-bezier(0.34,1.56,0.64,1) 0.1s both, ty-float 3s ease-in-out 0.7s infinite;
-          box-shadow: 0 0 0 12px rgba(180,83,9,0.1), 0 0 0 24px rgba(180,83,9,0.05);
+          box-shadow: 0 0 0 12px rgba(79,70,229,0.1), 0 0 0 24px rgba(79,70,229,0.05);
         }
         .ty-hero-eyebrow {
           display: block;
@@ -187,7 +187,7 @@ export default function ThankYouPage() {
           margin: 16px auto 0;
           max-width: 480px;
         }
-        .ty-hero-h1 span { color: rgb(180,83,9); font-weight: 700; }
+        .ty-hero-h1 span { color: rgb(79,70,229); font-weight: 700; }
         .ty-hero-chips {
           display: flex; align-items: center; justify-content: center;
           gap: 10px; margin-top: 28px; flex-wrap: wrap;
@@ -198,7 +198,7 @@ export default function ThankYouPage() {
           border-radius: 100px; padding: 6px 16px;
           font-size: 12px; font-weight: 600; color: #64748B;
         }
-        .ty-hero-chip-dot { width: 6px; height: 6px; border-radius: 50%; background: rgb(180,83,9); flex-shrink: 0; }
+        .ty-hero-chip-dot { width: 6px; height: 6px; border-radius: 50%; background: rgb(79,70,229); flex-shrink: 0; }
 
         /* ── Sparkle decorations ── */
         .ty-sparkle {
@@ -225,9 +225,9 @@ export default function ThankYouPage() {
         .ty-diagram-caption { font-size: 11.5px; color: #94A3B8; text-align: center; font-style: italic; margin-top: 2px; }
         .ty-badge {
           display: inline-flex; align-items: center; gap: 6px;
-          background: rgba(180,83,9,0.12); border: 1px solid rgba(180,83,9,0.3);
+          background: rgba(79,70,229,0.12); border: 1px solid rgba(79,70,229,0.3);
           border-radius: 100px; padding: 5px 14px;
-          font-size: 12px; font-weight: 700; color: rgb(180,83,9);
+          font-size: 12px; font-weight: 700; color: rgb(79,70,229);
           letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 20px;
         }
 
@@ -238,7 +238,7 @@ export default function ThankYouPage() {
           overflow: hidden; margin-bottom: 10px;
           transition: border-color 0.15s ease;
         }
-        .faq-item.open { border-color: rgba(180, 83, 9, 0.5); }
+        .faq-item.open { border-color: rgba(79, 70, 229, 0.5); }
         .faq-btn {
           width: 100%; display: flex; align-items: center;
           justify-content: space-between; gap: 16px;
@@ -252,11 +252,11 @@ export default function ThankYouPage() {
           width: 26px; height: 26px; min-width: 26px; min-height: 26px;
           border-radius: 50%; flex-shrink: 0;
           display: flex; align-items: center; justify-content: center;
-          background: rgba(180, 83, 9, 0.12); color: rgb(180, 83, 9);
+          background: rgba(79, 70, 229, 0.12); color: rgb(79, 70, 229);
           transition: background 0.15s ease, transform 0.2s ease;
         }
         .faq-icon svg { display: block; }
-        .faq-item.open .faq-icon { background: rgb(180, 83, 9); color: #fff; transform: rotate(45deg); }
+        .faq-item.open .faq-icon { background: rgb(79, 70, 229); color: #fff; transform: rotate(45deg); }
         .faq-body { overflow: hidden; transition: max-height 0.25s ease, opacity 0.2s ease; opacity: 0; max-height: 0; }
         .faq-item.open .faq-body { opacity: 1; }
         .faq-answer { border-top: 1px solid #F1F5F9; padding: 20px 22px 24px; font-size: 14.5px; color: #475569; line-height: 1.75; }
@@ -264,14 +264,14 @@ export default function ThankYouPage() {
         .faq-answer p:last-child { margin-bottom: 0; }
         .faq-cta-wrap {
           max-width: 760px; margin: 72px auto 0;
-          background: #ffffff; border: 1px solid rgba(180, 83, 9, 0.2);
+          background: #ffffff; border: 1px solid rgba(79, 70, 229, 0.2);
           border-radius: 20px; padding: 56px 48px; text-align: center;
         }
         .faq-cta-headline { font-size: 34px; font-weight: 900; color: #0F172A; letter-spacing: -0.025em; line-height: 1.15; margin: 0 0 14px; }
         .faq-cta-sub { font-size: 16px; color: #64748B; line-height: 1.65; margin: 0 0 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
         .faq-cta-btn {
           display: inline-flex; align-items: center; gap: 10px;
-          background: rgb(180, 83, 9); color: #fff; font-size: 15px; font-weight: 800;
+          background: rgb(79, 70, 229); color: #fff; font-size: 15px; font-weight: 800;
           padding: 16px 34px; border-radius: 14px; text-decoration: none;
           letter-spacing: -0.01em; transition: transform 0.18s ease; white-space: nowrap;
         }
@@ -279,7 +279,7 @@ export default function ThankYouPage() {
         .faq-cta-arrow { display: inline-block; transition: transform 0.18s ease; }
         .faq-cta-btn:hover .faq-cta-arrow { transform: translateX(3px); }
         .faq-cta-trust { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 20px; flex-wrap: wrap; }
-        .faq-cta-trust-dot { color: rgba(180, 83, 9, 0.6); font-size: 10px; }
+        .faq-cta-trust-dot { color: rgba(79, 70, 229, 0.6); font-size: 10px; }
         .faq-cta-trust-item { font-size: 12px; font-weight: 600; color: #94A3B8; }
 
         @media (max-width: 600px) {
@@ -301,10 +301,10 @@ export default function ThankYouPage() {
 
           {/* Sparkle decorations */}
           <svg className="ty-sparkle" style={{ top: "18%", left: "12%", animationDelay: "0s" }} width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M10 1 L11.5 8.5 L19 10 L11.5 11.5 L10 19 L8.5 11.5 L1 10 L8.5 8.5 Z" fill="rgb(180,83,9)" opacity="0.35" />
+            <path d="M10 1 L11.5 8.5 L19 10 L11.5 11.5 L10 19 L8.5 11.5 L1 10 L8.5 8.5 Z" fill="rgb(79,70,229)" opacity="0.35" />
           </svg>
           <svg className="ty-sparkle" style={{ top: "25%", right: "10%", animationDelay: "0.9s" }} width="14" height="14" viewBox="0 0 20 20" fill="none">
-            <path d="M10 1 L11.5 8.5 L19 10 L11.5 11.5 L10 19 L8.5 11.5 L1 10 L8.5 8.5 Z" fill="rgb(180,83,9)" opacity="0.25" />
+            <path d="M10 1 L11.5 8.5 L19 10 L11.5 11.5 L10 19 L8.5 11.5 L1 10 L8.5 8.5 Z" fill="rgb(79,70,229)" opacity="0.25" />
           </svg>
           <svg className="ty-sparkle" style={{ bottom: "20%", left: "18%", animationDelay: "1.6s" }} width="10" height="10" viewBox="0 0 20 20" fill="none">
             <path d="M10 1 L11.5 8.5 L19 10 L11.5 11.5 L10 19 L8.5 11.5 L1 10 L8.5 8.5 Z" fill="#0F172A" opacity="0.12" />
@@ -338,7 +338,7 @@ export default function ThankYouPage() {
               >
                 <path
                   d="M 4 9 C 40 4 100 10 160 7 C 220 4 280 9 336 6"
-                  stroke="rgb(180,83,9)"
+                  stroke="rgb(79,70,229)"
                   strokeWidth="3.5"
                   strokeLinecap="round"
                   fill="none"
@@ -346,7 +346,7 @@ export default function ThankYouPage() {
                 />
                 <path
                   d="M 12 12 C 60 8 130 13 200 10 C 260 7 305 12 330 10"
-                  stroke="rgb(180,83,9)"
+                  stroke="rgb(79,70,229)"
                   strokeWidth="1.6"
                   strokeLinecap="round"
                   fill="none"
@@ -487,25 +487,25 @@ export default function ThankYouPage() {
 
                 {/* Rough underline scribble beneath heading */}
                 <path d="M 42 88 C 80 93 160 85 240 90 C 310 94 400 86 478 91"
-                  stroke="rgb(180,83,9)" strokeWidth="3.5" strokeLinecap="round" fill="none" opacity="0.7"/>
+                  stroke="rgb(79,70,229)" strokeWidth="3.5" strokeLinecap="round" fill="none" opacity="0.7"/>
                 <path d="M 60 95 C 110 100 200 92 280 97 C 350 101 430 94 490 97"
-                  stroke="rgb(180,83,9)" strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.35"/>
+                  stroke="rgb(79,70,229)" strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.35"/>
 
                 {/* Sparkle left */}
-                <g stroke="rgb(180,83,9)" strokeWidth="2" strokeLinecap="round" opacity="0.8">
+                <g stroke="rgb(79,70,229)" strokeWidth="2" strokeLinecap="round" opacity="0.8">
                   <line x1="18" y1="30" x2="18" y2="44"/>
                   <line x1="11" y1="37" x2="25" y2="37"/>
                   <line x1="13" y1="32" x2="23" y2="42"/>
                   <line x1="23" y1="32" x2="13" y2="42"/>
                 </g>
                 {/* Sparkle right */}
-                <g stroke="rgb(180,83,9)" strokeWidth="1.5" strokeLinecap="round" opacity="0.6">
+                <g stroke="rgb(79,70,229)" strokeWidth="1.5" strokeLinecap="round" opacity="0.6">
                   <line x1="500" y1="22" x2="500" y2="32"/>
                   <line x1="495" y1="27" x2="505" y2="27"/>
                 </g>
 
                 {/* Small question mark doodle top-right */}
-                <text x="490" y="55" fontSize="28" fontWeight="900" fill="rgb(180,83,9)" opacity="0.18"
+                <text x="490" y="55" fontSize="28" fontWeight="900" fill="rgb(79,70,229)" opacity="0.18"
                   fontFamily="Georgia, serif" transform="rotate(12, 490, 55)">?</text>
 
                 {/* Main hand-drawn heading text */}

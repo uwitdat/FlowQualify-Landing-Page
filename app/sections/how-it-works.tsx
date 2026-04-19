@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { GridPattern } from "../components/ui/grid-pattern";
+import { PAGE_BACKGROUND } from "../config/constants";
 
 const HIW_GRID_SQUARES = (() => {
   const out: Array<[number, number]> = [];
@@ -22,7 +23,7 @@ const P2_PARTS = [
   { text: "We qualify every homeowner through conversation, send you a " },
   { text: "full project brief", style: { color: "rgb(124,58,237)", fontWeight: 700 } as React.CSSProperties },
   { text: ", and " },
-  { text: "book real appointments", style: { color: "rgb(180,83,9)", fontWeight: 700 } as React.CSSProperties },
+  { text: "book real appointments", style: { color: "rgb(79, 70, 229)", fontWeight: 700 } as React.CSSProperties },
   { text: " directly on " },
   { text: "your calendar", style: { color: "rgb(22,163,74)", fontWeight: 700 } as React.CSSProperties },
   { text: "." },
@@ -117,7 +118,7 @@ export default function HowItWorks() {
     <>
       <style>{`
         .hiw2-section {
-          background: #ffffff;
+          background: ${PAGE_BACKGROUND};
           padding: 120px 48px;
           position: relative;
           overflow: hidden;

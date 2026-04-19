@@ -1,16 +1,43 @@
 @import "tailwindcss";
 
+/* Light mode (default): cool gray canvas, gray-900 text, indigo primary */
 :root {
-  --background: rgb(255, 255, 255);
-  --foreground: rgb(17, 24, 39);
-  --accent: rgb(180, 83, 9);
-  --text-primary: rgb(17, 24, 39);
-  --text-secondary: rgb(107, 114, 128);
-  --primary: rgb(180, 83, 9);
-  --primary-hover: rgb(154, 52, 18);
-  --surface: rgb(249, 250, 251);
-  --surface-light: rgb(243, 244, 246);
+  --page-bg: #f3f4f6;
+  --background: #f3f4f6;
+  --foreground: #111827;
+  --accent: rgb(79, 70, 229);
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #64748b;
+  --primary: rgb(79, 70, 229);
+  --primary-hover: rgb(67, 56, 202);
+  --surface: #ffffff;
+  --surface-muted: #f9fafb;
   --border: rgb(229, 231, 235);
+  --semantic-success: rgb(22, 163, 74);
+  --semantic-destructive: rgb(220, 38, 38);
+  --stripe-primary: rgb(79, 70, 229);
+  --stripe-primary-soft: rgba(79, 70, 229, 0.25);
+}
+
+/* Dark mode — off-black base, charcoal cards, brighter indigo accent (add class `dark` to html) */
+html.dark {
+  --page-bg: #0f0f0f;
+  --background: #0f0f0f;
+  --foreground: #fafafa;
+  --accent: rgb(99, 102, 241);
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --primary: rgb(99, 102, 241);
+  --primary-hover: rgb(129, 140, 248);
+  --surface: #242424;
+  --surface-muted: #1a1a1a;
+  --border: rgba(255, 255, 255, 0.08);
+  --semantic-success: rgb(34, 197, 94);
+  --semantic-destructive: rgb(248, 113, 113);
+  --stripe-primary: rgb(99, 102, 241);
+  --stripe-primary-soft: rgba(129, 140, 248, 0.35);
 }
 
 @theme inline {
@@ -30,7 +57,7 @@ html {
 }
 
 body {
-  background: var(--background);
+  background: var(--page-bg);
   color: var(--foreground);
   font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
 }
@@ -48,10 +75,10 @@ body {
   width: 8px;
   background: repeating-linear-gradient(
     180deg,
-    rgb(180, 83, 9) 0px,
-    rgb(180, 83, 9) 3px,
-    rgba(180, 83, 9, 0.25) 3px,
-    rgba(180, 83, 9, 0.25) 6px
+    var(--stripe-primary) 0px,
+    var(--stripe-primary) 3px,
+    var(--stripe-primary-soft) 3px,
+    var(--stripe-primary-soft) 6px
   );
   z-index: 40;
   pointer-events: none;

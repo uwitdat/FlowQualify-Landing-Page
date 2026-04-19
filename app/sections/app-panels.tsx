@@ -1,5 +1,7 @@
 "use client";
 
+import { BUTTON_PRIMARY, PAGE_BACKGROUND } from "../config/constants";
+
 const NAV_ITEMS = [
   { label: "Dashboard" },
   { label: "Leads", active: true },
@@ -47,10 +49,10 @@ function Sidebar() {
       {/* Logo */}
       <div style={{ padding: "11px 10px 10px", borderBottom: "1px solid rgb(241, 245, 249)" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
-          <div style={{ width: 16, height: 16, borderRadius: 4, background: "rgb(180,83,9)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <div style={{ width: 16, height: 16, borderRadius: 4, background: BUTTON_PRIMARY, display: "flex", alignItems: "center", justifyContent: "center" }}>
             <svg width="9" height="9" viewBox="0 0 24 24" fill="white"><circle cx="12" cy="12" r="9" stroke="white" strokeWidth="2" fill="none"/><circle cx="12" cy="12" r="4" fill="white"/></svg>
           </div>
-          <span style={{ fontSize: 10.5, fontWeight: 800, color: "rgb(180,83,9)" }}>FlowQualify</span>
+          <span style={{ fontSize: 10.5, fontWeight: 800, color: BUTTON_PRIMARY }}>FlowQualify</span>
         </div>
       </div>
       {/* Back arrow */}
@@ -62,9 +64,9 @@ function Sidebar() {
             padding: "6px 10px",
             fontSize: 9.5,
             fontWeight: item.active ? 700 : 400,
-            color: item.active ? "rgb(180,83,9)" : "rgb(55, 65, 81)",
-            background: item.active ? "rgba(180,83,9,0.06)" : "transparent",
-            borderLeft: item.active ? "2px solid rgb(180,83,9)" : "2px solid transparent",
+            color: item.active ? BUTTON_PRIMARY : "rgb(55, 65, 81)",
+            background: item.active ? "rgba(79, 70, 229, 0.06)" : "transparent",
+            borderLeft: item.active ? `2px solid ${BUTTON_PRIMARY}` : "2px solid transparent",
             cursor: "pointer",
           }}>
             {item.label}
@@ -87,7 +89,7 @@ export default function AppPanels() {
     <>
       <style>{`
         .apnl-section {
-          background: rgb(255, 255, 255);
+          background: ${PAGE_BACKGROUND};
           padding: 80px 24px 40px;
           overflow: hidden;
         }
@@ -100,7 +102,7 @@ export default function AppPanels() {
         }
         .apnl-eyebrow {
           font-size: 11px; font-weight: 800; letter-spacing: 0.1em;
-          text-transform: uppercase; color: rgb(180,83,9); margin-bottom: 10px;
+          text-transform: uppercase; color: ${BUTTON_PRIMARY}; margin-bottom: 10px;
         }
         .apnl-title {
           font-size: clamp(28px, 3.5vw, 40px); font-weight: 900;
@@ -184,7 +186,7 @@ export default function AppPanels() {
           <h2 className="apnl-title">Every lead, every brief, every booked call —<br />one place.</h2>
           <p className="apnl-sub">
             Running on{" "}
-            <span style={{ color: "rgb(180,83,9)", fontWeight: 700 }}>autopilot</span>
+            <span style={{ color: BUTTON_PRIMARY, fontWeight: 700 }}>autopilot</span>
             {" "}while you focus on the work.
           </p>
         </div>
@@ -202,8 +204,8 @@ export default function AppPanels() {
               {["Lead Details", "Insights", "Est. Brief", "Appts", "Actions"].map((tab, i) => (
                 <span key={tab} style={{
                   fontSize: 8.5, fontWeight: i === 0 ? 700 : 500, padding: "7px 7px",
-                  color: i === 0 ? "rgb(180,83,9)" : "rgb(100, 116, 139)",
-                  borderBottom: i === 0 ? "2px solid rgb(180,83,9)" : "2px solid transparent",
+                  color: i === 0 ? BUTTON_PRIMARY : "rgb(100, 116, 139)",
+                  borderBottom: i === 0 ? `2px solid ${BUTTON_PRIMARY}` : "2px solid transparent",
                   whiteSpace: "nowrap",
                 }}>{tab}</span>
               ))}
@@ -333,8 +335,8 @@ export default function AppPanels() {
               {["Lead Details", "Insights", "Est. Brief", "Appts", "Actions"].map((tab, i) => (
                 <span key={tab} style={{
                   fontSize: 8.5, fontWeight: i === 2 ? 700 : 500, padding: "7px 7px",
-                  color: i === 2 ? "rgb(180,83,9)" : "rgb(100, 116, 139)",
-                  borderBottom: i === 2 ? "2px solid rgb(180,83,9)" : "2px solid transparent",
+                  color: i === 2 ? BUTTON_PRIMARY : "rgb(100, 116, 139)",
+                  borderBottom: i === 2 ? `2px solid ${BUTTON_PRIMARY}` : "2px solid transparent",
                   whiteSpace: "nowrap",
                 }}>{tab}</span>
               ))}
@@ -345,7 +347,7 @@ export default function AppPanels() {
                 <div style={{ fontSize: 11, fontWeight: 700, color: "rgb(15, 23, 42)", display: "flex", alignItems: "center", gap: 5 }}>
                   <span>📋</span> Estimator Brief
                 </div>
-                <span style={{ fontSize: 8.5, color: "rgb(180,83,9)", fontWeight: 600, cursor: "pointer" }}>Regenerate</span>
+                <span style={{ fontSize: 8.5, color: BUTTON_PRIMARY, fontWeight: 600, cursor: "pointer" }}>Regenerate</span>
               </div>
               <div style={{ fontSize: 8.5, lineHeight: 1.55, color: "rgb(55, 65, 81)" }}>
                 <div style={{ fontWeight: 700, color: "rgb(15, 23, 42)", marginBottom: 9, fontSize: 9, padding: "6px 8px", background: "rgb(248, 250, 252)", borderRadius: 5 }}>

@@ -2,14 +2,14 @@
 
 import { useRef } from "react";
 import Script from "next/script";
-import { BUTTON_PRIMARY, BUTTON_PRIMARY_HOVER } from "../config/constants";
+import { BUTTON_PRIMARY, BUTTON_PRIMARY_HOVER, PAGE_BACKGROUND } from "../config/constants";
 
 export default function OptInPage() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
     <div style={{
-      background: "#ffffff",
+      background: PAGE_BACKGROUND,
       fontFamily: "system-ui, -apple-system, sans-serif",
       minHeight: "100vh",
     }}>
@@ -73,7 +73,7 @@ export default function OptInPage() {
           style={{
             borderRadius: "14px",
             overflow: "hidden",
-            border: "1px solid rgba(180, 83, 9, 0.25)",
+            border: "1px solid rgba(79, 70, 229, 0.25)",
             boxShadow: "0 8px 48px rgba(0,0,0,0.12)",
             background: "#000",
             marginBottom: "24px",

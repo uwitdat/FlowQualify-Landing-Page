@@ -1,22 +1,22 @@
 "use client";
 
-import { BUTTON_PRIMARY } from "../config/constants";
+import { BUTTON_PRIMARY, PAGE_BACKGROUND } from "../config/constants";
 
 export default function ApplyPage() {
   return (
     <div
       style={{
         minHeight: "100vh",
-        background: "#FFFBF7",
+        background: PAGE_BACKGROUND,
         fontFamily: "system-ui, -apple-system, sans-serif",
       }}
     >
       <style>{`
-        .apply-hero { background: #0F172A; }
+        .apply-hero { background: #ffffff; border-bottom: 1px solid rgb(229, 231, 235); }
         .apply-section-card {
           background: #ffffff;
           border-radius: 16px;
-          border: 1px solid rgba(180,83,9,0.15);
+          border: 1px solid rgba(79, 70, 229, 0.12);
           box-shadow: 0 2px 24px rgba(0,0,0,0.06);
           padding: 40px 44px;
           margin-bottom: 24px;
@@ -50,8 +50,8 @@ export default function ApplyPage() {
             display: "inline-flex",
             alignItems: "center",
             gap: "8px",
-            background: "rgba(180,83,9,0.18)",
-            border: "1px solid rgba(180,83,9,0.4)",
+            background: "rgba(79, 70, 229, 0.1)",
+            border: "1px solid rgba(79, 70, 229, 0.35)",
             borderRadius: "100px",
             padding: "6px 18px",
             marginBottom: "24px",
@@ -64,7 +64,7 @@ export default function ApplyPage() {
           <h1 style={{
             fontSize: "clamp(28px, 4vw, 46px)",
             fontWeight: 900,
-            color: "#FFFBF7",
+            color: "#111827",
             lineHeight: 1.1,
             letterSpacing: "-0.025em",
             margin: "0 0 20px",
@@ -75,7 +75,7 @@ export default function ApplyPage() {
 
           <p style={{
             fontSize: "18px",
-            color: "#94A3B8",
+            color: "#6b7280",
             lineHeight: 1.65,
             margin: "0 auto",
             maxWidth: "560px",
@@ -271,9 +271,9 @@ export default function ApplyPage() {
           textAlign: "center",
           marginTop: "16px",
           padding: "28px 24px",
-          background: "rgba(180,83,9,0.06)",
+          background: "rgba(79, 70, 229, 0.06)",
           borderRadius: "12px",
-          border: "1px solid rgba(180,83,9,0.18)",
+          border: "1px solid rgba(79, 70, 229, 0.18)",
         }}>
           <p style={{ fontSize: "16px", fontWeight: 700, color: "#0F172A", margin: "0 0 6px" }}>
             Your call is confirmed — check your inbox for the calendar invite.

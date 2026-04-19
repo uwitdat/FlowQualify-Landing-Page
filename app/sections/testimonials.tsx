@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { PAGE_BACKGROUND } from "../config/constants";
 
 type CardBase = { id: string };
 type MetricCard = CardBase & {
@@ -88,7 +89,7 @@ export default function Testimonials() {
     <section
       id="testimonials"
       style={{
-        background: "#fff",
+        background: PAGE_BACKGROUND,
         padding: "80px 24px 100px",
         borderTop: "1px solid #F1F5F9",
         position: "relative",
@@ -143,7 +144,7 @@ export default function Testimonials() {
         .tm-metric-value {
           font-size: 42px;
           font-weight: 900;
-          color: rgb(180, 83, 9);
+          color: rgb(79, 70, 229);
           letter-spacing: -0.04em;
           line-height: 1;
           margin-bottom: 4px;
@@ -172,7 +173,7 @@ export default function Testimonials() {
         }
         .tm-metric-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .tm-metric-author-name { font-size: 14px; font-weight: 800; color: #0F172A; margin: 0; }
-        .tm-metric-author-link { font-size: 13px; font-weight: 600; color: rgb(180, 83, 9); text-decoration: none; margin-top: 4px; }
+        .tm-metric-author-link { font-size: 13px; font-weight: 600; color: rgb(79, 70, 229); text-decoration: none; margin-top: 4px; }
         .tm-metric-author-link:hover { text-decoration: underline; }
         @media (max-width: 768px) {
           .tm-metric-card-inner { flex-direction: column; gap: 20px; }
@@ -186,7 +187,7 @@ export default function Testimonials() {
           .tm-metric-value { font-size: 32px; }
           .tm-metric-photo { width: 72px; height: 72px; }
         }
-        .tm-quote-card-title { font-size: 24px; font-weight: 800; color: rgb(180, 83, 9); letter-spacing: -0.02em; margin: 0 0 4px; }
+        .tm-quote-card-title { font-size: 24px; font-weight: 800; color: rgb(79, 70, 229); letter-spacing: -0.02em; margin: 0 0 4px; }
         .tm-quote-card-label { font-size: 14px; font-weight: 600; color: #64748B; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid #E2E8F0; }
         .tm-quote-card-title.tm-quote-card-title-alone { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid #E2E8F0; }
         .tm-quote {
@@ -224,7 +225,7 @@ export default function Testimonials() {
         .tm-handle { font-size: 12px; color: #64748B; margin-top: 1px; }
         .tm-link {
           font-size: 13px; font-weight: 600;
-          color: rgb(180, 83, 9);
+          color: rgb(79, 70, 229);
           text-decoration: none;
           margin-left: auto;
         }
@@ -249,7 +250,7 @@ export default function Testimonials() {
           justify-content: center;
           font-size: 18px;
           font-weight: 800;
-          color: rgb(180, 83, 9);
+          color: rgb(79, 70, 229);
           overflow: hidden;
         }
         .tm-team-logo img { display: block; }
@@ -265,7 +266,7 @@ export default function Testimonials() {
 
       <div className="tm-wrap">
         <div className="tm-header">
-          <h2 className="tm-title">Trusted by remodelers. <span style={{ color: "rgb(180, 83, 9)" }}>Proven</span> in the field.</h2>
+          <h2 className="tm-title">Trusted by remodelers. <span style={{ color: "rgb(79, 70, 229)" }}>Proven</span> in the field.</h2>
           <p className="tm-sub">
             Contractors are booking more qualified calls with less back-and-forth. Here&apos;s what they&apos;re saying.
           </p>

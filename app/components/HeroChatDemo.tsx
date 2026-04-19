@@ -10,6 +10,7 @@ import {
   StarIcon,
 } from "@heroicons/react/24/solid";
 import { GridPattern } from "./ui/grid-pattern";
+import { BUTTON_PRIMARY, PAGE_BACKGROUND } from "../config/constants";
 
 const CHAT_SCRIPT: { sender: "lead" | "ai"; text: string }[] = [
   { sender: "lead", text: "Hi, we're looking to redo our kitchen." },
@@ -277,7 +278,7 @@ export function HeroChatDemo({
         }
         .hero-chat-msg.ai .hero-chat-avatar {
           color: #fff;
-          background: rgb(139, 92, 246);
+          background: ${BUTTON_PRIMARY};
         }
         .hero-chat-avatar-img {
           width: 100%;
@@ -299,7 +300,7 @@ export function HeroChatDemo({
           animation: heroChatFadeIn 0.3s ease-out;
         }
         .hero-chat-typing .hero-chat-avatar {
-          background: rgb(139, 92, 246);
+          background: ${BUTTON_PRIMARY};
           color: #fff;
         }
         .hero-chat-typing.lead-typing .hero-chat-avatar {
@@ -343,7 +344,7 @@ export function HeroChatDemo({
           width: 100%;
           min-width: 0;
           box-sizing: border-box;
-          background: rgba(59, 130, 246, 0.95);
+          background: rgba(79, 70, 229, 0.95);
           border-radius: 14px;
           color: #fff;
           font-size: 14px;
@@ -391,7 +392,7 @@ export function HeroChatDemo({
           padding-top: 16px;
           font-size: 14px;
           font-weight: 600;
-          color: #0F172A;
+          color: #111827;
           letter-spacing: 0.02em;
           opacity: 0;
           transition: opacity 1.2s ease 0.3s;
@@ -403,7 +404,7 @@ export function HeroChatDemo({
           width: 18px;
           height: 18px;
           flex-shrink: 0;
-          color: rgb(180, 83, 9);
+          color: rgb(79, 70, 229);
         }
         .hero-chat-booking-notification svg {
           flex-shrink: 0;
@@ -432,19 +433,19 @@ export function HeroChatDemo({
         }
         .hero-chat-gradient-edge.top {
           top: 0; left: 0; right: 0; height: 80px;
-          background: linear-gradient(to bottom, #fff 0%, transparent 100%);
+          background: linear-gradient(to bottom, ${PAGE_BACKGROUND} 0%, transparent 100%);
         }
         .hero-chat-gradient-edge.bottom {
           bottom: 0; left: 0; right: 0; height: 80px;
-          background: linear-gradient(to top, #fff 0%, transparent 100%);
+          background: linear-gradient(to top, ${PAGE_BACKGROUND} 0%, transparent 100%);
         }
         .hero-chat-gradient-edge.left {
           top: 0; bottom: 0; left: 0; width: 80px;
-          background: linear-gradient(to right, #fff 0%, transparent 100%);
+          background: linear-gradient(to right, ${PAGE_BACKGROUND} 0%, transparent 100%);
         }
         .hero-chat-gradient-edge.right {
           top: 0; bottom: 0; right: 0; width: 80px;
-          background: linear-gradient(to left, #fff 0%, transparent 100%);
+          background: linear-gradient(to left, ${PAGE_BACKGROUND} 0%, transparent 100%);
         }
       `}</style>
       <div

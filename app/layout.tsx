@@ -62,7 +62,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0909",
+  themeColor: "#f3f4f6",
 };
 
 const jsonLd = {
@@ -97,7 +97,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="light">
       <body className={`${plusJakartaSans.variable} antialiased`}>
         {/* Google Tag Manager (head script) */}
         <Script

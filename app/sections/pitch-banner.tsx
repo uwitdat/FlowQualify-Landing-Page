@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { BUTTON_PRIMARY, HERO_PANEL_BG } from "../config/constants";
+import { BUTTON_PRIMARY, CARD_SURFACE } from "../config/constants";
 
 const WORDS = ["successful", "driven", "high-quality", "ambitious", "results-focused"];
 const INTERVAL_MS = 900;
@@ -53,7 +53,9 @@ export default function PitchBanner() {
         .pb-curve {
           width: 100%;
           position: relative;
-          background: ${HERO_PANEL_BG};
+          background: ${CARD_SURFACE};
+          border-radius: 24px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 12px 40px rgba(15, 23, 42, 0.06);
           padding: 80px 0 80px;
         }
         .pb-content {
@@ -72,7 +74,7 @@ export default function PitchBanner() {
         .pb-text {
           font-size: clamp(26px, 4vw, 46px);
           font-weight: 800;
-          color: #fff;
+          color: #111827;
           letter-spacing: -0.02em;
           line-height: 1.2;
           margin: 0;

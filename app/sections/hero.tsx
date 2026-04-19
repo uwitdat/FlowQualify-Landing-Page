@@ -6,7 +6,12 @@ import {
   CheckBadgeIcon,
   ArrowTrendingUpIcon,
 } from "@heroicons/react/24/outline";
-import { ACCENT_SECONDARY, BUTTON_PRIMARY, BUTTON_PRIMARY_HOVER } from "../config/constants";
+import {
+  ACCENT_SECONDARY,
+  BUTTON_PRIMARY,
+  BUTTON_PRIMARY_HOVER,
+  PAGE_BACKGROUND,
+} from "../config/constants";
 import { HeroChatDemo } from "../components/HeroChatDemo";
 
 function useCountUp(
@@ -67,7 +72,7 @@ export const Hero = () => {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap');
         .hero-section {
-          background: #ffffff;
+          background: ${PAGE_BACKGROUND};
           padding: 0 0 40px 32px;
           position: relative;
           overflow: visible;
@@ -109,7 +114,7 @@ export const Hero = () => {
           font-size: clamp(40px, 5vw, 62px);
           font-weight: 900;
           line-height: 1.08;
-          color: #0F172A;
+          color: #111827;
           letter-spacing: -0.03em;
           margin: 0 0 20px;
         }
@@ -157,21 +162,21 @@ export const Hero = () => {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          color: #0F172A;
+          color: #111827;
           font-size: 15px;
           font-weight: 600;
           text-decoration: none;
           cursor: pointer;
           padding: 12px 24px;
           border-radius: 999px;
-          border: 1px solid #000;
-          background: #fff;
+          border: 1px solid #d1d5db;
+          background: #ffffff;
           transition: border-color 0.2s ease, background 0.2s ease;
           white-space: nowrap;
         }
         .hero-btn-ghost:hover {
-          border-color: #000;
-          background: rgba(0, 0, 0, 0.04);
+          border-color: #9ca3af;
+          background: rgba(17, 24, 39, 0.04);
         }
         .hero-annotation-wrap {
           position: relative;
@@ -183,13 +188,13 @@ export const Hero = () => {
           font-family: 'Caveat', cursive;
           font-size: 18px;
           font-weight: 500;
-          color: rgba(180, 83, 9, 0.82);
+          color: rgba(79, 70, 229, 0.9);
           line-height: 1.45;
           margin: 0;
           padding: 10px 14px;
-          border: 1.5px solid rgba(180, 83, 9, 0.25);
+          border: 1.5px solid rgba(79, 70, 229, 0.25);
           border-radius: 5px;
-          background: rgba(180, 83, 9, 0.04);
+          background: rgba(79, 70, 229, 0.06);
           transform: rotate(-0.8deg);
           display: block;
         }
@@ -237,13 +242,15 @@ export const Hero = () => {
           transform: translateY(8px);
           transition: opacity 0.5s ease, transform 0.5s ease;
           overflow: hidden;
-          background: #fff;
+          background: #ffffff;
           border-radius: 14px;
+          border: 1px solid rgb(229, 231, 235);
           border-left: 4px solid transparent;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 10px 28px rgba(15, 23, 42, 0.06);
           position: relative;
         }
         .hero-stat-card:nth-child(1) { border-left-color: rgb(13, 148, 136); background: #f0f9f8; z-index: 1; transform: translateY(8px) translateX(0); }
-        .hero-stat-card:nth-child(2) { border-left-color: rgb(180, 83, 9); background: #fef8f2; z-index: 2; transform: translateY(8px) translateX(-32px); }
+        .hero-stat-card:nth-child(2) { border-left-color: rgb(79, 70, 229); background: #eef2ff; z-index: 2; transform: translateY(8px) translateX(-32px); }
         .hero-stat-card:nth-child(3) { border-left-color: rgb(139, 92, 246); background: #f5f3fe; z-index: 3; transform: translateY(8px) translateX(-64px); }
         .hero-stat-card.hero-stat-card-visible {
           opacity: 1;
@@ -254,7 +261,7 @@ export const Hero = () => {
         .hero-stat-label {
           font-size: 14px;
           font-weight: 700;
-          color: #0F172A;
+          color: #111827;
           letter-spacing: 0.02em;
           margin-bottom: 4px;
         }
@@ -273,8 +280,8 @@ export const Hero = () => {
         .hero-stat-change svg { width: 18px; height: 18px; flex-shrink: 0; }
         .hero-stat-card:nth-child(1) .hero-stat-change { color: rgb(13, 148, 136); background: rgba(13, 148, 136, 0.18); }
         .hero-stat-card:nth-child(1) .hero-stat-change svg { color: rgb(13, 148, 136); }
-        .hero-stat-card:nth-child(2) .hero-stat-change { color: rgb(180, 83, 9); background: rgba(180, 83, 9, 0.15); }
-        .hero-stat-card:nth-child(2) .hero-stat-change svg { color: rgb(180, 83, 9); }
+        .hero-stat-card:nth-child(2) .hero-stat-change { color: rgb(79, 70, 229); background: rgba(79, 70, 229, 0.12); }
+        .hero-stat-card:nth-child(2) .hero-stat-change svg { color: rgb(79, 70, 229); }
         .hero-stat-card:nth-child(3) .hero-stat-change { color: rgb(139, 92, 246); background: rgba(139, 92, 246, 0.15); }
         .hero-stat-card:nth-child(3) .hero-stat-change svg { color: rgb(139, 92, 246); }
         @media (max-width: 1020px) {
@@ -306,13 +313,13 @@ export const Hero = () => {
           .hero-stat-row { flex-direction: row; flex-wrap: nowrap; justify-content: center; gap: 12px; margin-top: 28px; }
           .hero-stat-card { flex: none; max-width: none; min-width: 0; padding: 0; background: transparent; border-left: none; border-radius: 0; box-shadow: none; }
           .hero-stat-card:nth-child(1), .hero-stat-card:nth-child(2), .hero-stat-card:nth-child(3) { background: transparent; }
-          .hero-stat-label { font-size: 11px; font-weight: 600; color: #0F172A; margin-bottom: 2px; }
+          .hero-stat-label { font-size: 11px; font-weight: 600; color: #111827; margin-bottom: 2px; }
           .hero-stat-change { font-size: 12px; font-weight: 800; padding: 0; margin-top: 0; background: transparent; box-shadow: none; }
           .hero-stat-change svg { width: 12px; height: 12px; }
           .hero-stat-card:nth-child(1) .hero-stat-change { color: rgb(13, 148, 136); background: transparent; }
           .hero-stat-card:nth-child(1) .hero-stat-change svg { color: rgb(13, 148, 136); }
-          .hero-stat-card:nth-child(2) .hero-stat-change { color: rgb(180, 83, 9); background: transparent; }
-          .hero-stat-card:nth-child(2) .hero-stat-change svg { color: rgb(180, 83, 9); }
+          .hero-stat-card:nth-child(2) .hero-stat-change { color: rgb(79, 70, 229); background: transparent; }
+          .hero-stat-card:nth-child(2) .hero-stat-change svg { color: rgb(79, 70, 229); }
           .hero-stat-card:nth-child(3) .hero-stat-change { color: rgb(139, 92, 246); background: transparent; }
           .hero-stat-card:nth-child(3) .hero-stat-change svg { color: rgb(139, 92, 246); }
         }

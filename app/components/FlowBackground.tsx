@@ -68,7 +68,7 @@ export default function FlowBackground() {
         .fb-blob-1 {
           width: 600px; height: 500px;
           top: -120px; right: -100px;
-          background: radial-gradient(ellipse at center, rgba(255,79,183,0.018) 0%, transparent 68%);
+          background: radial-gradient(ellipse at center, rgba(79, 70, 229, 0.06) 0%, transparent 68%);
           filter: blur(120px);
           animation: fbBlob1 16s ease-in-out infinite;
         }

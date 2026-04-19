@@ -65,7 +65,7 @@ export default function Header() {
             <span className="sr-only">{COMPANY_NAME}</span>
             <span className="font-black tracking-tight text-[#0F172A]" style={{ fontSize: "17px", fontWeight: 900, letterSpacing: "-0.02em" }}>
               <span>Flow</span>
-              <span style={{ color: "rgb(180, 83, 9)" }}>Qualify</span>
+              <span style={{ color: BUTTON_PRIMARY }}>Qualify</span>
             </span>
           </Link>
 
@@ -147,7 +147,7 @@ export default function Header() {
               <span className="sr-only">{COMPANY_NAME}</span>
               <span className="text-sm font-black tracking-tight text-[#0F172A]" style={{ fontWeight: 900 }}>
               <span>Flow</span>
-              <span style={{ color: "rgb(180, 83, 9)" }}>Qualify</span>
+              <span style={{ color: BUTTON_PRIMARY }}>Qualify</span>
             </span>
             </Link>
             <button

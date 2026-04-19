@@ -1,11 +1,13 @@
 "use client";
 
+import { BUTTON_PRIMARY, BUTTON_PRIMARY_HOVER, PAGE_BACKGROUND } from "../config/constants";
+
 export default function DoorCta() {
   return (
     <>
       <style>{`
         .door-cta-section {
-          background: #ffffff;
+          background: ${PAGE_BACKGROUND};
           padding: 80px 24px 96px;
           display: flex;
           flex-direction: column;
@@ -30,7 +32,7 @@ export default function DoorCta() {
         .door-cta-headline {
           font-size: clamp(30px, 4vw, 48px);
           font-weight: 900;
-          color: #0F172A;
+          color: #111827;
           letter-spacing: -0.03em;
           line-height: 1.1;
           margin: 32px 0 28px;
@@ -46,7 +48,7 @@ export default function DoorCta() {
           display: inline-flex;
           align-items: center;
           gap: 10px;
-          background: #0F172A;
+          background: ${BUTTON_PRIMARY};
           color: #ffffff;
           font-size: 15px;
           font-weight: 800;
@@ -58,7 +60,7 @@ export default function DoorCta() {
           white-space: nowrap;
         }
         .door-cta-btn:hover {
-          background: rgb(180,83,9);
+          background: ${BUTTON_PRIMARY_HOVER};
           transform: translateY(-2px);
         }
         .door-cta-arrow {
@@ -80,26 +82,26 @@ export default function DoorCta() {
           xmlns="http://www.w3.org/2000/svg"
           style={{ overflow: "visible" }}
         >
-          <ellipse cx="185" cy="115" rx="75" ry="70" fill="rgba(180,83,9,0.06)" />
-            <g fill="rgba(180,83,9,0.15)" stroke="rgb(180,83,9)" strokeWidth="1.2">
+          <ellipse cx="185" cy="115" rx="75" ry="70" fill="rgba(79,70,229,0.06)" />
+            <g fill="rgba(79,70,229,0.15)" stroke="rgb(79, 70, 229)" strokeWidth="1.2">
               <circle cx="32" cy="75" r="12" />
               <circle cx="32" cy="115" r="12" />
               <circle cx="32" cy="155" r="12" />
             </g>
-            <path d="M 48 75 Q 70 95 90 115 L 125 115" stroke="rgb(180,83,9)" strokeWidth="2" strokeDasharray="6 4" strokeLinecap="round" fill="none" opacity="0.5" className="door-cta-pipeline-path" />
-            <path d="M 48 115 L 125 115" stroke="rgb(180,83,9)" strokeWidth="2" strokeDasharray="6 4" strokeLinecap="round" fill="none" opacity="0.5" className="door-cta-pipeline-path" style={{ animationDelay: "0.15s" }} />
-            <path d="M 48 155 Q 70 135 90 115 L 125 115" stroke="rgb(180,83,9)" strokeWidth="2" strokeDasharray="6 4" strokeLinecap="round" fill="none" opacity="0.5" className="door-cta-pipeline-path" style={{ animationDelay: "0.3s" }} />
+            <path d="M 48 75 Q 70 95 90 115 L 125 115" stroke="rgb(79, 70, 229)" strokeWidth="2" strokeDasharray="6 4" strokeLinecap="round" fill="none" opacity="0.5" className="door-cta-pipeline-path" />
+            <path d="M 48 115 L 125 115" stroke="rgb(79, 70, 229)" strokeWidth="2" strokeDasharray="6 4" strokeLinecap="round" fill="none" opacity="0.5" className="door-cta-pipeline-path" style={{ animationDelay: "0.15s" }} />
+            <path d="M 48 155 Q 70 135 90 115 L 125 115" stroke="rgb(79, 70, 229)" strokeWidth="2" strokeDasharray="6 4" strokeLinecap="round" fill="none" opacity="0.5" className="door-cta-pipeline-path" style={{ animationDelay: "0.3s" }} />
             <rect x="125" y="50" width="110" height="130" rx="14" fill="#ffffff" stroke="#E2E8F0" strokeWidth="2" />
             <rect x="125" y="50" width="110" height="32" rx="14" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="2" strokeLinejoin="round" />
-            <rect x="129" y="54" width="102" height="24" rx="10" fill="rgb(180,83,9)" fillOpacity="0.12" />
+            <rect x="129" y="54" width="102" height="24" rx="10" fill="rgb(79,70,229)" fillOpacity="0.12" />
             <line x1="148" y1="90" x2="212" y2="90" stroke="#E2E8F0" strokeWidth="1.2" />
             <line x1="148" y1="112" x2="212" y2="112" stroke="#E2E8F0" strokeWidth="1.2" />
             <line x1="148" y1="134" x2="212" y2="134" stroke="#E2E8F0" strokeWidth="1.2" />
             <line x1="148" y1="90" x2="148" y2="156" stroke="#E2E8F0" strokeWidth="1.2" />
             <line x1="180" y1="90" x2="180" y2="156" stroke="#E2E8F0" strokeWidth="1.2" />
             <line x1="212" y1="90" x2="212" y2="156" stroke="#E2E8F0" strokeWidth="1.2" />
-            <rect x="150" y="114" width="28" height="18" rx="6" fill="rgb(180,83,9)" fillOpacity="0.18" stroke="rgb(180,83,9)" strokeWidth="1.5" />
-            <path d="M 155 123 L 160 128 L 173 117" stroke="rgb(180,83,9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            <rect x="150" y="114" width="28" height="18" rx="6" fill="rgb(79,70,229)" fillOpacity="0.18" stroke="rgb(79, 70, 229)" strokeWidth="1.5" />
+            <path d="M 155 123 L 160 128 L 173 117" stroke="rgb(79, 70, 229)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
         </svg>
         </div>
 

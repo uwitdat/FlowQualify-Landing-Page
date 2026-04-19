@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from "react";
 import { HeroChatDemo } from "../components/HeroChatDemo";
+import { PAGE_BACKGROUND } from "../config/constants";
 
 export default function ChatPreview() {
   const [, setShowBooking] = useState(false);
@@ -13,7 +14,7 @@ export default function ChatPreview() {
     <>
       <style>{`
         .cpv-section {
-          background: #ffffff;
+          background: ${PAGE_BACKGROUND};
           padding: 80px 24px 60px;
         }
         .cpv-header {
@@ -22,7 +23,7 @@ export default function ChatPreview() {
         }
         .cpv-eyebrow {
           font-size: 11px; font-weight: 800; letter-spacing: 0.1em;
-          text-transform: uppercase; color: rgb(180,83,9);
+          text-transform: uppercase; color: rgb(79,70,229);
           display: block; margin-bottom: 10px;
         }
         .cpv-title {

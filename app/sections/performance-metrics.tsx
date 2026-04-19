@@ -1,6 +1,6 @@
 "use client";
 
-import { BUTTON_PRIMARY, HERO_PANEL_BG } from "../config/constants";
+import { BUTTON_PRIMARY, PAGE_BACKGROUND } from "../config/constants";
 
 const METRICS = [
   {
@@ -57,7 +57,7 @@ export default function PerformanceMetrics() {
         .pm-curve {
           width: 100%;
           position: relative;
-          background: ${HERO_PANEL_BG};
+          background: ${PAGE_BACKGROUND};
           padding: 104px 0 104px;
         }
         .pm-inner {
@@ -76,14 +76,14 @@ export default function PerformanceMetrics() {
         .pm-title {
           font-size: clamp(26px, 3.5vw, 38px);
           font-weight: 900;
-          color: #0F172A;
+          color: #111827;
           letter-spacing: -0.03em;
           line-height: 1.15;
           margin: 0 0 12px;
         }
         .pm-sub {
           font-size: 17px;
-          color: #475569;
+          color: #6b7280;
           line-height: 1.5;
           margin: 0;
           max-width: 480px;
@@ -97,9 +97,10 @@ export default function PerformanceMetrics() {
           align-items: stretch;
         }
         .pm-card {
-          background: rgba(255, 255, 255, 0.06);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          background: #ffffff;
+          border: 1px solid rgb(229, 231, 235);
           border-radius: 16px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 10px 32px rgba(15, 23, 42, 0.06);
           padding: 32px 24px;
           text-align: center;
         }
@@ -112,7 +113,7 @@ export default function PerformanceMetrics() {
         .pm-card-value {
           font-size: clamp(28px, 3vw, 36px);
           font-weight: 800;
-          color: #fff;
+          color: #111827;
           letter-spacing: -0.02em;
           line-height: 1.2;
           margin: 0 0 8px;
@@ -122,7 +123,7 @@ export default function PerformanceMetrics() {
           font-weight: 700;
           letter-spacing: 0.08em;
           text-transform: uppercase;
-          color: rgba(255, 255, 255, 0.75);
+          color: #6b7280;
           line-height: 1.35;
           margin: 0;
         }

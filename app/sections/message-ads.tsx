@@ -2,13 +2,13 @@
 
 import FlowBackground from "../components/FlowBackground";
 import ComparisonCardAnimated from "../components/ComparisonCardAnimated";
-import { BUTTON_PRIMARY, ACCENT_SECONDARY } from "../config/constants";
+import { BUTTON_PRIMARY, ACCENT_SECONDARY, PAGE_BACKGROUND } from "../config/constants";
 
 export default function MessageAds() {
   return (
     <>
       <style>{`
-        .ma-section { background: #ffffff; padding: 140px 24px 120px; position: relative; overflow: hidden; }
+        .ma-section { background: ${PAGE_BACKGROUND}; padding: 140px 24px 120px; position: relative; overflow: hidden; }
         .ma-container { max-width: 1120px; margin: 0 auto; position: relative; z-index: 1; }
         .ma-grid {
           display: grid; grid-template-columns: 1fr 1fr;
@@ -18,15 +18,15 @@ export default function MessageAds() {
         /* Stat cards — theme */
         .ma-stat-card {
           display: flex; align-items: center; gap: 16px;
-          background: rgba(180, 83, 9, 0.06);
-          border: 1px solid rgba(180, 83, 9, 0.25);
+          background: rgba(79, 70, 229, 0.06);
+          border: 1px solid rgba(79, 70, 229, 0.25);
           border-radius: 14px;
           padding: 16px 20px;
           transition: box-shadow 0.2s ease, border-color 0.2s ease;
         }
         .ma-stat-card:hover {
-          border-color: rgba(180, 83, 9, 0.5);
-          box-shadow: 0 4px 20px rgba(180, 83, 9, 0.12);
+          border-color: rgba(79, 70, 229, 0.5);
+          box-shadow: 0 4px 20px rgba(79, 70, 229, 0.12);
         }
         .ma-stat-icon {
           width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
@@ -34,7 +34,7 @@ export default function MessageAds() {
         }
         .ma-stat-num {
           font-size: 28px; font-weight: 900; line-height: 1;
-          color: rgb(180, 83, 9); letter-spacing: -0.02em;
+          color: rgb(79, 70, 229); letter-spacing: -0.02em;
         }
         .ma-stat-label { font-size: 13px; font-weight: 700; color: #0F172A; margin-top: 1px; }
         .ma-stat-sub { font-size: 11.5px; color: #64748B; margin-top: 2px; line-height: 1.4; }
@@ -89,9 +89,9 @@ export default function MessageAds() {
                   },
                 ].map((item, i, arr) => {
                   const useSecondary = i % 2 === 0;
-                  const bg = useSecondary ? "rgba(13, 148, 136, 0.15)" : "rgba(180, 83, 9, 0.15)";
+                  const bg = useSecondary ? "rgba(13, 148, 136, 0.15)" : "rgba(79, 70, 229, 0.15)";
                   const stroke = useSecondary ? ACCENT_SECONDARY : BUTTON_PRIMARY;
-                  const borderColor = i < arr.length - 1 ? (useSecondary ? "rgba(13, 148, 136, 0.2)" : "rgba(180, 83, 9, 0.12)") : "none";
+                  const borderColor = i < arr.length - 1 ? (useSecondary ? "rgba(13, 148, 136, 0.2)" : "rgba(79, 70, 229, 0.12)") : "none";
                   return (
                     <div key={i} style={{ display: "flex", gap: "16px", alignItems: "center", padding: "20px 0", borderBottom: borderColor !== "none" ? `1px solid ${borderColor}` : "none" }}>
                       <div style={{ width: "44px", height: "44px", borderRadius: "12px", background: bg, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
