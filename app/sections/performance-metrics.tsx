@@ -4,8 +4,8 @@ import { BUTTON_PRIMARY, PAGE_BACKGROUND } from "../config/constants";
 
 const METRICS = [
   {
-    value: "50+",
-    label: "Remodelers already on board",
+    value: "0",
+    label: "Shared leads — every appointment is exclusive to you",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={BUTTON_PRIMARY} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -16,7 +16,7 @@ const METRICS = [
     ),
   },
   {
-    value: "12-25",
+    value: "15-25",
     label: "Qualified appointments hitting your calendar every month",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={BUTTON_PRIMARY} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

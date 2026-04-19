@@ -343,7 +343,7 @@ export const Hero = () => {
             <div className="hero-left-content">
               <p className="hero-tagline" style={{ color: ACCENT_SECONDARY }}>
                 <CheckBadgeIcon aria-hidden />
-                Done For You Lead Generation For Home Remodelers
+                Only Pay per Qualified Appointment
               </p>
               <h1 className="hero-h1">
                 Fill your calendar with{" "}
@@ -352,7 +352,7 @@ export const Hero = () => {
               <p className="hero-subhead">
                 FlowQualify is a turnkey, performance-based lead generation
                 system for{" "}
-                <span style={{ color: BUTTON_PRIMARY, fontWeight: 700 }}>contractors &amp; remodelers</span>
+                <span style={{ color: BUTTON_PRIMARY, fontWeight: 700 }}>remodeling contractors</span>
                 {" "}who want a calendar
                 consistently filled with exclusive, qualified jobs.
               </p>
