@@ -4,6 +4,7 @@ import HowItWorks from "./sections/how-it-works";
 import Testimonials from "./sections/testimonials";
 import DoorCta from "./sections/door-cta";
 import PerformanceMetrics from "./sections/performance-metrics";
+import AdSpendGrowth from "./sections/ad-spend-growth";
 import FadeIn from "./components/fade-in";
 import Footer from "./components/footer";
 import StripeLayoutWrapper from "./components/StripeLayoutWrapper";
@@ -37,6 +38,9 @@ export default function Home() {
         <Benchmarks />
         <FadeIn>
           <PerformanceMetrics />
+        </FadeIn>
+        <FadeIn>
+          <AdSpendGrowth />
         </FadeIn>
         <FadeIn>
           <DoorCta />
