@@ -1,11 +1,7 @@
-[[redirects]]
-  from = "/"
-  to = "/growth-diagnostic-landing.html"
-  status = 200
-  force = true
+[build]
+  publish = "public"
 
 [[redirects]]
   from = "/apply"
-  to = "/growth-diagnostic-landing.html"
-  status = 200
-  force = true
+  to = "/"
+  status = 301

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Established Ecommerce Brand: Meta Account Rebuild · ONBOARDdigital</title>
+  <meta name="description" content="5.87× blended ROAS on $316K in Meta spend across five months. How funnel structure, stronger audience signals, and a repeatable creative cadence gave a stagnant account the foundation to scale.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cs-system.css">
+  <style>
+    :root {
+      --ca-rgb: 240, 90, 40;
+      --ca:     rgba(240,90,40,1);
+      --ca-light: rgba(240,90,40,.09);
+    }
+
+    /* Single-screenshot evidence section */
+    .cs-single-evidence { max-width: 920px; margin: 0 auto; }
+    .cs-single-evidence .cs-compare-roas { margin-bottom: 14px; }
+
+    /* Finding title — adds bold label above each finding body */
+    .cs-finding-title {
+      font-size: 15.5px; font-weight: 800; color: var(--ink);
+      letter-spacing: -.025em; line-height: 1.3; margin-bottom: 8px;
+    }
+
+    /* Meta funnel diagram */
+    .meta-funnel { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; }
+    .meta-stage {
+      padding: 26px 22px; border-right: 1px solid var(--line);
+      position: relative;
+    }
+    .meta-stage:last-child { border-right: none; }
+    .meta-stage::after {
+      content: '→'; position: absolute; right: -14px; top: 44%; transform: translateY(-50%);
+      color: rgba(var(--ca-rgb),.28); font-size: 1.1rem; z-index: 1; pointer-events: none;
+    }
+    .meta-stage:last-child::after { display: none; }
+    .meta-stage-label {
+      font-size: 8.5px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(var(--ca-rgb),.65); display: block; margin-bottom: 9px;
+    }
+    .meta-stage-name {
+      font-size: 15px; font-weight: 800; color: var(--ink);
+      letter-spacing: -.025em; display: block; margin-bottom: 8px; line-height: 1.25;
+    }
+    .meta-stage-desc {
+      font-size: 13px; line-height: 1.58; color: var(--body-text);
+      margin-bottom: 12px;
+    }
+    .meta-stage-detail {
+      font-size: 11px; color: var(--muted); opacity: .58; line-height: 1.55;
+    }
+    .meta-stage-bar { height: 3px; margin-top: 16px; border-radius: 2px; }
+    .meta-stage:nth-child(1) .meta-stage-bar { background: rgba(var(--ca-rgb),.28); width: 100%; }
+    .meta-stage:nth-child(2) .meta-stage-bar { background: rgba(var(--ca-rgb),.58); width: 65%; }
+    .meta-stage:nth-child(3) .meta-stage-bar { background: rgba(var(--ca-rgb),.92); width: 35%; }
+
+    /* Inline CTA — restrained light section before related */
+    .cs-body-cta {
+      background: rgba(255,102,84,.04);
+      border-top: 2px solid rgba(255,102,84,.28);
+      border-bottom: 1px solid rgba(255,102,84,.12);
+      padding: 72px 40px;
+    }
+    .cs-body-cta-inner { max-width: var(--edit-w); margin: 0 auto; }
+    .cs-body-cta-eyebrow {
+      font-size: 9px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase;
+      color: rgba(var(--ca-rgb),.72); display: block; margin-bottom: 18px;
+    }
+    .cs-body-cta-headline {
+      font-size: clamp(1.4rem, 2.4vw, 1.85rem); font-weight: 800; color: var(--ink);
+      letter-spacing: -.04em; line-height: 1.18; margin-bottom: 16px;
+    }
+    .cs-body-cta-body {
+      font-size: 15.5px; line-height: 1.72; color: var(--body-text);
+      margin-bottom: 32px; max-width: 640px;
+    }
+    .cs-body-cta-micro {
+      font-size: 12px; color: var(--muted); opacity: .45; margin-top: 14px;
+    }
+    .btn-cta-primary {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 14px; font-weight: 700; font-family: var(--font);
+      background: var(--cta); color: #fff;
+      border: none; border-radius: 100px; padding: 14px 28px;
+      text-decoration: none; cursor: pointer;
+      transition: background .18s, transform .22s var(--ease);
+    }
+    .btn-cta-primary:hover { background: var(--cta-hover); transform: translateY(-2px); }
+
+    /* ── WHAT CHANGED TABLE ── */
+    .em-what-changed {
+      margin: 32px 0 28px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .em-what-changed-header {
+      padding: 13px 20px;
+      background: var(--surf);
+      border-bottom: 1px solid var(--line);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .em-change-row {
+      display: grid;
+      grid-template-columns: 148px 1fr;
+      border-top: 1px solid var(--line);
+    }
+    .em-change-label {
+      padding: 14px 20px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink);
+      border-right: 1px solid var(--line);
+      background: var(--surf);
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+    }
+    .em-change-desc {
+      padding: 14px 20px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--body-text);
+    }
+
+    @media (max-width: 768px) {
+      .meta-funnel { grid-template-columns: 1fr; }
+      .meta-stage { border-right: none; border-bottom: 1px solid var(--line); padding: 22px 16px; }
+      .meta-stage::after {
+        content: '↓'; right: auto; left: 50%; top: auto;
+        bottom: -16px; transform: translateX(-50%);
+      }
+      .meta-stage:last-child { border-bottom: none; }
+      .meta-stage:last-child::after { display: none; }
+      .cs-body-cta { padding: 56px 20px; }
+      .em-change-row { grid-template-columns: 1fr; }
+      .em-change-label { border-right: none; border-bottom: 1px solid var(--line); padding: 12px 16px; }
+      .em-change-desc { padding: 12px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav" role="navigation" aria-label="Site navigation">
+  <a href="../growth-diagnostic-landing.html" class="site-nav-logo">ONBOARD<span>digital</span></a>
+  <div class="site-nav-right">
+    <ul class="site-nav-links">
+      <li><a href="../case-studies.html">All Case Studies</a></li>
+      <li><a href="../growth-diagnostic-landing.html">Home</a></li>
+    </ul>
+    <a href="../growth-diagnostic-landing.html#book" class="btn-nav">Request Free Diagnostic &rarr;</a>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="../case-studies.html" aria-label="Back to all case studies">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    All case studies
+  </a>
+</div>
+
+<section class="cs-hero cs-hero--very-long-title" aria-label="Case study overview">
+  <div class="cs-hero-inner">
+    <div class="cs-hero-left">
+      <div class="cs-hero-taxonomy">
+        <span class="cs-hero-accent-rule" aria-hidden="true"></span>
+        <div>
+          <div class="cs-hero-vertical">Established Ecommerce Brand</div>
+          <div class="cs-hero-cat">Meta Ads &middot; Account Rebuild</div>
+        </div>
+      </div>
+      <h1 class="cs-hero-headline">The Meta Account Wasn&rsquo;t a Creative Problem. Once the Structure Was Fixed, It Hit 5.87&times; ROAS.</h1>
+      <p class="cs-hero-strategic-sub">Prospecting and retargeting were targeting the same audiences with no boundaries between them, while years of purchase data sat unused. The account needed cleaner funnel separation and stronger customer signals before any creative decision could make a meaningful difference.</p>
+<div class="cs-hero-stat single" aria-label="5.87 times blended ROAS">
+        5.87&times; ROAS
+      </div>
+      <div class="cs-hero-sub">$1.85M Platform-Attributed Revenue &nbsp;&middot;&nbsp; $316K Managed Spend &nbsp;&middot;&nbsp; January&ndash;May 2026</div>
+    </div>
+    <div class="cs-hero-proof" aria-label="Supporting results">
+      <div class="cs-hero-proof-row">
+        <span class="cs-hero-proof-val">$1.85M</span>
+        <span class="cs-hero-proof-lbl">Platform-Attr. Revenue</span>
+      </div>
+      <div class="cs-hero-proof-divider" aria-hidden="true"></div>
+      <div class="cs-hero-proof-row">
+        <span class="cs-hero-proof-val">Jan&ndash;May 2026</span>
+        <span class="cs-hero-proof-lbl">Documented Period</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="cs-byline" aria-label="Article metadata">
+  <div class="cs-byline-inner">
+    <div class="cs-byline-meta">
+      <span class="cs-byline-who">
+        <span class="cs-byline-by">By</span><span class="cs-byline-author">Phil Chan</span>
+        <span class="cs-byline-sep" aria-hidden="true">&middot;</span>
+        <span class="cs-byline-role">Founder &amp; Head of Growth</span>
+      </span>
+      <span class="cs-byline-sep cs-byline-group-sep" aria-hidden="true">&middot;</span>
+      <span class="cs-byline-when">
+        <time class="cs-byline-date" datetime="2026-06-26">June 26, 2026</time>
+        <span class="cs-byline-sep" aria-hidden="true">&middot;</span>
+        <span class="cs-byline-time">5 min read</span>
+      </span>
+    </div>
+  </div>
+</div>
+
+
+<div class="cs-compare" aria-label="Campaign performance screenshot">
+  <div class="cs-compare-inner">
+    <div class="cs-single-evidence">
+      <div class="cs-ev-head is-after">
+      <span class="cs-ev-period">Jan 1 &ndash; May 31, 2026 &middot; Meta Ads Manager &middot; ONBOARDdigital</span>
+      <div class="cs-ev-num">
+        <span class="cs-ev-val">5.87&times;</span>
+        <span class="cs-ev-lbl">ROAS</span>
+      </div>
+      <div class="cs-ev-sub">
+        <span>$1.85M Attributed Revenue</span>
+        <span class="cs-ev-sub-sep" aria-hidden="true">&middot;</span>
+        <span>$316K Managed Spend</span>
+      </div>
+    </div>
+<div class="cs-screenshot-frame">
+        <div class="cs-chrome-bar" aria-hidden="true">
+          <div class="cs-chrome-dots"><div class="cs-chrome-dot"></div><div class="cs-chrome-dot"></div><div class="cs-chrome-dot"></div></div>
+          <span class="cs-chrome-label">adsmanager.meta.com &nbsp;&middot;&nbsp; Campaigns &nbsp;&middot;&nbsp; Jan 1 &ndash; May 31, 2026</span>
+        </div>
+        <div class="lb-trigger" data-caption="Meta Ads Manager · Jan 1 – May 31, 2026 · 5.87× blended ROAS across $316K in managed spend. Brand identity withheld per client NDA.">
+          <img src="../meta-316k.jpg" alt="Meta Ads Manager dashboard showing 5.87× blended ROAS on $316K managed spend, Jan–May 2026. Brand identity redacted per NDA." loading="lazy">
+          <span class="lb-hint" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg> View full size</span>
+        </div>
+      </div>
+      <p class="cs-compare-caption">Brand identity withheld per client NDA. Campaign names redacted. All performance data sourced directly from Meta Ads Manager.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Opening narrative -->
+<section class="cs-exec">
+  <div class="cs-exec-inner">
+    <p class="cs-exec-body">Testing more creative is the most common response to a Meta account that isn&rsquo;t meeting expectations. It is also, frequently, the wrong one.</p>
+    <p class="cs-exec-body" style="margin-top:20px;">Not because creative is unimportant. It is. But an account with poorly defined audience boundaries, outdated customer signals, or prospecting and retargeting overlapping each other will produce similar results regardless of how many new pieces of creative are rotated through. The structural constraint limits what any creative can achieve.</p>
+    <p class="cs-exec-body" style="margin-top:20px;">This was an established ecommerce brand with years of customer history and a Meta account that had been active since the brand&rsquo;s early growth. Performance was acceptable. The account had never received a true structural review.</p>
+    <p class="cs-exec-body" style="margin-top:20px;">When we first spoke with this client, the account was producing roughly 3&times; ROAS, and they were reasonably happy with it. Their previous agency&rsquo;s answer whenever performance softened was to test more creative. So they did, but without much of a system behind it.</p>
+    <p class="cs-exec-body" style="margin-top:20px;">Once we reviewed the account, the larger issue became clear. Prospecting and retargeting were overlapping, the brand&rsquo;s purchase history had never been connected to Meta, lookalikes were built from visitors rather than purchasers, and some creative had been running for more than six months.</p>
+    <p class="cs-exec-body" style="margin-top:20px;">The opportunity wasn&rsquo;t simply &ldquo;more creative.&rdquo; It was a cleaner acquisition system: stronger customer signals, clearer funnel boundaries, a repeatable testing cadence, and reporting the team could actually use to make budget decisions.</p>
+  </div>
+</section>
+
+<section class="cs-findings">
+  <div class="cs-findings-inner">
+    <h2 class="cs-h2">Here&rsquo;s what was actually happening in the account</h2>
+
+    <div class="cs-findings-list" role="list">
+
+      <div class="cs-finding" role="listitem">
+        <span class="cs-finding-num">01</span>
+        <div>
+          <p class="cs-finding-title">Prospecting and retargeting were competing for the same people</p>
+          <p class="cs-finding-body">There were no meaningful audience exclusions between prospecting and retargeting. In plain terms: the same person could see a cold prospecting ad and a retargeting ad in the same week, and you&rsquo;d have no idea which one got credit for the sale. Scaling spend just meant scaling the confusion.</p>
+        </div>
+      </div>
+
+      <div class="cs-finding" role="listitem">
+        <span class="cs-finding-num">02</span>
+        <div>
+          <p class="cs-finding-title">Lookalikes were modeled on visitors, not customers</p>
+          <p class="cs-finding-body">The account&rsquo;s lookalikes were seeded from 30-day website visitors rather than purchasers. We noticed this immediately. Visitors and buyers are different groups. When Meta is asked to find more people like a source audience, the quality of that starting signal matters a great deal.</p>
+        </div>
+      </div>
+
+      <div class="cs-finding" role="listitem">
+        <span class="cs-finding-num">03</span>
+        <div>
+          <p class="cs-finding-title">Creative was being replaced only after performance declined</p>
+          <p class="cs-finding-body">Some ads had been running for more than six months with no defined rotation. There was no consistent testing cadence, no clear threshold for promoting a winner, and no system for deciding when an ad had run its course. Fresh creative wasn&rsquo;t being introduced until performance had already visibly softened.</p>
+        </div>
+      </div>
+
+      <div class="cs-finding" role="listitem">
+        <span class="cs-finding-num">04</span>
+        <div>
+          <p class="cs-finding-title">Years of purchase data were sitting unused</p>
+          <p class="cs-finding-body">The brand&rsquo;s purchase history had never been connected to Meta. At roughly $180K per month in spend, that was a meaningful gap. The account was learning primarily from website activity while one of the brand&rsquo;s strongest signals, its actual purchasers, remained unused.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cs-mid-hook">
+      <p class="cs-mid-hook-text">If audience overlap makes it difficult to understand where performance is coming from, it also becomes difficult to decide where the next dollar should go. Cleaner structure doesn&rsquo;t make attribution perfect, but it gives the team a more useful basis for budget decisions.</p>
+      <a href="../growth-diagnostic-landing.html#book" class="cs-mid-hook-link">The Growth Diagnostic looks for exactly these kinds of structural constraints &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="cs-viz">
+  <div class="cs-viz-inner">
+    <div class="cs-viz-header">
+      <h2 class="cs-h2">A cleaner funnel, each stage with a defined job</h2>
+      <p class="cs-viz-p">We separated prospecting, consideration, and conversion into clearer stages, with exclusions designed to reduce unnecessary overlap. The goal was not to make attribution perfect. It was to create cleaner performance baselines, clearer budget ownership, and a more useful view of where additional spend could go.</p>
+    </div>
+    <div style="background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:12px;">
+      <div class="meta-funnel">
+
+        <div class="meta-stage">
+          <span class="meta-stage-label">TOF &nbsp;&middot;&nbsp; Prospecting</span>
+          <span class="meta-stage-name">Find more high-value prospects</span>
+          <p class="meta-stage-desc">Use the brand&rsquo;s strongest customer signals to guide acquisition while excluding warmer audiences from this stage.</p>
+          <div class="meta-stage-detail">Advantage+ prospecting &nbsp;&middot;&nbsp; High-LTV purchaser signals &nbsp;&middot;&nbsp; Consideration &amp; conversion audiences excluded &nbsp;&middot;&nbsp; Brand-building creative</div>
+          <div class="meta-stage-bar"></div>
+        </div>
+
+        <div class="meta-stage">
+          <span class="meta-stage-label">MOF &nbsp;&middot;&nbsp; Consideration</span>
+          <span class="meta-stage-name">Re-engage product interest</span>
+          <p class="meta-stage-desc">Reach recent product visitors without mixing them into cold acquisition reporting or conversion-stage budgets.</p>
+          <div class="meta-stage-detail">Product-intent visitors &nbsp;&middot;&nbsp; 14-day window &nbsp;&middot;&nbsp; Purchasers excluded &nbsp;&middot;&nbsp; Feature-led creative</div>
+          <div class="meta-stage-bar"></div>
+        </div>
+
+        <div class="meta-stage">
+          <span class="meta-stage-label">BOF &nbsp;&middot;&nbsp; Conversion</span>
+          <span class="meta-stage-name">Convert the highest-intent shoppers</span>
+          <p class="meta-stage-desc">Focus direct-response messaging on recent cart abandoners and other high-intent visitors closest to a purchase decision.</p>
+          <div class="meta-stage-detail">7-day cart abandoners &nbsp;&middot;&nbsp; Dynamic product ads &nbsp;&middot;&nbsp; Direct-response creative &nbsp;&middot;&nbsp; Urgency messaging</div>
+          <div class="meta-stage-bar"></div>
+        </div>
+
+      </div>
+    </div>
+    <p style="font-size:11px;color:var(--muted);opacity:.42;margin-top:12px;text-align:center;font-style:italic;">Exclusions were used to reduce audience overlap between stages. Purchase data informed prospecting signals, purchaser suppression, and customer re-engagement where appropriate.</p>
+  </div>
+</section>
+
+<section class="cs-interventions">
+  <div class="cs-interventions-inner">
+    <h2 class="cs-h2">What we built in the first 30 days</h2>
+
+    <div class="cs-intervention-list">
+
+      <div class="cs-intervention">
+        <div class="cs-intervention-num" aria-hidden="true">01</div>
+        <div>
+          <div class="cs-intervention-title">Built clearer funnel boundaries</div>
+          <p class="cs-intervention-desc">We separated prospecting, consideration, and conversion into distinct campaign groups with audience exclusions at each boundary. Each stage had a clearer role, budget, and performance baseline, making it easier to evaluate where efficiency was changing and where additional spend could be tested.</p>
+        </div>
+      </div>
+
+      <div class="cs-intervention">
+        <div class="cs-intervention-num" aria-hidden="true">02</div>
+        <div>
+          <div class="cs-intervention-title">Rebuilt prospecting around high-value purchasers</div>
+          <p class="cs-intervention-desc">We used the brand&rsquo;s highest-value customers as a stronger source signal for prospecting. The campaign objective didn&rsquo;t change; the quality of the customer data informing acquisition did.</p>
+        </div>
+      </div>
+
+      <div class="cs-intervention">
+        <div class="cs-intervention-num" aria-hidden="true">03</div>
+        <div>
+          <div class="cs-intervention-title">Connected purchase data to Meta across all stages</div>
+          <p class="cs-intervention-desc">We activated the brand&rsquo;s existing purchase history across the account, using customer data to strengthen prospecting signals, exclude purchasers where appropriate, and support re-engagement. Data that had been sitting unused became part of the acquisition system.</p>
+        </div>
+      </div>
+
+      <div class="cs-intervention">
+        <div class="cs-intervention-num" aria-hidden="true">04</div>
+        <div>
+          <div class="cs-intervention-title">Introduced a weekly creative testing cadence</div>
+          <p class="cs-intervention-desc">We established a repeatable weekly cycle: new creative entered testing, winners received additional budget, and underperformers were retired against defined criteria. The objective was to introduce new concepts before fatigue became visible, not after performance had already declined.</p>
+        </div>
+      </div>
+
+      <div class="cs-intervention">
+        <div class="cs-intervention-num" aria-hidden="true">05</div>
+        <div>
+          <div class="cs-intervention-title">Aligned measurement to each funnel stage</div>
+          <p class="cs-intervention-desc">We evaluated prospecting and conversion activity according to their different roles in the customer journey. This gave the team a clearer basis for comparing performance and making budget decisions without relying on one blended view of the account.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cs-callout">
+      <p class="cs-callout-text">Meta learns from the signals you give it. Feed it a mix of browsers and buyers with no separation between stages, and it learns to find more of that mix. Connect your actual purchasers and build cleaner boundaries, and it gets a better signal to work from. Same platform. Very different starting points.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cs-outcome">
+  <div class="cs-outcome-inner">
+    <div class="cs-outcome-header">
+      <h2 class="cs-h2">Five months later: stronger performance and clearer decisions</h2>
+    </div>
+    <div class="em-what-changed" role="table" aria-label="What changed in the account rebuild">
+      <div class="em-what-changed-header">What changed in the rebuild</div>
+      <div class="em-change-row">
+        <span class="em-change-label">Prospecting</span>
+        <span class="em-change-desc">Separated from retargeting into its own campaign with a distinct ROAS target calibrated to acquisition cost, not blended efficiency</span>
+      </div>
+      <div class="em-change-row">
+        <span class="em-change-label">Customer signals</span>
+        <span class="em-change-desc">Purchaser list rebuilt and segmented by recency. Purchasers excluded from prospecting and used to anchor lookalike audience quality</span>
+      </div>
+      <div class="em-change-row">
+        <span class="em-change-label">Creative testing</span>
+        <span class="em-change-desc">Concept-level testing isolated within defined budget limits before scaling. Winning creative rotated with controlled introduction of new concepts</span>
+      </div>
+      <div class="em-change-row">
+        <span class="em-change-label">Measurement</span>
+        <span class="em-change-desc">Prospecting and conversion performance evaluated separately against funnel stage, not collapsed into one blended account ROAS</span>
+      </div>
+    </div>
+    <div class="cs-outcome-conclusion">
+      <p class="cs-para">Over the documented five-month period, the account generated $1.85M in attributed revenue from $316K in managed spend: a 5.87&times; blended ROAS.</p>
+      <p class="cs-para">The larger operational change was clarity. The team now had stronger customer signals informing prospecting, a repeatable creative testing cadence, clearer audience boundaries, and a more useful view of where performance was coming from.</p>
+      <p class="cs-para">When the client wanted to increase spend, the decision no longer depended on one blended account number. The team had a clearer basis for identifying which campaigns were ready for additional budget and where efficiency began to change.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Author card -->
+<section class="cs-author-card" aria-label="Phil Chan, Head of Growth at ONBOARDdigital">
+  <div class="cs-author-card-inner">
+
+    <div class="cs-author-identity">
+      <div class="cs-author-monogram" aria-hidden="true">PC</div>
+      <div class="cs-author-id-text">
+        <span class="cs-author-name">Phil Chan</span>
+        <span class="cs-author-title">Head of Growth</span>
+        <span class="cs-author-org">ONBOARDdigital</span>
+      </div>
+      <div class="cs-author-id-rule" aria-hidden="true"></div>
+      <a href="https://www.linkedin.com/in/philip-chan-7443a266/" class="cs-author-linkedin" target="_blank" rel="noopener noreferrer" aria-label="View Phil Chan on LinkedIn (opens in new tab)">
+        <svg class="cs-author-linkedin-icon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        View on LinkedIn
+      </a>
+    </div>
+
+    <div class="cs-author-authority">
+      <span class="cs-author-eyebrow">About the strategist</span>
+      <p class="cs-author-bio">Phil brings more than a decade of paid-media experience across agency, enterprise, and ecommerce environments. He has spent the majority of that time in senior account leadership, directing complex multi-channel advertising portfolios at seven-figure monthly scale &#8212; work that required thinking beyond individual campaigns toward how the entire acquisition system operates.</p>
+      <p class="cs-author-bio">He now applies that perspective directly to established ecommerce brands through ONBOARDdigital, focusing on Google, Meta, and YouTube. His work centres on account architecture: where spend is being lost, how cross-channel coordination is failing, and which structural changes produce compound results over time.</p>
+      <div class="cs-author-creds" role="list" aria-label="Professional credentials">
+        <span class="cs-author-cred" role="listitem">10+ Years in Paid Media</span>
+        <span class="cs-author-cred-sep" aria-hidden="true">&middot;</span>
+        <span class="cs-author-cred" role="listitem">Enterprise + Ecommerce</span>
+        <span class="cs-author-cred-sep" aria-hidden="true">&middot;</span>
+        <span class="cs-author-cred" role="listitem">Google &middot; Meta &middot; YouTube</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Inline CTA — before related case studies -->
+<section class="cs-final-cta" aria-label="Free Ecommerce Growth Diagnostic">
+  <div class="cs-final-cta-inner">
+    <span class="cs-final-cta-eyebrow">Free Ecommerce Growth Diagnostic</span>
+    <h2 class="cs-final-cta-headline">More spend isn't always the answer.</h2>
+    <div class="cs-final-cta-actions">
+      <a href="../growth-diagnostic-landing.html#book" class="btn-hero">Request Your Free Growth Diagnostic &rarr;</a>
+    </div>
+    <p class="cs-final-cta-micro">No obligation to hire us &nbsp;&middot;&nbsp; Your diagnostic is yours to keep</p>
+  </div>
+</section>
+
+<section class="cs-related">
+  <div class="cs-related-inner">
+    <span class="cs-related-section-label">More case studies</span>
+    <div class="cs-related-grid">
+      <a href="luxury-home.html" class="cs-related-card">
+        <span class="cs-related-cat">Multi-Channel &middot; Google + YouTube + Meta</span>
+        <div class="cs-related-title">Luxury Home Brand: 3.1&times; to 7.0&times; Across Three Channels</div>
+        <div><span class="cs-related-stat">3.1&times; &rarr; 7.0&times;</span><span class="cs-related-stat-lbl">ROAS</span></div>
+        <div class="cs-related-arrow">View case study <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+      <a href="lifestyle-scale.html" class="cs-related-card">
+        <span class="cs-related-cat">Google Ads &middot; 8-Figure Scale</span>
+        <div class="cs-related-title">Lifestyle Brand: 4.06&times; ROAS Maintained at $1.07M Spend</div>
+        <div><span class="cs-related-stat">4.06&times;</span><span class="cs-related-stat-lbl">Blended ROAS</span></div>
+        <div class="cs-related-arrow">View case study <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div>
+      <p class="site-footer-brand">ONBOARD<span>digital</span></p>
+      <div class="site-footer-links"><a href="../terms.html">Terms of Use</a><span>|</span><a href="../privacy.html">Privacy Policy</a></div>
+    </div>
+    <p class="site-footer-copy">&copy; 2026 ONBOARDdigital. All rights reserved.</p>
+  </div>
+</footer>
+
+<div id="lb-overlay" role="dialog" aria-modal="true" aria-label="Enlarged screenshot">
+  <div id="lb-wrap">
+    <button id="lb-close" aria-label="Close image (Escape)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <img id="lb-img" src="" alt=""><p id="lb-cap"></p>
+  </div>
+</div>
+<script>
+(function(){
+  var overlay=document.getElementById('lb-overlay'),lbImg=document.getElementById('lb-img'),lbCap=document.getElementById('lb-cap'),pf;
+  function open(s,a,c){pf=document.activeElement;lbImg.src=s;lbImg.alt=a;lbCap.textContent=c||'';overlay.classList.add('lb-open');document.body.style.overflow='hidden';document.getElementById('lb-close').focus();}
+  function close(){overlay.classList.remove('lb-open');document.body.style.overflow='';if(pf)pf.focus();}
+  document.querySelectorAll('.lb-trigger').forEach(function(el){
+    el.setAttribute('role','button');el.setAttribute('tabindex','0');el.setAttribute('aria-label','Enlarge screenshot');
+    function act(){var img=el.querySelector('img');open(img.src,img.alt,el.dataset.caption||'');}
+    el.addEventListener('click',act);el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();act();}});
+  });
+  overlay.addEventListener('click',function(e){if(e.target===overlay)close();});
+  document.getElementById('lb-close').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
+</body>
+</html>

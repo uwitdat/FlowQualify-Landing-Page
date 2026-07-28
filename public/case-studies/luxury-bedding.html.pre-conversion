@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7-Figure Luxury Home & Linen: 10.26× Google Ads ROAS · ONBOARDdigital</title>
+  <meta name="description" content="Consistent 10× efficiency across a full Google Ads account. CA$151K managed spend, CA$1.55M revenue, full year 2023. How sustained management shows up in the annual numbers.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cs-system.css">
+  <style>
+    :root {
+      --ca-rgb: 240, 90, 40;
+      --ca:     rgba(240,90,40,1);
+      --ca-light: rgba(240,90,40,.09);
+    }
+
+    /* Finding title */
+    .cs-finding-title {
+      font-size: 15.5px; font-weight: 800; color: var(--ink);
+      letter-spacing: -.025em; line-height: 1.3; margin-bottom: 8px;
+    }
+
+    /* VISUAL 1 — Architecture */
+    .arch-section { padding: 88px 40px 96px; background: var(--surf-b); border-bottom: 1px solid var(--line); }
+    .arch-inner { max-width: var(--wide-w); margin: 0 auto; }
+    .arch-header { max-width: 720px; margin-bottom: 52px; }
+    .arch-eyebrow { font-size: 9.5px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(var(--ca-rgb),.78); display: block; margin-bottom: 16px; }
+    .arch-headline { font-size: clamp(1.45rem, 2.5vw, 2rem); font-weight: 800; color: var(--ink); letter-spacing: -.04em; line-height: 1.15; margin-bottom: 14px; }
+    .arch-sub { font-size: 15.5px; line-height: 1.68; color: var(--muted); margin: 0; }
+    .arch-lanes { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 16px; }
+    .arch-lane { background: #fff; border: 1px solid rgba(16,20,67,.10); border-radius: 16px; box-shadow: 0 6px 24px rgba(18,15,64,.05); overflow: hidden; }
+    .arch-lane-accent { height: 3px; background: rgba(var(--ca-rgb),.72); }
+    .arch-lane-body { padding: 26px 26px 22px; }
+    .arch-lane-tag { font-size: 8.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: rgba(var(--ca-rgb),.68); display: block; margin-bottom: 14px; }
+    .arch-lane-name { font-size: 20px; font-weight: 800; color: var(--ink); letter-spacing: -.035em; line-height: 1.15; margin-bottom: 5px; }
+    .arch-lane-role { font-size: 12.5px; font-weight: 600; color: rgba(var(--ca-rgb),.82); margin-bottom: 20px; }
+    .arch-lane-points { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 9px; margin-bottom: 22px; }
+    .arch-lane-points li { font-size: 14px; line-height: 1.55; color: #555B76; padding-left: 16px; position: relative; }
+    .arch-lane-points li::before { content: ''; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; border-radius: 50%; background: rgba(var(--ca-rgb),.55); }
+    .arch-lane-foot { padding-top: 16px; border-top: 1px solid rgba(16,20,67,.07); display: flex; align-items: baseline; gap: 8px; }
+    .arch-lane-metric { font-size: 2.1rem; font-weight: 800; color: rgba(var(--ca-rgb),.92); letter-spacing: -.06em; line-height: 1; }
+    .arch-lane-metric-lbl { font-size: 9.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); opacity: .55; }
+    /* Outcome panel — dark navy, 3 columns */
+    .arch-outcome { background: linear-gradient(120deg, #17113F 0%, #251653 100%); border-radius: 16px; padding: 26px 30px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; align-items: center; }
+    .arch-outcome-col { padding: 0 24px; border-right: 1px solid rgba(255,255,255,.09); }
+    .arch-outcome-col:first-child { padding-left: 0; }
+    .arch-outcome-col:last-child  { border-right: none; }
+    .arch-outcome-label { font-size: 8.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.38); display: block; margin-bottom: 7px; }
+    .arch-outcome-val { font-size: 1.75rem; font-weight: 800; letter-spacing: -.06em; line-height: 1; display: block; }
+    .arch-outcome-val.teal  { color: rgba(var(--ca-rgb),.95); }
+    .arch-outcome-val.white { color: rgba(255,255,255,.88); }
+    .arch-outcome-val.dim   { color: rgba(255,255,255,.62); font-size: 1.25rem; }
+    .arch-outcome-note { font-size: 10px; color: rgba(255,255,255,.32); margin-top: 5px; display: block; }
+
+    /* VISUAL 2 — Performance Summary */
+    .perf-section { padding: 88px 40px 96px; border-bottom: 1px solid var(--line); }
+    .perf-inner { max-width: var(--wide-w); margin: 0 auto; }
+    .perf-header { max-width: 720px; margin-bottom: 52px; }
+    .perf-eyebrow { font-size: 9.5px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(var(--ca-rgb),.78); display: block; margin-bottom: 16px; }
+    .perf-headline { font-size: clamp(1.45rem, 2.5vw, 2rem); font-weight: 800; color: var(--ink); letter-spacing: -.04em; line-height: 1.15; margin-bottom: 14px; }
+    .perf-sub { font-size: 15.5px; line-height: 1.68; color: var(--muted); margin: 0; }
+    .perf-primary-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .perf-card-roas { background: linear-gradient(135deg, #17113F 0%, #251653 100%); border-radius: 16px; padding: 32px 30px; display: flex; flex-direction: column; min-height: 190px; }
+    .perf-card-rev { background: rgba(var(--ca-rgb),.07); border: 1px solid rgba(var(--ca-rgb),.18); border-radius: 16px; padding: 32px 30px; display: flex; flex-direction: column; min-height: 190px; }
+    .perf-card-eyebrow { font-size: 8.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: block; margin-bottom: 20px; }
+    .perf-card-roas .perf-card-eyebrow { color: rgba(255,255,255,.36); }
+    .perf-card-rev  .perf-card-eyebrow { color: rgba(var(--ca-rgb),.65); }
+    .perf-card-val { font-weight: 800; letter-spacing: -.07em; line-height: 1; display: block; margin-bottom: 6px; }
+    .perf-card-roas .perf-card-val { font-size: clamp(2.8rem, 4.2vw, 3.8rem); color: rgba(var(--ca-rgb),.95); }
+    .perf-card-rev  .perf-card-val { font-size: clamp(2rem, 3vw, 2.8rem); color: var(--ink); }
+    .perf-card-lbl { font-size: 10.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; display: block; margin-bottom: 20px; }
+    .perf-card-roas .perf-card-lbl { color: rgba(255,255,255,.48); }
+    .perf-card-rev  .perf-card-lbl { color: var(--muted); opacity: .65; }
+    .perf-card-foot { margin-top: auto; padding-top: 16px; font-size: 12px; line-height: 1.5; }
+    .perf-card-roas .perf-card-foot { border-top: 1px solid rgba(255,255,255,.1); color: rgba(255,255,255,.3); }
+    .perf-card-rev  .perf-card-foot { border-top: 1px solid rgba(var(--ca-rgb),.15); color: var(--muted); opacity: .65; }
+    .perf-rail { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 44px; }
+    .perf-rail-card { background: #fff; border: 1px solid rgba(16,20,67,.09); border-radius: 12px; padding: 18px 20px; }
+    .perf-rail-eyebrow { font-size: 8.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); opacity: .5; display: block; margin-bottom: 10px; }
+    .perf-rail-val { font-size: 1.55rem; font-weight: 800; color: var(--ink); letter-spacing: -.05em; line-height: 1; display: block; margin-bottom: 4px; }
+    .perf-rail-lbl { font-size: 9px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); opacity: .5; display: block; }
+    .perf-conclusion { max-width: var(--edit-w); margin: 0 auto; }
+    .perf-conclusion p { font-size: 16px; line-height: 1.72; color: var(--body-text); margin-bottom: 18px; }
+    .perf-conclusion p:last-child { margin-bottom: 0; }
+    .perf-attribution { font-size: 11.5px; color: var(--muted); opacity: .42; font-style: italic; margin-top: 20px; }
+
+    /* CTA section */
+    .cs-body-cta {
+      background: rgba(var(--ca-rgb),.04);
+      border-top: 2px solid rgba(var(--ca-rgb),.28);
+      border-bottom: 1px solid rgba(var(--ca-rgb),.12);
+      padding: 72px 40px;
+    }
+    .cs-body-cta-inner { max-width: var(--edit-w); margin: 0 auto; }
+    .cs-body-cta-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--ca); margin-bottom: 16px; display: block;
+    }
+    .cs-body-cta-headline {
+      font-size: clamp(22px, 3.5vw, 30px); font-weight: 800;
+      letter-spacing: -.03em; line-height: 1.2; color: var(--ink); margin-bottom: 12px;
+    }
+    .cs-body-cta-sub {
+      font-size: 15px; line-height: 1.65; color: var(--body-text); margin-bottom: 28px; max-width: 560px;
+    }
+    .cs-body-cta-micro { font-size: 12px; color: var(--muted); margin-top: 10px; }
+    .btn-cta-primary {
+      display: inline-block; padding: 14px 28px; background: var(--ca); color: #fff;
+      font-size: 14px; font-weight: 700; border-radius: 6px; text-decoration: none;
+      transition: opacity .18s ease;
+    }
+    .btn-cta-primary:hover { opacity: .88; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .arch-lanes { grid-template-columns: 1fr; }
+      .arch-outcome { grid-template-columns: 1fr 1fr; gap: 18px; padding: 22px 20px; }
+      .arch-outcome-col { padding: 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,.08); padding-bottom: 16px; }
+      .arch-outcome-col:last-child { border-bottom: none; padding-bottom: 0; }
+    }
+    @media (max-width: 768px) {
+      .arch-section { padding: 64px 20px 72px; }
+      .perf-section { padding: 64px 20px 72px; }
+      .cs-body-cta  { padding: 56px 20px; }
+    }
+    @media (max-width: 640px) {
+      .perf-primary-grid { grid-template-columns: 1fr; }
+      .perf-rail { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .arch-outcome { grid-template-columns: 1fr; }
+      .perf-rail { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- MODULE 1: NAV -->
+<nav class="site-nav" role="navigation" aria-label="Site navigation">
+  <a href="../growth-diagnostic-landing.html" class="site-nav-logo">ONBOARD<span>digital</span></a>
+  <div class="site-nav-right">
+    <ul class="site-nav-links">
+      <li><a href="../case-studies.html">All Case Studies</a></li>
+      <li><a href="../growth-diagnostic-landing.html">Home</a></li>
+    </ul>
+    <a href="../growth-diagnostic-landing.html#book" class="btn-nav">Request Free Diagnostic &rarr;</a>
+  </div>
+</nav>
+
+<!-- MODULE 2: BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="../case-studies.html" aria-label="Back to all case studies">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    All case studies
+  </a>
+</div>
+
+<!-- MODULE 3: HERO -->
+<section class="cs-hero cs-hero--long-title" aria-label="Case study overview">
+  <div class="cs-hero-inner">
+    <div class="cs-hero-left">
+      <div class="cs-hero-taxonomy">
+        <span class="cs-hero-accent-rule" aria-hidden="true"></span>
+        <div>
+          <div class="cs-hero-vertical">7-Figure Luxury Home &amp; Linen Brand</div>
+          <div class="cs-hero-cat">Google Ads &middot; Structural Management</div>
+        </div>
+      </div>
+      <h1 class="cs-hero-headline">10.26&times; ROAS Is Easy to Hit Once. Holding It for a Full Year Takes a Different Kind of Account.</h1>
+      <p class="cs-hero-strategic-sub">Revenue was coming in and nothing was obviously broken. The constraint was structural: a feed built for inventory management, unused purchaser signals, and campaign roles without clear governance. In a high-AOV category, those inefficiencies carry a meaningful cost across a full year.</p>
+<div class="cs-hero-stat single" aria-label="10.26 times blended ROAS">
+        10.26&times; ROAS
+      </div>
+      <div class="cs-hero-sub">CA$1.55M Attributed Revenue &nbsp;&middot;&nbsp; CA$151K Managed Spend &nbsp;&middot;&nbsp; Full Year 2023</div>
+    </div>
+    <div class="cs-hero-proof" aria-label="Supporting results">
+      <div class="cs-hero-proof-row">
+        <span class="cs-hero-proof-val">9.38&times;</span>
+        <span class="cs-hero-proof-lbl">Performance Max</span>
+      </div>
+      <div class="cs-hero-proof-divider" aria-hidden="true"></div>
+      <div class="cs-hero-proof-row">
+        <span class="cs-hero-proof-val">19.76&times;</span>
+        <span class="cs-hero-proof-lbl">Search ROAS</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="cs-byline" aria-label="Article metadata">
+  <div class="cs-byline-inner">
+    <div class="cs-byline-meta">
+      <span class="cs-byline-who">
+        <span class="cs-byline-by">By</span><span class="cs-byline-author">Phil Chan</span>
+        <span class="cs-byline-sep" aria-hidden="true">&middot;</span>
+        <span class="cs-byline-role">Founder &amp; Head of Growth</span>
+      </span>
+      <span class="cs-byline-sep cs-byline-group-sep" aria-hidden="true">&middot;</span>
+      <span class="cs-byline-when">
+        <time class="cs-byline-date" datetime="2026-05-21">May 21, 2026</time>
+        <span class="cs-byline-sep" aria-hidden="true">&middot;</span>
+        <span class="cs-byline-time">4 min read</span>
+      </span>
+    </div>
+  </div>
+</div>
+
+
+<!-- MODULE 4: DOCUMENTED EVIDENCE (single screenshot) -->
+<div class="cs-compare" aria-label="Performance documentation">
+  <div class="cs-compare-inner">
+    <div class="cs-single-frame">
+      <div class="cs-ev-head is-after">
+      <span class="cs-ev-period">Jan 1 &ndash; Dec 31, 2023 &middot; Full Account View</span>
+      <div class="cs-ev-num">
+        <span class="cs-ev-val">10.26&times;</span>
+        <span class="cs-ev-lbl">Blended ROAS</span>
+      </div>
+      <div class="cs-ev-sub">
+        <span>CA$1.55M Attributed Revenue</span>
+        <span class="cs-ev-sub-sep" aria-hidden="true">&middot;</span>
+        <span>CA$151K Managed Spend</span>
+      </div>
+    </div>
+<div class="cs-screenshot-frame">
+        <div class="cs-chrome-bar" aria-hidden="true">
+          <div class="cs-chrome-dots">
+            <div class="cs-chrome-dot"></div>
+            <div class="cs-chrome-dot"></div>
+            <div class="cs-chrome-dot"></div>
+          </div>
+          <span class="cs-chrome-label">ads.google.com &nbsp;&middot;&nbsp; Campaigns &nbsp;&middot;&nbsp; Jan 1 – Dec 31, 2023</span>
+        </div>
+        <div class="lb-trigger" data-caption="Google Ads account · Jan 1–Dec 31, 2023 · 10.26× blended ROAS on CA$151K managed spend. Performance Max at 9.38×, Search at 19.76×. Brand identity withheld per client NDA.">
+          <img src="../au-lit-redacted.png" alt="Google Ads dashboard showing Performance Max at 9.38× ROAS and Search at 19.76× ROAS — full year 2023. Campaign names redacted per NDA." loading="lazy">
+          <span class="lb-hint" aria-hidden="true">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            View full size
+          </span>
+        </div>
+      </div>
+      <p class="cs-compare-caption" style="margin-top:10px;">Brand identity withheld per client NDA. Campaign names have been redacted. All performance data sourced directly from the client's Google Ads account.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 5: EXECUTIVE SUMMARY -->
+<section class="cs-exec">
+  <div class="cs-exec-inner">
+    <p class="cs-exec-body">Luxury bedding occupies a specific position in the search landscape. The purchase value is high enough, typically several hundred dollars or more, that buyers spend time in consideration before committing. But the category intent is measurable: people do search explicitly for products like sateen duvet covers or linen sheet sets, and those searches represent real, convertible demand.</p>
+    <p class="cs-exec-body">An account that serves that demand well can reach a stable level of performance without active intervention to maintain it. The challenge is that stability and potential are different things. An account can be genuinely healthy and still be operating below what a closer structural review would make possible.</p>
+    <p class="cs-exec-body">Revenue was coming in, and nothing was obviously broken. The problem was quieter than that: performance had stopped improving.</p>
+    <p class="cs-exec-body">Our review identified four structural constraints across customer data, product feeds, Search targeting, and campaign roles. None was dramatic in isolation. But in a high-AOV category such as luxury bedding, structural inefficiencies carry a meaningful cost when they persist across an entire year.</p>
+    <p class="cs-exec-body">Over the documented 2023 period, the account attributed CA$1.55M in revenue from CA$151K in managed spend, a 10.26&times; blended ROAS. Performance Max recorded 9.38&times; across the year, while Search recorded 19.76&times;.</p>
+  </div>
+</section>
+
+
+<!-- MODULE 8: WHAT WE FOUND -->
+<section class="cs-findings">
+  <div class="cs-findings-inner">
+    <h2 class="cs-h2">What we found</h2>
+
+    <div class="cs-findings-list" role="list">
+      <div class="cs-finding" role="listitem">
+        <span class="cs-finding-num">01</span>
+        <div>
+          <p class="cs-finding-title">First-party customer signals were unused</p>
+          <p class="cs-finding-body">The client had thousands of verified purchasers in its CRM, but that data had never been uploaded to Google as a Customer Match audience signal. Without it, Performance Max had less direct information about the customers most valuable to the business. The campaign could still learn from conversion activity and other available signals, but the account wasn't providing Google with one of its strongest first-party reference points.</p>
+        </div>
+      </div>
+      <div class="cs-finding" role="listitem">
+        <span class="cs-finding-num">02</span>
+        <div>
+          <p class="cs-finding-title">Product titles reflected internal language, not search demand</p>
+          <p class="cs-finding-body">The feed had been built when the Shopify store launched and never updated. Titles used internal collection names and fabric codes rather than the language customers use when searching for luxury bedding. That limited product visibility across important high-intent queries.</p>
+        </div>
+      </div>
+      <div class="cs-finding" role="listitem">
+        <span class="cs-finding-num">03</span>
+        <div>
+          <p class="cs-finding-title">Broad match was diluting Search intent</p>
+          <p class="cs-finding-body">Search campaigns were reaching a wide mix of exploratory and comparison-oriented queries alongside buyers with clear intent, at the same bid level. We tightened targeting toward phrase and exact match where account evidence supported stronger purchase intent, concentrating Search budget around terms more closely associated with purchase behavior.</p>
+        </div>
+      </div>
+      <div class="cs-finding" role="listitem">
+        <span class="cs-finding-num">04</span>
+        <div>
+          <p class="cs-finding-title">Performance Max and Search lacked clearly governed roles</p>
+          <p class="cs-finding-body">The account did not have a clear framework for what Search should deliberately capture versus where Performance Max should provide broader product coverage. That made budget allocation, query analysis, and channel-level interpretation less straightforward.</p>
+        </div>
+      </div>
+    </div>
+    <div class="cs-mid-hook">
+      <p class="cs-mid-hook-text">If your account is producing revenue but hasn't improved in several quarters, the constraint may not be traffic. It may be something quieter in the structure: customer signals Google isn't using, product data that doesn't match buyer language, or campaign roles that have grown less distinct over time.</p>
+      <a href="../growth-diagnostic-landing.html#book" class="cs-mid-hook-link">That's what the Growth Diagnostic is designed to surface &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- MODULE 9: STRATEGIC VISUALIZATION — ARCHITECTURE -->
+<section class="arch-section" aria-label="Campaign architecture">
+  <div class="arch-inner">
+    <header class="arch-header">
+      <span class="arch-eyebrow">Account Architecture</span>
+      <h2 class="arch-headline">Two Specialized Roles. One Coordinated Account.</h2>
+      <p class="arch-sub">Performance Max extended product and audience coverage. Search concentrated budget around demonstrated buying intent. Clearer governance made each campaign easier to evaluate against its intended purpose, and the account easier to manage at the query level.</p>
+    </header>
+    <div class="arch-lanes" role="list" aria-label="Campaign roles">
+      <div class="arch-lane" role="listitem">
+        <div class="arch-lane-accent" aria-hidden="true"></div>
+        <div class="arch-lane-body">
+          <span class="arch-lane-tag">Performance Max</span>
+          <div class="arch-lane-name">Develop &amp; Extend Coverage</div>
+          <div class="arch-lane-role">Broader product and audience reach, anchored in first-party data</div>
+          <ul class="arch-lane-points">
+            <li>Verified purchaser data added as a Customer Match audience signal</li>
+            <li>Product feed rebuilt around buyer search language</li>
+            <li>Broader product coverage governed by exclusions and query controls</li>
+          </ul>
+          <div class="arch-lane-foot">
+            <span class="arch-lane-metric">9.38&times;</span>
+            <span class="arch-lane-metric-lbl">ROAS &middot; Full Year 2023</span>
+          </div>
+        </div>
+      </div>
+      <div class="arch-lane" role="listitem">
+        <div class="arch-lane-accent" aria-hidden="true"></div>
+        <div class="arch-lane-body">
+          <span class="arch-lane-tag">Branded &amp; Non-Brand Search</span>
+          <div class="arch-lane-name">Capture Demonstrated Intent</div>
+          <div class="arch-lane-role">High-intent queries only, with tighter targeting and query controls</div>
+          <ul class="arch-lane-points">
+            <li>Brand and high-intent category terms</li>
+            <li>Phrase and exact targeting prioritized where supported by account evidence</li>
+            <li>Tighter query controls and concentrated Search budget</li>
+          </ul>
+          <div class="arch-lane-foot">
+            <span class="arch-lane-metric">19.76&times;</span>
+            <span class="arch-lane-metric-lbl">ROAS &middot; Full Year 2023</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-outcome" aria-label="Combined account outcome">
+      <div class="arch-outcome-col">
+        <span class="arch-outcome-label">Blended Account ROAS</span>
+        <span class="arch-outcome-val teal">10.26&times;</span>
+      </div>
+      <div class="arch-outcome-col">
+        <span class="arch-outcome-label">Attributed Revenue</span>
+        <span class="arch-outcome-val white">CA$1.55M</span>
+        <span class="arch-outcome-note">on CA$151K managed spend</span>
+      </div>
+      <div class="arch-outcome-col">
+        <span class="arch-outcome-label">Documented Period</span>
+        <span class="arch-outcome-val dim">Full-Year 2023</span>
+        <span class="arch-outcome-note">Jan 1 – Dec 31, 2023</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODULE 10: WHAT CHANGED -->
+<section class="cs-interventions">
+  <div class="cs-interventions-inner">
+    <h2 class="cs-h2">What we did</h2>
+
+    <div class="cs-intervention-list">
+      <div class="cs-intervention">
+        <div class="cs-intervention-num" aria-hidden="true">01</div>
+        <div>
+          <div class="cs-intervention-title">Added Verified Purchaser Data as a Customer Match Audience Signal</div>
+          <p class="cs-intervention-desc">We exported the client's verified purchaser list and applied it to Performance Max as a Customer Match audience signal. PMax now had a first-party reference point for the customers most valuable to the business, rather than learning solely from conversion activity and other platform-observed signals.</p>
+        </div>
+      </div>
+      <div class="cs-intervention">
+        <div class="cs-intervention-num" aria-hidden="true">02</div>
+        <div>
+          <div class="cs-intervention-title">Rebuilt Product Feed Titles Around Buyer Search Language</div>
+          <p class="cs-intervention-desc">Every title was rewritten to lead with what shoppers search for: "Luxury Cotton Duvet Cover Set [size] [material]" instead of internal collection names or fabric codes. Product visibility improved on the high-intent terms where the brand's catalog was most relevant.</p>
+        </div>
+      </div>
+      <div class="cs-intervention">
+        <div class="cs-intervention-num" aria-hidden="true">03</div>
+        <div>
+          <div class="cs-intervention-title">Concentrated Search Budget Around Higher-Intent Queries</div>
+          <p class="cs-intervention-desc">We moved Search campaigns away from broad match, tightening toward phrase and exact where account evidence supported it. Search budget became more concentrated around queries more closely associated with purchase behavior.</p>
+        </div>
+      </div>
+      <div class="cs-intervention">
+        <div class="cs-intervention-num" aria-hidden="true">04</div>
+        <div>
+          <div class="cs-intervention-title">Clarified Strategic Roles Between Performance Max and Search</div>
+          <p class="cs-intervention-desc">We built negative keyword lists to separate what PMax handles from what Search handles, and excluded wholesale, trade, and gift registry queries at the account level. Spend became easier to govern against each campaign's intended role.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-callout">
+      <p class="cs-callout-text">There was no single dramatic intervention in this account. The four adjustments were structural: clearer customer signals, product-feed language aligned with buyer search behavior, tighter Search targeting, and more clearly governed campaign roles. They were sustained consistently over twelve months. That is what shows up in the documented full-year performance.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- MODULE 12: ANNUAL PERFORMANCE RESULTS -->
+<section class="perf-section" aria-label="Annual performance results">
+  <div class="perf-inner">
+    <header class="perf-header">
+      <span class="perf-eyebrow">Full-Year Performance &middot; 2023</span>
+      <h2 class="perf-headline">Structured for the Full Year, Not a Short-Term Spike.</h2>
+      <p class="perf-sub">These figures reflect the complete 2023 account view: a full calendar year of documented performance, not a selected window.</p>
+    </header>
+    <div class="perf-primary-grid">
+      <div class="perf-card-roas">
+        <span class="perf-card-eyebrow">Blended Account ROAS</span>
+        <span class="perf-card-val">10.26&times;</span>
+        <span class="perf-card-lbl">Blended ROAS</span>
+        <span class="perf-card-foot">Jan 1 – Dec 31, 2023 &nbsp;&middot;&nbsp; Full account view</span>
+      </div>
+      <div class="perf-card-rev">
+        <span class="perf-card-eyebrow">Attributed Revenue</span>
+        <span class="perf-card-val">CA$1.55M</span>
+        <span class="perf-card-lbl">Attributed Revenue</span>
+        <span class="perf-card-foot">on CA$151K in managed spend</span>
+      </div>
+    </div>
+    <div class="perf-rail" role="list">
+      <div class="perf-rail-card" role="listitem">
+        <span class="perf-rail-eyebrow">Performance Max</span>
+        <span class="perf-rail-val">9.38&times;</span>
+        <span class="perf-rail-lbl">ROAS &middot; Full Year 2023</span>
+      </div>
+      <div class="perf-rail-card" role="listitem">
+        <span class="perf-rail-eyebrow">Search</span>
+        <span class="perf-rail-val">19.76&times;</span>
+        <span class="perf-rail-lbl">ROAS &middot; Full Year 2023</span>
+      </div>
+      <div class="perf-rail-card" role="listitem">
+        <span class="perf-rail-eyebrow">Managed Spend</span>
+        <span class="perf-rail-val">CA$151K</span>
+        <span class="perf-rail-lbl">Full Year 2023</span>
+      </div>
+    </div>
+    <div class="perf-conclusion">
+      <p>The account was managed around clearer campaign roles. Performance Max used verified purchaser data and a rebuilt product feed as part of its audience and product strategy, while Search concentrated on brand and higher-intent category demand with tighter match-type controls.</p>
+      <p>The significance of the documented period is its length: these results reflect the complete 2023 account view rather than a selected short-term window.</p>
+      <p class="perf-attribution">All performance data sourced directly from the client's Google Ads account. Platform-attributed revenue.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Author card -->
+<section class="cs-author-card" aria-label="Phil Chan, Head of Growth at ONBOARDdigital">
+  <div class="cs-author-card-inner">
+
+    <div class="cs-author-identity">
+      <div class="cs-author-monogram" aria-hidden="true">PC</div>
+      <div class="cs-author-id-text">
+        <span class="cs-author-name">Phil Chan</span>
+        <span class="cs-author-title">Head of Growth</span>
+        <span class="cs-author-org">ONBOARDdigital</span>
+      </div>
+      <div class="cs-author-id-rule" aria-hidden="true"></div>
+      <a href="https://www.linkedin.com/in/philip-chan-7443a266/" class="cs-author-linkedin" target="_blank" rel="noopener noreferrer" aria-label="View Phil Chan on LinkedIn (opens in new tab)">
+        <svg class="cs-author-linkedin-icon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        View on LinkedIn
+      </a>
+    </div>
+
+    <div class="cs-author-authority">
+      <span class="cs-author-eyebrow">About the strategist</span>
+      <p class="cs-author-bio">Phil brings more than a decade of paid-media experience across agency, enterprise, and ecommerce environments. He has spent the majority of that time in senior account leadership, directing complex multi-channel advertising portfolios at seven-figure monthly scale &#8212; work that required thinking beyond individual campaigns toward how the entire acquisition system operates.</p>
+      <p class="cs-author-bio">He now applies that perspective directly to established ecommerce brands through ONBOARDdigital, focusing on Google, Meta, and YouTube. His work centres on account architecture: where spend is being lost, how cross-channel coordination is failing, and which structural changes produce compound results over time.</p>
+      <div class="cs-author-creds" role="list" aria-label="Professional credentials">
+        <span class="cs-author-cred" role="listitem">10+ Years in Paid Media</span>
+        <span class="cs-author-cred-sep" aria-hidden="true">&middot;</span>
+        <span class="cs-author-cred" role="listitem">Enterprise + Ecommerce</span>
+        <span class="cs-author-cred-sep" aria-hidden="true">&middot;</span>
+        <span class="cs-author-cred" role="listitem">Google &middot; Meta &middot; YouTube</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RELATED CASE STUDIES -->
+<section class="cs-final-cta" aria-label="Free Ecommerce Growth Diagnostic">
+  <div class="cs-final-cta-inner">
+    <span class="cs-final-cta-eyebrow">Free Ecommerce Growth Diagnostic</span>
+    <h2 class="cs-final-cta-headline">More spend isn't always the answer.</h2>
+    <div class="cs-final-cta-actions">
+      <a href="../growth-diagnostic-landing.html#book" class="btn-hero">Request Your Free Growth Diagnostic &rarr;</a>
+    </div>
+    <p class="cs-final-cta-micro">No obligation to hire us &nbsp;&middot;&nbsp; Your diagnostic is yours to keep</p>
+  </div>
+</section>
+
+<div class="cs-related">
+  <div class="cs-related-inner">
+    <div class="cs-related-grid">
+      <a href="outdoor-gear.html" class="cs-related-card">
+        <span class="cs-related-cat">Outdoor Gear &middot; Google Ads Rebuild</span>
+        <div class="cs-related-title">From 14 campaigns to 2, with a 55% ROAS lift</div>
+        <div>
+          <span class="cs-related-stat">4.88&times;</span>
+          <span class="cs-related-stat-lbl">ROAS</span>
+        </div>
+        <div class="cs-related-arrow">
+          Read case study
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <a href="apparel-brand.html" class="cs-related-card">
+        <span class="cs-related-cat">Apparel &middot; Google Ads Rebuild</span>
+        <div class="cs-related-title">Six months of structural work compounded to 6.05&times;</div>
+        <div>
+          <span class="cs-related-stat">6.05&times;</span>
+          <span class="cs-related-stat-lbl">ROAS</span>
+        </div>
+        <div class="cs-related-arrow">
+          Read case study
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div>
+      <p class="site-footer-brand">ONBOARD<span>digital</span></p>
+      <div class="site-footer-links">
+        <a href="../terms.html">Terms of Use</a>
+        <span>|</span>
+        <a href="../privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+    <div>
+      <p class="site-footer-copy">&copy; 2026 ONBOARDdigital. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lb-overlay" role="dialog" aria-modal="true" aria-label="Image lightbox">
+  <div id="lb-wrap">
+    <button id="lb-close" aria-label="Close image">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <img id="lb-img" src="" alt="">
+    <p id="lb-cap"></p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var overlay = document.getElementById('lb-overlay');
+  var lbImg   = document.getElementById('lb-img');
+  var lbCap   = document.getElementById('lb-cap');
+  function open(src, alt, cap){ lbImg.src=src; lbImg.alt=alt; lbCap.textContent=cap||''; overlay.classList.add('lb-open'); document.body.style.overflow='hidden'; }
+  function close(){ overlay.classList.remove('lb-open'); document.body.style.overflow=''; }
+  document.querySelectorAll('.lb-trigger').forEach(function(el){
+    el.addEventListener('click', function(){ var img=el.querySelector('img'); open(img.src, img.alt, el.dataset.caption||''); });
+    el.setAttribute('tabindex','0'); el.setAttribute('role','button');
+    el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); el.click(); } });
+  });
+  overlay.addEventListener('click', function(e){ if(e.target===overlay) close(); });
+  document.getElementById('lb-close').addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
+</body>
+</html>

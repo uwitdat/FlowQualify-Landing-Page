@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8-Figure Home & Lifestyle Brand: 4.06× Blended ROAS Across Seven Campaigns · ONBOARDdigital</title>
+  <meta name="description" content="4.06× blended ROAS across seven active campaigns on $1.07M in managed spend. How portfolio-level campaign governance produces distributed efficiency at scale.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cs-system.css">
+  <style>
+    :root {
+      --ca-rgb: 204, 163, 97;
+      --ca:     rgba(204,163,97,1);
+      --ca-light: rgba(204,163,97,.09);
+    }
+
+    /* Finding titles */
+    .cs-finding-title {
+      font-size: 15.5px; font-weight: 800; color: var(--ink);
+      letter-spacing: -.025em; line-height: 1.3; margin-bottom: 8px;
+    }
+
+    /* ── CAMPAIGN PORTFOLIO ──────────────────────────── */
+    .port-section {
+      padding: 88px 40px 96px;
+      background: var(--surf-b);
+      border-bottom: 1px solid var(--line);
+    }
+    .port-inner { max-width: var(--wide-w); margin: 0 auto; }
+    .port-header { max-width: 720px; margin-bottom: 52px; }
+    .port-eyebrow {
+      font-size: 9.5px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+      color: rgba(17,14,56,.32); display: block; margin-bottom: 16px;
+    }
+    .port-headline {
+      font-size: clamp(1.45rem, 2.5vw, 2rem); font-weight: 800; color: var(--ink);
+      letter-spacing: -.04em; line-height: 1.15; margin-bottom: 14px;
+    }
+    .port-sub { font-size: 15.5px; line-height: 1.68; color: var(--muted); margin: 0; }
+
+    /* Outer container */
+    .port-table {
+      background: #fff; border: 1px solid rgba(22,25,62,.12);
+      border-radius: 0; overflow: hidden;
+    }
+
+    /* Column header row — replaces decorative axis */
+    .port-axis-row {
+      display: grid;
+      grid-template-columns: 200px 1fr 90px 72px;
+      gap: 0; padding: 8px 24px;
+      background: rgba(16,20,67,.022);
+      border-bottom: 1px solid rgba(16,20,67,.09);
+    }
+    .port-axis-spacer {
+      font-size: 8px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); opacity: .38;
+    }
+    .port-axis-bars {
+      font-size: 8px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); opacity: .38; display: flex; align-items: center;
+    }
+    .port-axis-role-head {
+      font-size: 8px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); opacity: .38;
+    }
+    .port-axis-end {
+      font-size: 8px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); opacity: .38; text-align: right; padding-top: 1px;
+    }
+
+    /* Group header — structural divider row, not a category badge */
+    .port-group-head {
+      display: flex; align-items: center; gap: 9px;
+      padding: 6px 24px;
+      background: transparent;
+      border-bottom: 1px solid rgba(16,20,67,.07);
+      border-top: 1px solid rgba(16,20,67,.07);
+    }
+    .port-group-dot { display: none; }
+    .port-group-tag {
+      font-size: 7px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(16,20,67,.28); opacity: 1;
+    }
+
+    /* Campaign row — 4-column: name | demand type | role note | ROAS */
+    .port-row {
+      display: grid;
+      grid-template-columns: 200px 1fr 90px 72px;
+      gap: 0; align-items: center;
+      padding: 14px 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .port-row:last-of-type { border-bottom: none; }
+    /* Primary campaign highlight via left border accent */
+    .port-row.is-primary {
+      background: rgba(17,14,56,.02);
+      border-left: 2px solid rgba(17,14,56,.15);
+      padding-left: 22px;
+    }
+
+    .port-name { font-size: 13.5px; font-weight: 700; color: var(--ink); line-height: 1.3; }
+    .port-role { font-size: 11.5px; color: #646A80; line-height: 1.4; margin-top: 2px; }
+
+    /* Demand type column — plain text annotation, not decorative */
+    .port-bar-track { display: flex; align-items: center; }
+    .port-demand-type {
+      font-size: 10px; font-weight: 500; color: var(--muted); opacity: .52; line-height: 1.4;
+    }
+
+    /* Role annotation column */
+    .port-role-note {
+      font-size: 9.5px; color: var(--muted); opacity: .48; line-height: 1.4; padding-right: 8px;
+    }
+
+    .port-roas {
+      font-size: 15px; font-weight: 700; letter-spacing: -.02em;
+      text-align: right; white-space: nowrap; color: rgba(17,14,56,.82);
+      font-variant-numeric: tabular-nums;
+    }
+    .port-roas.is-peak {
+      font-weight: 800;
+      color: rgba(17,14,56,.88);
+    }
+
+    /* Portfolio footer — account summary row (total row, not hero block) */
+    .port-footer {
+      background: rgba(16,20,67,.04);
+      padding: 14px 24px;
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: center; gap: 24px;
+      border-top: 2px solid rgba(16,20,67,.12);
+    }
+    .port-footer-label {
+      font-size: 7.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+      color: rgba(16,20,67,.38); display: block; margin-bottom: 4px;
+    }
+    .port-footer-detail { font-size: 11.5px; color: rgba(16,20,67,.55); margin-top: 3px; display: block; }
+    .port-footer-period { font-size: 10px; color: rgba(16,20,67,.38); display: block; margin-top: 2px; }
+    .port-footer-roas {
+      font-size: 1.2rem; font-weight: 800; letter-spacing: -.04em;
+      color: rgba(17,14,56,.88); line-height: 1; display: block;
+    }
+    .port-footer-roas-lbl {
+      font-size: 7.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: rgba(16,20,67,.32); display: block; margin-top: 4px;
+    }
+
+    /* Table footnote */
+    .port-meta { margin-top: 12px; display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap; }
+    .port-legend { display: none; }
+    .port-legend-line { display: none; }
+    .port-legend-text { display: none; }
+    .port-interp {
+      font-size: 11px; line-height: 1.6; color: var(--muted); opacity: .45; font-style: italic;
+    }
+
+    /* ── PORTFOLIO OUTCOME ─────────────────────────── */
+    .scale-outcome { padding: 72px 40px; border-bottom: 1px solid var(--line); }
+    .scale-outcome-inner { max-width: var(--edit-w); margin: 0 auto; }
+    .scale-outcome-content { margin-top: 22px; margin-bottom: 30px; }
+    .scale-outcome-content p + p { margin-top: 1.1em; }
+
+    /* Platform recommendation note */
+    .scale-rec-note {
+      max-width: var(--edit-w); margin: 28px auto 0;
+      background: var(--surf); border: 1px solid var(--line);
+      border-radius: 2px; padding: 18px 22px;
+    }
+    .scale-rec-eyebrow {
+      font-size: 7.5px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--muted); opacity: .5; display: block; margin-bottom: 9px;
+    }
+    .scale-rec-body { font-size: 13.5px; line-height: 1.68; color: var(--muted); }
+
+    /* Attribution */
+    .scale-attribution {
+      display: block; max-width: var(--edit-w); margin: 18px auto 0;
+      font-size: 11.5px; color: var(--muted); opacity: .4;
+      font-style: italic; text-align: center;
+    }
+
+    /* ── CTA ──────────────────────────────────────── */
+    .cs-body-cta {
+      background: rgba(var(--ca-rgb),.04);
+      border-top: 2px solid rgba(var(--ca-rgb),.28);
+      border-bottom: 1px solid rgba(var(--ca-rgb),.12);
+      padding: 72px 40px;
+    }
+    .cs-body-cta-inner { max-width: var(--edit-w); margin: 0 auto; }
+    .cs-body-cta-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; color: rgba(17,14,56,.32); margin-bottom: 16px; display: block;
+    }
+    .cs-body-cta-headline {
+      font-size: clamp(22px, 3.5vw, 30px); font-weight: 800;
+      letter-spacing: -.03em; line-height: 1.2; color: var(--ink); margin-bottom: 12px;
+    }
+    .cs-body-cta-sub {
+      font-size: 15px; line-height: 1.65; color: var(--body-text); margin-bottom: 28px; max-width: 560px;
+    }
+    .btn-cta-primary {
+      display: inline-block; padding: 14px 28px; background: var(--ca); color: #fff;
+      font-size: 14px; font-weight: 700; border-radius: 6px; text-decoration: none;
+      transition: opacity .18s ease;
+    }
+    .btn-cta-primary:hover { opacity: .88; }
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 1024px) {
+      .port-axis-row  { grid-template-columns: 160px 1fr 80px 68px; }
+      .port-row       { grid-template-columns: 160px 1fr 80px 68px; }
+      .port-footer    { grid-template-columns: 1fr auto; }
+    }
+    @media (max-width: 900px) {
+      .scale-grid { grid-template-columns: 1fr; }
+      .scale-side { grid-template-rows: auto; grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .port-section   { padding: 64px 20px 72px; }
+      .scale-outcome  { padding: 52px 20px; }
+      .cs-body-cta    { padding: 56px 20px; }
+      /* Collapse to 2 columns on tablet: name | ROAS */
+      .port-axis-row  { grid-template-columns: 1fr auto; }
+      .port-axis-role-head { display: none; }
+      .port-axis-bars { display: none; }
+      .port-row { grid-template-columns: 1fr auto; }
+      .port-bar-track { display: none; }
+      .port-role-note { display: none; }
+      .port-footer    { grid-template-columns: 1fr; gap: 12px; }
+    }
+    @media (max-width: 640px) {
+      .scale-side { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .port-roas { font-size: 14px; }
+      .scale-primary-val { font-size: 3.2rem; }
+      .scale-range-val { font-size: 1.35rem; }
+    }
+    @media (max-width: 480px) {
+      .port-row {
+        grid-template-columns: 1fr auto;
+        gap: 0;
+      }
+      .port-roas { text-align: right; }
+    }
+    .cs-intervention-num {
+      font-size: 10px;
+      font-weight: 700;
+      color: rgba(17,14,56,.25);
+      letter-spacing: .06em;
+      min-width: 22px;
+    }
+
+
+    /* Mid-page CTA interrupt */
+    .cs-proof-interrupt {
+      background: var(--ink);
+      padding: 44px 40px;
+    }
+    .cs-proof-interrupt-inner {
+      max-width: var(--wide-w); margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 48px;
+    }
+    .cs-proof-interrupt-left { max-width: 560px; }
+    .cs-proof-interrupt-eyebrow {
+      font-size: 9px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+      color: rgba(255,255,255,.35); display: block; margin-bottom: 12px;
+    }
+    .cs-proof-interrupt-text {
+      font-size: 17px; font-weight: 600; line-height: 1.52;
+      color: rgba(255,255,255,.86); letter-spacing: -.02em;
+    }
+    .cs-proof-interrupt-btn {
+      display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; flex-shrink: 0;
+      font-size: 13.5px; font-weight: 700; font-family: var(--font);
+      background: var(--ca); color: #fff;
+      border: none; border-radius: 100px; padding: 14px 26px;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(var(--ca-rgb), .32);
+      transition: transform .22s var(--ease), box-shadow .22s var(--ease);
+    }
+    .cs-proof-interrupt-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(var(--ca-rgb), .48);
+    }
+    @media (max-width: 768px) {
+      .cs-proof-interrupt { padding: 36px 20px; }
+      .cs-proof-interrupt-inner { flex-direction: column; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" role="navigation" aria-label="Site navigation">
+  <a href="../growth-diagnostic-landing.html" class="site-nav-logo">ONBOARD<span>digital</span></a>
+  <div class="site-nav-right">
+    <ul class="site-nav-links">
+      <li><a href="../case-studies.html">All Case Studies</a></li>
+      <li><a href="../growth-diagnostic-landing.html">Home</a></li>
+    </ul>
+    <a href="../growth-diagnostic-landing.html#book" class="btn-nav">Request Free Diagnostic &rarr;</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="../case-studies.html" aria-label="Back to all case studies">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    All case studies
+  </a>
+</div>
+
+<!-- HERO -->
+<section class="cs-hero cs-hero--conversion" aria-label="Case study overview">
+  <div class="cs-hero-inner">
+    <div class="cs-hero-left">
+      <div class="cs-hero-taxonomy">
+        <span class="cs-hero-accent-rule" aria-hidden="true"></span>
+        <div>
+          <div class="cs-hero-vertical">8-Figure Home &amp; Lifestyle Brand</div>
+          <div class="cs-hero-cat">Google Ads &middot; Large Account Management</div>
+        </div>
+      </div>
+      <h1 class="cs-hero-headline">Google Ads Portfolio. $1.07M managed spend. 4.06&times; blended ROAS across 7 campaigns.</h1>
+
+<div class="cs-hero-stat single" aria-label="4.06 times blended ROAS">
+        4.06&times;
+      </div>
+      <span class="cs-hero-roas-lbl">Blended ROAS &middot; Jan&ndash;May 2026</span>
+    </div>
+    <div class="cs-hero-proof" aria-label="Supporting results">
+      <div class="cs-hero-proof-row">
+        <span class="cs-hero-proof-val">$4.33M</span>
+        <span class="cs-hero-proof-lbl">Attributed Revenue</span>
+      </div>
+      <div class="cs-hero-proof-divider" aria-hidden="true"></div>
+      <div class="cs-hero-proof-row">
+        <span class="cs-hero-proof-val">3.75&times;&ndash;5.02&times;</span>
+        <span class="cs-hero-proof-lbl">Campaign-Level Range</span>
+      </div>
+      <div class="cs-hero-proof-divider" aria-hidden="true"></div>
+      <div class="cs-hero-proof-row">
+        <span class="cs-hero-proof-val">5 Months</span>
+        <span class="cs-hero-proof-lbl">Jan&ndash;May 2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cs-byline" aria-label="Article metadata">
+  <div class="cs-byline-inner">
+    <div class="cs-byline-meta">
+      <span class="cs-byline-who">
+        <span class="cs-byline-by">By</span><span class="cs-byline-author">Phil Chan</span>
+        <span class="cs-byline-sep" aria-hidden="true">&middot;</span>
+        <span class="cs-byline-role">Founder &amp; Head of Growth</span>
+      </span>
+      <span class="cs-byline-sep cs-byline-group-sep" aria-hidden="true">&middot;</span>
+      <span class="cs-byline-when">
+        <time class="cs-byline-date" datetime="2026-07-11">July 11, 2026</time>
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- EVIDENCE (single screenshot) -->
+<div class="cs-compare" aria-label="Performance documentation">
+  <div class="cs-compare-inner">
+    <div class="cs-single-frame">
+      <div class="cs-ev-head is-after">
+      <span class="cs-ev-period">Jan 1 &ndash; May 31, 2026 &middot; All 7 Active Campaigns</span>
+      <div class="cs-ev-num">
+        <span class="cs-ev-val">4.06&times;</span>
+        <span class="cs-ev-lbl">Blended ROAS</span>
+      </div>
+      <div class="cs-ev-sub">
+        <span>$4.33M Platform-Attributed Revenue</span>
+        <span class="cs-ev-sub-sep" aria-hidden="true">&middot;</span>
+        <span>$1.07M Managed Spend</span>
+      </div>
+    </div>
+<div class="cs-screenshot-frame">
+        <div class="cs-chrome-bar" aria-hidden="true">
+          <div class="cs-chrome-dots">
+            <div class="cs-chrome-dot"></div>
+            <div class="cs-chrome-dot"></div>
+            <div class="cs-chrome-dot"></div>
+          </div>
+          <span class="cs-chrome-label">ads.google.com &nbsp;&middot;&nbsp; All Campaigns &nbsp;&middot;&nbsp; Jan 1 – May 31, 2026</span>
+        </div>
+        <div class="lb-trigger" role="button" tabindex="0" aria-label="View account evidence: Jan–May 2026, 4.06× blended ROAS across 7 campaigns" data-caption="<span class='lb-cap-data'>Google Ads · Jan 1 – May 31, 2026 · 4.06× blended ROAS · $1.07M managed spend · 7 campaigns</span><span class='lb-cap-nda'>Campaign names withheld per client NDA.</span>">
+          <div style="position:relative">
+            <img src="../lifestyle-2026.jpg" alt="Google Ads campaign dashboard showing 4.06× blended ROAS across 7 campaigns on $1.07M managed spend, Jan to May 2026. An Optimize your budgets recommendation is visible. Campaign names redacted per NDA." loading="lazy">
+          </div>
+          <span class="lb-hint" aria-hidden="true">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            View full size
+          </span>
+        </div>
+      </div>
+      <p class="cs-compare-caption"><span class="cs-cap-meta">Google Ads · Jan 1 – May 31, 2026 · 4.06× blended ROAS · $1.07M managed spend · 7 campaigns</span><span class="cs-cap-nda">Campaign names withheld per client NDA.</span></p>
+    </div>
+  </div>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<section class="cs-exec">
+  <div class="cs-exec-inner">
+    <p class="cs-exec-body">At $1M+ in annual Google Ads spend, the cost of each structural decision scales with it. A targeting inefficiency that costs a smaller account a few hundred dollars a month costs a portfolio like this several thousand.</p>
+    <p class="cs-exec-body">Seven campaigns served different purposes: brand demand capture, category search, product-line coverage, seasonal, broader acquisition. The account was already producing a strong blended result. The question was whether the portfolio was being managed as a coordinated system or as seven isolated lines held to an identical efficiency expectation.</p>
+  </div>
+</section>
+
+<!-- FINDINGS -->
+<section class="cs-findings">
+  <div class="cs-findings-inner">
+    <h2 class="cs-h2">What the Review Found</h2>
+
+    <div class="cs-findings-list" role="list">
+      <div class="cs-finding" role="listitem">
+        <span class="cs-finding-num">01</span>
+        <div>
+          <p class="cs-finding-title">One ROAS target applied across seven different jobs</p>
+          <p class="cs-finding-body">Brand Search captures existing demand at high intent. Acquisition reaches new customers at lower intent. Both were held to the same target ROAS. One target across those two jobs obscures the difference and constrains delivery where it shouldn't.</p>
+        </div>
+      </div>
+      <div class="cs-finding" role="listitem">
+        <span class="cs-finding-num">02</span>
+        <div>
+          <p class="cs-finding-title">Overlapping query responsibilities across campaigns</p>
+          <p class="cs-finding-body">Multiple campaigns covered closely related Search demand. When query ownership overlaps, attribution gets murky and budget decisions become harder to evaluate. Which campaign was accountable for which traffic wasn't always clear.</p>
+        </div>
+      </div>
+      <div class="cs-finding" role="listitem">
+        <span class="cs-finding-num">03</span>
+        <div>
+          <p class="cs-finding-title">Feed titles written at category level, not SKU level</p>
+          <p class="cs-finding-body">Several product titles used broad category language or internal catalog terminology. The campaigns were targeting high-intent product queries, but the feed wasn't giving Google the SKU-level attributes needed to match against them: product type, material, color, size, style.</p>
+        </div>
+      </div>
+      <div class="cs-finding" role="listitem">
+        <span class="cs-finding-num">04</span>
+        <div>
+          <p class="cs-finding-title">Some bidding targets belonged to an earlier version of the account</p>
+          <p class="cs-finding-body">Several targets had been set when the account looked different. Campaign structure, conversion behavior, and product mix had all shifted. Stale targets either constrain delivery or permit lower-efficiency volume. Across $1M+ in spend, that compounds.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-mid-hook">
+      <a href="../growth-diagnostic-landing.html#book" class="cs-mid-hook-link">The Growth Diagnostic examines whether the system behind your current performance still fits the scale of the account &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<div class="cs-proof-interrupt">
+  <div class="cs-proof-interrupt-inner">
+    <div class="cs-proof-interrupt-left">
+      <span class="cs-proof-interrupt-eyebrow">Free Growth Diagnostic &nbsp;&middot;&nbsp; No Pitch &nbsp;&middot;&nbsp; Yours to Keep</span>
+      <p class="cs-proof-interrupt-text">If you recognized your account in those findings, a diagnostic session surfaces the same structural gaps and gives you a prioritized plan to address them.</p>
+    </div>
+    <a href="../growth-diagnostic-landing.html#book" class="cs-proof-interrupt-btn">Apply for Free &rarr;</a>
+  </div>
+</div>
+
+<!-- CAMPAIGN PORTFOLIO VISUALIZATION -->
+<section class="port-section" aria-label="Campaign portfolio efficiency">
+  <div class="port-inner">
+    <header class="port-header">
+      <span class="port-eyebrow">Campaign Portfolio</span>
+      <h2 class="port-headline">Seven campaigns, each managed to its own role. 4.06&times; blended ROAS.</h2>
+      <p class="port-sub">Different demand types and different efficiency targets, with no single ROAS benchmark applied across the whole portfolio.</p>
+    </header>
+
+    <div class="port-table" role="table" aria-label="Campaign portfolio efficiency audit">
+      <!-- Column headers -->
+      <div class="port-axis-row" role="row" aria-hidden="true">
+        <div class="port-axis-spacer">Campaign</div>
+        <div class="port-axis-bars">Demand Type</div>
+        <div class="port-axis-role-head">Efficiency Role</div>
+        <div class="port-axis-end">ROAS</div>
+      </div>
+
+      <!-- GROUP 01: DEMAND CAPTURE -->
+      <div class="port-group-head" role="rowgroup">
+        <div class="port-group-dot" aria-hidden="true"></div>
+        <span class="port-group-tag">01 &nbsp;&middot;&nbsp; Demand Capture</span>
+      </div>
+
+      <div class="port-row is-primary" role="row">
+        <div>
+          <div class="port-name">Brand Search</div>
+          <div class="port-role">High-intent branded demand</div>
+        </div>
+        <div class="port-bar-track">
+          <span class="port-demand-type">Captured: existing &amp; in-market</span>
+        </div>
+        <div class="port-role-note">High conversion rate; defend volume, not margin</div>
+        <div class="port-roas is-peak" aria-label="5.02 times ROAS">5.02&times;</div>
+      </div>
+
+      <div class="port-row" role="row">
+        <div>
+          <div class="port-name">Core Non-Brand Search</div>
+          <div class="port-role">High-intent product and category demand</div>
+        </div>
+        <div class="port-bar-track">
+          <span class="port-demand-type">Captured: product &amp; category intent</span>
+        </div>
+        <div class="port-role-note">Concentrates on purchase-intent queries</div>
+        <div class="port-roas" aria-label="4.78 times ROAS">4.78&times;</div>
+      </div>
+
+      <!-- GROUP 02: PRODUCT COVERAGE -->
+      <div class="port-group-head" role="rowgroup">
+        <div class="port-group-dot" aria-hidden="true"></div>
+        <span class="port-group-tag">02 &nbsp;&middot;&nbsp; Product Coverage</span>
+      </div>
+
+      <div class="port-row" role="row">
+        <div>
+          <div class="port-name">Product Line A &middot; Performance Max</div>
+          <div class="port-role">Primary product-line coverage</div>
+        </div>
+        <div class="port-bar-track">
+          <span class="port-demand-type">Reach: feed + audience signals</span>
+        </div>
+        <div class="port-role-note">Primary line; holds budget priority</div>
+        <div class="port-roas" aria-label="4.41 times ROAS">4.41&times;</div>
+      </div>
+
+      <div class="port-row" role="row">
+        <div>
+          <div class="port-name">Product Line B &middot; Performance Max</div>
+          <div class="port-role">Secondary product-line coverage</div>
+        </div>
+        <div class="port-bar-track">
+          <span class="port-demand-type">Reach: feed + audience signals</span>
+        </div>
+        <div class="port-role-note">Secondary line; capped relative to Line A</div>
+        <div class="port-roas" aria-label="4.21 times ROAS">4.21&times;</div>
+      </div>
+
+      <div class="port-row" role="row">
+        <div>
+          <div class="port-name">Product Line C &middot; Shopping</div>
+          <div class="port-role">Feed-led product coverage</div>
+        </div>
+        <div class="port-bar-track">
+          <span class="port-demand-type">Reach: feed-driven SKU queries</span>
+        </div>
+        <div class="port-role-note">Below-portfolio ROAS expected by design</div>
+        <div class="port-roas" aria-label="3.94 times ROAS">3.94&times;</div>
+      </div>
+
+      <!-- GROUP 03: DEMAND DEVELOPMENT -->
+      <div class="port-group-head" role="rowgroup">
+        <div class="port-group-dot" aria-hidden="true"></div>
+        <span class="port-group-tag">03 &nbsp;&middot;&nbsp; Demand Development</span>
+      </div>
+
+      <div class="port-row" role="row">
+        <div>
+          <div class="port-name">Seasonal &amp; Promotional</div>
+          <div class="port-role">Time-bound promotional demand</div>
+        </div>
+        <div class="port-bar-track">
+          <span class="port-demand-type">Conversion: time-sensitive window</span>
+        </div>
+        <div class="port-role-note">Evaluated over promo window, not full period</div>
+        <div class="port-roas" aria-label="3.82 times ROAS">3.82&times;</div>
+      </div>
+
+      <div class="port-row" role="row">
+        <div>
+          <div class="port-name">Acquisition &middot; Broader Reach</div>
+          <div class="port-role">New-customer reach, broader demand</div>
+        </div>
+        <div class="port-bar-track">
+          <span class="port-demand-type">Prospecting: lower-intent new audience</span>
+        </div>
+        <div class="port-role-note">Lower target ROAS appropriate for this role</div>
+        <div class="port-roas" aria-label="3.75 times ROAS">3.75&times;</div>
+      </div>
+
+      <!-- Footer — account reconciliation row -->
+      <div class="port-footer" role="row">
+        <div>
+          <span class="port-footer-label">Portfolio Summary &middot; All 7 Campaigns &middot; Jan 1 – May 31, 2026</span>
+          <span class="port-footer-detail">Campaign-level range: 3.75&times; – 5.02&times; &nbsp;&middot;&nbsp; $1.07M managed spend &nbsp;&middot;&nbsp; $4.33M attributed revenue</span>
+        </div>
+        <div style="text-align:right">
+          <span class="port-footer-roas">4.06&times;</span>
+          <span class="port-footer-roas-lbl">Blended ROAS</span>
+        </div>
+      </div>
+    </div><!-- /port-table -->
+
+    <!-- Table footnote -->
+    <div class="port-meta">
+      <p class="port-interp">A lower campaign ROAS does not indicate underperformance. It reflects that campaign's role. The Efficiency Role column documents the intended function, not the achieved efficiency.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHAT WE CHANGED -->
+<section class="cs-interventions">
+  <div class="cs-interventions-inner">
+    <h2 class="cs-h2">What We Changed</h2>
+
+    <div class="cs-intervention-list">
+      <div class="cs-intervention">
+        <div class="cs-intervention-num" aria-hidden="true">01</div>
+        <div>
+          <div class="cs-intervention-title">Aligned bidding targets with campaign role and current conditions</div>
+          <p class="cs-intervention-desc">Each campaign was reviewed against its demand type, conversion behavior, and role in the portfolio. Targets held to a single efficiency standard across structurally different campaigns were adjusted. Targets that hadn't changed as the account evolved were reset against current conversion data.</p>
+        </div>
+      </div>
+      <div class="cs-intervention">
+        <div class="cs-intervention-num" aria-hidden="true">02</div>
+        <div>
+          <div class="cs-intervention-title">Created clearer query responsibilities across the portfolio</div>
+          <p class="cs-intervention-desc">We identified where Search, Shopping, and Performance Max campaigns overlapped on related demand and applied negative keyword, exclusion, and campaign-setting controls. Each campaign got a clear query responsibility. That made budget and attribution decisions straightforward.</p>
+        </div>
+      </div>
+      <div class="cs-intervention">
+        <div class="cs-intervention-num" aria-hidden="true">03</div>
+        <div>
+          <div class="cs-intervention-title">Rebuilt product feed titles at the SKU level</div>
+          <p class="cs-intervention-desc">Product titles were rewritten around the attributes customers use in Search: product type, material, color, size, style. Internal catalog language was replaced with the terms that match real queries. Visibility on targeted product searches improved once the revised titles were approved.</p>
+        </div>
+      </div>
+      <div class="cs-intervention">
+        <div class="cs-intervention-num" aria-hidden="true">04</div>
+        <div>
+          <div class="cs-intervention-title">Reviewed budget allocation across the portfolio</div>
+          <p class="cs-intervention-desc">Budget allocation was reviewed against campaign role, conversion value, efficiency, and available demand. Where the evidence supported a different distribution, allocation was adjusted to better reflect each campaign's contribution to the account.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-callout">
+      <p class="cs-callout-text">At $1M+ in spend, one high-performing campaign isn't enough to explain account health. What matters is whether every campaign in the portfolio is pulling its weight across brand, category, product coverage, seasonal, and acquisition.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PERFORMANCE SUMMARY -->
+<section class="scale-outcome" aria-label="Portfolio outcome">
+  <div class="scale-outcome-inner">
+    <h2 class="cs-h2" id="outcome-heading">Outcome</h2>
+    <div class="scale-outcome-content">
+      <p class="cs-para">The 4.06&times; blended ROAS reflects seven campaigns each held to a different standard. Brand Search ran at 5.02&times;. The acquisition campaign ran at 3.75&times;. That gap isn't a problem. Those campaigns have different jobs, and the blended number lands where it does when each is managed to its own role.</p>
+      <p class="cs-para">At $1.07M in spend across five months, there is no room for ambiguity about which campaign is doing what. The architecture gave the team clear answers about where to allocate the next dollar, which campaigns were competing for the same queries, and which roles were underrepresented. That clarity is the actual deliverable. The 4.06&times; is what it produced.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Author card -->
+<section class="cs-author-card" aria-label="Phil Chan, Head of Growth at ONBOARDdigital">
+  <div class="cs-author-card-inner">
+
+    <div class="cs-author-identity">
+      <div class="cs-author-monogram" aria-hidden="true">PC</div>
+      <div class="cs-author-id-text">
+        <span class="cs-author-name">Phil Chan</span>
+        <span class="cs-author-title">Head of Growth</span>
+        <span class="cs-author-org">ONBOARDdigital</span>
+      </div>
+      <div class="cs-author-id-rule" aria-hidden="true"></div>
+      <a href="https://www.linkedin.com/in/philip-chan-7443a266/" class="cs-author-linkedin" target="_blank" rel="noopener noreferrer" aria-label="View Phil Chan on LinkedIn (opens in new tab)">
+        <svg class="cs-author-linkedin-icon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        View on LinkedIn
+      </a>
+    </div>
+
+    <div class="cs-author-authority">
+      <span class="cs-author-eyebrow">About the strategist</span>
+      <p class="cs-author-bio">Phil has more than a decade of paid-media experience across agency, enterprise, and ecommerce. Most of that time was spent in senior account leadership, directing multi-channel portfolios at seven-figure monthly scale. That context shapes how he approaches individual accounts: not campaign by campaign, but as a system.</p>
+      <p class="cs-author-bio">Through ONBOARDdigital, he works with established ecommerce brands on Google, Meta, and YouTube. His focus is account architecture: where spend is being lost, where cross-channel coordination is breaking down, and which structural changes compound over time.</p>
+      <div class="cs-author-creds" role="list" aria-label="Professional credentials">
+        <span class="cs-author-cred" role="listitem">10+ Years in Paid Media</span>
+        <span class="cs-author-cred-sep" aria-hidden="true">&middot;</span>
+        <span class="cs-author-cred" role="listitem">Enterprise + Ecommerce</span>
+        <span class="cs-author-cred-sep" aria-hidden="true">&middot;</span>
+        <span class="cs-author-cred" role="listitem">Google &middot; Meta &middot; YouTube</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cs-final-cta" aria-label="Free Ecommerce Growth Diagnostic">
+  <div class="cs-final-cta-inner">
+    <span class="cs-final-cta-eyebrow">Free Ecommerce Growth Diagnostic</span>
+    <h2 class="cs-final-cta-headline">See whether your campaign structure still fits your scale.</h2>
+    <p class="cs-final-cta-sub">You leave with a prioritized plan for your account, yours to keep whether you work with us or not.</p>
+    <div class="cs-final-cta-actions">
+      <a href="../growth-diagnostic-landing.html#book" class="btn-hero">Apply for a Free Growth Diagnostic &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED CASE STUDIES -->
+<div class="cs-related">
+  <div class="cs-related-inner">
+    <div class="cs-related-grid">
+      <a href="ecommerce-meta.html" class="cs-related-card">
+        <span class="cs-related-cat">Ecommerce &middot; Meta Full-Funnel System</span>
+        <div class="cs-related-title">5.87&times; ROAS on $316K in Meta spend: full-funnel architecture</div>
+        <div>
+          <span class="cs-related-stat">5.87&times;</span>
+          <span class="cs-related-stat-lbl">ROAS</span>
+        </div>
+        <div class="cs-related-arrow">
+          Read case study
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <a href="pet-care.html" class="cs-related-card">
+        <span class="cs-related-cat">Pet Care &middot; Campaign Architecture</span>
+        <div class="cs-related-title">7.16&times; blended: built on campaign hierarchy, not luck</div>
+        <div>
+          <span class="cs-related-stat">7.16&times;</span>
+          <span class="cs-related-stat-lbl">ROAS</span>
+        </div>
+        <div class="cs-related-arrow">
+          Read case study
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div>
+      <p class="site-footer-brand">ONBOARD<span>digital</span></p>
+      <div class="site-footer-links">
+        <a href="../terms.html">Terms of Use</a>
+        <span>|</span>
+        <a href="../privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+    <div>
+      <p class="site-footer-copy">&copy; 2026 ONBOARDdigital. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lb-overlay" role="dialog" aria-modal="true" aria-label="Enlarged account evidence">
+  <div id="lb-wrap">
+    <button id="lb-close" aria-label="Close enlarged image (press Escape)">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <img id="lb-img" src="" alt="">
+    <p id="lb-cap"></p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var overlay = document.getElementById('lb-overlay');
+  var lbImg   = document.getElementById('lb-img');
+  var lbCap   = document.getElementById('lb-cap');
+  var prevFocus;
+  function open(src, alt, cap) {
+    prevFocus = document.activeElement;
+    lbImg.src = src; lbImg.alt = alt;
+    lbCap.innerHTML = cap || '';
+    overlay.classList.add('lb-open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('lb-close').focus();
+  }
+  function close() {
+    overlay.classList.remove('lb-open');
+    document.body.style.overflow = '';
+    if (prevFocus) prevFocus.focus();
+  }
+  document.querySelectorAll('.lb-trigger').forEach(function(el) {
+    function act() {
+      var img = el.querySelector('img');
+      open(img.src, img.alt, el.dataset.caption || '');
+    }
+    el.addEventListener('click', act);
+    el.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); act(); }
+    });
+  });
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) close(); });
+  document.getElementById('lb-close').addEventListener('click', close);
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close(); });
+})();
+</script>
+</body>
+</html>
