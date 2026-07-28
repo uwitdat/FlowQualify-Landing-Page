@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8-Figure Mobile Accessories Brand: Google Ads Rebuild · ONBOARDdigital</title>
+  <meta name="description" content="How we rebuilt a $1.6M Google Ads account from a broken feed and 20+ competing campaigns to a three-tier architecture delivering 4.14× ROAS.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cs-system.css">
+  <style>
+    :root {
+      --ca-rgb: 240, 90, 40;
+      --ca:     rgba(240,90,40,1);
+      --ca-light: rgba(240,90,40,.09);
+    }
+
+    .cs-finding-title {
+      font-size: 15.5px;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -.025em;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .cs-body-cta {
+      background: rgba(66,133,244,.04);
+      border-top: 2px solid rgba(66,133,244,.28);
+      border-bottom: 1px solid rgba(66,133,244,.12);
+      padding: 72px 40px;
+    }
+    .cs-body-cta-inner {
+      max-width: var(--edit-w);
+      margin: 0 auto;
+    }
+    .cs-body-cta-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--ca);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .cs-body-cta-headline {
+      font-size: clamp(22px, 3.5vw, 30px);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .cs-body-cta-sub {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--body-text);
+      margin-bottom: 28px;
+      max-width: 560px;
+    }
+    .btn-cta-primary {
+      display: inline-block;
+      padding: 14px 28px;
+      background: var(--ca);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: opacity .18s ease;
+    }
+    .btn-cta-primary:hover { opacity: .88; }
+
+    /* ── OUTCOME COMPARISON ── */
+    .ma-compare {
+      display: grid;
+      grid-template-columns: 1fr 28px 1fr;
+      margin: 32px 0 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .ma-compare-col { padding: 24px 20px; }
+    .ma-compare-col.before { background: #f9f9fa; }
+    .ma-compare-col.after { background: var(--surf); }
+    .ma-compare-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .ma-compare-heading {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .ma-compare-item {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--body-text);
+      padding: 10px 0;
+      border-top: 1px solid var(--line);
+    }
+    .ma-compare-item:first-of-type { border-top: none; }
+    .ma-outcome-meta {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 28px;
+    }
+    @media (max-width: 640px) {
+      .ma-compare { grid-template-columns: 1fr; }
+      .ma-compare-divider { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- MODULE 1: NAV -->
+<nav class="site-nav" role="navigation" aria-label="Site navigation">
+  <a href="../growth-diagnostic-landing.html" class="site-nav-logo">ONBOARD<span>digital</span></a>
+  <div class="site-nav-right">
+    <ul class="site-nav-links">
+      <li><a href="../case-studies.html">All Case Studies</a></li>
+      <li><a href="../growth-diagnostic-landing.html">Home</a></li>
+    </ul>
+    <a href="../growth-diagnostic-landing.html#book" class="btn-nav">Request Free Diagnostic &rarr;</a>
+  </div>
+</nav>
+
+<!-- MODULE 2: BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="../case-studies.html" aria-label="Back to all case studies">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    All case studies
+  </a>
+</div>
+
+<!-- MODULE 3: HERO -->
+<section class="cs-hero cs-hero--very-long-title" aria-label="Case study overview">
+  <div class="cs-hero-inner">
+    <div class="cs-hero-left">
+      <div class="cs-hero-taxonomy">
+        <span class="cs-hero-accent-rule" aria-hidden="true"></span>
+        <div>
+          <div class="cs-hero-vertical">8-Figure Mobile Accessories Brand</div>
+          <div class="cs-hero-cat">Google Ads &middot; Account Rebuild</div>
+        </div>
+      </div>
+      <h1 class="cs-hero-headline">A $1.6M Google Ads Account That Was Matching to the Wrong Searches. Fixing the Feed Got It From 2.59&times; to&nbsp;4.14&times;.</h1>
+      <p class="cs-hero-strategic-sub">When product titles are SKU codes and model references, Shopping matches products to the wrong queries &mdash; visible where intent is low, missing where it's high. Twenty-plus overlapping campaigns distributed that problem across the entire account.</p>
+<div class="cs-hero-stat" aria-label="ROAS improved from 2.59 times to 4.14 times">
+        <span class="before">2.59&times;</span>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+        <span class="after">4.14&times; ROAS</span>
+      </div>
+      <div class="cs-hero-sub">$6.6M Tracked Revenue &nbsp;&middot;&nbsp; $1.6M Managed Spend &nbsp;&middot;&nbsp; Jan 2025&ndash;May 2026</div>
+    </div>
+    <div class="cs-hero-proof" aria-label="Supporting results">
+      <div class="cs-hero-proof-row">
+        <span class="cs-hero-proof-val">+60%</span>
+        <span class="cs-hero-proof-lbl">ROAS Improvement</span>
+      </div>
+      <div class="cs-hero-proof-divider" aria-hidden="true"></div>
+      <div class="cs-hero-proof-row">
+        <span class="cs-hero-proof-val">$6.6M</span>
+        <span class="cs-hero-proof-lbl">Tracked Revenue</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="cs-byline" aria-label="Article metadata">
+  <div class="cs-byline-inner">
+    <div class="cs-byline-meta">
+      <span class="cs-byline-who">
+        <span class="cs-byline-by">By</span><span class="cs-byline-author">Phil Chan</span>
+        <span class="cs-byline-sep" aria-hidden="true">&middot;</span>
+        <span class="cs-byline-role">Founder &amp; Head of Growth</span>
+      </span>
+      <span class="cs-byline-sep cs-byline-group-sep" aria-hidden="true">&middot;</span>
+      <span class="cs-byline-when">
+        <time class="cs-byline-date" datetime="2026-07-09">July 9, 2026</time>
+        <span class="cs-byline-sep" aria-hidden="true">&middot;</span>
+        <span class="cs-byline-time">4 min read</span>
+      </span>
+    </div>
+  </div>
+</div>
+
+
+<!-- MODULE 4: DOCUMENTED EVIDENCE -->
+<div class="cs-compare" aria-label="Before and after screenshots">
+  <div class="cs-compare-inner">
+    <div class="cs-compare-grid">
+
+      <div class="cs-compare-panel">
+        <div class="cs-ev-head is-before">
+          <span class="cs-ev-period">Jan 1 &ndash; Oct 31, 2025 &middot; Previous Management</span>
+          <div class="cs-ev-num">
+            <span class="cs-ev-val">2.59&times;</span>
+            <span class="cs-ev-lbl">ROAS</span>
+          </div>
+          <div class="cs-ev-sub">
+            <span>$1.6M Managed Spend</span>
+          </div>
+        </div>
+        <div class="cs-screenshot-frame">
+          <div class="cs-chrome-bar" aria-hidden="true">
+            <div class="cs-chrome-dots">
+              <div class="cs-chrome-dot"></div>
+              <div class="cs-chrome-dot"></div>
+              <div class="cs-chrome-dot"></div>
+            </div>
+            <span class="cs-chrome-label">ads.google.com &nbsp;&middot;&nbsp; All campaigns &nbsp;&middot;&nbsp; Jan 1 – Oct 31, 2025</span>
+          </div>
+          <div class="lb-trigger" data-caption="Before: Jan 1 – Oct 31, 2025 · Previous management · 2.59× blended ROAS on $1.6M managed spend. Campaign names withheld per client NDA.">
+            <img src="../vc-before.jpg" alt="Google Ads account under previous management showing 2.59× blended ROAS, Jan–Oct 2025. Campaign names redacted per NDA." loading="lazy">
+            <span class="lb-hint" aria-hidden="true">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+              View full size
+            </span>
+          </div>
+        </div>
+        <p class="cs-compare-caption">Campaign names withheld per client NDA. All data sourced from Google Ads account.</p>
+      </div>
+
+      <div class="cs-compare-panel">
+        <div class="cs-ev-head is-after">
+          <span class="cs-ev-period">Nov 1, 2025 &ndash; May 31, 2026 &middot; ONBOARDdigital</span>
+          <div class="cs-ev-num">
+            <span class="cs-ev-val">4.14&times;</span>
+            <span class="cs-ev-lbl">ROAS</span>
+          </div>
+          <div class="cs-ev-sub">
+            <span>$6.6M Tracked Revenue</span>
+            <span class="cs-ev-sub-sep" aria-hidden="true">&middot;</span>
+            <span>$1.6M Managed Spend</span>
+          </div>
+        </div>
+<div class="cs-screenshot-frame">
+          <div class="cs-chrome-bar" aria-hidden="true">
+            <div class="cs-chrome-dots">
+              <div class="cs-chrome-dot"></div>
+              <div class="cs-chrome-dot"></div>
+              <div class="cs-chrome-dot"></div>
+            </div>
+            <span class="cs-chrome-label">ads.google.com &nbsp;&middot;&nbsp; All campaigns &nbsp;&middot;&nbsp; Nov 1, 2025 – May 31, 2026</span>
+          </div>
+          <div class="lb-trigger" data-caption="After: Nov 1, 2025 – May 31, 2026 · ONBOARDdigital · 4.14× blended ROAS on $1.6M managed spend. Campaign names withheld per client NDA.">
+            <img src="../vc-after.jpg" alt="Google Ads account under ONBOARDdigital management showing 4.14× blended ROAS, Nov 2025–May 2026. Campaign names redacted per NDA." loading="lazy">
+            <span class="lb-hint" aria-hidden="true">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+              View full size
+            </span>
+          </div>
+        </div>
+        <p class="cs-compare-caption">Campaign names withheld per client NDA. All data sourced from Google Ads account.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<section class="cs-exec">
+  <div class="cs-exec-inner">
+    <p class="cs-exec-body">When a product catalog is organized around SKU codes and warehouse identifiers, it reflects how a business manages inventory, not how customers discover products. In mobile accessories, purchase intent is highly specific: phone model first, finish second, brand third. The gap between internal naming conventions and search behavior has a direct cost: missed impressions, reduced bid eligibility, and Shopping products competing for queries they were never designed to serve.</p>
+    <p class="cs-exec-body">This account had built its campaign structure the same way it built its catalog: incrementally. Each time a new product line launched or a new type of coverage was needed, another campaign was added. That approach was logical at each individual step. Over years, it produced an account with more than twenty active campaigns and no clearly defined boundaries between them.</p>
+    <p class="cs-exec-body">Twenty-plus campaigns isn't comprehensive coverage. It's evidence that the account was never designed — it just grew.</p>
+    <p class="cs-exec-body">At $1.6M in managed spend, the consequences of that accumulated complexity were no longer easy to absorb.</p>
+    <p class="cs-exec-body">When we reviewed this account, the campaign list told the story immediately: more than 20 campaigns, limited hierarchy, and several campaign types eligible for the same demand. The client had been adding campaigns every time they wanted coverage in a new area, which made sense at the time. But over years, it meant brand queries were triggering general campaigns, Shopping and Performance Max were both eligible for the same product searches, and there were no defined boundaries between them. The feed had the same problem: built when they first connected Shopify, the product titles still read as SKU codes and warehouse references. Not what buyers search for. We rebuilt the feed first, then the campaign structure, then the bidding signals. Seven months later: 4.14× blended ROAS, $6.6M in tracked revenue.</p>
+  </div>
+</section>
+
+<!-- MODULE 7: THE CHALLENGE -->
+<section class="cs-challenge">
+  <div class="cs-challenge-inner">
+    <h2 class="cs-h2">Years of campaign growth had created overlap. The product feed was limiting relevance.</h2>
+    <p class="cs-para">The client had grown this account organically over years. Every time they wanted more coverage, they added a campaign. By the time we got in, there were 20+ running simultaneously with no negative keyword walls between them, which meant multiple Shopping, Search, and Performance Max campaigns were eligible for overlapping areas of demand.</p>
+    <p class="cs-para">The feed was the other problem. It was built when they first connected Shopify, and the titles were still SKU codes and internal model references. Not what buyers search for. Google was showing their products on the wrong queries. They were visible where intent was low, missing where it was high. Blended ROAS for the prior ten months: 2.59× on $1.6M spend.</p>
+  </div>
+</section>
+
+<!-- MODULE 8: WHAT WE FOUND -->
+<section class="cs-findings">
+  <div class="cs-findings-inner">
+    <h2 class="cs-h2">What we found when we got into the account</h2>
+
+    <div class="cs-findings-list" role="list">
+      <div class="cs-finding" role="listitem">
+        <span class="cs-finding-num">01</span>
+        <div>
+          <p class="cs-finding-title">Product titles written for the warehouse, not the buyer</p>
+          <p class="cs-finding-body">SKU codes, model references, internal naming: none of it matched what buyers type into Google. This was determining which queries the products showed for, and the match was wrong. High-intent searches weren't triggering the right products. Lower-intent queries were.</p>
+        </div>
+      </div>
+      <div class="cs-finding" role="listitem">
+        <span class="cs-finding-num">02</span>
+        <div>
+          <p class="cs-finding-title">Multiple campaign types eligible for the same demand</p>
+          <p class="cs-finding-body">With 20+ campaigns and no defined query boundaries between them, multiple Shopping, Search, and Performance Max campaigns were eligible for overlapping areas of demand. Budget was being distributed without a clear signal about which campaign was the right fit for each query type.</p>
+        </div>
+      </div>
+      <div class="cs-finding" role="listitem">
+        <span class="cs-finding-num">03</span>
+        <div>
+          <p class="cs-finding-title">Performance Max launched without audience signals</p>
+          <p class="cs-finding-body">PMax had no Customer Match data connected: no purchase history, no CRM data, nothing. The algorithm was starting from scratch on every eligible query. The client had a full segmentable customer list that had never been linked to the account.</p>
+        </div>
+      </div>
+      <div class="cs-finding" role="listitem">
+        <span class="cs-finding-num">04</span>
+        <div>
+          <p class="cs-finding-title">ROAS targets set to aspirational numbers, not account history</p>
+          <p class="cs-finding-body">The bid targets were set to what the client wanted to hit, not what the account had actually been doing. The bidding system was restricting spend to chase a number it couldn't reach, which reduced impressions, reduced conversions, and gave the algorithm less data to work with.</p>
+        </div>
+      </div>
+    </div>
+    <div class="cs-mid-hook">
+      <p class="cs-mid-hook-text">If you have 10+ campaigns and no one has audited the structure, there's a reasonable chance several of them are eligible for the same queries. We find it in most large accounts we take over, and it's one of the first things the Growth Diagnostic surfaces.</p>
+      <a href="../growth-diagnostic-landing.html#book" class="cs-mid-hook-link">The Growth Diagnostic maps this →</a>
+    </div>
+  </div>
+</section>
+
+<!-- MODULE 9: STRATEGIC VISUALIZATION -->
+<section class="cs-viz">
+  <div class="cs-viz-inner">
+    <div class="cs-viz-header">
+      <h2 class="cs-h2">From 20+ overlapping campaigns to three defined roles.</h2>
+      <p class="cs-viz-p">Three layers with defined query boundaries between them. Each campaign has a job. Brand Defense owns branded search. Core Shopping handles structured product demand. Performance Max handles broader discovery with audience signals. Budget flows to the right layer for each query type.</p>
+    </div>
+    <div class="cs-viz-diagram">
+
+      <div>
+        <div class="viz-col-label">Before &nbsp;&middot;&nbsp; Previous Management</div>
+        <div class="viz-chaos" aria-label="Scattered campaign architecture with 20 plus campaigns">
+          <div class="viz-box">Brand KW</div>
+          <div class="viz-box">Shopping 1</div>
+          <div class="viz-box">PMax 1</div>
+          <div class="viz-box">Search Gen</div>
+          <div class="viz-box">Shopping 2</div>
+          <div class="viz-box">PMax 2</div>
+          <div class="viz-box">YouTube</div>
+          <div class="viz-box">DSA</div>
+          <div class="viz-box">Shopping 3</div>
+          <div class="viz-box">PMax 3</div>
+          <div class="viz-box">Search Brand</div>
+          <div class="viz-box">Display</div>
+          <div class="viz-box excess">+ 9 more</div>
+        </div>
+        <div class="viz-roas" aria-label="Before: 2.59 times ROAS">2.59&times; prior blended ROAS</div>
+      </div>
+
+      <div class="viz-arrow-col" aria-hidden="true">
+        <span class="viz-arrow-icon">&rarr;</span>
+      </div>
+
+      <div>
+        <div class="viz-col-label">After &nbsp;&middot;&nbsp; ONBOARDdigital</div>
+        <div class="viz-tiers" aria-label="Three layer campaign architecture">
+          <div class="viz-tier">
+            <span class="viz-tier-num">Layer 01</span>
+            <span class="viz-tier-name">Brand Defense</span>
+            <span class="viz-tier-sub">Branded search coverage &nbsp;&middot;&nbsp; Controlled bidding &nbsp;&middot;&nbsp; Brand-demand protection</span>
+          </div>
+          <div class="viz-tier">
+            <span class="viz-tier-num">Layer 02</span>
+            <span class="viz-tier-name">Core Shopping</span>
+            <span class="viz-tier-sub">Structured product groups &nbsp;&middot;&nbsp; Query boundaries &nbsp;&middot;&nbsp; Performance-based bidding</span>
+          </div>
+          <div class="viz-tier">
+            <span class="viz-tier-num">Layer 03</span>
+            <span class="viz-tier-name">Performance Max</span>
+            <span class="viz-tier-sub">Customer Match signals &nbsp;&middot;&nbsp; Product asset groups &nbsp;&middot;&nbsp; First-party audience inputs</span>
+          </div>
+        </div>
+        <div class="viz-roas is-after" aria-label="After: 4.14 times ROAS">4.14&times; blended ROAS</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MODULE 10: WHAT CHANGED -->
+<section class="cs-interventions">
+  <div class="cs-interventions-inner">
+    <h2 class="cs-h2">The order mattered: feed first, bidding last</h2>
+    <p class="cs-para">Feed first. Then campaign structure. Then negative keyword lists. Then audience signals. Then bid targets. The sequence matters because each layer depends on the one before it working correctly.</p>
+
+    <div class="cs-intervention-list">
+      <div class="cs-intervention">
+        <div class="cs-intervention-num" aria-hidden="true">01</div>
+        <div>
+          <div class="cs-intervention-title">Rewrote every product title to match what buyers actually search for</div>
+          <p class="cs-intervention-desc">We rebuilt the titles to lead with category, compatibility, and brand: "iPhone 16 Case Clear MagSafe Compatible" instead of "SKU-AJ7729-IP16-CLR." Impression share on high-intent queries moved within the first week of the feed refresh.</p>
+        </div>
+      </div>
+      <div class="cs-intervention">
+        <div class="cs-intervention-num" aria-hidden="true">02</div>
+        <div>
+          <div class="cs-intervention-title">Consolidated 20+ campaigns around three defined roles</div>
+          <p class="cs-intervention-desc">Brand Defense, Core Shopping, and Performance Max: each role with a clear job and defined query ownership. Individual campaigns were structured within those roles — what changed was the logic, not just the count. Each tier now owns its query type and the adjacent tiers are explicitly excluded.</p>
+        </div>
+      </div>
+      <div class="cs-intervention">
+        <div class="cs-intervention-num" aria-hidden="true">03</div>
+        <div>
+          <div class="cs-intervention-title">Built negative keyword lists that kept each campaign in its lane</div>
+          <p class="cs-intervention-desc">We sculpted negative keyword lists for each tier to enforce the boundaries. Each campaign now owns its query type and budget flows accordingly.</p>
+        </div>
+      </div>
+      <div class="cs-intervention">
+        <div class="cs-intervention-num" aria-hidden="true">04</div>
+        <div>
+          <div class="cs-intervention-title">Connected the client's customer list to PMax as audience signals</div>
+          <p class="cs-intervention-desc">Their CRM had never been linked to the ad account. We uploaded verified purchaser history as Customer Match signals, giving the Performance Max algorithm a real reference point for who it was looking for.</p>
+        </div>
+      </div>
+      <div class="cs-intervention">
+        <div class="cs-intervention-num" aria-hidden="true">05</div>
+        <div>
+          <div class="cs-intervention-title">Reset bid targets to what the account had actually been doing</div>
+          <p class="cs-intervention-desc">We pulled 90-day conversion baselines and set targets against those, not aspirational numbers. Once the targets were realistic, the bidding system started spending again and conversions followed.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-callout">
+      <p class="cs-callout-text">The feed is the first thing we look at in any Google Shopping account. It determines which queries you show for, which products get surfaced, and how the algorithm bids. Most accounts we take over have had years of bid tuning on top of a feed that was never fixed.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- MODULE 12: THE OUTCOME -->
+<section class="cs-outcome">
+  <div class="cs-outcome-inner">
+    <div class="cs-outcome-header">
+      <h2 class="cs-h2">Seven months later: 4.14× blended ROAS</h2>
+    </div>
+    <div class="ma-compare" role="table" aria-label="Account structure before and after">
+      <div class="ma-compare-col before">
+        <div class="ma-compare-heading">Before</div>
+        <div class="ma-compare-item">20+ campaigns with overlapping query coverage across all tiers</div>
+        <div class="ma-compare-item">Feed titles built from SKU codes and internal model references</div>
+        <div class="ma-compare-item">Bid targets set to aspirational numbers, not historical performance</div>
+      </div>
+      <div class="ma-compare-divider" aria-hidden="true">→</div>
+      <div class="ma-compare-col after">
+        <div class="ma-compare-heading">After</div>
+        <div class="ma-compare-item">Three-tier structure: brand, category, and catchall with defined query ownership</div>
+        <div class="ma-compare-item">Feed rewritten to match search behavior: model, finish, compatibility</div>
+        <div class="ma-compare-item">Targets calibrated from 90-day conversion baselines, enabling the system to spend</div>
+      </div>
+    </div>
+    <p class="ma-outcome-meta">$6.6M tracked revenue &nbsp;&middot;&nbsp; Jan 2025 – May 2026 &nbsp;&middot;&nbsp; $1.6M managed spend</p>
+    <div class="cs-outcome-conclusion">
+      <p class="cs-para">Over seven months, the account went from 20+ campaigns with no structural separation to a three-tier architecture — Brand Defense, Core Shopping, and Performance Max — each with defined query ownership and no cross-campaign competition for the same demand. The feed rewrite changed which queries the products were eligible for, and impression share on high-intent searches moved within the first week.</p>
+      <p class="cs-para">The campaign restructure gave the algorithm cleaner signal to work with. Each tier now accumulates data about its own query type instead of competing for budget across the same demand.</p>
+      <p class="cs-para">Budget is now distributed based on defined campaign roles. ROAS improved from 2.59× to 4.14× over the same spend level: $6.6M in tracked revenue over seven months.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Author card -->
+<section class="cs-author-card" aria-label="Phil Chan, Head of Growth at ONBOARDdigital">
+  <div class="cs-author-card-inner">
+
+    <div class="cs-author-identity">
+      <div class="cs-author-monogram" aria-hidden="true">PC</div>
+      <div class="cs-author-id-text">
+        <span class="cs-author-name">Phil Chan</span>
+        <span class="cs-author-title">Head of Growth</span>
+        <span class="cs-author-org">ONBOARDdigital</span>
+      </div>
+      <div class="cs-author-id-rule" aria-hidden="true"></div>
+      <a href="https://www.linkedin.com/in/philip-chan-7443a266/" class="cs-author-linkedin" target="_blank" rel="noopener noreferrer" aria-label="View Phil Chan on LinkedIn (opens in new tab)">
+        <svg class="cs-author-linkedin-icon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        View on LinkedIn
+      </a>
+    </div>
+
+    <div class="cs-author-authority">
+      <span class="cs-author-eyebrow">About the strategist</span>
+      <p class="cs-author-bio">Phil brings more than a decade of paid-media experience across agency, enterprise, and ecommerce environments. He has spent the majority of that time in senior account leadership, directing complex multi-channel advertising portfolios at seven-figure monthly scale &#8212; work that required thinking beyond individual campaigns toward how the entire acquisition system operates.</p>
+      <p class="cs-author-bio">He now applies that perspective directly to established ecommerce brands through ONBOARDdigital, focusing on Google, Meta, and YouTube. His work centres on account architecture: where spend is being lost, how cross-channel coordination is failing, and which structural changes produce compound results over time.</p>
+      <div class="cs-author-creds" role="list" aria-label="Professional credentials">
+        <span class="cs-author-cred" role="listitem">10+ Years in Paid Media</span>
+        <span class="cs-author-cred-sep" aria-hidden="true">&middot;</span>
+        <span class="cs-author-cred" role="listitem">Enterprise + Ecommerce</span>
+        <span class="cs-author-cred-sep" aria-hidden="true">&middot;</span>
+        <span class="cs-author-cred" role="listitem">Google &middot; Meta &middot; YouTube</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- INLINE CTA -->
+<section class="cs-final-cta" aria-label="Free Ecommerce Growth Diagnostic">
+  <div class="cs-final-cta-inner">
+    <span class="cs-final-cta-eyebrow">Free Ecommerce Growth Diagnostic</span>
+    <h2 class="cs-final-cta-headline">More spend isn't always the answer.</h2>
+    <div class="cs-final-cta-actions">
+      <a href="../growth-diagnostic-landing.html#book" class="btn-hero">Request Your Free Growth Diagnostic &rarr;</a>
+    </div>
+    <p class="cs-final-cta-micro">No obligation to hire us &nbsp;&middot;&nbsp; Your diagnostic is yours to keep</p>
+  </div>
+</section>
+
+<!-- RELATED CASE STUDIES -->
+<section class="cs-related">
+  <div class="cs-related-inner">
+    <div class="cs-related-grid">
+
+      <a href="outdoor-gear.html" class="cs-related-card" aria-label="Outdoor Gear Brand case study">
+        <span class="cs-related-cat">Google Ads &middot; Account Restructure</span>
+        <div class="cs-related-title">Outdoor Gear Brand: 14 Campaigns to 2. Efficiency Up 55%.</div>
+        <div>
+          <span class="cs-related-stat">3.13&times; &rarr; 4.88&times;</span>
+          <span class="cs-related-stat-lbl">ROAS</span>
+        </div>
+        <div class="cs-related-arrow">
+          View case study
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <a href="apparel-brand.html" class="cs-related-card" aria-label="Apparel Brand case study">
+        <span class="cs-related-cat">Google Ads &middot; ROAS Rebuild</span>
+        <div class="cs-related-title">Apparel Brand: Structure-Led ROAS Growth on $124K Spend</div>
+        <div>
+          <span class="cs-related-stat">4.79&times; &rarr; 6.05&times;</span>
+          <span class="cs-related-stat-lbl">ROAS</span>
+        </div>
+        <div class="cs-related-arrow">
+          View case study
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div>
+      <p class="site-footer-brand">ONBOARD<span>digital</span></p>
+      <div class="site-footer-links">
+        <a href="../terms.html">Terms of Use</a>
+        <span>|</span>
+        <a href="../privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+    <p class="site-footer-copy">&copy; 2026 ONBOARDdigital. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Lightbox overlay -->
+<div id="lb-overlay" role="dialog" aria-modal="true" aria-label="Enlarged screenshot">
+  <div id="lb-wrap">
+    <button id="lb-close" aria-label="Close image (Escape)">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <img id="lb-img" src="" alt="">
+    <p id="lb-cap"></p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var overlay = document.getElementById('lb-overlay');
+  var lbImg   = document.getElementById('lb-img');
+  var lbCap   = document.getElementById('lb-cap');
+  var prevFocus;
+
+  function open(src, alt, caption){
+    prevFocus = document.activeElement;
+    lbImg.src = src; lbImg.alt = alt;
+    lbCap.textContent = caption || '';
+    overlay.classList.add('lb-open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('lb-close').focus();
+  }
+  function close(){
+    overlay.classList.remove('lb-open');
+    document.body.style.overflow = '';
+    if(prevFocus) prevFocus.focus();
+  }
+
+  document.querySelectorAll('.lb-trigger').forEach(function(el){
+    el.setAttribute('role','button');
+    el.setAttribute('tabindex','0');
+    el.setAttribute('aria-label','Enlarge screenshot');
+    function activate(){ var img = el.querySelector('img'); open(img.src, img.alt, el.dataset.caption||''); }
+    el.addEventListener('click', activate);
+    el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); activate(); } });
+  });
+
+  overlay.addEventListener('click', function(e){ if(e.target===overlay) close(); });
+  document.getElementById('lb-close').addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
+</body>
+</html>
