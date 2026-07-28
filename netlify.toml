@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/apply"
+  to = "/growth-diagnostic-landing.html"
+  status = 200
+  force = true
