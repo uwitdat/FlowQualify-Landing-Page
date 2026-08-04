@@ -43,3 +43,51 @@ public/videos/*.mp4
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local Netlify folder
+.netlify
+
+# Private client data & reports
+*.pdf
+VSL4.mp4
+
+# Claude project memory
+.claude/
+
+# Development backup files
+*.bak
+*.pre-conversion
+
+# Development screenshots (working copies)
+temporary screenshots/
+
+# Next.js app remnants
+app/
+
+# Development/utility scripts
+*.mjs
+static-server.js
+
+# Debug & scratch HTML
+_dbg*.html
+pain-cards-new.html
+mer-calculator.html
+style-guide.html
+_about_text.txt
+
+# Raw client screenshots (long-named originals; processed versions committed separately)
+IMG_2921.png
+IMG_2921_formatted.png
+au-lit-redacted.png
+au-lit-redacted-v1.png
+cardd.png
+"Jack Henry - 2024 - 4.79 ROAS.jpg"
+"Jack Henry - 2025 - 2026 - 6.05 ROAS.jpg"
+"Jan - May 2026 - 3.83 ROAS.jpg"
+"Jan 2026 - May 2026 - 4x ROAS.jpg"
+"Jan 2026 - May 2026 - 7x ROAS (1).jpg"
+"Matador - 3.13 ROAS - Jan 1st - Dec 31st 2025.jpg"
+"Matador - 4.88 ROAS - April 1st - May 31st.jpg"
+"Meta - 316k Spend - 5.87 ROAS (1).jpg"
+"VC - Jan 1st - Oct 31st 2025 - 2.59 ROAS.jpg"
+"VC - Nov 1st 2025 - May 31st 2026 - 4.14 ROAS.jpg"

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Use — ONBOARDdigital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #110E38;
+      --cta: #F46036;
+      --body-text: #2B2845;
+      --muted: #48416C;
+      --line: #E0DDE8;
+      --font: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      background: #fff;
+      color: var(--body-text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav ── */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+    .site-nav-inner {
+      max-width: 1120px; margin: 0 auto;
+      padding: 18px 32px;
+      display: flex; align-items: center;
+    }
+    .site-nav-logo {
+      font-family: var(--font);
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: -.01em;
+      color: var(--ink);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .site-nav-logo span { color: var(--cta); }
+    .site-nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      margin-left: auto;
+      margin-right: 32px;
+    }
+    .site-nav-links a {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .18s;
+    }
+    .site-nav-links a:hover { color: var(--ink); }
+    .site-nav-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--cta); color: #fff;
+      font-size: 13.5px; font-weight: 600;
+      padding: 11px 22px; border-radius: 9px;
+      text-decoration: none; white-space: nowrap;
+      transition: background .18s;
+    }
+    .site-nav-btn:hover { background: #D44D20; }
+
+    /* ── Content ── */
+    .page-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 104px 40px 96px;
+    }
+
+    .page-title {
+      font-size: clamp(2.8rem, 7vw, 6.5rem);
+      font-weight: 200;
+      letter-spacing: -.025em;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 48px;
+    }
+    .page-title strong {
+      font-weight: 900;
+    }
+
+    .policy-body p {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--body-text);
+      margin-bottom: 20px;
+    }
+
+    .policy-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-top: 40px;
+      margin-bottom: 14px;
+      letter-spacing: -.01em;
+    }
+
+    .policy-body a {
+      color: var(--cta);
+      text-decoration: underline;
+    }
+
+    /* ── Footer ── */
+    .site-footer {
+      background: var(--cta);
+      color: var(--ink);
+      padding: 28px 40px;
+    }
+    .site-footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .site-footer-left p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--ink);
+    }
+    .site-footer-brand {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .site-footer-links {
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    .site-footer-links a {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .site-footer-links a:hover { text-decoration: underline; }
+    .site-footer-links span { opacity: .4; margin: 0 6px; }
+    .site-footer-right {
+      text-align: right;
+      font-size: 13px;
+      color: var(--ink);
+    }
+    .site-footer-copy {
+      font-size: 12.5px;
+      margin-top: 8px;
+      opacity: .75;
+    }
+
+    @media (max-width: 640px) {
+      .site-nav { padding: 0 20px; }
+      .site-nav-links { display: none; }
+      .page-wrap { padding: 48px 24px 72px; }
+      .site-footer { padding: 28px 24px; }
+      .site-footer-right { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav" role="navigation">
+  <div class="site-nav-inner">
+    <a href="../root-index.html" class="site-nav-logo">ONBOARD<span>digital</span></a>
+    <ul class="site-nav-links">
+      <li><a href="../services.html">Services</a></li>
+      <li><a href="../case-studies.html">Case Studies</a></li>
+      <li><a href="../about.html">About</a></li>
+    </ul>
+    <a href="../growth-diagnostic-landing.html" class="site-nav-btn">Book Free Diagnostic →</a>
+  </div>
+</nav>
+
+<main class="page-wrap">
+  <h1 class="page-title"><strong>TERMS</strong> OF USE</h1>
+
+  <div class="policy-body">
+    <p>Welcome to the GetONBOARD.ca website (the "Site"). By accessing this Site, you agree to be bound by the terms and conditions below (the "Terms"). If you do not agree to all of the Terms, please do not use the Site. As a digital marketing agency, ONBOARDdigital may from time to time modify or revise the Terms by updating this Web page. Your use of our Site following any such change constitutes your agreement to follow and be bound by the Terms as changed. If any change is unacceptable to you, your only recourse is to terminate your use of the Site.</p>
+
+    <h2>Copyright And Trademark Notice</h2>
+
+    <p>This Site and its contents, including, but not limited to, text, photographs, graphics, illustrations, video, sound, and other digital marketing material (all such content collectively referred to as "Content") are protected under Canada and international copyright laws and are the property of GetONBOARD.ca or its third-party licensors. All rights reserved. All logos, splash screens, page headers, custom graphics, and button icons displayed on this Site are service marks, trademarks, and/or trade dress (collectively, "Marks") of GetONBOARD.ca or its third-party licensors. Except as specifically permitted herein, copying, distributing, transmitting, displaying, modifying, selling, or participating in the sale of, or otherwise exploiting or using any Content or any Marks in any form or by any means without the express written permission of GetONBOARD.ca is prohibited and may violate the copyright or trademark laws of Canada and/or other countries.</p>
+
+    <p>The Site and its Contents are intended solely for personal, noncommercial use by the users of our Site. You may download or copy the Contents displayed on the Site for the sole purpose of using the Site as a personal resource, provided that you maintain any notices contained in the Content, such as all copyright notices, trademark legends, or other proprietary rights notices. No right, title, or interest in any downloaded materials is transferred to you as a result of any such downloading or copying.</p>
+
+    <h2>Your Comments</h2>
+
+    <p>ONBOARDdigital is a conscientious provider of digital marketing services and appreciates your comments, remarks, feedback, suggestions, ideas, and other submissions you disclose or transmit to us (collectively, "Comments"). You grant GetONBOARD.ca and its affiliates a perpetual, irrevocable, worldwide, royalty-free right and license to use, reproduce, modify, adapt, publish, translate, create derivative works of, distribute, publicly perform, and publicly display (in whole or in part) your Comments, your name, and any related copyrights, moral rights, or other intellectual property rights.</p>
+
+    <h2>Privacy</h2>
+
+    <p>As a digital marketing agency, ONBOARDdigital values and respects the privacy of individuals who visit the Site or provide Comments to us. Our privacy policy (the "Privacy Policy"), which you may view at <a href="privacy.html">Privacy Policy</a>, is incorporated herein by reference. By accepting these Terms, you expressly consent to the use and disclosure of your personally identifiable and other information as described in the Privacy Policy.</p>
+
+    <h2>Linked Sites</h2>
+
+    <p>This Site may contain links to other websites ("Linked Sites"). GetONBOARD.ca does not operate or control any information, products, or services on the Linked Sites and does not endorse or approve any products or information offered at Linked Sites. You acknowledge and agree that your access or use of any Linked Site is at your own risk.</p>
+
+    <h2>Disclaimer</h2>
+
+    <p>This site, its contents, and all information, products, and high-performance digital marketing services contained in or offered through this site are provided on an "as is" and "as available" basis without representations or warranties of any kind. GetONBOARD.ca expressly disclaims all such representations and warranties, either express or implied, including, without limitation, warranties of title, merchantability, fitness for a particular purpose, or noninfringement and any implied warranties arising from course of dealing or course of performance. GetONBOARD.ca does not warrant that this site or its contents will be complete, accurate, uninterrupted, secure, or error free or that the site or the server that makes it available are free of viruses or other harmful components. All information on the site is subject to change without notice.</p>
+
+    <h2>Indemnification</h2>
+
+    <p>You agree to defend, indemnify, and hold GetONBOARD.ca harmless from and against any and all claims, losses, damages, liabilities, costs, and expenses, including attorneys' fees, arising from or related to your (i) use of the Site or (ii) violation of any of these Terms.</p>
+
+    <h2>Limitation Of Liability</h2>
+
+    <p>In no event shall GetONBOARD.ca be liable for any direct, indirect, consequential, special, or incidental damages arising out of or related to your use of or inability to use this site or paid search, SEO and social media services purchased or obtained through this site, whether in an action under contract, negligence, or any other theory, even if GetONBOARD.ca has been advised of the possibility of such damages. GetONBOARD.ca's total liability for any claim arising from or related to your use of this Site shall not exceed one hundred dollars (US$100).</p>
+
+    <h2>Miscellaneous</h2>
+
+    <p>These Terms are governed by and shall be construed in accordance with the laws of the Province of Ontario without giving effect to any principles of conflicts of law. If any provision of these Terms shall be unlawful, void, or for any reason unenforceable, then that provision shall be deemed severable from these Terms and shall not affect the validity and enforceability of any remaining provisions. These Terms are effective unless and until terminated by GetONBOARD.ca.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-left">
+      <p class="site-footer-brand">ONBOARD<span style="color:var(--cta)">digital</span></p>
+      <div class="site-footer-links">
+        <a href="../case-studies.html">Case Studies</a>
+        <span>|</span>
+        <a href="../growth-diagnostic-landing.html">Growth Diagnostic</a>
+        <span>|</span>
+        <a href="../style-guide.html">Style Guide</a>
+        <span>|</span>
+        <a href="terms.html">Terms</a>
+        <span>|</span>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </div>
+    <div class="site-footer-right">
+      <p class="site-footer-copy">© 2026 ONBOARDdigital. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

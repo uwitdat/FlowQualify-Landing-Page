@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ONBOARDdigital — Paid Media for Ecommerce Brands $500K–$10M</title>
+<meta name="description" content="ONBOARDdigital runs paid acquisition for ecommerce brands doing $500K–$10M annually. Meta, Google, Shopping, attribution, and creative. Senior operator on every account. Free Growth Diagnostic.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800;900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ── */
+:root{
+  --ink:#110E38;
+  --brand:#47029A;
+  --cta:#F05A28;
+  --cta-hover:#D44D20;
+  --green:#34D399;
+  --yellow:#FFC600;
+  --hero-grad:radial-gradient(ellipse at 50% 38%, #391268 0%, #2c165c 22%, #261b4e 52%, #1e1a42 82%, #191740 100%);
+  --bg:#F7F6FA;
+  --surface:#FFFFFF;
+  --line:rgba(17,14,56,.08);
+  --body-text:#48416C;
+  --on-dark:#C9C3DE;
+  --font-display:'Plus Jakarta Sans',sans-serif;
+  --font:'Poppins',sans-serif;
+  --r-xl:20px;
+  --ease:cubic-bezier(.25,.46,.45,.94);
+  --shadow-card:0 4px 24px rgba(17,14,56,.08),0 1px 4px rgba(17,14,56,.04);
+}
+
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+img{display:block;max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+/* ── BASE ── */
+body{
+  font:400 16px/1.65 var(--font);
+  color:var(--body-text);
+  background:var(--bg);
+  overflow-x:hidden;
+}
+h1,h2,h3{
+  font-family:var(--font-display);
+  color:var(--ink);
+  letter-spacing:-.03em;
+}
+h1{font-size:clamp(2.5rem,5vw,3.8rem);font-weight:900;line-height:1.05;letter-spacing:-.04em}
+h2{font-size:clamp(1.9rem,3.4vw,2.6rem);font-weight:800;line-height:1.1}
+h3{font-size:1.15rem;font-weight:700;line-height:1.3}
+em{font-style:normal;color:var(--cta)}
+
+/* ── NAV ── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(247,246,250,.9);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+  transition:background .25s;
+}
+.nav-inner{
+  max-width:1120px;margin:0 auto;
+  padding:18px 28px;
+  display:flex;align-items:center;
+}
+.nav-logo{
+  font-family:var(--font-display);font-weight:900;
+  font-size:17px;letter-spacing:-.01em;
+  color:var(--ink);text-decoration:none;
+  flex-shrink:0;
+}
+.nav-logo-sub{color:var(--cta)}
+.nav-links{
+  display:flex;list-style:none;gap:32px;
+  margin-left:auto;margin-right:32px;
+}
+.nav-links a{
+  font-size:13.5px;font-weight:500;
+  color:var(--body-text);text-decoration:none;
+  transition:color .18s;
+}
+.nav-links a:hover{color:var(--ink)}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--cta);color:#fff;
+  font-family:var(--font);font-size:13.5px;font-weight:600;
+  padding:11px 22px;border-radius:9px;
+  text-decoration:none;white-space:nowrap;
+  transition:background .18s,transform .18s,box-shadow .18s;
+  box-shadow:0 2px 12px rgba(240,90,40,.28);
+  border:none;cursor:pointer;
+}
+.btn:hover{background:var(--cta-hover);transform:translateY(-1px);box-shadow:0 4px 20px rgba(240,90,40,.38)}
+.btn.lg{font-size:15px;padding:14px 30px;border-radius:11px}
+
+/* ── EYEBROW (light sections) ── */
+.eyebrow{
+  display:inline-block;
+  font-family:var(--font);font-size:11px;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--brand);
+  margin-bottom:20px;
+  opacity:.9;
+}
+/* Dark section eyebrow */
+.dark-section .eyebrow{
+  color:var(--yellow);
+  background:rgba(255,198,0,.1);
+  border-color:rgba(255,198,0,.2);
+}
+
+/* ── HERO ── */
+.hero{
+  padding:148px 0 96px;
+  background:var(--surface);
+  border-bottom:1px solid var(--line);
+}
+.hero-inner{
+  display:grid;
+  grid-template-columns:1fr 500px;
+  gap:64px;
+  align-items:center;
+}
+/* ── Hero eyebrow ── */
+.hero-positioning{
+  display:inline-flex;
+  flex-direction:column;
+  gap:5px;
+  margin-bottom:32px;
+  padding:13px 0;
+  border-top:1px solid rgba(17,14,56,.12);
+  border-bottom:1px solid rgba(17,14,56,.12);
+}
+.hero-pos-top{
+  font-family:var(--font);font-size:10px;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(72,65,108,.5);
+  line-height:1;
+}
+.hero-pos-bot{
+  font-family:var(--font-display);font-size:20px;font-weight:900;
+  letter-spacing:-.01em;text-transform:uppercase;
+  color:var(--ink);
+  line-height:1;
+}
+@keyframes pulse{0%,100%{box-shadow:0 0 6px rgba(52,211,153,.4)}50%{box-shadow:0 0 14px rgba(52,211,153,.7)}}
+.hero h1{margin-bottom:22px}
+.hero-sub{
+  font-size:16px;line-height:1.72;
+  color:#2B2845;
+  max-width:440px;
+  margin-bottom:38px;
+}
+.hero-cta-row{
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  margin-bottom:16px;
+}
+.hero-trust{
+  font-size:12px;color:rgba(72,65,108,.72);
+  font-weight:500;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+}
+.hero-trust-item{display:flex;align-items:center;gap:5px}
+.hero-trust svg{width:13px;height:13px;flex-shrink:0}
+
+/* ── HERO PROOF PANEL ── */
+/* ── PERFORMANCE DASHBOARD CARD ── */
+.hero-proof{
+  background:#fff;
+  border:1px solid rgba(17,14,56,.1);
+  border-radius:14px;
+  padding:20px 22px 16px;
+  box-shadow:0 2px 16px rgba(17,14,56,.07),0 1px 4px rgba(17,14,56,.04);
+  position:relative;
+}
+.dash-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:16px;
+}
+.dash-label{
+  font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(17,14,56,.36);font-family:var(--font);
+}
+.dash-live{
+  display:flex;align-items:center;gap:5px;
+  font-size:8.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(17,14,56,.3);font-family:var(--font);
+}
+.dash-live-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--green);
+  animation:dashpulse 2.4s ease-in-out infinite;
+}
+@keyframes dashpulse{0%,100%{opacity:1}50%{opacity:.35}}
+.dash-primary{
+  padding-bottom:14px;
+  border-bottom:1px solid rgba(17,14,56,.08);
+  margin-bottom:13px;
+}
+.dash-primary-num{
+  font-family:var(--font-display);font-size:2.45rem;font-weight:900;
+  letter-spacing:-.06em;color:var(--ink);line-height:1;margin-bottom:4px;
+}
+.dash-primary-lbl{
+  font-size:12px;font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:2px;
+  font-family:var(--font);
+}
+.dash-primary-sub{
+  font-size:10px;color:rgba(17,14,56,.38);font-weight:400;line-height:1.4;
+  font-family:var(--font);
+}
+.dash-section-lbl{
+  font-size:8px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(17,14,56,.28);margin-bottom:7px;font-family:var(--font);
+}
+.dash-accounts{display:flex;flex-direction:column;}
+.dash-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:8px 6px;margin:0 -6px;
+  border-bottom:1px solid rgba(17,14,56,.055);
+  text-decoration:none;border-radius:6px;
+  transition:background .15s;
+}
+.dash-row:last-child{border-bottom:none}
+.dash-row:hover{background:rgba(17,14,56,.03)}
+.dash-row-cat{
+  font-size:12px;font-weight:600;color:var(--ink);
+  line-height:1.3;margin-bottom:2px;font-family:var(--font);
+}
+.dash-row-meta{
+  font-size:9.5px;color:rgba(17,14,56,.42);font-weight:400;font-family:var(--font);
+}
+.dash-row-roas{
+  display:flex;flex-direction:column;align-items:flex-end;flex-shrink:0;
+}
+.dash-roas-num{
+  font-family:var(--font-display);font-size:14.5px;font-weight:700;
+  color:var(--cta);letter-spacing:-.02em;line-height:1.2;
+}
+.dash-roas-lbl{
+  font-size:7.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(17,14,56,.26);font-family:var(--font);
+}
+.dash-divider{
+  border:none;border-top:1px solid rgba(17,14,56,.08);
+  margin:11px 0;
+}
+.dash-improvement{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding-bottom:11px;
+  border-bottom:1px solid rgba(17,14,56,.08);
+  margin-bottom:10px;
+}
+.dash-improvement-lbl{
+  font-size:11px;font-weight:600;color:var(--ink);margin-bottom:2px;font-family:var(--font);
+}
+.dash-improvement-sub{
+  font-size:9.5px;color:rgba(17,14,56,.38);font-weight:400;font-family:var(--font);
+}
+.dash-improvement-right{
+  display:flex;align-items:center;gap:8px;flex-shrink:0;
+}
+.dash-sparkline{width:56px;height:20px;flex-shrink:0;}
+.dash-improvement-num{
+  font-family:var(--font-display);font-size:18px;font-weight:900;
+  color:var(--cta);letter-spacing:-.04em;line-height:1;
+}
+.dash-meta-footer{
+  display:flex;align-items:center;gap:5px;flex-wrap:wrap;
+  font-size:8.5px;color:rgba(17,14,56,.3);font-weight:400;font-family:var(--font);
+}
+.dash-meta-sep{opacity:.4;}
+.dash-lock{width:8px;height:8px;flex-shrink:0;vertical-align:middle;position:relative;top:-1px;}
+
+/* ── STATS BAR ── */
+.stats-bar{
+  background:var(--surface);
+  border-bottom:1px solid var(--line);
+}
+.stats-inner{
+  display:flex;
+  border-left:1px solid var(--line);
+  max-width:1120px;margin:0 auto;
+}
+.stat-cell{
+  flex:1;padding:36px 32px;
+  border-right:1px solid var(--line);
+}
+.stat-num{
+  font-family:var(--font-display);font-weight:800;
+  font-size:1.9rem;letter-spacing:-.04em;
+  color:var(--ink);line-height:1;
+  margin-bottom:5px;
+}
+.stat-num.orange{color:var(--cta)}
+.stat-num.purple{color:var(--brand)}
+.stat-num.green{color:var(--green)}
+.stat-lbl{font-size:11.5px;color:var(--body-text);line-height:1.5;max-width:140px}
+
+/* ── SERVICES ── */
+.services{
+  padding:120px 0 116px;
+  background:var(--bg);
+}
+.section-hdr{margin-bottom:68px}
+.section-hdr h2{margin:12px 0 16px}
+.section-hdr p{
+  font-size:15px;line-height:1.78;
+  color:var(--body-text);max-width:540px;
+}
+.svc-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.svc-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:36px 28px 32px;
+  position:relative;overflow:hidden;
+  transition:border-color .22s,box-shadow .22s,transform .25s var(--ease);
+}
+.svc-top-bar{
+  position:absolute;top:0;left:24px;right:24px;height:2px;
+  background:linear-gradient(90deg,transparent,var(--brand) 40%,var(--cta) 60%,transparent);
+  opacity:0;
+  transition:opacity .28s var(--ease);
+  border-radius:0 0 2px 2px;
+}
+.svc-card.featured .svc-top-bar{
+  opacity:1;
+  background:linear-gradient(90deg,transparent,var(--cta) 30%,#FF8C6B 70%,transparent);
+}
+.svc-card:hover{
+  border-color:rgba(71,2,154,.14);
+  box-shadow:0 8px 36px rgba(71,2,154,.07);
+  transform:translateY(-4px);
+}
+.svc-card:hover .svc-top-bar{opacity:1}
+.svc-card.featured{
+  border-color:rgba(240,90,40,.22);
+  box-shadow:0 4px 20px rgba(240,90,40,.07);
+}
+.svc-card.featured:hover{
+  border-color:rgba(240,90,40,.38);
+  box-shadow:0 10px 40px rgba(240,90,40,.1);
+}
+.svc-tag{
+  display:inline-flex;align-items:center;
+  font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  padding:4px 11px;border-radius:6px;margin-bottom:18px;
+}
+.svc-tag.orange{color:rgba(240,90,40,.9);background:rgba(240,90,40,.07);border:1px solid rgba(240,90,40,.2)}
+.svc-tag.brand{color:rgba(71,2,154,.8);background:rgba(71,2,154,.06);border:1px solid rgba(71,2,154,.15)}
+.svc-tag.ink{color:rgba(17,14,56,.55);background:rgba(17,14,56,.04);border:1px solid rgba(17,14,56,.09)}
+.svc-card h3{margin-bottom:11px}
+.svc-card p{font-size:13.5px;line-height:1.78;color:var(--body-text);margin:0}
+.svc-link{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:13px;font-weight:600;color:var(--cta);
+  text-decoration:none;margin-top:20px;
+  transition:gap .18s var(--ease),color .18s;
+}
+.svc-link:hover{gap:9px;color:var(--cta-hover)}
+
+/* ── RESULTS (DARK) ── */
+.results-section{
+  padding:120px 0 116px;
+  background:var(--hero-grad);
+  position:relative;overflow:hidden;
+}
+.results-section::before{
+  content:'';
+  position:absolute;top:-30%;left:50%;
+  width:900px;height:900px;
+  background:radial-gradient(circle,rgba(71,2,154,.25) 0%,transparent 68%);
+  transform:translateX(-50%);pointer-events:none;
+}
+.results-hdr{
+  margin-bottom:64px;position:relative;z-index:1;
+}
+/* Eyebrow matching landing page yellow text style */
+.results-eyebrow{
+  display:block;
+  font-family:var(--font);font-size:11.5px;font-weight:500;
+  text-transform:uppercase;letter-spacing:.22em;
+  color:var(--yellow);margin-bottom:18px;opacity:1;
+}
+.results-hdr h2{color:#fff;margin-bottom:14px}
+.results-hdr p{
+  font-size:15px;line-height:1.72;
+  color:rgba(201,195,222,.82);max-width:500px;
+}
+/* Row-based result layout */
+.result-rows{
+  display:flex;flex-direction:column;
+  border-top:1px solid rgba(255,255,255,.1);
+  position:relative;z-index:1;
+}
+.result-row{
+  display:grid;
+  grid-template-columns:120px 1fr 160px;
+  gap:40px;align-items:center;
+  padding:36px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  text-decoration:none;
+  transition:background .2s var(--ease);
+  cursor:pointer;
+  border-radius:4px;
+  margin:0 -16px;padding-left:16px;padding-right:16px;
+}
+.result-row:hover{background:rgba(255,255,255,.04)}
+.rr-roas{
+  font-family:var(--font-display);font-weight:900;
+  font-size:2.8rem;letter-spacing:-.06em;line-height:1;
+  color:#fff;
+}
+.rr-roas .rx{font-size:1.6rem;color:var(--cta)}
+.rr-body{}
+.rr-type{
+  font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(201,195,222,.65);margin-bottom:8px;
+}
+.rr-desc{
+  font-size:14px;line-height:1.62;
+  color:rgba(255,255,255,.82);
+}
+.rr-right{
+  display:flex;flex-direction:column;align-items:flex-end;gap:10px;
+}
+.rr-period{
+  font-size:11.5px;font-weight:500;
+  color:rgba(201,195,222,.6);
+}
+.rr-link{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:12.5px;font-weight:600;
+  color:var(--cta);
+  transition:gap .18s var(--ease);
+}
+.result-row:hover .rr-link{gap:8px}
+.results-footer{
+  margin-top:48px;text-align:center;position:relative;z-index:1;
+  display:flex;flex-direction:column;align-items:center;gap:16px;
+}
+.results-view-all{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:13.5px;font-weight:600;
+  color:#fff;
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:9px;padding:10px 22px;
+  text-decoration:none;
+  transition:background .18s,border-color .18s;
+}
+.results-view-all:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.38)}
+.results-note{font-size:11px;color:rgba(201,195,222,.45);line-height:1.55;display:flex;align-items:center}
+
+/* ── ABOUT ── */
+.about{
+  padding:120px 0 116px;
+  background:var(--surface);
+  border-top:1px solid var(--line);
+}
+.about-hdr{
+  text-align:center;
+  max-width:700px;
+  margin:0 auto 52px;
+}
+.about-hdr h2{margin:12px 0 16px}
+.about-hdr p{
+  font-size:15px;line-height:1.78;
+  color:var(--body-text);
+}
+/* FAQ-style statement rows (matches GDL "Before You Apply" aesthetic) */
+.about-statement-list{
+  max-width:860px;
+  margin:0 auto 52px;
+  border-top:1px solid var(--line);
+}
+.about-statement{
+  display:flex;align-items:flex-start;gap:20px;
+  padding:20px 4px;
+  border-bottom:1px solid var(--line);
+  font-size:16px;font-weight:500;
+  color:var(--ink);
+  line-height:1.5;
+}
+.about-statement-icon{
+  width:28px;height:28px;border-radius:50%;
+  border:1.5px solid rgba(71,2,154,.22);
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  color:var(--brand);font-size:13px;
+  margin-top:1px;
+}
+/* Credential pills row */
+.about-cred-row{
+  display:flex;align-items:center;justify-content:center;
+  gap:10px;flex-wrap:wrap;
+  max-width:860px;margin:0 auto;
+}
+.about-cred-pill{
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:500;color:var(--body-text);
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:100px;
+  padding:9px 18px;
+}
+.about-cred-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--brand);flex-shrink:0;
+}
+
+/* ── CLOSING CTA ── */
+.closing-cta{
+  background:var(--surface);
+  padding:112px 0 96px;
+  border-top:1px solid var(--line);
+  text-align:center;
+}
+.closing-inner{
+  max-width:680px;margin:0 auto;
+  display:flex;flex-direction:column;align-items:center;
+}
+.closing-eyebrow{
+  font-family:var(--font);font-size:10px;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--cta);margin-bottom:24px;
+}
+.closing-headline{
+  font-family:var(--font-display);
+  font-size:clamp(2.2rem,4.5vw,3.6rem);
+  font-weight:800;letter-spacing:-.035em;
+  color:var(--ink);line-height:1.1;
+  margin-bottom:18px;
+}
+.closing-sub{
+  font-family:var(--font);font-size:16px;
+  color:var(--body-text);line-height:1.65;
+  opacity:.75;margin-bottom:40px;max-width:400px;
+}
+.btn-primary-lg{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--cta);color:#fff;
+  font-family:var(--font);font-size:15px;font-weight:600;
+  padding:17px 36px;border-radius:10px;
+  text-decoration:none;white-space:nowrap;
+  transition:background .18s,transform .18s,box-shadow .18s;
+  box-shadow:0 4px 24px rgba(240,90,40,.25);
+  margin-bottom:48px;
+}
+.btn-primary-lg:hover{
+  background:var(--cta-hover);
+  transform:translateY(-2px);
+  box-shadow:0 8px 32px rgba(240,90,40,.35);
+}
+.closing-trust-strip{
+  display:flex;align-items:center;gap:10px;
+  flex-wrap:wrap;justify-content:center;
+}
+.closing-trust-strip span{
+  font-family:var(--font);font-size:11px;font-weight:500;
+  color:rgba(72,65,108,.82);letter-spacing:.02em;
+}
+.trust-dot{color:rgba(72,65,108,.35)!important;}
+
+/* ── SITE FOOTER ── */
+.site-footer{background:#F05A28;padding:64px 0 56px;}
+.sf-wrap{max-width:1120px;margin:0 auto;padding:0 40px;display:flex;align-items:center;gap:72px;}
+.sf-left{flex:1;}
+.sf-headline{
+  font-family:var(--font-display);font-size:clamp(1.55rem,2.5vw,2rem);
+  font-weight:700;color:#fff;line-height:1.35;
+  margin-bottom:32px;letter-spacing:-.02em;max-width:480px;
+}
+.sf-btn{
+  display:inline-flex;align-items:center;gap:13px;
+  background:#160E38;color:#fff;
+  font-family:var(--font);font-size:15px;font-weight:600;
+  padding:15px 30px;border-radius:100px;
+  text-decoration:none;white-space:nowrap;
+  transition:background .2s,transform .18s;
+}
+.sf-btn:hover{background:#2a1a60;transform:translateY(-1px);}
+.sf-btn-icon{width:26px;height:26px;flex-shrink:0;}
+.sf-right{flex:0 0 286px;}
+.sf-brand-name{
+  font-family:var(--font-display);font-size:15px;font-weight:800;
+  color:#fff;margin-bottom:8px;letter-spacing:-.01em;
+}
+.sf-contact-block{font-size:12.5px;line-height:1.85;color:rgba(255,255,255,.88);margin-bottom:4px;}
+.sf-contact-block a{color:rgba(255,255,255,.88);text-decoration:none;transition:color .15s;}
+.sf-contact-block a:hover{color:#fff;text-decoration:underline;}
+.sf-legal-row{font-size:12px;color:rgba(255,255,255,.76);margin-bottom:14px;}
+.sf-legal-row a{color:rgba(255,255,255,.76);text-decoration:none;transition:color .15s;}
+.sf-legal-row a:hover{color:#fff;}
+.sf-legal-sep{color:rgba(255,255,255,.3);margin:0 7px;}
+.sf-social-row{display:flex;gap:8px;margin-bottom:11px;}
+.sf-soc{
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(0,0,0,.2);display:flex;align-items:center;
+  justify-content:center;color:#fff;text-decoration:none;
+  transition:background .18s;flex-shrink:0;
+}
+.sf-soc:hover{background:rgba(0,0,0,.38);}
+.sf-copy-line{font-size:11.5px;color:rgba(255,255,255,.62);margin-bottom:16px;}
+.sf-partner-row{display:flex;flex-wrap:wrap;gap:7px;}
+.sf-partner{background:#fff;border-radius:8px;padding:0 12px;display:inline-flex;align-items:center;gap:9px;height:42px;overflow:hidden;}
+.sf-partner-premier{padding-left:0;}
+.sfp-premier{background:#F05A28;color:#fff;font-size:5.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg);padding:5px 3.5px;display:flex;align-items:center;justify-content:center;align-self:stretch;flex-shrink:0;margin-right:4px;}
+.sfp-text{display:flex;flex-direction:column;line-height:1.2;}
+.sfp-top{font-size:8.5px;font-weight:500;color:#7B6D8A;}
+.sfp-bot{font-size:11px;font-weight:700;color:#110E38;letter-spacing:.01em;}
+@media(max-width:860px){
+  .sf-wrap{flex-direction:column;align-items:flex-start;gap:44px;padding:0 28px;}
+  .sf-right{flex:0 0 auto;width:100%;}
+}
+@media(max-width:560px){
+  .site-footer{padding:48px 0 44px;}
+  .sf-wrap{padding:0 18px;}
+  .sf-headline{font-size:1.42rem;}
+}
+
+/* ── FADE UP ── */
+.fade-up{will-change:transform,opacity}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1020px){
+  .hero-inner{grid-template-columns:1fr;gap:48px}
+  .about-grid{grid-template-columns:1fr;gap:52px}
+  .about-visual{display:none}
+}
+@media(max-width:900px){
+  .nav-links{display:none}
+  .hero{padding:120px 0 64px}
+  .stats-inner{flex-wrap:wrap}
+  .stat-cell{flex:0 0 50%;border-bottom:1px solid var(--line)}
+  .svc-grid{grid-template-columns:1fr;max-width:480px}
+  .results-grid{grid-template-columns:1fr}
+  .services,.results-section,.about{padding:72px 0 76px}
+  .btn.lg{font-size:14px;padding:13px 24px}
+}
+@media(max-width:700px){
+  .result-row{grid-template-columns:90px 1fr;gap:20px}
+  .rr-right{display:none}
+  .rr-roas{font-size:2rem}
+}
+@media(max-width:560px){
+  .wrap{padding:0 18px}
+  .nav-inner{padding:14px 18px}
+  .nav-inner .btn{display:none}
+  .hero-proof{grid-template-columns:1fr 1fr}
+  .proof-row{border-right:none;margin-right:0;padding-right:0;
+    border-bottom:1px solid var(--line);
+    padding-bottom:16px;margin-bottom:16px;}
+  .proof-row:last-of-type{border-bottom:none;padding-bottom:0;margin-bottom:0}
+  .proof-label{grid-column:1/-1}
+  .proof-footer{grid-column:1/-1}
+  .stat-cell{flex:0 0 50%;padding:24px 20px}
+  .site-footer-inner{flex-direction:column;align-items:flex-start;gap:14px;}
+}
+@media(max-width:480px){
+  .perf-card{padding:18px 16px 14px}
+  .pc-spend-num{font-size:38px}
+  .pc-row{grid-template-columns:24px 1fr 68px 48px;gap:6px}
+  .pc-row-name{font-size:11px}
+  .pc-row-meta{font-size:8.5px}
+  .pc-roas-val{font-size:15px}
+  .pc-roas-lbl{font-size:7.5px}
+  .pc-avg{grid-template-columns:1fr 72px 48px;gap:6px}
+  .pc-avg-name{font-size:11px}
+  .pc-avg-sub{font-size:8.5px}
+  .pc-avg-val{font-size:20px}
+  .pc-primary{padding:12px;gap:6px 12px}
+  .pc-kpi-val{font-size:12px}
+  .pc-kpi-lbl{font-size:8.5px}
+}
+/* ── PERFORMANCE CARD ── */
+.perf-card{
+  background:linear-gradient(150deg,#fff 55%,rgba(240,90,40,.03) 100%);
+  border:1px solid rgba(17,14,56,.1);
+  border-top:2.5px solid var(--cta);
+  border-radius:20px;
+  padding:26px 28px 20px;
+  box-shadow:0 2px 8px rgba(17,14,56,.06),0 8px 32px rgba(17,14,56,.09),0 28px 72px rgba(17,14,56,.06);
+  width:100%;
+  font-family:var(--font);
+}
+.pc-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:16px;
+}
+.pc-header-left{
+  display:flex;align-items:center;gap:6px;
+  font-size:9.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  color:rgba(17,14,56,.68);
+}
+.pc-live{
+  display:flex;align-items:center;gap:5px;
+  font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:#22C47A;
+}
+.pc-live-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:#22C47A;
+  box-shadow:0 0 7px rgba(34,196,122,.65);
+  animation:pulse 2.5s ease-in-out infinite;
+  flex-shrink:0;
+}
+.pc-primary{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:8px 16px;
+  background:rgba(17,14,56,.025);
+  border-radius:14px;
+  padding:16px;
+  margin:0 -4px 16px;
+}
+.pc-spend-num{
+  font-family:var(--font-display);
+  font-size:50px;font-weight:800;letter-spacing:-.04em;
+  color:var(--ink);line-height:1;
+  margin-bottom:5px;
+}
+.pc-spend-label{
+  font-size:12.5px;font-weight:700;color:var(--ink);
+  margin-bottom:3px;line-height:1.2;
+}
+.pc-spend-sub{
+  font-size:10px;color:var(--body-text);line-height:1.4;
+}
+.pc-kpis{
+  display:flex;flex-direction:column;justify-content:center;gap:9px;
+}
+.pc-kpi{display:flex;align-items:flex-start;gap:7px;}
+.pc-kpi-icon{
+  width:16px;height:16px;flex-shrink:0;margin-top:1px;
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(17,14,56,.55);
+}
+.pc-kpi-val{
+  display:block;font-size:13px;font-weight:800;
+  color:var(--ink);line-height:1.15;
+}
+.pc-kpi-val.ora{color:var(--cta);}
+.pc-kpi-lbl{
+  display:block;font-size:9.5px;color:var(--body-text);line-height:1.25;
+}
+.pc-section-lbl{
+  font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--body-text);
+  border-left:2.5px solid var(--cta);
+  padding-left:8px;
+  margin-bottom:10px;
+}
+.pc-row{
+  display:grid;
+  grid-template-columns:26px 1fr 84px 60px;
+  align-items:center;gap:8px;
+  padding:8px 0;
+  border-bottom:1px solid rgba(17,14,56,.06);
+}
+.pc-row:last-child{border-bottom:none;}
+.pc-row-ico{
+  width:26px;height:26px;
+  background:rgba(17,14,56,.07);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.pc-row-ico svg{width:12px;height:12px;color:rgba(17,14,56,.62);}
+.pc-row-name{font-size:12.5px;font-weight:700;color:var(--ink);line-height:1.2;}
+.pc-row-meta{font-size:10px;color:var(--body-text);margin-top:2px;}
+.pc-roas{text-align:right;}
+.pc-roas-val{
+  display:block;font-family:var(--font-display);
+  font-size:18px;font-weight:800;
+  color:var(--cta);letter-spacing:-.025em;line-height:1;
+}
+.pc-roas-lbl{
+  display:block;font-size:8.5px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--body-text);margin-top:3px;
+}
+.pc-avg{
+  display:grid;
+  grid-template-columns:1fr 96px 60px;
+  align-items:center;gap:8px;
+  padding:10px 0 0;
+  border-top:1px solid rgba(17,14,56,.08);
+  margin-top:2px;
+}
+.pc-avg-name{font-size:12.5px;font-weight:700;color:var(--ink);line-height:1.2;}
+.pc-avg-sub{font-size:10px;color:var(--body-text);margin-top:2px;}
+.pc-avg-val{
+  font-family:var(--font-display);
+  font-size:24px;font-weight:800;
+  color:var(--cta);letter-spacing:-.03em;text-align:right;
+}
+.pc-cs-link{
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  margin-top:14px;padding:11px 0 0;
+  border-top:1px solid rgba(17,14,56,.08);
+  font-size:12px;font-weight:600;
+  color:var(--cta);
+  text-decoration:none;
+  letter-spacing:.01em;
+  transition:gap .2s cubic-bezier(.25,.46,.45,.94),opacity .2s;
+}
+.pc-cs-link:hover{gap:10px;opacity:.85;}
+@media(max-width:768px){
+  .closing-cta{padding:72px 0 64px;}
+}
+/* ── ANNOUNCEMENT BAR ── */
+.ann-bar{width:100%;background:rgba(36,18,72,.96);border-bottom:1px solid rgba(255,255,255,.07);padding:9px 20px;display:flex;align-items:center;justify-content:center;position:relative;z-index:200;}
+.ann-bar-inner{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:.025em;color:rgba(255,255,255,.65);white-space:nowrap;}
+.ann-icon{width:13px;height:13px;flex-shrink:0;color:rgba(204,163,97,.85);}
+.ann-val{font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:11px;color:rgba(204,163,97,.9);}
+.ann-sep{color:rgba(255,255,255,.2);margin:0 5px;}
+.ann-close{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:0;color:rgba(255,255,255,.3);font-size:16px;cursor:pointer;padding:2px 5px;line-height:1;transition:color .15s;}
+.ann-close:hover{color:rgba(255,255,255,.65);}
+</style>
+</head>
+<body>
+
+<!-- ═══════ ANNOUNCEMENT BAR ═══════ -->
+<div class="ann-bar" id="annBar">
+  <div class="ann-bar-inner">
+    <svg class="ann-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+      <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm9-1v4.5H7V7h2zm0-3v2H7V4h2z"/>
+    </svg>
+    <span>Free Growth Diagnostic<span class="ann-sep">·</span><span class="ann-val">$1,500 Value</span></span>
+  </div>
+  <button class="ann-close" id="annClose" aria-label="Dismiss">&times;</button>
+</div>
+
+<!-- ═══════ NAV ═══════ -->
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="root-index.html" class="nav-logo">ONBOARD<span class="nav-logo-sub">digital</span></a>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <a href="growth-diagnostic-landing.html" class="btn" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Book Free Diagnostic →</a>
+  </div>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+
+      <!-- Left: text -->
+      <div class="hero-text">
+        <h1 class="fade-up">Performance marketing<br>you can actually<br><em>measure.</em></h1>
+        <p class="hero-sub fade-up">For ecommerce brands that have spent real money on ads and still can't get a straight answer on what's working. We audit, fix, and run paid acquisition with a senior operator on every account.</p>
+        <div class="hero-cta-row fade-up">
+          <a href="growth-diagnostic-landing.html" class="btn lg" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Get Your Free Growth Diagnostic →</a>
+        </div>
+        <div class="hero-trust fade-up">
+          <div class="hero-trust-item">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" color="#34D399"/></svg>
+            No obligation
+          </div>
+          <div class="hero-trust-item">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" color="#34D399"/></svg>
+            Findings yours to keep
+          </div>
+          <div class="hero-trust-item">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" color="#34D399"/></svg>
+            8 slots per month
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: performance card image -->
+      <!-- ── Performance Card ── -->
+      <div class="fade-up">
+      <div class="perf-card">
+
+        <!-- Header -->
+        <div class="pc-header">
+          <div class="pc-header-left">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="currentColor">
+              <rect x="0" y="6" width="3" height="7" rx=".5"/>
+              <rect x="5" y="3.5" width="3" height="9.5" rx=".5"/>
+              <rect x="10" y="0" width="3" height="13" rx=".5"/>
+            </svg>
+            Performance Snapshot
+          </div>
+
+        </div>
+
+        <!-- Primary metric -->
+        <div class="pc-primary">
+          <div>
+            <div class="pc-spend-num">$75M+</div>
+            <div class="pc-spend-label">Managed Ad Spend</div>
+            <div class="pc-spend-sub">Across verified ecommerce accounts</div>
+          </div>
+          <div class="pc-kpis">
+            <div class="pc-kpi">
+              <div class="pc-kpi-icon">
+                <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                  <path d="M7 1L1.5 3.5v3.5C1.5 10.3 4 12.5 7 13c3-0.5 5.5-2.7 5.5-6V3.5L7 1z"/>
+                </svg>
+              </div>
+              <div>
+                <span class="pc-kpi-val">10+</span>
+                <span class="pc-kpi-lbl">Years Experience</span>
+              </div>
+            </div>
+            <div class="pc-kpi">
+              <div class="pc-kpi-icon">
+                <svg viewBox="0 0 14 14" fill="none" stroke="var(--cta)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                  <polyline points="1,10 5,6 8,8 13,2"/>
+                  <polyline points="10,2 13,2 13,5"/>
+                </svg>
+              </div>
+              <div>
+                <span class="pc-kpi-val ora">+60%</span>
+                <span class="pc-kpi-lbl">Avg. ROAS Improvement</span>
+              </div>
+            </div>
+            <div class="pc-kpi">
+              <div class="pc-kpi-icon">
+                <svg viewBox="0 0 14 14" fill="none" stroke="var(--cta)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                  <polyline points="1,12 4,7 7,9 10,4 13,1"/>
+                  <polyline points="10,1 13,1 13,4"/>
+                </svg>
+              </div>
+              <div>
+                <span class="pc-kpi-val ora">10.26×</span>
+                <span class="pc-kpi-lbl">Peak ROAS Achieved</span>
+              </div>
+            </div>
+            <div class="pc-kpi">
+              <div class="pc-kpi-icon">
+                <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" width="14" height="14">
+                  <circle cx="5" cy="4.5" r="2"/>
+                  <circle cx="10" cy="4.5" r="2"/>
+                  <path d="M1 12c0-2 1.8-3.5 4-3.5h2"/>
+                  <path d="M9 12c0-2 1.8-3.5 4-3.5" opacity=".6"/>
+                </svg>
+              </div>
+              <div>
+                <span class="pc-kpi-val">8 / Mo</span>
+                <span class="pc-kpi-lbl">Max New Client Slots</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section label -->
+        <div class="pc-section-lbl">Recent Client Results</div>
+
+        <!-- Account rows -->
+        <!-- Row 1: Outdoor Equipment -->
+        <div class="pc-row">
+          <div class="pc-row-ico">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 10 L6 2 L11 10 Z"/>
+              <path d="M3.5 10 L6 6 L8.5 10"/>
+            </svg>
+          </div>
+          <div>
+            <div class="pc-row-name">Outdoor Equipment</div>
+            <div class="pc-row-meta">$240K/mo &nbsp;·&nbsp; Meta &amp; Google</div>
+          </div>
+          <svg width="78" height="28" viewBox="0 0 78 28" fill="none">
+            <defs>
+              <linearGradient id="sg1" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#F05A28" stop-opacity=".18"/>
+                <stop offset="100%" stop-color="#F05A28" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,26 C6,24 11,22 18,19 C25,16 31,13 40,11 C49,9 58,6 68,4 C72,3 75,2 78,2" fill="none" stroke="#F05A28" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M0,26 C6,24 11,22 18,19 C25,16 31,13 40,11 C49,9 58,6 68,4 C72,3 75,2 78,2 L78,28 L0,28 Z" fill="url(#sg1)"/>
+          </svg>
+          <div class="pc-roas">
+            <span class="pc-roas-val">4.88×</span>
+            <span class="pc-roas-lbl">ROAS</span>
+          </div>
+        </div>
+
+        <!-- Row 2: Home Goods -->
+        <div class="pc-row">
+          <div class="pc-row-ico">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 6L6 1.5L11 6V11H7.5V8H4.5V11H1Z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="pc-row-name">Home Goods</div>
+            <div class="pc-row-meta">$316K/mo &nbsp;·&nbsp; Meta</div>
+          </div>
+          <svg width="78" height="28" viewBox="0 0 78 28" fill="none">
+            <defs>
+              <linearGradient id="sg2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#F05A28" stop-opacity=".18"/>
+                <stop offset="100%" stop-color="#F05A28" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,27 C5,24 10,21 18,17 C26,13 34,9 44,6 C54,3 66,2 78,1" fill="none" stroke="#F05A28" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M0,27 C5,24 10,21 18,17 C26,13 34,9 44,6 C54,3 66,2 78,1 L78,28 L0,28 Z" fill="url(#sg2)"/>
+          </svg>
+          <div class="pc-roas">
+            <span class="pc-roas-val">5.87×</span>
+            <span class="pc-roas-lbl">ROAS</span>
+          </div>
+        </div>
+
+        <!-- Row 3: Mobile Accessories -->
+        <div class="pc-row">
+          <div class="pc-row-ico">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="1" width="6" height="10" rx="1.5"/>
+              <circle cx="6" cy="9.5" r=".6" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <div>
+            <div class="pc-row-name">Mobile Accessories</div>
+            <div class="pc-row-meta">$150K/mo &nbsp;·&nbsp; Meta</div>
+          </div>
+          <svg width="78" height="28" viewBox="0 0 78 28" fill="none">
+            <defs>
+              <linearGradient id="sg3" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#F05A28" stop-opacity=".18"/>
+                <stop offset="100%" stop-color="#F05A28" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,25 C8,23 16,21 26,19 C36,17 45,14 55,11 C63,9 70,7 78,6" fill="none" stroke="#F05A28" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M0,25 C8,23 16,21 26,19 C36,17 45,14 55,11 C63,9 70,7 78,6 L78,28 L0,28 Z" fill="url(#sg3)"/>
+          </svg>
+          <div class="pc-roas">
+            <span class="pc-roas-val">4.14×</span>
+            <span class="pc-roas-lbl">ROAS</span>
+          </div>
+        </div>
+
+        <!-- Avg row -->
+        <div class="pc-avg">
+          <div>
+            <div class="pc-avg-name">Avg. ROAS Improvement</div>
+            <div class="pc-avg-sub">After strategic restructuring</div>
+          </div>
+          <svg width="90" height="28" viewBox="0 0 90 28" fill="none">
+            <defs>
+              <linearGradient id="sg4" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#F05A28" stop-opacity=".15"/>
+                <stop offset="100%" stop-color="#F05A28" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,26 C12,23 22,20 36,16 C50,12 66,8 90,3" fill="none" stroke="#F05A28" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M0,26 C12,23 22,20 36,16 C50,12 66,8 90,3 L90,28 L0,28 Z" fill="url(#sg4)"/>
+          </svg>
+          <div class="pc-avg-val">+60%</div>
+        </div>
+
+        <!-- Footer -->
+        <a href="case-studies.html" class="pc-cs-link">
+          View all case studies
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 6.5h8M7 3l3.5 3.5L7 10"/>
+          </svg>
+        </a>
+
+      </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ STATS BAR ═══════ -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-cell fade-up">
+      <div class="stat-num orange">$75M+</div>
+      <div class="stat-lbl">Managed across verified ecommerce accounts</div>
+    </div>
+    <div class="stat-cell fade-up">
+      <div class="stat-num">10+</div>
+      <div class="stat-lbl">Years of senior-level paid acquisition</div>
+    </div>
+    <div class="stat-cell fade-up">
+      <div class="stat-num purple">+60%</div>
+      <div class="stat-lbl">Average ROAS improvement after restructure</div>
+    </div>
+    <div class="stat-cell fade-up">
+      <div class="stat-num green">100%</div>
+      <div class="stat-lbl">Senior-led engagements, no junior handoffs</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ SERVICES ═══════ -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-hdr fade-up">
+      <span class="eyebrow">The Method</span>
+      <h2>We diagnose before we touch<br>a single campaign.</h2>
+      <p>Most agencies inherit your account and start optimizing. We start by identifying the constraint, the one thing limiting profitable scale, before we spend a dollar of your budget.</p>
+    </div>
+    <div class="svc-grid">
+
+      <div class="svc-card featured fade-up">
+        <div class="svc-top-bar"></div>
+        <span class="svc-tag orange">Start Here</span>
+        <h3>Free Growth Diagnostic</h3>
+        <p>We audit your entire paid acquisition stack: Meta, Google, attribution, audiences, and creative. We rank every finding by dollar impact. Free, no strings, yours to keep.</p>
+        <a href="growth-diagnostic-landing.html" class="svc-link">Learn how it works →</a>
+      </div>
+
+      <div class="svc-card fade-up">
+        <div class="svc-top-bar"></div>
+        <span class="svc-tag brand">Core Service</span>
+        <h3>Paid Media Management</h3>
+        <p>Meta and Google, from first ad to full-funnel scale. Campaign architecture, smart bidding, audience builds, feed optimization, and creative testing. One senior operator on your account, every month.</p>
+        <a href="services.html" class="svc-link">View our services →</a>
+      </div>
+
+      <div class="svc-card fade-up">
+        <div class="svc-top-bar"></div>
+        <span class="svc-tag ink">Infrastructure</span>
+        <h3>Account Foundation</h3>
+        <p>Attribution setup, tracking accuracy, first party data, and audience infrastructure. Most accounts we audit have at least one active tracking error; we find it before it compounds.</p>
+        <a href="services.html" class="svc-link">View our services →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ RESULTS ═══════ -->
+<section class="results-section" id="results">
+  <div class="wrap">
+    <div class="results-hdr fade-up">
+      <span class="results-eyebrow">Verified Client Results</span>
+      <h2>What the work actually produces.</h2>
+      <p>Every number is calculated from Shopify revenue ÷ total ad spend. No platform-reported ROAS. No cherry-picked windows.</p>
+    </div>
+
+    <div class="result-rows">
+
+      <a href="case-studies/luxury-bedding.html" class="result-row fade-up">
+        <div class="rr-roas">10.26<span class="rx">×</span></div>
+        <div class="rr-body">
+          <div class="rr-type">Luxury Home & Linen Brand</div>
+          <div class="rr-desc">Google Ads management across full year 2023. 10.26× blended ROAS on CA$151K in managed spend.</div>
+        </div>
+        <div class="rr-right">
+          <span class="rr-period">Full Year 2023</span>
+          <span class="rr-link">View case study →</span>
+        </div>
+      </a>
+
+      <a href="case-studies/apparel-brand.html" class="result-row fade-up">
+        <div class="rr-roas">6.05<span class="rx">×</span></div>
+        <div class="rr-body">
+          <div class="rr-type">Men's Grooming Brand</div>
+          <div class="rr-desc">Six weeks of structural rebuild. Account ran 17 months at 6.05× blended ROAS on AU$124K in managed spend.</div>
+        </div>
+        <div class="rr-right">
+          <span class="rr-period">Jan 2025 – May 2026</span>
+          <span class="rr-link">View case study →</span>
+        </div>
+      </a>
+
+      <a href="case-studies/ecommerce-meta.html" class="result-row fade-up">
+        <div class="rr-roas">5.87<span class="rx">×</span></div>
+        <div class="rr-body">
+          <div class="rr-type">Meta Ecommerce Portfolio</div>
+          <div class="rr-desc">Full-funnel Meta management documented across $316K in total managed spend across multiple accounts.</div>
+        </div>
+        <div class="rr-right">
+          <span class="rr-period">$316K managed spend</span>
+          <span class="rr-link">View case study →</span>
+        </div>
+      </a>
+
+    </div>
+    <div class="results-footer">
+      <a href="case-studies.html" class="results-view-all">View all case studies →</a>
+      <span class="results-note">
+        <svg style="width:11px;height:11px;flex-shrink:0;margin-right:5px;vertical-align:-1px" viewBox="0 0 14 14" fill="none"><rect x="1.5" y="5.5" width="11" height="7.5" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M4.5 5.5V4a2.5 2.5 0 015 0v1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        Client identities protected under NDA.
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ABOUT ═══════ -->
+<section class="about" id="about">
+  <div class="wrap">
+
+    <div class="about-hdr fade-up">
+      <span class="eyebrow">How We Operate</span>
+      <h2>Real operators.<br>Not an account manager relay.</h2>
+      <p>ONBOARDdigital was built for ecommerce brands at $500K–$10M that are too sophisticated for generic agency work, but not yet large enough for a full in-house paid media team.</p>
+    </div>
+
+    <div class="about-statement-list fade-up">
+      <div class="about-statement">
+        <div class="about-statement-icon">
+          <svg viewBox="0 0 14 14" fill="none" width="13" height="13"><path d="M2.5 7.5l3 3 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        Every Growth Diagnostic is run by a founder, never delegated to a junior or account manager
+      </div>
+      <div class="about-statement">
+        <div class="about-statement-icon">
+          <svg viewBox="0 0 14 14" fill="none" width="13" height="13"><path d="M2.5 7.5l3 3 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        The same senior operator stays on your account for the full engagement. No bait and switch after onboarding.
+      </div>
+      <div class="about-statement">
+        <div class="about-statement-icon">
+          <svg viewBox="0 0 14 14" fill="none" width="13" height="13"><path d="M2.5 7.5l3 3 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        Intake capped at 8 diagnostics per month so every account gets the attention it needs
+      </div>
+      <div class="about-statement">
+        <div class="about-statement-icon">
+          <svg viewBox="0 0 14 14" fill="none" width="13" height="13"><path d="M2.5 7.5l3 3 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        We don't take on accounts we haven't audited first; the diagnostic is always where we start
+      </div>
+    </div>
+
+    <div class="about-cred-row fade-up">
+      <div class="about-cred-pill">
+        <div class="about-cred-dot"></div>
+        Google &amp; Meta certified, senior level
+      </div>
+      <div class="about-cred-pill">
+        <div class="about-cred-dot"></div>
+        Shopify Plus partner ecosystem
+      </div>
+      <div class="about-cred-pill">
+        <div class="about-cred-dot"></div>
+        10+ documented case studies
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════ PLATFORM PARTNERSHIPS ═══════ -->
+<!-- ═══════ CLOSING CTA ═══════ -->
+<section class="closing-cta">
+  <div class="wrap">
+    <div class="closing-inner">
+      <p class="closing-eyebrow">Free Growth Diagnostic</p>
+      <h2 class="closing-headline">Let's find what's limiting<br>your growth.</h2>
+      <p class="closing-sub">The diagnostic is free. The findings are yours to keep. No pitch, no pressure.</p>
+      <a href="growth-diagnostic-landing.html" class="btn-primary-lg" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Book Your Free Diagnostic →</a>
+      <div class="closing-trust-strip">
+        <span>Google Premier Partner</span>
+        <span class="trust-dot">·</span>
+        <span>Meta Marketing Partner</span>
+        <span class="trust-dot">·</span>
+        <span>Shopify Partner</span>
+        <span class="trust-dot">·</span>
+        <span>10+ Years Experience</span>
+        <span class="trust-dot">·</span>
+        <span>$75M+ Managed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="site-footer">
+  <div class="sf-wrap">
+    <!-- Left: CTA -->
+    <div class="sf-left">
+      <p class="sf-headline">We want to collaborate with great people and innovative brands. #getONBOARD.</p>
+      <a href="contact.html" class="sf-btn">
+        <svg class="sf-btn-icon" viewBox="0 0 26 26" fill="none">
+          <rect x="1.5" y="3.5" width="15" height="11" rx="2" stroke="white" stroke-width="1.5"/>
+          <path d="M4 14.5l3.5 3.5v-3.5" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="11" y="12" width="13.5" height="10" rx="2" fill="rgba(255,255,255,.12)" stroke="white" stroke-width="1.5"/>
+          <path d="M21 22l3.5 3v-3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Let's Collaborate
+      </a>
+    </div>
+    <!-- Right: Info -->
+    <div class="sf-right">
+      <p class="sf-brand-name">ONBOARDdigital</p>
+      <div class="sf-contact-block">
+        <div>Telephone: 416.783.1157</div>
+        <div><a href="mailto:info@getONBOARD.ca">info@getONBOARD.ca</a></div>
+      </div>
+      <div class="sf-legal-row">
+        <a href="#">Style Guide</a><span class="sf-legal-sep">|</span><a href="public/terms.html">Terms</a><span class="sf-legal-sep">|</span><a href="public/privacy.html">Privacy</a>
+      </div>
+      <div class="sf-social-row">
+        <a href="#" class="sf-soc" aria-label="Facebook"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="#" class="sf-soc" aria-label="Instagram"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="#" class="sf-soc" aria-label="Twitter"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.741l7.732-8.853L2.25 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="#" class="sf-soc" aria-label="LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      </div>
+      <p class="sf-copy-line">&copy; 2020 ONBOARDdigital</p>
+      <div class="sf-partner-row">
+        <!-- Google Premier Partner -->
+        <div class="sf-partner sf-partner-premier">
+          <span class="sfp-premier">PREMIER</span>
+          <svg width="16" height="16" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 10.75c3.24 0 6.15 1.11 8.44 3.29l6.32-6.32C34.9 4.14 29.94 2 24 2 15.4 2 7.96 6.93 4.34 14.15l7.3 5.7c1.74-5.22 6.61-9.1 12.36-9.1z"/><path fill="#FBBC05" d="M11.64 28.15c-.46-1.32-.72-2.73-.72-4.15s.26-2.83.72-4.15v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.85l7.3-5.7z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.08-5.52c-1.97 1.32-4.49 2.1-7.48 2.1-5.75 0-10.62-3.88-12.36-9.1H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.52 2.75-2.06 5.08-4.37 6.64v5.52h7.08c4.14-3.81 6.53-9.43 6.53-16.17z"/></svg>
+          <div class="sfp-text"><span class="sfp-top">Google</span><span class="sfp-bot">Partner</span></div>
+        </div>
+        <!-- Facebook Marketing Partners -->
+        <div class="sf-partner">
+          <svg width="20" height="20" viewBox="0 0 20 20"><rect width="20" height="20" rx="4" fill="#1877F2"/><path fill="#fff" d="M13.5 7H12c-.55 0-1 .45-1 1v1.5h2.5l-.4 2.5H11V18H8.5v-6H7V9.5h1.5V8c0-1.93 1.57-3.5 3.5-3.5H13.5V7z"/></svg>
+          <div class="sfp-text"><span class="sfp-top">Marketing</span><span class="sfp-bot">Partners</span></div>
+        </div>
+        <!-- Shopify Partners -->
+        <div class="sf-partner">
+          <svg width="15" height="17" viewBox="0 0 15 17" fill="none"><rect x="1" y="5.5" width="13" height="10.5" rx="1.5" fill="#96BF48"/><path d="M4.5 5.5V4a3 3 0 016 0v1.5" stroke="#96BF48" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <div class="sfp-text"><span class="sfp-top" style="color:#5E8E3E">shopify</span><span class="sfp-bot" style="color:#3d6b1e">partners</span></div>
+        </div>
+        <!-- Early Platform Access -->
+        <div class="sf-partner">
+          <svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 0l1.5 5.5L14 7l-5.5 1.5L7 14l-1.5-5.5L0 7l5.5-1.5z" fill="#F05A28"/></svg>
+          <div class="sfp-text"><span class="sfp-top">Early Platform</span><span class="sfp-bot">ACCESS</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// Hero entrance
+gsap.fromTo('.hero .fade-up',
+  {opacity:0,y:28},
+  {opacity:1,y:0,duration:.85,stagger:.1,ease:'power2.out',delay:.15}
+);
+
+// Scroll-triggered fade-ups (everything outside hero)
+gsap.utils.toArray('.fade-up:not(.hero .fade-up)').forEach(el=>{
+  gsap.fromTo(el,
+    {opacity:0,y:24},
+    {opacity:1,y:0,duration:.7,ease:'power2.out',
+     scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'}}
+  );
+});
+
+// Nav scroll state
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{
+  nav.style.background = window.scrollY > 40
+    ? 'rgba(247,246,250,.97)'
+    : 'rgba(247,246,250,.9)';
+},{ passive: true });
+</script>
+<!-- iClosed popup widget -->
+<script type="text/javascript" src="https://app.iclosed.io/assets/widget.js" async></script>
+<script>
+const annBar=document.getElementById('annBar');
+const annClose=document.getElementById('annClose');
+const mainNav=document.getElementById('mainNav');
+function setNavTop(){if(mainNav&&annBar&&annBar.style.display!=='none'){mainNav.style.top=annBar.offsetHeight+'px';}else if(mainNav){mainNav.style.top='0';}}
+setNavTop();
+if(annClose&&annBar){annClose.addEventListener('click',()=>{annBar.style.transition='opacity .2s';annBar.style.opacity='0';setTimeout(()=>{annBar.style.display='none';setNavTop();},200);});}
+</script>
+</body>
+</html>

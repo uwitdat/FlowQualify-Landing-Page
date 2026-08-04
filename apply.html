@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request Your Free Growth Diagnostic — ONBOARDdigital</title>
+<meta name="description" content="Request a free Growth Diagnostic for your ecommerce brand. We audit your full paid acquisition setup and hand you a prioritized report with no obligation.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#110E38; --brand:#47029A; --cta:#F05A28; --cta-hover:#D44D20;
+  --yellow:#FFC600; --on-dark:#C9C3DE; --white:#fff;
+  --hero-grad:radial-gradient(ellipse at 50% 30%,#391268 0%,#2c165c 20%,#261b4e 50%,#1e1a42 80%,#191740 100%);
+  --font:'Poppins',-apple-system,BlinkMacSystemFont,sans-serif;
+  --ease:cubic-bezier(.25,1,.5,1);
+  --pill:999px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font:400 16px/1.65 var(--font);background:#110E38;color:var(--on-dark);overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+
+/* ── Noise overlay ── */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.032;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px;
+}
+/* ── Glow orbs ── */
+body::after{
+  content:'';position:fixed;
+  top:-200px;left:50%;transform:translateX(-50%);
+  width:900px;height:700px;
+  background:radial-gradient(ellipse at 50% 0%,rgba(71,2,154,.32) 0%,rgba(71,2,154,.1) 42%,transparent 68%);
+  pointer-events:none;z-index:0;
+}
+
+.page-wrap{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column}
+
+/* ── NAV ── */
+.nav{
+  height:68px;display:flex;align-items:center;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  padding:0 40px;
+  flex-shrink:0;
+}
+.nav-inner{width:100%;max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:700;font-size:20px;color:var(--brand);text-decoration:none;letter-spacing:.06em}
+.logo span{color:var(--cta);font-weight:300}
+.nav-back{
+  display:flex;align-items:center;gap:7px;
+  font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(201,195,222,.4);text-decoration:none;
+  transition:color .18s var(--ease);
+}
+.nav-back:hover{color:rgba(201,195,222,.8)}
+.nav-back svg{width:14px;height:14px;opacity:.6}
+
+/* ── MAIN LAYOUT ── */
+.main{
+  flex:1;display:grid;
+  grid-template-columns:1fr 480px;
+  gap:0;
+  max-width:1100px;margin:0 auto;width:100%;
+  padding:64px 40px 80px;
+  align-items:start;
+}
+
+/* ── LEFT COPY ── */
+.copy-col{padding-right:72px;padding-top:8px}
+.apply-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--pill);padding:7px 16px;
+  font-size:11px;font-weight:700;letter-spacing:.08em;
+  color:rgba(255,255,255,.62);margin-bottom:32px;
+}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:rgba(52,211,153,.9);flex-shrink:0}
+.copy-col h1{
+  font-family:'Plus Jakarta Sans','Poppins',sans-serif;
+  font-size:clamp(2rem,3.6vw,2.9rem);
+  font-weight:800;color:#fff;
+  line-height:1.1;letter-spacing:-.04em;
+  margin-bottom:18px;
+}
+.copy-col h1 em{font-style:normal;color:var(--cta)}
+.copy-sub{
+  font-size:15px;line-height:1.8;
+  color:rgba(201,195,222,.62);
+  margin-bottom:40px;max-width:420px;
+}
+
+/* Trust list */
+.trust-list{list-style:none;display:flex;flex-direction:column;gap:13px;margin-bottom:40px}
+.trust-list li{
+  display:flex;align-items:flex-start;gap:11px;
+  font-size:14px;line-height:1.5;
+  color:rgba(255,255,255,.72);
+}
+.trust-check{
+  flex-shrink:0;margin-top:1px;
+  width:17px;height:17px;
+}
+
+/* Why free note */
+.why-free{
+  border-left:2px solid rgba(71,2,154,.6);
+  padding:12px 0 12px 18px;
+  margin-top:4px;
+}
+.why-free p{
+  font-size:13px;line-height:1.75;
+  color:rgba(201,195,222,.5);
+}
+.why-free strong{color:rgba(255,255,255,.75);font-weight:600}
+
+/* ── FORM COLUMN ── */
+.form-col{}
+.form-box{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:24px;
+  padding:40px 36px 36px;
+  position:relative;
+  overflow:hidden;
+}
+/* Top accent line */
+.form-box::before{
+  content:'';position:absolute;top:0;left:20px;right:20px;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(71,2,154,.85) 30%,rgba(240,90,40,.7) 70%,transparent);
+}
+.form-box-label{
+  font-size:9.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(201,195,222,.35);margin-bottom:28px;display:block;
+}
+
+/* Field groups */
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{margin-bottom:16px}
+.field label{
+  display:block;font-size:11.5px;font-weight:600;
+  letter-spacing:.04em;color:rgba(201,195,222,.55);
+  margin-bottom:7px;
+}
+.field input,
+.field select,
+.field textarea{
+  width:100%;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:10px;
+  padding:12px 15px;
+  font:500 14px/1.4 var(--font);
+  color:#fff;
+  outline:none;
+  transition:border-color .18s var(--ease),background .18s;
+  -webkit-appearance:none;
+}
+.field input::placeholder,
+.field textarea::placeholder{color:rgba(255,255,255,.22)}
+.field select option{background:#1a1542;color:#fff}
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+  border-color:rgba(71,2,154,.7);
+  background:rgba(71,2,154,.08);
+  box-shadow:0 0 0 3px rgba(71,2,154,.12);
+}
+.field textarea{resize:none;height:90px;line-height:1.6}
+
+/* Select arrow */
+.field-select-wrap{position:relative}
+.field-select-wrap::after{
+  content:'';position:absolute;right:14px;top:50%;transform:translateY(-50%);
+  width:10px;height:6px;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='rgba(201,195,222,.4)' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+/* Submit */
+.form-submit{
+  width:100%;
+  background:var(--cta);color:#fff;
+  font:700 16px/1 var(--font);
+  padding:16px 24px;
+  border:none;border-radius:var(--pill);
+  cursor:pointer;
+  margin-top:6px;
+  position:relative;overflow:hidden;
+  transition:transform .2s var(--ease),box-shadow .2s var(--ease),background .15s;
+  box-shadow:0 4px 20px rgba(240,90,40,.25);
+}
+.form-submit::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.22) 50%,transparent 65%);
+  transform:translateX(-120%);transition:transform .5s ease;
+}
+.form-submit:hover{background:var(--cta-hover);transform:translateY(-2px);box-shadow:0 8px 28px rgba(240,90,40,.35)}
+.form-submit:hover::after{transform:translateX(120%)}
+.form-submit:active{transform:translateY(0)}
+
+.form-micro{
+  text-align:center;margin-top:14px;
+  font-size:11.5px;color:rgba(201,195,222,.3);
+  line-height:1.6;
+}
+
+/* ── WHAT HAPPENS NEXT ── */
+.next-section{
+  max-width:1100px;margin:0 auto;
+  padding:0 40px 72px;
+}
+.next-divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.08) 20%,rgba(255,255,255,.08) 80%,transparent);
+  margin-bottom:60px;
+}
+.next-hdr{margin-bottom:44px}
+.next-hdr span{
+  font-size:9.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+  color:rgba(201,195,222,.35);display:block;margin-bottom:10px;
+}
+.next-hdr h2{
+  font-family:'Plus Jakarta Sans','Poppins',sans-serif;
+  font-size:clamp(1.4rem,2.8vw,1.85rem);
+  font-weight:800;color:#fff;
+  letter-spacing:-.03em;line-height:1.18;
+}
+.next-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.next-step{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:16px;
+  padding:26px 24px;
+  position:relative;overflow:hidden;
+}
+.next-step::before{
+  content:'';position:absolute;top:0;left:16px;right:16px;height:1.5px;
+  background:linear-gradient(90deg,transparent,rgba(71,2,154,.5) 40%,rgba(71,2,154,.5) 60%,transparent);
+}
+.next-step-num{
+  font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(71,2,154,.6);display:block;margin-bottom:12px;
+}
+.next-step-time{
+  display:inline-flex;
+  background:rgba(240,90,40,.1);border:1px solid rgba(240,90,40,.2);
+  border-radius:var(--pill);padding:3px 10px;
+  font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(240,90,40,.85);margin-bottom:14px;
+}
+.next-step h3{
+  font-size:.9375rem;font-weight:700;color:#fff;
+  line-height:1.3;letter-spacing:-.018em;margin-bottom:8px;
+}
+.next-step p{font-size:13px;line-height:1.7;color:rgba(201,195,222,.5)}
+
+/* ── FOOTER ── */
+.apply-footer{
+  border-top:1px solid rgba(255,255,255,.06);
+  padding:28px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  max-width:1100px;margin:0 auto;width:100%;
+  flex-wrap:wrap;gap:12px;
+}
+.apply-footer-logo{font-weight:700;font-size:17px;color:var(--brand);text-decoration:none;letter-spacing:.06em}
+.apply-footer-logo span{color:var(--cta);font-weight:300}
+.apply-footer-copy{font-size:11.5px;color:rgba(201,195,222,.25)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .main{grid-template-columns:1fr;padding:48px 24px 60px}
+  .copy-col{padding-right:0;margin-bottom:40px;padding-top:0}
+  .next-section{padding:0 24px 56px}
+  .next-steps{grid-template-columns:1fr}
+  .apply-footer{padding:24px}
+}
+@media(max-width:540px){
+  .nav{padding:0 20px}
+  .form-box{padding:28px 22px 26px}
+  .field-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="growth-diagnostic-landing.html">ONBOARD<span>digital</span></a>
+      <a class="nav-back" href="growth-diagnostic-landing.html">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L4 7l5 5"/></svg>
+        Back
+      </a>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- LEFT COPY -->
+    <div class="copy-col">
+      <div class="apply-badge">
+        <span class="badge-dot"></span>
+        Free · No obligation · 60 minutes total
+      </div>
+      <h1>Book your free<br><em>Growth Diagnostic.</em></h1>
+      <p class="copy-sub">We audit your full paid acquisition setup: Google, Meta, Shopping, attribution, and audience infrastructure. You receive a prioritized report on exactly what to fix first.</p>
+
+      <ul class="trust-list">
+        <li>
+          <svg class="trust-check" viewBox="0 0 17 17" fill="none"><circle cx="8.5" cy="8.5" r="8" stroke="rgba(52,211,153,.3)" stroke-width="1"/><path d="M5 8.8l2.4 2.4 4.6-4.6" stroke="rgba(52,211,153,.9)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Free for ecommerce brands doing $500K+/yr
+        </li>
+        <li>
+          <svg class="trust-check" viewBox="0 0 17 17" fill="none"><circle cx="8.5" cy="8.5" r="8" stroke="rgba(52,211,153,.3)" stroke-width="1"/><path d="M5 8.8l2.4 2.4 4.6-4.6" stroke="rgba(52,211,153,.9)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          We do the work off-call: 3&ndash;5 business days of analysis
+        </li>
+        <li>
+          <svg class="trust-check" viewBox="0 0 17 17" fill="none"><circle cx="8.5" cy="8.5" r="8" stroke="rgba(52,211,153,.3)" stroke-width="1"/><path d="M5 8.8l2.4 2.4 4.6-4.6" stroke="rgba(52,211,153,.9)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          30-point PDF diagnostic, yours to keep regardless
+        </li>
+        <li>
+          <svg class="trust-check" viewBox="0 0 17 17" fill="none"><circle cx="8.5" cy="8.5" r="8" stroke="rgba(52,211,153,.3)" stroke-width="1"/><path d="M5 8.8l2.4 2.4 4.6-4.6" stroke="rgba(52,211,153,.9)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Limited spots each month. Senior attention, not a junior handoff.
+        </li>
+      </ul>
+
+      <div class="why-free">
+        <p><strong>Why it's free:</strong> We only take on work where there's a clear path to a real result. The diagnostic is how we both find out if that's the case, and how you find out whether what we're saying holds up against your actual account.</p>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="form-col">
+      <div class="form-box">
+        <span class="form-box-label">Request access</span>
+
+        <form action="https://formspree.io/f/mgawwnvv" method="POST" id="applyForm">
+          <input type="hidden" name="_subject" value="New diagnostic application — ONBOARDdigital">
+          <input type="hidden" name="_next" value="https://getonboard.ca/thank-you.html">
+          <div class="field-row">
+            <div class="field">
+              <label for="fname">First name</label>
+              <input type="text" id="fname" name="first_name" placeholder="Alex" required autocomplete="given-name">
+            </div>
+            <div class="field">
+              <label for="lname">Last name</label>
+              <input type="text" id="lname" name="last_name" placeholder="Smith" required autocomplete="family-name">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="email">Work email</label>
+            <input type="email" id="email" name="email" placeholder="alex@yourbrand.com" required autocomplete="email">
+          </div>
+
+          <div class="field">
+            <label for="store">Store URL</label>
+            <input type="text" id="store" name="store_url" placeholder="https://yourbrand.com" required>
+          </div>
+
+          <div class="field">
+            <label for="spend">Monthly ad spend</label>
+            <div class="field-select-wrap">
+              <select id="spend" name="monthly_spend" required>
+                <option value="" disabled selected>Select a range</option>
+                <option value="5-10k">$5K – $10K / month</option>
+                <option value="10-25k">$10K – $25K / month</option>
+                <option value="25-50k">$25K – $50K / month</option>
+                <option value="50-100k">$50K – $100K / month</option>
+                <option value="100k+">$100K+ / month</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="challenge">What's your biggest challenge right now? <span style="opacity:.4;font-weight:400">(optional)</span></label>
+            <textarea id="challenge" name="challenge" placeholder="e.g. ROAS looks good but profit isn't keeping up, scaling Meta but hitting diminishing returns…"></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">Request Your Free Growth Diagnostic &nbsp;&rarr;</button>
+        </form>
+
+        <p class="form-micro">You'll receive a short confirmation shortly. We review every request before scheduling, usually within 1 business day.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- WHAT HAPPENS NEXT -->
+  <section class="next-section">
+    <div class="next-divider"></div>
+    <div class="next-hdr">
+      <span>After you submit</span>
+      <h2>Here's what happens next.</h2>
+    </div>
+    <div class="next-steps">
+      <div class="next-step">
+        <span class="next-step-num">01</span>
+        <span class="next-step-time">Within 1 business day</span>
+        <h3>We review your request</h3>
+        <p>We confirm your store fits the criteria, send a read-only access request for your ad accounts, and schedule a short discovery call to understand your business before we go into the accounts.</p>
+      </div>
+      <div class="next-step">
+        <span class="next-step-num">02</span>
+        <span class="next-step-time">3&ndash;5 business days</span>
+        <h3>We audit your accounts</h3>
+        <p>After your discovery call, we spend 3 to 5 days reviewing your full acquisition stack: Google, Meta, attribution, audiences, and tracking. We then build your prioritized diagnostic report.</p>
+      </div>
+      <div class="next-step">
+        <span class="next-step-num">03</span>
+        <span class="next-step-time">30&ndash;45 min call</span>
+        <h3>You receive your report</h3>
+        <p>We walk you through every finding ranked by dollar impact and exactly what to fix first. The full report is yours to keep, no strings attached.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="apply-footer">
+      <a class="apply-footer-logo" href="growth-diagnostic-landing.html">ONBOARD<span>digital</span></a>
+      <span class="apply-footer-copy">&copy; 2026 ONBOARDdigital &nbsp;&middot;&nbsp; <a href="growth-diagnostic-landing.html" style="color:inherit;opacity:.6;text-decoration:none">Back to home</a></span>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
