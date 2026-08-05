@@ -940,6 +940,7 @@ br.d{}
   transition:color .15s,background .15s;flex:none;
 }
 .sticky-bar .close:hover{color:var(--ink);background:var(--surface)}
+.sb-m{display:none}
 
 .site-footer{background:#F05A28;padding:64px 0 56px;}
 .sf-wrap{max-width:1120px;margin:0 auto;padding:0 40px;display:flex;align-items:center;gap:72px;}
@@ -1079,7 +1080,10 @@ br.d{}
   .final-trust{gap:14px!important;margin-bottom:24px!important}
 
   /* sticky bar */
-  .sticky-bar{padding:10px 16px}
+  .sticky-bar{padding:10px 14px;gap:10px;font-size:13px}
+  .sb-d{display:none}
+  .sb-m{display:inline}
+  .btn-yellow{font-size:13px;padding:9px 16px;white-space:nowrap}
 
   /* ask phil — float above sticky bar */
   .ask-phil-btn{bottom:88px;right:16px;}
@@ -4843,8 +4847,14 @@ br.d{}
 
 <!-- STICKY BAR -->
 <div class="sticky-bar" id="stickyBar">
-  <span>Free for DTC brands doing $500K+ &nbsp;|&nbsp; See exactly what&#8217;s limiting your growth.</span>
-  <a class="btn-yellow" href="#" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Get Your Free Diagnostic →</a>
+  <span>
+    <span class="sb-d">Free for DTC brands doing $500K+ &nbsp;|&nbsp; See exactly what&#8217;s limiting your growth.</span>
+    <span class="sb-m">Free diagnostic for $500K+ brands</span>
+  </span>
+  <a class="btn-yellow" href="#" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">
+    <span class="sb-d">Get Your Free Diagnostic →</span>
+    <span class="sb-m">Get Diagnostic →</span>
+  </a>
   <button class="close" aria-label="Dismiss" id="stickyClose">×</button>
 </div>
 
