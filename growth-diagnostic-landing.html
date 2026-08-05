@@ -920,6 +920,49 @@ br.d{}
   font-size:10px;color:rgba(255,255,255,.28);
   margin-top:8px;text-align:center;line-height:1.5;
 }
+.ask-phil-body{overflow-y:auto;max-height:270px;}
+.ask-phil-msgs{
+  display:none;flex-direction:column;gap:8px;
+  padding:14px 18px;
+}
+.apm-row{display:flex;align-items:flex-end;gap:8px;}
+.apm-row.user{flex-direction:row-reverse;}
+.apm-bubble{
+  max-width:84%;font-size:12.5px;line-height:1.56;
+  padding:9px 13px;border-radius:14px;word-break:break-word;
+}
+.apm-row.bot .apm-bubble{
+  background:rgba(255,255,255,.09);color:rgba(255,255,255,.84);
+  border-radius:4px 14px 14px 14px;
+}
+.apm-row.user .apm-bubble{
+  background:var(--brand);color:#fff;
+  border-radius:14px 14px 4px 14px;
+}
+.apm-cta{
+  display:inline-block;margin-top:9px;
+  font-size:11.5px;font-weight:700;
+  color:var(--cta);text-decoration:none;
+}
+.apm-cta:hover{text-decoration:underline;}
+.apm-typing{display:flex;align-items:center;gap:4px;padding:10px 13px;}
+.apm-typing span{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(255,255,255,.35);
+  animation:apmDot .9s ease-in-out infinite;
+}
+.apm-typing span:nth-child(2){animation-delay:.15s;}
+.apm-typing span:nth-child(3){animation-delay:.3s;}
+@keyframes apmDot{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+.ask-phil-reset{
+  display:none;background:none;border:none;
+  color:rgba(255,255,255,.32);font-size:11px;
+  cursor:pointer;padding:2px 18px 8px;
+  font-family:var(--font);text-align:left;
+  transition:color .15s;
+}
+.ask-phil-reset:hover{color:rgba(255,255,255,.6);}
+.ask-phil-reset.visible{display:block;}
 
 /* ─────────────────────────────────────────
    STICKY BAR
@@ -4775,22 +4818,28 @@ br.d{}
     <button class="ask-phil-close" id="askPhilClose" aria-label="Close">×</button>
   </div>
   <div class="ask-phil-body">
-    <p class="ask-phil-intro">Ask me about the diagnostic process, what we look at, or how it compares to a typical agency audit.</p>
-    <div class="ask-phil-suggestions">
-      <button class="ask-phil-q">What does the diagnostic actually cover?</button>
-      <button class="ask-phil-q">How is this different from an agency audit?</button>
-      <button class="ask-phil-q">What do I walk away with?</button>
-      <button class="ask-phil-q">Is this really free with no obligation?</button>
+    <div id="askPhilHome">
+      <p class="ask-phil-intro">Ask about the diagnostic, what we look at, or how it works.</p>
+      <div class="ask-phil-suggestions">
+        <button class="ask-phil-q">What does the diagnostic actually cover?</button>
+        <button class="ask-phil-q">How is this different from an agency audit?</button>
+        <button class="ask-phil-q">What do I walk away with?</button>
+        <button class="ask-phil-q">Is this really free with no obligation?</button>
+        <button class="ask-phil-q">Who actually runs the diagnostic?</button>
+        <button class="ask-phil-q">Is this right for my brand?</button>
+      </div>
     </div>
+    <div class="ask-phil-msgs" id="askPhilMsgs"></div>
   </div>
+  <button class="ask-phil-reset" id="askPhilReset">← Back to questions</button>
   <div class="ask-phil-footer">
     <div class="ask-phil-input-row">
-      <input class="ask-phil-input" type="text" placeholder="Ask about Google Ads, Meta, ROAS…" aria-label="Your question"/>
+      <input class="ask-phil-input" type="text" placeholder="Ask anything…" aria-label="Your question"/>
       <button class="ask-phil-send" aria-label="Send">
         <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M14.5 8L1.5 2l3 6-3 6 13-6z"/></svg>
       </button>
     </div>
-    <p class="ask-phil-disclaimer">Responses are based on ONBOARDdigital's documented methodology. Book the free diagnostic for account-specific findings.</p>
+    <p class="ask-phil-disclaimer">Answers are based on ONBOARDdigital's documented methodology.</p>
   </div>
 </div>
 
@@ -5010,31 +5059,166 @@ if(annClose && annBar){
   });
 }
 
-// ── Ask Phil panel toggle
-const askBtn = document.getElementById('askPhilBtn');
-const askPanel = document.getElementById('askPhilPanel');
-const askClose = document.getElementById('askPhilClose');
-if(askBtn && askPanel){
-  askBtn.addEventListener('click', () => {
-    askPanel.classList.toggle('open');
-  });
-  if(askClose){
-    askClose.addEventListener('click', () => askPanel.classList.remove('open'));
+// ── Ask an Expert — scripted Q&A
+(function(){
+  const BOOK = 'https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call';
+  const QA = [
+    {
+      t:['cover','include','look at','examine','categories','8 categories','what do you check','what you audit','what you look'],
+      a:"We work through 8 categories: attribution accuracy, campaign structure, Smart Bidding setup, audience signals and first-party data, creative performance, Google Shopping feed quality, budget allocation, and remarketing. Each of the 30 findings is pulled from your actual account data — not generic advice."
+    },
+    {
+      t:['different','agency','compare','typical','versus',' vs ','how does this compare','what makes'],
+      a:"Most agency audits are put together while you're in the room — a sales deck dressed up as analysis. We audit your account before the first call. You get specific findings from your actual data, not a pitch. And the full report is yours permanently whether you hire us or not."
+    },
+    {
+      t:['walk away','get from','deliverable','report','pdf','keep','takeaway','findings','what do i get','what will i get'],
+      a:"A 30-point PDF report. Every finding is ranked by revenue impact, backed by data from your account, with a specific action attached. Delivered on a second call, usually within 3–5 business days of your kickoff. Yours to keep and act on with us or anyone else."
+    },
+    {
+      t:['free','cost','price','obligation','catch','pay','charge','pitch','no catch','is there a catch','really free'],
+      a:"Yes — genuinely. No pitch on the kickoff call, it's just 15 minutes to understand your setup. The diagnostic work happens after that. You see the full 30-point report before we ever discuss working together. Only requirement: at least $500K/yr in ecommerce revenue with active paid ads running."
+    },
+    {
+      t:['how long','timeline','turnaround','days','fast','quick','when do i get','how fast'],
+      a:"Kickoff call is 15 minutes. We do the audit after that and deliver the full report on a second call within 3–5 business days. From booking to findings in hand is usually under a week."
+    },
+    {
+      t:['platform','google','meta','facebook','instagram','tiktok','channel','shopping','pmax','performance max','what channels'],
+      a:"Primarily Google Ads (Search, Shopping, Performance Max) and Meta (Facebook + Instagram). We also audit your attribution setup, conversion tracking, and first-party data — issues there affect every channel. If you're on TikTok we can flag structural problems there too."
+    },
+    {
+      t:['who runs','who does','phil','team','junior','account manager','delegate','founder','who is','who will'],
+      a:"Phil runs every diagnostic personally — no account managers, no juniors, no handoffs after onboarding. The same person who takes your kickoff call does the audit and delivers the report. That's why intake is capped. We don't take on more than we can do properly."
+    },
+    {
+      t:['qualify','eligible','right for me','right fit','my size','my brand','revenue','500k','minimum','who is this','work with','small','large','too big','too small'],
+      a:"Built for ecommerce brands doing $500K–$10M/yr with active paid media on Google or Meta. If you're past the point where generic advice helps but not yet large enough for a full in-house team, this is exactly who the diagnostic is designed for. We'll tell you upfront if you're not the right fit."
+    },
+    {
+      t:['after','next step','then what','after the report','engage','hire','work together','what happens next','if i want to'],
+      a:"After we deliver the report, you decide. Some clients implement the findings themselves. Some hire us to manage the rebuild and ongoing paid media. There's no pressure either way — the report stands on its own. If you want to engage, we'll walk through what that looks like on the same call we deliver findings."
+    },
+    {
+      t:['roas','results','proof','case study','example','client','worked','success','numbers','evidence','worked for'],
+      a:"All results are documented with platform screenshots. Recent examples: 10.26× ROAS on CA$151K for a luxury home brand, 6.05× over 17 months for a men's grooming brand on AU$124K, and 5.87× blended ROAS across a $316K Meta portfolio. Full case studies are on the site."
+    },
+    {
+      t:['read only','access','grant','account access','share','give access','my account'],
+      a:"You can grant read-only access before the kickoff call and we'll arrive with specific observations already pulled from your data. It's optional but strongly recommended — it makes the kickoff 10× more useful. Instructions come in your confirmation email after you book."
+    },
+    {
+      t:['confidential','nda','private','share my data','who sees','safe','secure','protected'],
+      a:"All client data is treated as strictly confidential. We don't share findings, account data, or identifying details with anyone. All documented case studies on the site use anonymized client names."
+    }
+  ];
+
+  const FALLBACK = "Good question for Phil directly — he reviews your details before every call so he can give you a specific answer, not a generic one.";
+
+  const askBtn   = document.getElementById('askPhilBtn');
+  const askPanel = document.getElementById('askPhilPanel');
+  const askClose = document.getElementById('askPhilClose');
+  const askHome  = document.getElementById('askPhilHome');
+  const askMsgs  = document.getElementById('askPhilMsgs');
+  const askReset = document.getElementById('askPhilReset');
+  const askInput = askPanel && askPanel.querySelector('.ask-phil-input');
+  const askSend  = askPanel && askPanel.querySelector('.ask-phil-send');
+
+  if(!askBtn || !askPanel) return;
+
+  function findAnswer(text){
+    const low = text.toLowerCase();
+    for(const item of QA){
+      if(item.t.some(t => low.includes(t))) return item.a;
+    }
+    return null;
   }
-  // Close on outside click
-  document.addEventListener('click', (e) => {
-    if(!askPanel.contains(e.target) && !askBtn.contains(e.target)){
+
+  function addBubble(text, type){
+    const row = document.createElement('div');
+    row.className = 'apm-row ' + type;
+    const b = document.createElement('div');
+    b.className = 'apm-bubble';
+    b.textContent = text;
+    row.appendChild(b);
+    askMsgs.appendChild(row);
+    askMsgs.scrollTop = askMsgs.scrollHeight;
+  }
+
+  function addBotAnswer(answer, isFallback){
+    // typing indicator
+    const typingRow = document.createElement('div');
+    typingRow.className = 'apm-row bot';
+    typingRow.innerHTML = '<div class="apm-bubble"><div class="apm-typing"><span></span><span></span><span></span></div></div>';
+    askMsgs.appendChild(typingRow);
+    askMsgs.scrollTop = askMsgs.scrollHeight;
+
+    setTimeout(()=>{
+      typingRow.remove();
+      const row = document.createElement('div');
+      row.className = 'apm-row bot';
+      const b = document.createElement('div');
+      b.className = 'apm-bubble';
+      b.textContent = answer;
+      const cta = document.createElement('a');
+      cta.className = 'apm-cta';
+      cta.href = BOOK;
+      cta.target = '_blank';
+      cta.rel = 'noopener';
+      cta.textContent = isFallback ? 'Book the free diagnostic →' : 'Book the free diagnostic →';
+      b.appendChild(document.createElement('br'));
+      b.appendChild(cta);
+      row.appendChild(b);
+      askMsgs.appendChild(row);
+      askMsgs.scrollTop = askMsgs.scrollHeight;
+    }, 700);
+  }
+
+  function handleQuestion(text){
+    askHome.style.display = 'none';
+    askMsgs.style.display = 'flex';
+    askReset.classList.add('visible');
+    addBubble(text, 'user');
+    const answer = findAnswer(text);
+    addBotAnswer(answer || FALLBACK, !answer);
+    if(askInput) askInput.value = '';
+  }
+
+  // Toggle panel
+  askBtn.addEventListener('click', () => askPanel.classList.toggle('open'));
+  if(askClose) askClose.addEventListener('click', () => askPanel.classList.remove('open'));
+  document.addEventListener('click', e => {
+    if(!askPanel.contains(e.target) && !askBtn.contains(e.target))
       askPanel.classList.remove('open');
+  });
+
+  // Suggested questions
+  askPanel.querySelectorAll('.ask-phil-q').forEach(q => {
+    q.addEventListener('click', () => handleQuestion(q.textContent.trim()));
+  });
+
+  // Send button
+  if(askSend) askSend.addEventListener('click', () => {
+    const t = askInput && askInput.value.trim();
+    if(t) handleQuestion(t);
+  });
+
+  // Enter key
+  if(askInput) askInput.addEventListener('keydown', e => {
+    if(e.key === 'Enter'){
+      const t = askInput.value.trim();
+      if(t) handleQuestion(t);
     }
   });
-  // Suggested questions fill input
-  document.querySelectorAll('.ask-phil-q').forEach(q => {
-    q.addEventListener('click', () => {
-      const input = askPanel.querySelector('.ask-phil-input');
-      if(input) { input.value = q.textContent; input.focus(); }
-    });
+
+  // Reset
+  if(askReset) askReset.addEventListener('click', () => {
+    askMsgs.innerHTML = '';
+    askMsgs.style.display = 'none';
+    askHome.style.display = 'block';
+    askReset.classList.remove('visible');
   });
-}
+}());
 </script>
 
 <!-- EARLY PLATFORM ACCESS MODAL -->
