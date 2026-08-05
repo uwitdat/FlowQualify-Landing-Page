@@ -461,8 +461,19 @@ br.d{}
   position:relative;z-index:1;letter-spacing:.006em;
 }
 .vsl-meta{
-  max-width:880px;margin:24px auto 0;
-  display:flex;justify-content:center;padding:0 2px;
+  max-width:880px;margin:0 auto;
+  padding:20px 28px 0;
+  text-align:center;
+}
+.vsl-player-title{
+  font-size:13px;font-weight:700;letter-spacing:.12em;
+  color:var(--ink);margin:0 0 6px;
+  text-transform:uppercase;
+}
+.vsl-player-sub{
+  font-size:11.5px;font-weight:500;letter-spacing:.08em;
+  color:var(--body-text);opacity:.7;margin:0;
+  text-transform:uppercase;
 }
 .vsl-anchors{
   display:flex;align-items:center;flex-wrap:wrap;justify-content:center;
@@ -2112,6 +2123,10 @@ br.d{}
   font-weight:400;
 }
 .lw-note svg{ flex-shrink:0;opacity:.70; }
+@media(max-width:560px){
+  .lw-note{align-items:flex-start;text-align:left;padding:0 16px}
+  .lw-note svg{margin-top:2px}
+}
 
 /* Icon brightness boost — makes dim SVGs pop */
 .lw-tile-inner > svg{
@@ -2399,6 +2414,31 @@ br.d{}
 @media(max-width:420px){
   .epa-modal{ padding:32px 20px 28px; }
 }
+
+/* ── MOBILE NAV ── */
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;
+  width:36px;height:36px;gap:5px;background:none;border:none;cursor:pointer;
+  padding:4px;margin-left:12px;flex-shrink:0}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--ink);
+  border-radius:2px;transition:transform .2s,opacity .2s}
+.nav-mobile{display:none;position:fixed;inset:0;z-index:999;background:#fff;
+  flex-direction:column;padding:20px 24px 40px;overflow-y:auto}
+.nav-mobile.open{display:flex}
+.nav-mobile-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px}
+.nav-mobile-logo{font-family:var(--font-display,var(--font));font-weight:900;font-size:17px;
+  letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+.nav-mobile-logo span{color:var(--cta)}
+.nav-mobile-close{width:36px;height:36px;background:none;border:none;cursor:pointer;
+  font-size:22px;color:var(--ink);display:flex;align-items:center;justify-content:center;
+  border-radius:50%;transition:background .15s}
+.nav-mobile-close:hover{background:rgba(0,0,0,.06)}
+.nav-mobile-links{list-style:none;flex:1}
+.nav-mobile-links li a{display:block;font-size:22px;font-weight:700;letter-spacing:-.02em;
+  color:var(--ink);text-decoration:none;padding:18px 0;border-bottom:1px solid var(--line)}
+.nav-mobile-links li a:hover{color:var(--cta)}
+.nav-mobile-cta{margin-top:32px;text-align:center;width:100%;justify-content:center;
+  font-size:15px;padding:14px 24px}
+@media(max-width:900px){.nav-hamburger{display:flex}}
 </style>
 </head>
 <body>
@@ -2424,9 +2464,19 @@ br.d{}
       <li><a href="case-studies.html">Case Studies</a></li>
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
-    <div class="nav-cta"><a class="btn sm" href="apply.html" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Request Free Diagnostic →</a></div>
+    <div class="nav-cta"><a class="btn sm" href="#" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Request Free Diagnostic →</a></div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+<div class="nav-mobile" id="navMobile" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <div class="nav-mobile-top">
+    <a href="/" class="nav-mobile-logo">ONBOARD<span>digital</span></a>
+    <button class="nav-mobile-close" id="navClose" aria-label="Close menu">&times;</button>
+  </div>
+  <ul class="nav-mobile-links"><li><a href="services.html">Services</a></li><li><a href="#how-it-works">How It Works</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="contact.html">Contact Us</a></li></ul>
+  <a href="#" class="btn nav-mobile-cta" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Request Free Diagnostic →</a>
+</div>
+
 
 <!-- HERO -->
 <header class="dark hero hero-pad">
@@ -2585,7 +2635,7 @@ br.d{}
       <div class="af-divider"></div>
     </div>
     <div class="fade-up">
-      <a class="btn" href="apply.html" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Request Your Free Growth Diagnostic →</a>
+      <a class="btn" href="#" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Request Your Free Growth Diagnostic →</a>
       <div class="hero-trust-row">
         <span><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="rgba(52,211,153,0.9)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>No obligation to hire us</span>
         <span class="dot">&middot;</span>
@@ -2988,15 +3038,8 @@ br.d{}
       <p class="overlay-text">What we look at. What we flag. What to fix first.</p>
     </div>
     <div class="vsl-meta fade-up">
-      <div class="vsl-anchors">
-        <span class="vsl-anc">5 min</span>
-        <span class="vsl-anc-sep"></span>
-        <span class="vsl-anc">Kelvin, founder</span>
-        <span class="vsl-anc-sep"></span>
-        <span class="vsl-anc-muted">Audit framework</span>
-        <span class="vsl-anc-sep"></span>
-        <span class="vsl-anc-accent">Free diagnostic at the end</span>
-      </div>
+      <p class="vsl-player-title">5 MINUTES WITH KELVIN</p>
+      <p class="vsl-player-sub">GROWTH AUDIT FRAMEWORK &nbsp;&middot;&nbsp; FREE DIAGNOSTIC AT THE END</p>
     </div>
     <div class="vsl-soft-cta fade-up">
       <style>
@@ -3015,7 +3058,7 @@ br.d{}
         }
       </style>
       <p class="vsl-soft-cta-q">See your account through this lens?</p>
-      <a href="apply.html" class="btn" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Get Your Free Growth Diagnostic &rarr;</a>
+      <a href="#" class="btn" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Get Your Free Growth Diagnostic &rarr;</a>
       <div class="hero-trust-row" style="justify-content:center;margin-top:14px">
         <span style="color:rgba(17,14,56,.72)"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="rgba(52,211,153,0.9)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>No obligation to hire us</span>
         <span class="dot" style="color:rgba(17,14,56,.25)">&middot;</span>
@@ -3319,7 +3362,7 @@ br.d{}
     </div>
 
     <div class="pc-footer fade-up">
-      <a href="apply.html" class="btn" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Request Your Free Growth Diagnostic &rarr;</a>
+      <a href="#" class="btn" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Request Your Free Growth Diagnostic &rarr;</a>
       <div class="hero-trust-row">
         <span><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="rgba(52,211,153,0.9)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>No obligation to hire us</span>
         <span class="dot">&middot;</span>
@@ -3489,7 +3532,7 @@ br.d{}
       </div>
     </div>
     <div class="hiw2-foot fade-up">
-      <a href="apply.html" class="btn grad" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Request Your Free Growth Diagnostic &rarr;</a>
+      <a href="#" class="btn grad" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Request Your Free Growth Diagnostic &rarr;</a>
       <div class="hero-trust-row">
         <span><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="rgba(52,211,153,0.9)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>No obligation to hire us</span>
         <span class="dot">&middot;</span>
@@ -3726,13 +3769,21 @@ br.d{}
       .dr-snapshot { grid-template-columns: repeat(2,1fr); }
       .dr-snap-cell:nth-child(2), .dr-snap-cell:nth-child(4) { border-right: none; }
       .dr-snap-cell:nth-child(3), .dr-snap-cell:nth-child(4) { border-top: 1px solid #E2E2DE; }
+      .dr-snap-cell { padding: 10px 14px; }
+      .dr-snap-v { font-size: 20px; }
+      .dr-section { padding: 14px 16px 12px; }
+      .dr-item-obs { font-size: 13.5px; }
+      .dr-item-action { font-size: 12.5px; padding: 10px 12px; }
+      .dr-item-action strong { font-size: 9.5px; }
+      .dr-items { gap: 14px; }
       .mech-sample { padding: 16px 14px; }
       .mech-deck { width: 180px; height: 96px; }
     }
     @media(max-width:480px){
       .dr-snapshot { grid-template-columns: repeat(2,1fr); }
-      .dr-finding-h { font-size: 11px; }
-      .dr-action-v { font-size: 10.5px; }
+      .dr-snap-v { font-size: 18px; }
+      .dr-snap-cell { padding: 8px 10px; }
+      .dr-item-obs { font-size: 13px; }
     }
   </style>
 
@@ -4079,7 +4130,7 @@ br.d{}
       </div>
 
       <div class="mech-del-cta">
-        <a class="btn" href="apply.html" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Request Your Free Growth Diagnostic &rarr;</a>
+        <a class="btn" href="#" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Request Your Free Growth Diagnostic &rarr;</a>
         <div class="hero-trust-row">
           <span><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="rgba(52,211,153,0.9)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>No obligation to hire us</span>
           <span class="dot">&middot;</span>
@@ -4686,7 +4737,7 @@ br.d{}
   <div class="final dark fade-up">
     <span class="eyebrow">Let's Do This</span>
     <h2 style="font-size:clamp(1.7rem,3.5vw,2.5rem);letter-spacing:-.035em;position:relative;z-index:1">You&#8217;ve seen what we find.<br>Now see it in your accounts.</h2>
-    <a class="btn grad fade-up" href="apply.html" style="position:relative;z-index:1;margin-top:36px" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Request Your Free Growth Diagnostic &rarr;</a>
+    <a class="btn grad fade-up" href="#" style="position:relative;z-index:1;margin-top:36px" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Request Your Free Growth Diagnostic &rarr;</a>
     <div class="hero-trust-row" style="position:relative;z-index:1">
       <span><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="rgba(52,211,153,0.9)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>No obligation to hire us</span>
       <span class="dot">&middot;</span>
@@ -4793,7 +4844,7 @@ br.d{}
 <!-- STICKY BAR -->
 <div class="sticky-bar" id="stickyBar">
   <span>Free for DTC brands doing $500K+ &nbsp;|&nbsp; See exactly what&#8217;s limiting your growth.</span>
-  <a class="btn-yellow" href="apply.html" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Get Your Free Diagnostic →</a>
+  <a class="btn-yellow" href="#" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Get Your Free Diagnostic →</a>
   <button class="close" aria-label="Dismiss" id="stickyClose">×</button>
 </div>
 
@@ -5107,5 +5158,17 @@ if(askBtn && askPanel){
 </script>
 <!-- iClosed popup widget -->
 <script type="text/javascript" src="https://app.iclosed.io/assets/widget.js" async></script>
+<script>
+(function(){
+  var btn=document.getElementById('navHamburger');
+  var menu=document.getElementById('navMobile');
+  var cls=document.getElementById('navClose');
+  if(!btn||!menu)return;
+  btn.addEventListener('click',function(){menu.classList.add('open');document.body.style.overflow='hidden';});
+  function closeMenu(){menu.classList.remove('open');document.body.style.overflow='';}
+  if(cls)cls.addEventListener('click',closeMenu);
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+})();
+</script>
 </body>
 </html>
