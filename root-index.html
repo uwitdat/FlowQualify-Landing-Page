@@ -644,9 +644,11 @@ em{font-style:normal;color:var(--cta)}
   .btn.lg{font-size:14px;padding:13px 24px}
 }
 @media(max-width:700px){
-  .result-row{grid-template-columns:90px 1fr;gap:20px}
-  .rr-right{display:none}
-  .rr-roas{font-size:2rem}
+  .result-row{grid-template-columns:90px 1fr;grid-template-rows:auto auto;gap:4px 20px;align-items:start}
+  .rr-roas{grid-column:1;grid-row:1/3;align-self:center;font-size:2rem}
+  .rr-body{grid-column:2;grid-row:1}
+  .rr-right{grid-column:2;grid-row:2;display:flex;flex-direction:row;align-items:center;justify-content:flex-start;gap:0;margin-top:8px}
+  .rr-period{display:none}
 }
 @media(max-width:560px){
   .wrap{padding:0 18px}
@@ -821,6 +823,31 @@ em{font-style:normal;color:var(--cta)}
 .ann-sep{color:rgba(255,255,255,.2);margin:0 5px;}
 .ann-close{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:0;color:rgba(255,255,255,.3);font-size:16px;cursor:pointer;padding:2px 5px;line-height:1;transition:color .15s;}
 .ann-close:hover{color:rgba(255,255,255,.65);}
+
+/* ── MOBILE NAV ── */
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;
+  width:36px;height:36px;gap:5px;background:none;border:none;cursor:pointer;
+  padding:4px;margin-left:12px;flex-shrink:0}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--ink);
+  border-radius:2px;transition:transform .2s,opacity .2s}
+.nav-mobile{display:none;position:fixed;inset:0;z-index:999;background:#fff;
+  flex-direction:column;padding:20px 24px 40px;overflow-y:auto}
+.nav-mobile.open{display:flex}
+.nav-mobile-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px}
+.nav-mobile-logo{font-family:var(--font-display,var(--font));font-weight:900;font-size:17px;
+  letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+.nav-mobile-logo span{color:var(--cta)}
+.nav-mobile-close{width:36px;height:36px;background:none;border:none;cursor:pointer;
+  font-size:22px;color:var(--ink);display:flex;align-items:center;justify-content:center;
+  border-radius:50%;transition:background .15s}
+.nav-mobile-close:hover{background:rgba(0,0,0,.06)}
+.nav-mobile-links{list-style:none;flex:1}
+.nav-mobile-links li a{display:block;font-size:22px;font-weight:700;letter-spacing:-.02em;
+  color:var(--ink);text-decoration:none;padding:18px 0;border-bottom:1px solid var(--line)}
+.nav-mobile-links li a:hover{color:var(--cta)}
+.nav-mobile-cta{margin-top:32px;text-align:center;width:100%;justify-content:center;
+  font-size:15px;padding:14px 24px}
+@media(max-width:900px){.nav-hamburger{display:flex}}
 </style>
 </head>
 <body>
@@ -846,9 +873,19 @@ em{font-style:normal;color:var(--cta)}
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
-    <a href="growth-diagnostic-landing.html" class="btn" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Book Free Diagnostic →</a>
+    <a href="growth-diagnostic-landing.html" class="btn">Book Free Diagnostic →</a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+<div class="nav-mobile" id="navMobile" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <div class="nav-mobile-top">
+    <a href="root-index.html" class="nav-mobile-logo">ONBOARD<span>digital</span></a>
+    <button class="nav-mobile-close" id="navClose" aria-label="Close menu">&times;</button>
+  </div>
+  <ul class="nav-mobile-links"><li><a href="services.html">Services</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact Us</a></li></ul>
+  <a href="growth-diagnostic-landing.html" class="btn nav-mobile-cta">Book Free Diagnostic →</a>
+</div>
+
 
 <!-- ═══════ HERO ═══════ -->
 <section class="hero">
@@ -860,7 +897,7 @@ em{font-style:normal;color:var(--cta)}
         <h1 class="fade-up">Performance marketing<br>you can actually<br><em>measure.</em></h1>
         <p class="hero-sub fade-up">For ecommerce brands that have spent real money on ads and still can't get a straight answer on what's working. We audit, fix, and run paid acquisition with a senior operator on every account.</p>
         <div class="hero-cta-row fade-up">
-          <a href="growth-diagnostic-landing.html" class="btn lg" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Get Your Free Growth Diagnostic →</a>
+          <a href="growth-diagnostic-landing.html" class="btn lg">Get Your Free Growth Diagnostic →</a>
         </div>
         <div class="hero-trust fade-up">
           <div class="hero-trust-item">
@@ -1258,7 +1295,7 @@ em{font-style:normal;color:var(--cta)}
       <p class="closing-eyebrow">Free Growth Diagnostic</p>
       <h2 class="closing-headline">Let's find what's limiting<br>your growth.</h2>
       <p class="closing-sub">The diagnostic is free. The findings are yours to keep. No pitch, no pressure.</p>
-      <a href="growth-diagnostic-landing.html" class="btn-primary-lg" data-iclosed-link="https://app.iclosed.io/e/FlowQualify/free-growth-diagnostic-kickoff-call" data-embed-type="popup">Book Your Free Diagnostic →</a>
+      <a href="growth-diagnostic-landing.html" class="btn-primary-lg">Book Your Free Diagnostic →</a>
       <div class="closing-trust-strip">
         <span>Google Premier Partner</span>
         <span class="trust-dot">·</span>
@@ -1373,6 +1410,18 @@ const mainNav=document.getElementById('mainNav');
 function setNavTop(){if(mainNav&&annBar&&annBar.style.display!=='none'){mainNav.style.top=annBar.offsetHeight+'px';}else if(mainNav){mainNav.style.top='0';}}
 setNavTop();
 if(annClose&&annBar){annClose.addEventListener('click',()=>{annBar.style.transition='opacity .2s';annBar.style.opacity='0';setTimeout(()=>{annBar.style.display='none';setNavTop();},200);});}
+</script>
+<script>
+(function(){
+  var btn=document.getElementById('navHamburger');
+  var menu=document.getElementById('navMobile');
+  var cls=document.getElementById('navClose');
+  if(!btn||!menu)return;
+  btn.addEventListener('click',function(){menu.classList.add('open');document.body.style.overflow='hidden';});
+  function closeMenu(){menu.classList.remove('open');document.body.style.overflow='';}
+  if(cls)cls.addEventListener('click',closeMenu);
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+})();
 </script>
 </body>
 </html>
