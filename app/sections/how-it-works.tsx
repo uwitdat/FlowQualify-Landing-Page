@@ -22,10 +22,10 @@ const P1_PARTS = [
 const P2_PARTS = [
   { text: "We qualify every homeowner through conversation, send you a " },
   { text: "full project brief", style: { color: "rgb(124,58,237)", fontWeight: 700 } as React.CSSProperties },
-  { text: ", and " },
-  { text: "book real appointments", style: { color: "rgb(79, 70, 229)", fontWeight: 700 } as React.CSSProperties },
-  { text: " directly on " },
-  { text: "your calendar", style: { color: "rgb(22,163,74)", fontWeight: 700 } as React.CSSProperties },
+  { text: ", and notify you " },
+  { text: "the moment they qualify", style: { color: "rgb(79, 70, 229)", fontWeight: 700 } as React.CSSProperties },
+  { text: " — so you can " },
+  { text: "close faster", style: { color: "rgb(22,163,74)", fontWeight: 700 } as React.CSSProperties },
   { text: "." },
 ];
 

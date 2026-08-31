@@ -54,9 +54,9 @@ const CARDS = [
     ),
   },
   {
-    tag: "Automated Booking",
-    title: "Appointments Automatically Booked",
-    desc: "Qualified homeowners land on your calendar automatically. Zero back-and-forth.",
+    tag: "Instant Notifications",
+    title: "Get Notified the Moment a Lead Qualifies",
+    desc: "You get a text with full project details the second a homeowner qualifies. Everything lands in your CRM — ready to review and close.",
     iconColor: ICON_COLORS.green,
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={ICON_COLORS.green} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

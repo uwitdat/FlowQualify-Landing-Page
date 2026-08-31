@@ -31,6 +31,7 @@ type TeamCard = CardBase & {
   team: string;
   description: string;
   logoImage?: string;
+  website?: string;
 };
 
 export type TestimonialCard = MetricCard | ProfileCard | QuoteCard | TeamCard;
@@ -41,7 +42,7 @@ const cards: TestimonialCard[] = [
     type: "metric",
     value: "3x",
     label: "more qualified leads",
-    quote: "FlowQualify allowed us to scale our booked calls without adding headcount. Every appointment comes with budget, scope, and timeline already confirmed.",
+    quote: "We closed $31,000 in new remodeling jobs in our first six weeks. Every appointment came pre-loaded with budget, scope, and timeline — we just showed up and closed. FlowQualify paid for itself before the first month was even over.",
     image: "/testimonials/paiano.jpg",
     authorName: "Andrew Paiano",
     website: "https://www.paianocontracting.com/",
@@ -49,17 +50,18 @@ const cards: TestimonialCard[] = [
   {
     id: "paiano",
     type: "profile",
-    quote: "Before FlowQualify, I was constantly stuck in DMs and texts answering the same questions. Now every lead comes in pre-qualified with budget, timeline, and project scope. My calendar is full of serious homeowners ready to book.",
+    quote: "Three bathroom jobs in six weeks — $41,000 total. I used to spend hours chasing leads that went nowhere. Now every appointment comes in pre-screened with the project details already attached. I just show up and close.",
     author: {
-      name: "ProCraft",
-      handle: "General contracting & remodeling",
+      name: "Tuan K.",
+      handle: "Konn Reno",
+      website: "https://www.konnreno.com/",
     },
-    image: "/testimonials/procraft.png",
+    image: "/images/konnrenos.jpg",
   },
   {
     id: "sposa",
     type: "profile",
-    quote: "We used to miss a lot of inquiries that came in after hours and on weekends. FlowQualify engages every lead instantly and sends us clean briefs with project details and photos. Our team only talks to qualified prospects.",
+    quote: "We used to lose jobs just by being slow to respond. Now every inquiry gets instant follow-up and we're closing kitchen projects we would have missed entirely. Our average job value has gone up because we're finally talking to the right clients.",
     author: {
       name: "Daniel P.",
       handle: "Sposa Millwork",
@@ -71,16 +73,17 @@ const cards: TestimonialCard[] = [
     id: "quote1",
     type: "quote",
     title: "Clear insights",
-    label: "Pay only for qualified appointments",
-    quote: "We use FlowQualify because it gives us clear insights on every lead. It stands out. Pay only for qualified appointments — it's a solid choice for remodelers who want to stop chasing tire-kickers.",
+    label: "Flat $500/month. No setup fees. No surprises.",
+    quote: "We use FlowQualify because it gives us clear insights on every lead. $500 a month, and we get a calendar full of homeowners who already know their budget and timeline. It's the simplest decision we've made for our business.",
   },
   {
     id: "team1",
     type: "team",
-    quote: "FlowQualify changed how we handle incoming leads. Real-time qualification and booking means we show up to calls that are ready to close.",
-    team: "Jason Ayers",
-    description: "Elite Remodelers",
-    logoImage: "/testimonials/elite.png",
+    quote: "I closed 3 kitchen and bath jobs — $52,000 in my first 8 weeks. Every homeowner already had a budget and a start date in mind. I showed up, ran the quote, and closed. That's it.",
+    team: "Nam D.",
+    description: "Kitchen & Bath Remodeler",
+    logoImage: "/images/ace-bath-logo.png",
+    website: "https://acebath.ca/",
   },
 ];
 
@@ -350,7 +353,7 @@ export default function Testimonials() {
                         rel="noopener noreferrer"
                         className="tm-link"
                       >
-                        Visit site →
+                        {card.author.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")} →
                       </a>
                     )}
                   </div>
@@ -401,6 +404,11 @@ export default function Testimonials() {
                       <div className="tm-team-name">{card.team}</div>
                       <div className="tm-team-desc">{card.description}</div>
                     </div>
+                    {card.website && (
+                      <a href={card.website} target="_blank" rel="noopener noreferrer" className="tm-link" style={{ marginLeft: "auto" }}>
+                        {card.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")} →
+                      </a>
+                    )}
                   </div>
                 </div>
               );

@@ -343,7 +343,7 @@ export const Hero = () => {
             <div className="hero-left-content">
               <p className="hero-tagline" style={{ color: ACCENT_SECONDARY }}>
                 <CheckBadgeIcon aria-hidden />
-                Only Pay per Qualified Appointment
+                $500/Month — Qualified Appointments, Done for You
               </p>
               <h1 className="hero-h1">
                 Fill your calendar with{" "}
