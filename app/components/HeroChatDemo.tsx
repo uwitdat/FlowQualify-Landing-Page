@@ -411,6 +411,13 @@ export function HeroChatDemo({
           width: 22px;
           height: 22px;
         }
+        .hero-chat-grid-wrap {
+          position: absolute;
+          top: 0; right: 0; bottom: 0; left: 0;
+          overflow: hidden;
+          pointer-events: none;
+        }
+        .hero-grid-sq { fill: rgba(156, 163, 175, 0.06); }
         @media (max-width: 1020px) {
           .hero-chat-grid-wrap { display: none; }
           .hero-chat-gradient-edge { display: none; }
@@ -449,7 +456,7 @@ export function HeroChatDemo({
         }
       `}</style>
       <div
-        className="hero-chat-grid-wrap absolute inset-0 overflow-hidden pointer-events-none"
+        className="hero-chat-grid-wrap"
         aria-hidden
         style={{ zIndex: 0 }}
       >
@@ -458,10 +465,12 @@ export function HeroChatDemo({
           height={72}
           x={-1}
           y={-1}
+          fill="rgba(156, 163, 175, 0.08)"
           className="fill-gray-400/[0.08]"
-          squareClassName="fill-gray-400/[0.06]"
+          squareClassName="hero-grid-sq"
           stroke="rgba(156, 163, 175, 0.2)"
           strokeWidth={0.6}
+          style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "none" }}
           squares={(() => {
             const out: Array<[number, number]> = [];
             for (let i = 0; i < 20; i += 4) {
@@ -478,8 +487,9 @@ export function HeroChatDemo({
       <div className="hero-chat-gradient-edge left" aria-hidden />
       <div className="hero-chat-gradient-edge right" aria-hidden />
       <div
-        className="relative z-[1]"
         style={{
+          position: "relative",
+          zIndex: 1,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",

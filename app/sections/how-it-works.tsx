@@ -167,6 +167,7 @@ export default function HowItWorks() {
           letter-spacing: -0.028em;
           margin: 0;
         }
+        .hiw2-grid-sq { fill: rgba(156, 163, 175, 0.06); }
         @media (max-width: 540px) {
           .hiw2-section { padding: 60px 18px; }
           .hiw2-p1, .hiw2-main { font-size: 22px; }
@@ -181,11 +182,13 @@ export default function HowItWorks() {
             height={72}
             x={-1}
             y={-1}
+            fill="rgba(156, 163, 175, 0.08)"
             className="fill-gray-400/[0.08]"
-            squareClassName="fill-gray-400/[0.06]"
+            squareClassName="hiw2-grid-sq"
             stroke="rgba(156, 163, 175, 0.2)"
             strokeWidth={0.6}
             squares={HIW_GRID_SQUARES}
+            style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "none" }}
           />
         </div>
         <div className="hiw2-wrap">

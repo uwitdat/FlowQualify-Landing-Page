@@ -5,8 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
-import Logo from "./logo";
-import { COMPANY_NAME, BUTTON_PRIMARY, BUTTON_PRIMARY_HOVER } from "../config/constants";
+import { COMPANY_NAME, BUTTON_PRIMARY } from "../config/constants";
 
 const navigation = [
   { name: "How It Works", href: "/opt-in" },
@@ -44,39 +43,203 @@ export default function Header() {
         });
       });
     }
-    // else: let default navigation happen (e.g. to /opt-in)
   };
 
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50 bg-transparent transition-opacity duration-300"
-      style={{ opacity, pointerEvents }}
-    >
+    <header style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50, background: "transparent", transition: "opacity 0.3s ease", opacity, pointerEvents }}>
       <style>{`
-        .header-book-demo:hover { background: ${BUTTON_PRIMARY} !important; color: #fff !important; }
+        .hdr-nav {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 64px;
+          padding: 0 16px;
+          max-width: 1400px;
+          margin: 0 auto;
+        }
+        @media (min-width: 1024px) { .hdr-nav { padding: 0 32px; } }
+
+        .hdr-left {
+          display: flex;
+          align-items: center;
+          gap: 32px;
+        }
+        @media (min-width: 1024px) { .hdr-left { gap: 40px; } }
+
+        .hdr-logo {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          flex-shrink: 0;
+        }
+        .hdr-logo-text {
+          font-size: 17px;
+          font-weight: 900;
+          letter-spacing: -0.02em;
+          color: #0F172A;
+        }
+
+        .hdr-desktop-links {
+          display: none;
+          align-items: center;
+          gap: 32px;
+        }
+        @media (min-width: 768px) { .hdr-desktop-links { display: flex; } }
+
+        .hdr-nav-link {
+          font-size: 14px;
+          font-weight: 600;
+          color: #374151;
+          text-decoration: none;
+          transition: color 0.2s ease;
+        }
+        .hdr-nav-link:hover { color: #0F172A; }
+
+        .hdr-desktop-cta {
+          display: none;
+          align-items: center;
+        }
+        @media (min-width: 768px) { .hdr-desktop-cta { display: flex; } }
+
+        .hdr-book-btn {
+          border-radius: 999px;
+          padding: 10px 24px;
+          font-size: 14px;
+          font-weight: 600;
+          background: transparent;
+          border: 1px solid ${BUTTON_PRIMARY};
+          color: ${BUTTON_PRIMARY};
+          text-decoration: none;
+          cursor: pointer;
+          transition: background 0.2s ease, color 0.2s ease;
+          display: inline-block;
+        }
+        .hdr-book-btn:hover { background: ${BUTTON_PRIMARY}; color: #fff; }
+
+        .hdr-mobile-btn-wrap {
+          display: flex;
+        }
+        @media (min-width: 768px) { .hdr-mobile-btn-wrap { display: none; } }
+
+        .hdr-hamburger {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 6px;
+          padding: 10px;
+          color: #374151;
+          background: none;
+          border: none;
+          cursor: pointer;
+          margin: -10px;
+        }
+
+        .hdr-back-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          border-radius: 6px;
+          padding: 8px 14px;
+          font-size: 14px;
+          font-weight: 600;
+          color: #4b5563;
+          text-decoration: none;
+          transition: color 0.2s ease;
+        }
+        .hdr-back-link:hover { color: #111827; }
+
+        /* Mobile drawer */
+        .hdr-drawer {
+          position: fixed;
+          inset: 0;
+          z-index: 50;
+        }
+        .hdr-drawer-backdrop {
+          position: fixed;
+          inset: 0;
+          background: rgba(0,0,0,0.2);
+        }
+        .hdr-drawer-panel {
+          position: fixed;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          max-width: 384px;
+          overflow-y: auto;
+          background: #fff;
+          padding: 24px;
+          box-shadow: -4px 0 24px rgba(0,0,0,0.1);
+        }
+        .hdr-drawer-top {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 24px;
+        }
+        .hdr-drawer-close {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 6px;
+          padding: 10px;
+          color: #374151;
+          background: none;
+          border: none;
+          cursor: pointer;
+          margin: -10px;
+        }
+        .hdr-drawer-links {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          padding: 24px 0;
+          border-bottom: 1px solid #f3f4f6;
+        }
+        .hdr-drawer-link {
+          display: block;
+          border-radius: 8px;
+          padding: 8px 12px;
+          font-size: 16px;
+          font-weight: 600;
+          color: #374151;
+          text-decoration: none;
+          transition: background 0.15s ease;
+          margin: 0 -12px;
+        }
+        .hdr-drawer-link:hover { background: #f9fafb; }
+        .hdr-drawer-cta {
+          padding-top: 24px;
+        }
+        .hdr-drawer-book {
+          display: block;
+          border-radius: 999px;
+          padding: 12px 20px;
+          text-align: center;
+          font-size: 16px;
+          font-weight: 600;
+          border: 1px solid ${BUTTON_PRIMARY};
+          color: ${BUTTON_PRIMARY};
+          background: transparent;
+          text-decoration: none;
+          transition: background 0.2s ease, color 0.2s ease;
+        }
+        .hdr-drawer-book:hover { background: ${BUTTON_PRIMARY}; color: #fff; }
       `}</style>
-      <nav
-        aria-label="Global"
-        className="flex items-center justify-between h-16 px-4 lg:px-8 max-w-[1400px] mx-auto"
-      >
-        {/* Left: logo + nav items */}
-        <div className="flex items-center gap-8 lg:gap-10">
-          <Link href="/" className="flex items-center gap-2.5 shrink-0">
-            <span className="sr-only">{COMPANY_NAME}</span>
-            <span className="font-black tracking-tight text-[#0F172A]" style={{ fontSize: "17px", fontWeight: 900, letterSpacing: "-0.02em" }}>
+
+      <nav className="hdr-nav" aria-label="Global">
+        <div className="hdr-left">
+          <Link href="/" className="hdr-logo">
+            <span className="hdr-logo-text">
               <span>Flow</span>
               <span style={{ color: BUTTON_PRIMARY }}>Qualify</span>
             </span>
           </Link>
 
           {!isOptIn && (
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hdr-desktop-links">
               {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-sm font-semibold text-gray-700 hover:text-[#0F172A] transition-colors"
-                >
+                <a key={item.name} href={item.href} className="hdr-nav-link">
                   {item.name}
                 </a>
               ))}
@@ -84,42 +247,22 @@ export default function Header() {
           )}
         </div>
 
-        {/* Right: CTA */}
         {isOptIn ? (
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 rounded-md px-3.5 py-2 text-sm font-semibold text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            <ArrowLeftIcon className="size-5" aria-hidden />
+          <Link href="/" className="hdr-back-link">
+            <ArrowLeftIcon style={{ width: 20, height: 20 }} aria-hidden />
             Back
           </Link>
         ) : (
           <>
-            <div className="flex md:hidden">
-              <button
-                type="button"
-                onClick={() => setMobileMenuOpen(true)}
-                className="header-hamburger-btn -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-              >
-                <span className="sr-only">Open main menu</span>
-                <Bars3Icon aria-hidden="true" className="size-6" />
+            <div className="hdr-mobile-btn-wrap">
+              <button type="button" onClick={() => setMobileMenuOpen(true)} className="hdr-hamburger">
+                <span style={{ position: "absolute", width: 1, height: 1, padding: 0, margin: -1, overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0 }}>Open main menu</span>
+                <Bars3Icon style={{ width: 24, height: 24 }} aria-hidden="true" />
               </button>
             </div>
 
-            <div className="hidden md:flex items-center">
-              <Link
-                href="/opt-in"
-                className="rounded-full px-6 py-2.5 text-sm font-semibold bg-transparent border transition-colors"
-                style={{ color: BUTTON_PRIMARY, borderColor: BUTTON_PRIMARY }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = BUTTON_PRIMARY;
-                  e.currentTarget.style.color = "#fff";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.color = BUTTON_PRIMARY;
-                }}
-              >
+            <div className="hdr-desktop-cta">
+              <Link href="/opt-in" className="hdr-book-btn">
                 Book Demo
               </Link>
             </div>
@@ -127,68 +270,54 @@ export default function Header() {
         )}
       </nav>
 
-      {/* Mobile navigation (only when not on opt-in) */}
       {!isOptIn && (
-      <Dialog
-        open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
-        className="md:hidden relative z-50"
-      >
-        <DialogBackdrop
-          transition
-          className="fixed inset-0 z-50 bg-black/20 transition duration-300 ease-out data-[closed]:opacity-0"
-        />
-        <DialogPanel
-          transition
-          className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100 transition duration-300 ease-out data-[closed]:translate-x-full"
-        >
-          <div className="flex items-center justify-between">
-            <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
-              <span className="sr-only">{COMPANY_NAME}</span>
-              <span className="text-sm font-black tracking-tight text-[#0F172A]" style={{ fontWeight: 900 }}>
-              <span>Flow</span>
-              <span style={{ color: BUTTON_PRIMARY }}>Qualify</span>
-            </span>
-            </Link>
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(false)}
-              className="-m-2.5 rounded-md p-2.5 text-gray-700"
-            >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon aria-hidden="true" className="size-6" />
-            </button>
-          </div>
-
-          {/* Mobile links */}
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-100">
-              <div className="space-y-2 py-6">
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    onClick={(e) => handleMobileNavClick(e, item.href)}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-700 hover:bg-gray-50"
-                  >
-                    {item.name}
-                  </a>
-                ))}
-              </div>
-              <div className="py-6">
-                <Link
-                  href="/opt-in"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="header-book-demo -mx-3 block rounded-full px-5 py-3 text-center text-base font-semibold border transition-colors"
-                  style={{ color: BUTTON_PRIMARY, borderColor: BUTTON_PRIMARY, background: "transparent" }}
-                >
-                  Book Demo
-                </Link>
-              </div>
+        <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} style={{ position: "relative", zIndex: 50 }}>
+          <DialogBackdrop
+            transition
+            className="hdr-drawer-backdrop"
+            style={{ transitionProperty: "opacity", transitionDuration: "300ms", transitionTimingFunction: "ease-out" }}
+          />
+          <DialogPanel
+            transition
+            className="hdr-drawer-panel"
+            style={{ transitionProperty: "transform", transitionDuration: "300ms", transitionTimingFunction: "ease-out" }}
+          >
+            <div className="hdr-drawer-top">
+              <Link href="/" className="hdr-logo" onClick={() => setMobileMenuOpen(false)}>
+                <span className="hdr-logo-text">
+                  <span>Flow</span>
+                  <span style={{ color: BUTTON_PRIMARY }}>Qualify</span>
+                </span>
+              </Link>
+              <button type="button" onClick={() => setMobileMenuOpen(false)} className="hdr-drawer-close">
+                <span style={{ position: "absolute", width: 1, height: 1, padding: 0, margin: -1, overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0 }}>Close menu</span>
+                <XMarkIcon style={{ width: 24, height: 24 }} aria-hidden="true" />
+              </button>
             </div>
-          </div>
-        </DialogPanel>
-      </Dialog>
+
+            <div className="hdr-drawer-links">
+              {navigation.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={(e) => handleMobileNavClick(e, item.href)}
+                  className="hdr-drawer-link"
+                >
+                  {item.name}
+                </a>
+              ))}
+            </div>
+            <div className="hdr-drawer-cta">
+              <Link
+                href="/opt-in"
+                onClick={() => setMobileMenuOpen(false)}
+                className="hdr-drawer-book"
+              >
+                Book Demo
+              </Link>
+            </div>
+          </DialogPanel>
+        </Dialog>
       )}
     </header>
   );

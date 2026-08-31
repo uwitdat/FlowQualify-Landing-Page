@@ -203,16 +203,17 @@ export default function AppPanels() {
             <div style={{ padding: "9px 12px 7px", borderBottom: "1px solid #E2E8F0", flexShrink: 0 }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 2 }}>
                 <div style={{ fontSize: 11.5, fontWeight: 800, color: "#0F172A", display: "flex", alignItems: "center", gap: 5 }}>
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#6366F1" strokeWidth="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#6366F1" strokeWidth="2.5"><path d="M3 11v2"/><path d="M18 4s-5 2-10 2H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h3c5 0 10 2 10 2V4z"/><path d="M18 12.5V16a2 2 0 0 1-2 2h-1l-1-4"/></svg>
                   Ads &amp; Performance
                 </div>
-                <div style={{ display: "flex", gap: 3 }}>
-                  {["7D","30D","90D"].map((t, i) => (
-                    <span key={t} style={{ fontSize: 7, fontWeight: i===0?700:500, padding: "2px 5px", borderRadius: 4, background: i===0?"#0F172A":"transparent", color: i===0?"#fff":"#64748B", border: i!==0?"1px solid #E2E8F0":"none", cursor: "pointer" }}>{t}</span>
+                <div style={{ display: "flex", gap: 3, alignItems: "center" }}>
+                  {["Last 7 Days","Last 30 Days","Last 90 Days"].map((t, i) => (
+                    <span key={t} style={{ fontSize: 5.5, fontWeight: i===2?700:500, padding: "2px 4px", borderRadius: 4, background: i===2?"#0F172A":"transparent", color: i===2?"#fff":"#64748B", border: i!==2?"1px solid #E2E8F0":"none", cursor: "pointer", whiteSpace: "nowrap" }}>{t}</span>
                   ))}
+                  <span style={{ fontSize: 5.5, fontWeight: 500, padding: "2px 5px", borderRadius: 4, border: "1px solid #E2E8F0", color: "#64748B", cursor: "pointer", whiteSpace: "nowrap" }}>↻ Sync Data</span>
                 </div>
               </div>
-              <div style={{ fontSize: 7.5, color: "#64748B" }}>Meta ad spend, conversations, and campaigns.</div>
+              <div style={{ fontSize: 7.5, color: "#64748B" }}>What your Meta ads are doing, in plain numbers.</div>
             </div>
 
             {/* Meta connected row */}
@@ -221,94 +222,106 @@ export default function AppPanels() {
                 <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#4F46E5", display: "inline-block" }} />
                 Meta Connected
               </span>
-              <span style={{ fontSize: 7, fontWeight: 600, padding: "2px 6px", borderRadius: 4, border: "1px solid #E2E8F0", color: "#0F172A", background: "#F8FAFC" }}>AI Marketing ▼</span>
-              <span style={{ marginLeft: "auto", fontSize: 6.5, color: "#94A3B8" }}>Synced <strong style={{ color: "#0F172A" }}>now</strong></span>
+              <span style={{ fontSize: 6, color: "#64748B" }}>Account</span>
+              <span style={{ fontSize: 6, fontWeight: 500, color: "#0F172A" }}>239036321720268</span>
+              <span style={{ marginLeft: "auto", fontSize: 6, color: "#94A3B8", whiteSpace: "nowrap" }}>Last synced <strong style={{ color: "#0F172A" }}>Just now</strong></span>
             </div>
 
             {/* Stats 2×2 grid */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", flexShrink: 0 }}>
               {[
-                { label: "Ad Spend",      value: "$699.40", delta: "+18%", sub: "7-day total"    },
-                { label: "Conversations", value: "325",     delta: "+31%", sub: "Unique chats"   },
-                { label: "Cost / Conv",   value: "$2.15",   delta: null,   sub: "Avg. per chat"  },
-                { label: "Impressions",   value: "46,410",  delta: "+22%", sub: "1.84% CTR"      },
+                { label: "Ad Spend",         value: "$3,667.22", delta: "+197%",  sub: "What you spent on Meta ads",          bg: "#FEE2E2", fg: "#DC2626" },
+                { label: "Form Submissions",  value: "67",        delta: "+1240%", sub: "Instant-form leads from your ads",     bg: "#DCFCE7", fg: "#16A34A" },
+                { label: "Cost Per Form",     value: "$38.19",    delta: "+78%",   sub: "Spend ÷ form submissions",             bg: "#FEE2E2", fg: "#DC2626" },
+                { label: "Impressions",       value: "44,065",    delta: "+49%",   sub: "Times your ads were seen",             bg: "#FEE2E2", fg: "#DC2626" },
               ].map((s, i) => (
                 <div key={s.label} style={{ padding: "7px 10px", borderRight: i%2===0?"1px solid #F1F5F9":"none", borderBottom: "1px solid #F1F5F9", position: "relative" }}>
-                  {s.delta && <span style={{ position: "absolute", top: 5, right: 5, fontSize: 6.5, fontWeight: 700, padding: "1px 4px", borderRadius: 3, background: "#DBEAFE", color: "#1D4ED8" }}>{s.delta}</span>}
-                  <div style={{ fontSize: 7.5, color: "#64748B", marginBottom: 1 }}>{s.label}</div>
-                  <div style={{ fontSize: 15, fontWeight: 800, color: "#0F172A", letterSpacing: "-0.02em", lineHeight: 1.1 }}>{s.value}</div>
-                  <div style={{ fontSize: 6.5, color: "#94A3B8", marginTop: 1 }}>{s.sub}</div>
+                  <span style={{ position: "absolute", top: 5, right: 5, fontSize: 6, fontWeight: 700, padding: "1px 4px", borderRadius: 3, background: s.bg, color: s.fg }}>{s.delta}</span>
+                  <div style={{ fontSize: 7, color: "#64748B", marginBottom: 1 }}>{s.label}</div>
+                  <div style={{ fontSize: 13, fontWeight: 800, color: "#0F172A", letterSpacing: "-0.02em", lineHeight: 1.1 }}>{s.value}</div>
+                  <div style={{ fontSize: 6, color: "#94A3B8", marginTop: 1 }}>{s.sub}</div>
                 </div>
               ))}
             </div>
 
-            {/* Leads in Flow — full width */}
-            <div style={{ padding: "6px 12px", borderBottom: "1px solid #F1F5F9", display: "flex", alignItems: "center", justifyContent: "space-between", flexShrink: 0 }}>
-              <div>
-                <div style={{ fontSize: 7.5, color: "#64748B" }}>Leads in Flow</div>
-                <div style={{ fontSize: 17, fontWeight: 800, color: "#0F172A", letterSpacing: "-0.02em", lineHeight: 1.1 }}>19</div>
-                <div style={{ fontSize: 6.5, color: "#94A3B8" }}>Verified contacts via qualification</div>
-              </div>
-              <span style={{ fontSize: 7.5, fontWeight: 700, padding: "2px 6px", borderRadius: 3, background: "#DBEAFE", color: "#1D4ED8" }}>+38%</span>
-            </div>
-
-            {/* Mini chart */}
-            <div style={{ padding: "7px 12px 2px", borderBottom: "1px solid #F1F5F9", flexShrink: 0 }}>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 3 }}>
-                <span style={{ fontSize: 8, fontWeight: 700, color: "#0F172A" }}>Spend &amp; Conversations</span>
-                <div style={{ display: "flex", gap: 8 }}>
-                  {[{ c:"#6366F1", l:"Spend" },{ c:"#10B981", l:"Conv" }].map(x => (
-                    <span key={x.l} style={{ fontSize: 6.5, color: "#64748B", display: "flex", alignItems: "center", gap: 3 }}>
-                      <span style={{ width: 6, height: 6, borderRadius: "50%", background: x.c, display: "inline-block" }} />{x.l}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <svg viewBox="0 0 316 118" style={{ width: "100%", display: "block" }}>
-                <defs>
-                  <linearGradient id="spendGradL" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#6366F1" stopOpacity="0.18" />
-                    <stop offset="100%" stopColor="#6366F1" stopOpacity="0.02" />
-                  </linearGradient>
-                </defs>
-                {[0,30,60,90,120].map(v => {
-                  const y = 110 - (v/120)*95;
-                  return <g key={v}><line x1={40} y1={y} x2={285} y2={y} stroke="#F1F5F9" strokeWidth="0.8"/><text x={36} y={y+3} textAnchor="end" fontSize="6" fill="#94A3B8">${v}</text></g>;
-                })}
-                <text x={40}  y={116} textAnchor="middle" fontSize="6" fill="#94A3B8">Mar 11</text>
-                <text x={285} y={116} textAnchor="middle" fontSize="6" fill="#94A3B8">Mar 17</text>
-                <path d="M 40,33.1 C 54.6,33.1 66.2,28.2 80.8,28.2 C 95.4,28.2 107.1,31.0 121.7,31.0 C 136.3,31.0 147.9,27.2 162.5,27.2 C 177.1,27.2 188.7,32.0 203.3,32.0 C 217.9,32.0 229.6,29.8 244.2,29.8 C 258.8,29.8 270.4,35.1 285,35.1 L 285,110 L 40,110 Z" fill="url(#spendGradL)" />
-                <path d="M 40,33.1 C 54.6,33.1 66.2,28.2 80.8,28.2 C 95.4,28.2 107.1,31.0 121.7,31.0 C 136.3,31.0 147.9,27.2 162.5,27.2 C 177.1,27.2 188.7,32.0 203.3,32.0 C 217.9,32.0 229.6,29.8 244.2,29.8 C 258.8,29.8 270.4,35.1 285,35.1" fill="none" stroke="#6366F1" strokeWidth="1.5" strokeLinecap="round"/>
-                <path d="M 40,40.3 C 54.6,40.3 66.2,35.6 80.8,35.6 C 95.4,35.6 107.1,38.7 121.7,38.7 C 136.3,38.7 147.9,30.8 162.5,30.8 C 177.1,30.8 188.7,35.6 203.3,35.6 C 217.9,35.6 229.6,32.4 244.2,32.4 C 258.8,32.4 270.4,41.9 285,41.9" fill="none" stroke="#10B981" strokeWidth="1.5" strokeLinecap="round"/>
-                {([[40,33.1],[80.8,28.2],[121.7,31.0],[162.5,27.2],[203.3,32.0],[244.2,29.8],[285,35.1]] as [number,number][]).map(([x,y],i) => (
-                  <circle key={i} cx={x} cy={y} r="2" fill="#fff" stroke="#6366F1" strokeWidth="1.2"/>
-                ))}
-                {([[40,40.3],[80.8,35.6],[121.7,38.7],[162.5,30.8],[203.3,35.6],[244.2,32.4],[285,41.9]] as [number,number][]).map(([x,y],i) => (
-                  <circle key={i} cx={x} cy={y} r="2" fill="#fff" stroke="#10B981" strokeWidth="1.2"/>
-                ))}
-              </svg>
-            </div>
-
-            {/* Campaigns mini list */}
-            <div style={{ padding: "7px 12px", overflowY: "auto", flex: 1 }}>
-              <div style={{ fontSize: 8, fontWeight: 700, color: "#0F172A", marginBottom: 5, display: "flex", alignItems: "center", gap: 4 }}>
-                Campaigns
-                <span style={{ fontSize: 6.5, fontWeight: 800, padding: "1px 5px", borderRadius: "50%", background: "#6366F1", color: "#fff" }}>3</span>
-              </div>
+            {/* Secondary stats row */}
+            <div style={{ padding: "5px 12px", borderBottom: "1px solid #F1F5F9", display: "flex", gap: 6, flexWrap: "wrap", flexShrink: 0 }}>
               {[
-                { name: "Kitchen Reno — GTA",     spend: "$312.40", conv: 142, cpr: "$2.20" },
-                { name: "Bathroom Upgrade — GTA", spend: "$248.60", conv: 114, cpr: "$2.18" },
-                { name: "Retargeting — Visitors", spend: "$138.40", conv: 69,  cpr: "$2.01" },
-              ].map(c => (
-                <div key={c.name} style={{ padding: "5px 0", borderBottom: "1px solid #F8FAFC", display: "grid", gridTemplateColumns: "1.8fr 0.9fr 0.9fr", gap: 2, alignItems: "center" }}>
-                  <div>
-                    <div style={{ fontSize: 8, fontWeight: 600, color: "#0F172A", lineHeight: 1.3 }}>{c.name}</div>
-                    <span style={{ fontSize: 6.5, fontWeight: 700, padding: "1px 5px", borderRadius: 10, background: "#D1FAE5", color: "#065F46" }}>Active</span>
-                  </div>
-                  <div style={{ fontSize: 9, fontWeight: 700, color: "#0F172A" }}>{c.spend}</div>
-                  <div style={{ fontSize: 7.5, color: "#64748B" }}>{c.conv} conv<br />{c.cpr}/ea</div>
-                </div>
+                { label: "People reached",    value: "16,876" },
+                { label: "Link clicks",       value: "924"    },
+                { label: "Click-through rate",value: "2.10%"  },
+                { label: "Messaging chats",   value: "61"     },
+              ].map(s => (
+                <span key={s.label} style={{ fontSize: 6, color: "#64748B", whiteSpace: "nowrap" }}>
+                  {s.label} <strong style={{ color: "#0F172A" }}>{s.value}</strong>
+                </span>
               ))}
+            </div>
+
+            {/* Summary paragraph */}
+            <div style={{ padding: "5px 12px", borderBottom: "1px solid #F1F5F9", flexShrink: 0 }}>
+              <div style={{ fontSize: 6.5, color: "#374151", lineHeight: 1.55 }}>
+                You spent <strong>$3,667.22</strong> on Meta ads this period. Your ads were seen <strong>44,065</strong> times and brought in <strong>67</strong> form submissions at <strong>$38.19</strong> each.
+              </div>
+            </div>
+
+            {/* Bar chart — Spend & form submissions over time */}
+            <div style={{ padding: "7px 12px 6px", flex: 1, display: "flex", flexDirection: "column" }}>
+              <div style={{ fontSize: 8, fontWeight: 700, color: "#0F172A", marginBottom: 1 }}>Spend &amp; form submissions over time</div>
+              <div style={{ fontSize: 6, color: "#64748B", marginBottom: 4 }}>What you spent each day and the form submissions it brought in.</div>
+              <svg viewBox="0 0 316 100" style={{ width: "100%", display: "block", flex: 1 }}>
+                {/* Y-axis grid + labels (left: $) */}
+                {[0,25,50,75,100].map(v => {
+                  const y = 88 - (v/100)*78;
+                  return <g key={v}>
+                    <line x1={28} y1={y} x2={314} y2={y} stroke="#F1F5F9" strokeWidth="0.8"/>
+                    <text x={24} y={y+2.5} textAnchor="end" fontSize="5" fill="#94A3B8">${v}</text>
+                  </g>;
+                })}
+                {/* Y-axis right labels (form submissions: 0–4) */}
+                {[0,1,2,3,4].map(v => {
+                  const y = 88 - (v/4)*78;
+                  return <text key={v} x={316} y={y+2.5} textAnchor="start" fontSize="5" fill="#94A3B8">{v}</text>;
+                })}
+                {/* Bars — 30 daily values roughly matching adsp.png */}
+                {[62,48,62,34,28,58,78,42,52,38,50,48,44,52,50,48,54,62,52,65,54,48,51,56,28,65,62,65,62,62].map((h, i) => {
+                  const barW = 7.5;
+                  const gap = 1.5;
+                  const x = 29 + i * (barW + gap);
+                  const barH = (h/100)*78;
+                  const y = 88 - barH;
+                  return <rect key={i} x={x} y={y} width={barW} height={barH} fill="#6366F1" rx="1" opacity="0.85"/>;
+                })}
+                {/* Form submissions line (right axis, 0–4) */}
+                {(() => {
+                  const convData = [1,1,1,0,1,2,1,1,2,1,2,1,1,2,1,2,2,1,2,2,2,1,1,2,1,2,2,2,2,2];
+                  const pts = convData.map((v, i) => {
+                    const barW = 7.5; const gap = 1.5;
+                    const cx = 29 + i*(barW+gap) + barW/2;
+                    const cy = 88 - (v/4)*78;
+                    return `${cx},${cy}`;
+                  }).join(" ");
+                  const circles = convData.map((v, i) => {
+                    const barW = 7.5; const gap = 1.5;
+                    return [29 + i*(barW+gap) + barW/2, 88 - (v/4)*78] as [number,number];
+                  });
+                  return <>
+                    <polyline points={pts} fill="none" stroke="#10B981" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+                    {circles.map(([cx,cy],i) => <circle key={i} cx={cx} cy={cy} r="1.5" fill="#10B981"/>)}
+                  </>;
+                })()}
+                {/* X-axis labels */}
+                <text x={29}  y={97} fontSize="5" fill="#94A3B8">May 29</text>
+                <text x={270} y={97} fontSize="5" fill="#94A3B8">Jun 30</text>
+              </svg>
+              {/* Legend */}
+              <div style={{ display: "flex", gap: 10, marginTop: 4 }}>
+                {[{ c:"#10B981", l:"Form submissions" },{ c:"#6366F1", l:"Spend" }].map(x => (
+                  <span key={x.l} style={{ fontSize: 6, color: "#64748B", display: "flex", alignItems: "center", gap: 3 }}>
+                    <span style={{ width: 6, height: 6, borderRadius: "50%", background: x.c, display: "inline-block" }}/>{x.l}
+                  </span>
+                ))}
+              </div>
             </div>
 
           </div>
