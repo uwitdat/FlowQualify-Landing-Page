@@ -10,7 +10,6 @@ type Budget = 30 | 50;
 
 type Plan = {
   label: string;       // pill tag
-  caveat: string;      // one line under the budget picker
   adsMonthly: string;  // ~30 days of spend
   allIn: string;
   funnel: Array<Pick<StatisticCardProps, "value" | "footerValue"> & { badge: string }>;
@@ -27,7 +26,6 @@ type Plan = {
 const PLANS: Record<Budget, Plan> = {
   30: {
     label: "Minimum",
-    caveat: "Our lowest budget. Fewer leads, and results take longer to build while Meta learns your area.",
     adsMonthly: "$900",
     allIn: "$1,400",
     funnel: [
@@ -39,7 +37,6 @@ const PLANS: Record<Budget, Plan> = {
   },
   50: {
     label: "Recommended",
-    caveat: "More chats means Meta finds your best homeowners faster, so bookings build sooner.",
     adsMonthly: "$1,500",
     allIn: "$2,000",
     funnel: [
@@ -204,16 +201,6 @@ export default function PerformanceMetrics() {
         .pm-opt-price { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
         .pm-opt-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.7; }
         .pm-opt[aria-checked="true"] .pm-opt-tag { opacity: 0.85; }
-        .pm-caveat {
-          min-height: 44px;
-          max-width: 520px;
-          margin: 12px auto 0;
-          font-size: 14px;
-          line-height: 1.55;
-          color: #64748B;
-        }
-        .pm-caveat b { color: #0F172A; font-weight: 700; }
-
         .pm-swap { animation: pm-swap 0.4s ${EASE} both; }
         @keyframes pm-swap { from { opacity: 0.35; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
@@ -248,13 +235,18 @@ export default function PerformanceMetrics() {
         }
 
         .pm-note {
-          max-width: 720px;
-          margin: 20px auto 0;
+          list-style: none;
+          max-width: 480px;
+          margin: 28px auto 0;
+          padding: 20px 0 0;
+          border-top: 1px solid rgb(229, 231, 235);
           text-align: center;
           font-size: 12px;
           line-height: 1.6;
           color: #94A3B8;
         }
+        .pm-note li + li { margin-top: 7px; }
+        .pm-note li:last-child { color: #B0B9C6; }
 
         @media (max-width: 1079px) {
           .pm-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 720px; }
@@ -267,11 +259,11 @@ export default function PerformanceMetrics() {
           .pm-sub { font-size: 15px; }
           .pm-picker { display: flex; width: 100%; max-width: 360px; margin: 22px auto 0; }
           .pm-opt { flex: 1; min-width: 0; }
-          .pm-caveat { font-size: 13.5px; min-height: 64px; }
           .pm-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
           /* cost card full width (its badge is long), the other two side by side */
           .pm-terms { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
           .pm-terms > :first-child { grid-column: 1 / -1; }
+          .pm-note { max-width: 320px; margin-top: 24px; padding-top: 16px; font-size: 11.5px; }
         }
         @media (prefers-reduced-motion: reduce) {
           .pm-reveal, .pm-opt { transition-duration: 0.01ms; }
@@ -323,9 +315,6 @@ export default function PerformanceMetrics() {
               </button>
             ))}
           </div>
-          <p className="pm-caveat" aria-live="polite">
-            <b>{plan.adsMonthly}/mo in ads.</b> {plan.caveat}
-          </p>
         </div>
 
         <div className="pm-grid">
@@ -364,9 +353,12 @@ export default function PerformanceMetrics() {
           ))}
         </div>
 
-        <p className="pm-note pm-reveal" style={{ transitionDelay: isIntersecting ? "520ms" : "0ms" }}>
-          $30 a day is our minimum ad budget. Estimates from industry benchmarks, not a guarantee. Month one is realistic; months two and three usually improve. Assumes a 30–35% close rate and a mix of kitchen ($35K–$55K) and bath ($15K–$28K) jobs. Results depend on your area, season, and sales process.
-        </p>
+        <ul className="pm-note pm-reveal" style={{ transitionDelay: isIntersecting ? "520ms" : "0ms" }}>
+          <li>$30/day is our minimum ad budget — estimates from industry benchmarks, not a guarantee.</li>
+          <li>Month one is realistic; months two and three usually improve.</li>
+          <li>Assumes a 30–35% close rate on a mix of kitchen ($35K–$55K) and bath ($15K–$28K) jobs.</li>
+          <li>Results depend on your area, season, and sales process.</li>
+        </ul>
       </section>
     </>
   );
