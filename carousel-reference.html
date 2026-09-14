@@ -1,0 +1,319 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coverflow carousel reference</title>
+<!--
+  ============================================================================
+  COVERFLOW CAROUSEL  -  extracted verbatim from mesascale.com
+  ============================================================================
+  Drag, arrow keys, clickable side cards, autoplay, dots, ambient backdrop.
+  No dependencies. Vanilla JS, no build step.
+
+  HOW IT WORKS
+    Cards are absolutely positioned on top of each other. `pos` is a floating
+    point index: 2.5 means halfway between card 2 and 3. paint() converts the
+    distance from `pos` into x / scale / rotateY / opacity / blur by
+    interpolating the keyframe table K, so a drag scrubs continuously rather
+    than snapping between states.
+
+  TO REUSE
+    1. Replace the SLIDES array with your own items.
+    2. Swap the :root tokens below.
+    3. K is the whole look: x is px at a 330px card, scaled by --u.
+    4. Card size lives in one place: `--cw` on .cf.
+
+  TOUCH NOTE
+    endDrag treats pointercancel as never-a-tap and tracks vertical travel
+    separately, otherwise a vertical page scroll that starts on the carousel
+    fires the card's click on iOS. Keep that if you keep anything.
+  ============================================================================
+-->
+<style>
+/* ── tokens this block depends on. Swap these for your own. ────────────────── */
+:root {
+  --font:      'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Roboto Mono', ui-monospace, monospace;
+  --cloud:     #f5f5f7;   /* brightest text          */
+  --ash:       #9f9fa0;   /* secondary text          */
+  --fog:       #808080;   /* dimmest text            */
+  --r-pill:    9999px;
+  --ease-fast: .2s ease;
+}
+/* --gold, --cw and --u are declared by .cf itself, further down. */
+
+body { margin: 0; background: #0f1011; }
+
+.cf-note { text-align: center; margin-top: 30px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.results-view-all { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 400; color: var(--ash); border: 1px solid rgba(255,255,255,.12); border-radius: var(--r-pill); padding: 11px 24px; text-decoration: none; transition: background var(--ease-fast), border-color var(--ease-fast), color var(--ease-fast); }
+.results-view-all:hover { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.2); color: var(--cloud); }
+.results-note { font-size: 11px; color: var(--fog); line-height: 1.5; display: flex; align-items: center; }
+/* ─── COVERFLOW — vanilla port of the 3-D coverflow carousel: centre card upright, neighbours turned away in depth ─── */
+.cf { --cw: clamp(228px, 24vw, 330px); --u: calc(var(--cw) / 330); --gold: #c5a880; position: relative; width: 100%; padding: 28px 0 8px; isolation: isolate; overflow: hidden; }
+/* ambience: the focused cover, blown up and blurred, behind everything */
+.cf-amb { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.cf-amb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(.22) blur(32px); transform: scale(1.15); opacity: 0; transition: opacity 1s ease; }
+.cf-amb img.is-on { opacity: 1; }
+.cf-amb::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(15,16,17,.3) 0%, rgba(15,16,17,.94) 100%); }
+.cf-eyebrow { position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 12px; margin: 0 0 22px; }
+.cf-eyebrow span { width: 36px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+.cf-eyebrow span + h3 + span { background: linear-gradient(90deg, var(--gold), transparent); }
+.cf-eyebrow h3 { margin: 0; font-family: var(--font); font-size: .75rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); }
+.cf-frame { position: relative; z-index: 1; height: calc(var(--cw) * 500 / 330 + 24px); cursor: grab; outline: none; perspective: 1400px; touch-action: pan-y; }
+.cf-frame:active { cursor: grabbing; }
+.cf-frame:focus-visible { box-shadow: inset 0 0 0 2px rgba(197,168,128,.45); border-radius: 16px; }
+.cf-ring { position: relative; height: 100%; transform-style: preserve-3d; user-select: none; -webkit-user-select: none; }
+.cf-card { position: absolute; left: 50%; top: 12px; width: var(--cw); height: calc(var(--cw) * 500 / 330); margin-left: calc(var(--cw) / -2); border-radius: 18px; overflow: hidden; background: #171311; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 15px 35px rgba(0,0,0,.5); transform-origin: center center; will-change: transform, opacity, filter; }
+.cf-card.is-active { box-shadow: 0 25px 60px rgba(0,0,0,.9), 0 0 35px rgba(197,168,128,.25); cursor: default; }
+.cf-card:not(.is-active) { cursor: pointer; }
+.cf-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; -webkit-user-drag: none; pointer-events: none; }
+.cf-card::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,.4) 0%, rgba(0,0,0,.1) 25%, rgba(0,0,0,.68) 60%, rgba(0,0,0,.96) 100%); }
+.cf-body { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: space-between; text-align: center; padding: calc(20px * var(--u)) calc(18px * var(--u)) calc(22px * var(--u)); opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; pointer-events: none; }
+.cf-card.is-active .cf-body { opacity: 1; transform: none; pointer-events: auto; }
+.cf-copy { display: flex; flex-direction: column; align-items: center; gap: 3px; margin-top: auto; padding-bottom: 4px; }
+.cf-h { margin: 0; font-family: var(--font); font-size: calc(1.65rem * var(--u)); font-weight: 900; text-transform: uppercase; letter-spacing: .04em; line-height: 1.1; color: #fff; text-shadow: 0 3px 12px rgba(0,0,0,.95); }
+.cf-h2 { font-family: var(--font); font-size: calc(1.1rem * var(--u)); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; line-height: 1.2; color: #f3f0ea; text-shadow: 0 3px 10px rgba(0,0,0,.9); }
+.cf-rule { width: 34px; height: 2px; border-radius: 2px; background: var(--gold); margin: 5px auto 4px; box-shadow: 0 0 8px rgba(197,168,128,.7); }
+.cf-desc { margin: 0 0 10px; max-width: calc(280px * var(--u)); font-family: var(--font); font-size: calc(.82rem * var(--u)); font-style: italic; line-height: 1.3; color: rgba(255,255,255,.9); text-shadow: 0 2px 8px rgba(0,0,0,.9); }
+.cf-cta { display: inline-flex; align-items: center; gap: 6px; padding: 7px 18px; border-radius: var(--r-pill); background: linear-gradient(135deg, #c5a880 0%, #a48256 100%); color: #110d0c; font-family: var(--font); font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; box-shadow: 0 4px 14px rgba(0,0,0,.4), 0 0 15px rgba(197,168,128,.3); transition: transform .2s ease, box-shadow .2s ease; }
+.cf-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,.5), 0 0 22px rgba(197,168,128,.45); }
+.cf-cta:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.cf-cta svg { width: 13px; height: 13px; }
+.cf-arrow { position: absolute; top: 50%; z-index: 4; width: 46px; height: 46px; margin-top: -23px; border-radius: 50%; background: rgba(0,0,0,.55); border: 1px solid rgba(255,255,255,.2); color: #fff; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,.4); transition: background .2s ease, border-color .2s ease, transform .2s ease; padding: 0; }
+.cf-arrow:hover { background: rgba(0,0,0,.75); border-color: rgba(255,255,255,.4); }
+.cf-arrow:active { transform: scale(.95); }
+.cf-arrow:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.cf-arrow svg { width: 20px; height: 20px; }
+.cf-arrow.prev { left: max(24px, calc(50% - var(--cw) * 2.05)); }
+.cf-arrow.next { right: max(24px, calc(50% - var(--cw) * 2.05)); }
+.cf-dots { position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 8px; margin: 14px 0 0; }
+.cf-dots button { height: 8px; width: 8px; border-radius: var(--r-pill); background: rgba(255,255,255,.25); border: 0; padding: 0; cursor: pointer; transition: width .3s ease, background .3s ease, box-shadow .3s ease; }
+.cf-dots button[aria-current="true"] { width: 28px; background: var(--gold); box-shadow: 0 0 10px rgba(197,168,128,.7); }
+.cf-dots button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* the figures under the stage: three numbers in a row, nothing the card already says */
+.cf-caption { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 22px 24px 0; }
+.cf-caption.cf-anim { animation: cf-in .32s ease both; }
+@keyframes cf-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.cf-meta { display: flex; justify-content: center; margin: 0; width: min(100%, 560px); }
+.cf-meta > div { flex: 1 1 0; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 4px 14px; border-left: 1px solid rgba(255,255,255,.08); }
+.cf-meta > div:first-child { border-left: 0; }
+.cf-meta dt { font-family: var(--font-mono); font-size: 9.5px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--ash); white-space: nowrap; }
+.cf-meta dd { margin: 0; font-family: var(--font-mono); font-size: 18px; font-weight: 500; color: var(--cloud); letter-spacing: -.01em; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.cf-meta dd.hi { color: var(--gold); }
+.cf-hint { margin-top: 16px; font-family: var(--font-mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.22); }
+@media (max-width: 560px) { .cf-meta dd { font-size: 15px; } .cf-meta dt { font-size: 8.5px; } .cf-meta > div { padding: 4px 8px; } }
+@media (max-width: 720px) {
+  .cf-arrow { display: none; }
+  /* narrower card so more of each neighbour clears the active card's edge:
+     ~74px of sliver per side at 390 becomes ~86px */
+  .cf { --cw: clamp(206px, 56vw, 272px); }
+}
+@media (prefers-reduced-motion: reduce) { .cf-amb img, .cf-body, .cf-dots button { transition-duration: .01ms; } }
+</style>
+
+<section class="results-section">
+  <div class="cf" id="csCoverflow" role="region" aria-roledescription="carousel" aria-label="Case studies" data-sc-in>
+    <div class="cf-amb" id="cfAmb" aria-hidden="true"></div>
+    <div class="cf-eyebrow" aria-hidden="true"><span></span><h3>Verified Client Results</h3><span></span></div>
+    <div class="cf-frame" id="cfFrame" tabindex="0" aria-label="Drag, use arrow keys, or click a cover to browse case studies">
+      <div class="cf-ring" id="cfRing"></div>
+    </div>
+    <button class="cf-arrow prev" id="cfPrev" type="button" aria-label="Previous case study"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg></button>
+    <button class="cf-arrow next" id="cfNext" type="button" aria-label="Next case study"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></button>
+    <div class="cf-dots" id="cfDots" role="tablist" aria-label="Choose a case study"></div>
+    <div class="cf-caption" id="cfCaption" aria-live="polite"></div>
+  </div>
+</section>
+
+<script>
+(function(){
+  // headline = the size of the business, sub = the money line, desc = what it is and what it did. Every figure is from the case study page.
+  var SLIDES = [
+    { src:'cs-covers/bedding.jpg',  alt:'Folded linen on a bed in soft morning light', href:'case-studies/luxury-bedding.html',
+      tag:'#GoogleAds', h:'7-Figure Brand', h2:'– CA$151K Managed Spend', desc:'Luxury home & linen · 10.26× ROAS on $1.55M revenue',
+      title:'Luxury Home & Linen', sub:'7-Figure · Google Ads', meta:[['ROAS','10.26×',1],['Managed Spend','CA$151K'],['Revenue','$1.55M']] },
+    { src:'cs-covers/petcare.jpg',  alt:'Dog looking up at the camera', href:'case-studies/pet-care.html',
+      tag:'#GoogleAds', h:'7-Figure Brand', h2:'– $221K Revenue', desc:'DTC pet care · 7.16× blended ROAS · 24.92× on brand search',
+      title:'Pet Care & Accessories', sub:'7-Figure · Google Ads', meta:[['ROAS','7.16×',1],['Brand Search ROAS','24.92×'],['Revenue','$221K']] },
+    { src:'cs-covers/luxhome.jpg',  alt:'Sunlit living room with layered neutral textures', href:'case-studies/luxury-home.html',
+      tag:'#MultiChannel', h:'7-Figure Brand', h2:'– 3.1× to 7.0× ROAS', desc:'Luxury home · Google, YouTube & Meta · +126% lift over 18 months',
+      title:'Luxury Home', sub:'7-Figure · Google + YouTube + Meta', meta:[['ROAS','7.0×',1],['Starting Point','3.1×'],['Lift','+126%']] },
+    { src:'cs-covers/apparel.jpg',  alt:'Row of garments hanging on a wooden rail', href:'case-studies/apparel-brand.html',
+      tag:'#GoogleAds', h:'7-Figure Brand', h2:'– AU$124K Managed Spend', desc:'DTC apparel takeover · 6.05× ROAS, up from the prior agency\u2019s 4.79×',
+      title:'DTC Apparel', sub:'7-Figure · Google Ads Takeover', meta:[['ROAS','6.05×',1],['Prior Agency','4.79×'],['Managed Spend','AU$124K']] },
+    { src:'cs-covers/meta.jpg',     alt:'Shopper completing a purchase on a phone', href:'case-studies/ecommerce-meta.html',
+      tag:'#MetaAds', h:'8-Figure Brand', h2:'– $316K Managed Spend', desc:'Full-funnel ecommerce · 5.87× ROAS on $1.85M revenue',
+      title:'Ecommerce Full-Funnel', sub:'8-Figure · Meta Ads', meta:[['ROAS','5.87×',1],['Managed Spend','$316K'],['Revenue','$1.85M']] },
+    { src:'cs-covers/outdoor.jpg',  alt:'Tent pitched on a ridge under a wide sky', href:'case-studies/outdoor-gear.html',
+      tag:'#GoogleAds', h:'7-Figure Brand', h2:'– 3.15× to 4.88× ROAS', desc:'Outdoor gear · 14 campaigns consolidated to 2',
+      title:'Outdoor Gear', sub:'7-Figure · Google Ads', meta:[['ROAS','4.88×',1],['Starting Point','3.15×'],['Campaigns','14 → 2']] },
+    { src:'cs-covers/mobile.jpg',   alt:'Smartphone resting on a dark surface', href:'case-studies/mobile-accessories.html',
+      tag:'#GoogleAds', h:'8-Figure Brand', h2:'– $1.6M Managed Spend', desc:'Mobile accessories · 2.59× to 4.14× ROAS, +60% lift',
+      title:'Mobile Accessories', sub:'8-Figure · Google Ads', meta:[['ROAS','4.14×',1],['Starting Point','2.59×'],['Managed Spend','$1.6M']] },
+    { src:'cs-covers/lifestyle.jpg',alt:'Bright living space with plants and soft furniture', href:'case-studies/lifestyle-scale.html',
+      tag:'#GoogleAds', h:'8-Figure Brand', h2:'– $1.07M Managed Spend', desc:'Home & lifestyle at scale · 4.06× ROAS on $4.33M revenue',
+      title:'Home & Lifestyle', sub:'8-Figure · Google Ads at Scale', meta:[['ROAS','4.06×',1],['Managed Spend','$1.07M'],['Revenue','$4.33M']] },
+    { src:'cs-covers/skincare.jpg', alt:'Skincare bottles arranged on a pale background', href:'case-studies/skincare-launch.html',
+      tag:'#GoogleAds', h:'6-Figure Brand', h2:'– $34.3K Revenue', desc:'Beauty & skincare · new Google Ads launch · 3.83× ROAS in months 1–5',
+      title:'Beauty & Skincare', sub:'6-Figure · New Google Ads Launch', meta:[['ROAS','3.83×',1],['Timeline','Months 1–5'],['Revenue','$34.3K']] },
+    { src:'cs-covers/survival.jpg', alt:'Fog rolling through a forested valley at first light', href:'case-studies/outdoor-survival-youtube.html',
+      tag:'#YouTubeAds', h:'Media Brand', h2:'– 560 Subscribers', desc:'Outdoor survival channel · $8.59 per subscriber · 5.66M impressions',
+      title:'Outdoor Survival Channel', sub:'Media Brand · YouTube Ads', meta:[['Subscribers','560',1],['Cost / Subscriber','$8.59'],['Impressions','5.66M']] }
+  ];
+
+  var cf=document.getElementById('csCoverflow'), frame=document.getElementById('cfFrame'), ring=document.getElementById('cfRing'), cap=document.getElementById('cfCaption');
+  var amb=document.getElementById('cfAmb'), dots=document.getElementById('cfDots'), prevBtn=document.getElementById('cfPrev'), nextBtn=document.getElementById('cfNext');
+  if(!frame||!ring||!cap) return;
+  var count=SLIDES.length, reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var AUTOPLAY=true, AUTO_MS=5000;
+
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  var ARROW='<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>';
+
+  var ambImgs=[], dotBtns=[];
+  var cards=SLIDES.map(function(s,i){
+    var d=document.createElement('div');
+    d.className='cf-card'; d.dataset.index=i;
+    d.setAttribute('role','group'); d.setAttribute('aria-roledescription','slide'); d.setAttribute('aria-label',(i+1)+' of '+count+': '+s.h+', '+s.title);
+    d.innerHTML='<img src="'+esc(s.src)+'" alt="'+esc(s.alt)+'" draggable="false" decoding="async">'
+      +'<div class="cf-body">'
+      +'<div class="cf-copy"><h2 class="cf-h">'+esc(s.h)+'</h2><span class="cf-h2">'+esc(s.h2)+'</span><div class="cf-rule"></div>'
+      +'<p class="cf-desc">'+esc(s.desc)+'</p>'
+      +'<a class="cf-cta" href="'+esc(s.href)+'"><span>View Case Study</span>'+ARROW+'</a></div></div>';
+    ring.appendChild(d);
+    if(amb){ var a=document.createElement('img'); a.src=s.src; a.alt=''; a.decoding='async'; amb.appendChild(a); ambImgs.push(a); }
+    if(dots){ var b=document.createElement('button'); b.type='button'; b.setAttribute('role','tab'); b.setAttribute('aria-label','Go to case study '+(i+1)); b.addEventListener('click',function(){ goTo(i); restart(); }); dots.appendChild(b); dotBtns.push(b); }
+    return d;
+  });
+
+  var pos=0, target=0, width=0, raf=null, drag=null, selected=-1, held=false, seen=false, timer=null;
+
+  function indexAt(p){ return ((Math.round(p)%count)+count)%count; }
+  function lerp(a,b,t){ return a+(b-a)*t; }
+
+  // The reference's five keyframes (offset 0, ±1, ±2), stated for a 330px card and scaled by --u.
+  // Between keyframes we interpolate so a drag scrubs continuously; past ±2 the card fades away.
+  var K=[
+    { x:0,   sc:1,   ry:0,  op:1,   br:1,   bl:0 },
+    { x:285, sc:.84, ry:24, op:.65, br:.75, bl:0 },
+    { x:510, sc:.68, ry:38, op:.38, br:.55, bl:1 },
+    { x:640, sc:.5,  ry:44, op:0,   br:.4,  bl:2 }
+  ];
+  // Phones see far less of each neighbour, and at .65 over .75 on a near-black section
+  // what does show reads as shadow. Same geometry, brighter, so it reads as a card.
+  var KM=[
+    { x:0,   sc:1,   ry:0,  op:1,   br:1,   bl:0 },
+    { x:285, sc:.84, ry:24, op:.86, br:.94, bl:0 },
+    { x:510, sc:.68, ry:38, op:.55, br:.72, bl:.6 },
+    { x:640, sc:.5,  ry:44, op:0,   br:.4,  bl:2 }
+  ];
+  function paint(){
+    if(!width) return;
+    var u=width/330;
+    var KK=(window.innerWidth<=720?KM:K);
+    for(var i=0;i<count;i++){
+      var card=cards[i], off=i-pos;
+      off=((off%count)+count)%count; if(off>count/2) off-=count;
+      var dist=Math.abs(off), sign=off<0?-1:1;
+      var k=Math.min(Math.floor(dist),2), t=Math.min(dist-k,1), A=KK[k], B=KK[k+1];
+      var x=lerp(A.x,B.x,t)*u, sc=lerp(A.sc,B.sc,t), ry=lerp(A.ry,B.ry,t), op=lerp(A.op,B.op,t), br=lerp(A.br,B.br,t), bl=lerp(A.bl,B.bl,t);
+      if(dist>=3){ op=0; }
+      card.style.transform='translateX('+(sign*x).toFixed(2)+'px) scale('+sc.toFixed(4)+') rotateY('+(-sign*ry).toFixed(2)+'deg)';
+      card.style.opacity=op.toFixed(3);
+      card.style.filter='brightness('+br.toFixed(3)+')'+(bl>0.05?' blur('+bl.toFixed(2)+'px)':'');
+      card.style.zIndex=String(30-Math.round(dist*10));
+      card.style.visibility=op<=0.001?'hidden':'visible';
+      card.classList.toggle('is-active', i===selected);
+    }
+  }
+
+  function renderCaption(i){
+    var s=SLIDES[i];
+    var rows=s.meta.map(function(r){ return '<div><dt>'+esc(r[0])+'</dt><dd'+(r[2]?' class="hi"':'')+'>'+esc(r[1])+'</dd></div>'; }).join('');
+    cap.innerHTML='<dl class="cf-meta" aria-label="'+esc(s.title)+' figures">'+rows+'</dl>'
+      +'<p class="cf-hint">'+(i+1)+' / '+count+' · drag or use arrow keys</p>';
+    cap.classList.remove('cf-anim'); void cap.offsetWidth; cap.classList.add('cf-anim');
+    ambImgs.forEach(function(a,k){ a.classList.toggle('is-on', k===i); });
+    dotBtns.forEach(function(b,k){ b.setAttribute('aria-current', k===i?'true':'false'); });
+  }
+  function select(i){ if(i===selected) return; selected=i; renderCaption(i); }
+
+  function settle(t){
+    if(raf!==null) cancelAnimationFrame(raf);
+    target=t; select(indexAt(t));
+    if(reduce){ pos=target; paint(); return; }
+    function step(){
+      var rem=target-pos;
+      if(Math.abs(rem)<0.0004){ pos=target; paint(); raf=null; return; }
+      pos+=rem*0.12; paint(); raf=requestAnimationFrame(step);
+    }
+    raf=requestAnimationFrame(step);
+  }
+  function goTo(i){ settle(i+Math.round((target-i)/count)*count); }
+  function nudge(by){ settle(Math.round(target)+by); }
+
+  frame.addEventListener('pointerdown',function(e){
+    if(e.pointerType==='mouse' && e.button!==0) return;
+    if(e.target.closest && e.target.closest('.cf-cta')) return; // the button is a real link
+    if(raf!==null){ cancelAnimationFrame(raf); raf=null; }
+    /* throws if the pointer is already gone; losing capture is survivable, losing the handler is not */
+    try{ frame.setPointerCapture(e.pointerId); }catch(_){}
+    target=pos;
+    var card=e.target.closest ? e.target.closest('.cf-card') : null;
+    drag={ id:e.pointerId, x:e.clientX, y:e.clientY, pos:pos, v:0, t:performance.now(), moved:false, scrolled:false, card:card?+card.dataset.index:-1 };
+  });
+  frame.addEventListener('pointermove',function(e){
+    if(!drag||drag.id!==e.pointerId) return;
+    var pitch=width*285/330; if(!pitch) return;
+    var dx=e.clientX-drag.x, dy=e.clientY-drag.y;
+    /* a mostly-vertical swipe is the page scrolling past under the finger: it must not
+       scrub the deck, and it must not end as a tap. Touch and pen only: a mouse cannot
+       scroll the page by dragging, so desktop keeps scrubbing on any direction. */
+    if(e.pointerType!=='mouse' && Math.abs(dy)>8 && Math.abs(dy)>Math.abs(dx)) drag.scrolled=true;
+    if(Math.abs(dx)>4) drag.moved=true;
+    if(drag.scrolled||!drag.moved) return;
+    var now=performance.now(), prev=pos;
+    pos=drag.pos-dx/pitch;
+    drag.v=((pos-prev)/Math.max(now-drag.t,1))*1000;
+    drag.t=now;
+    select(indexAt(pos)); paint();
+  });
+  function endDrag(e){
+    if(!drag||drag.id!==e.pointerId) return;
+    var d=drag; drag=null; restart();
+    /* pointercancel is what iOS fires once it claims the gesture for scrolling, so it is
+       the one event that certainly is not a tap */
+    if(d.scrolled||e.type==='pointercancel'){ settle(Math.round(pos)); return; }
+    if(!d.moved){
+      // A plain click: the centre card opens the study, any other card comes to the front.
+      if(d.card===selected && selected>=0){ window.location.href=SLIDES[selected].href; return; }
+      if(d.card>=0){ goTo(d.card); return; }
+      settle(Math.round(pos)); return;
+    }
+    var carried=Math.max(-2,Math.min(2,d.v*0.18));
+    settle(Math.round(pos+carried));
+  }
+  frame.addEventListener('pointerup',endDrag);
+  frame.addEventListener('pointercancel',endDrag);
+  frame.addEventListener('keydown',function(e){
+    if(e.key==='ArrowLeft'){ e.preventDefault(); nudge(-1); restart(); }
+    else if(e.key==='ArrowRight'){ e.preventDefault(); nudge(1); restart(); }
+    else if(e.key==='Enter' && selected>=0 && e.target===frame){ window.location.href=SLIDES[selected].href; }
+  });
+  if(prevBtn) prevBtn.addEventListener('click',function(){ nudge(-1); restart(); });
+  if(nextBtn) nextBtn.addEventListener('click',function(){ nudge(1); restart(); });
+
+  // autoplay: a slow walk, held while the pointer or focus is on the stage, stopped off-screen
+  function restart(){ clearTimeout(timer); if(!AUTOPLAY||reduce||held||!seen||count<2) return; timer=setTimeout(function(){ nudge(1); restart(); }, AUTO_MS); }
+  function hold(on){ held=on; if(on) clearTimeout(timer); else restart(); }
+  cf.addEventListener('mouseenter',function(){ hold(true); }); cf.addEventListener('mouseleave',function(){ hold(false); });
+  cf.addEventListener('focusin',function(){ hold(true); }); cf.addEventListener('focusout',function(){ hold(false); });
+  if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ seen=es[0].isIntersecting; if(seen) restart(); else clearTimeout(timer); },{threshold:.3}).observe(frame); } else { seen=true; restart(); }
+  document.addEventListener('visibilitychange',function(){ if(document.hidden) clearTimeout(timer); else restart(); });
+
+  function measure(){ width=cards[0].offsetWidth; paint(); }
+  select(0); measure();
+  if('ResizeObserver' in window){ new ResizeObserver(measure).observe(frame); }
+  else { window.addEventListener('resize',measure); }
+})();
+</script>

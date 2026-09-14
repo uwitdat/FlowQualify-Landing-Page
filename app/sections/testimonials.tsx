@@ -3,11 +3,11 @@
 import Image from "next/image";
 import { PAGE_BACKGROUND } from "../config/constants";
 
-type CardBase = { id: string };
+/** Headline figure pulled from the quote itself, so a skimmer gets the result first. */
+type Result = { value: string; label: string };
+type CardBase = { id: string; result: Result };
 type MetricCard = CardBase & {
   type: "metric";
-  value: string;
-  label: string;
   quote: string;
   image?: string;
   authorName?: string;
@@ -22,8 +22,6 @@ type ProfileCard = CardBase & {
 type QuoteCard = CardBase & {
   type: "quote";
   quote: string;
-  title?: string;
-  label?: string;
 };
 type TeamCard = CardBase & {
   type: "team";
@@ -36,13 +34,14 @@ type TeamCard = CardBase & {
 
 export type TestimonialCard = MetricCard | ProfileCard | QuoteCard | TeamCard;
 
+// Quotes are verbatim; where a sentence's figure became the card headline,
+// that sentence is dropped rather than repeated.
 const cards: TestimonialCard[] = [
   {
     id: "metric",
     type: "metric",
-    value: "3x",
-    label: "more qualified leads",
-    quote: "We closed $31,000 in new remodeling jobs in our first six weeks. Every appointment came pre-loaded with budget, scope, and timeline — we just showed up and closed. FlowQualify paid for itself before the first month was even over.",
+    result: { value: "$31,000", label: "in new remodeling jobs in the first six weeks" },
+    quote: "Every appointment came pre-loaded with budget, scope, and timeline — we just showed up and closed. FlowQualify paid for itself before the first month was even over.",
     image: "/testimonials/paiano.jpg",
     authorName: "Andrew Paiano",
     website: "https://www.paianocontracting.com/",
@@ -50,7 +49,8 @@ const cards: TestimonialCard[] = [
   {
     id: "paiano",
     type: "profile",
-    quote: "Three bathroom jobs in six weeks — $41,000 total. I used to spend hours chasing leads that went nowhere. Now every appointment comes in pre-screened with the project details already attached. I just show up and close.",
+    result: { value: "$41,000", label: "3 bathroom jobs in six weeks" },
+    quote: "I used to spend hours chasing leads that went nowhere. Now every appointment comes in pre-screened with the project details already attached. I just show up and close.",
     author: {
       name: "Tuan K.",
       handle: "Konn Reno",
@@ -61,6 +61,7 @@ const cards: TestimonialCard[] = [
   {
     id: "sposa",
     type: "profile",
+    result: { value: "Bigger jobs", label: "Closing kitchens they used to miss" },
     quote: "We used to lose jobs just by being slow to respond. Now every inquiry gets instant follow-up and we're closing kitchen projects we would have missed entirely. Our average job value has gone up because we're finally talking to the right clients.",
     author: {
       name: "Daniel P.",
@@ -70,22 +71,37 @@ const cards: TestimonialCard[] = [
     image: "/testimonials/sposa.jpg",
   },
   {
-    id: "quote1",
-    type: "quote",
-    title: "Clear insights",
-    label: "Flat $500/month. No setup fees. No surprises.",
-    quote: "We use FlowQualify because it gives us clear insights on every lead. $500 a month, and we get a calendar full of homeowners who already know their budget and timeline. It's the simplest decision we've made for our business.",
-  },
-  {
     id: "team1",
     type: "team",
-    quote: "I closed 3 kitchen and bath jobs — $52,000 in my first 8 weeks. Every homeowner already had a budget and a start date in mind. I showed up, ran the quote, and closed. That's it.",
+    result: { value: "$52,000", label: "3 kitchen and bath jobs in 8 weeks" },
+    quote: "Every homeowner already had a budget and a start date in mind. I showed up, ran the quote, and closed. That's it.",
     team: "Nam D.",
     description: "Kitchen & Bath Remodeler",
     logoImage: "/images/ace-bath-logo.png",
     website: "https://acebath.ca/",
   },
+  {
+    id: "quote1",
+    type: "quote",
+    result: { value: "$500/mo", label: "Flat. No setup fees. No surprises." },
+    quote: "We use FlowQualify because it gives us clear insights on every lead. $500 a month, and we get a calendar full of homeowners who already know their budget and timeline. It's the simplest decision we've made for our business.",
+  },
 ];
+
+const domain = (url: string) => url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+
+function ResultHead({ result, size = "md" }: { result: Result; size?: "lg" | "md" }) {
+  return (
+    <div className="tm-result">
+      <div className={`tm-result-value${size === "lg" ? " tm-result-value-lg" : ""}`}>{result.value}</div>
+      <div className="tm-result-label">{result.label}</div>
+    </div>
+  );
+}
+
+function Quote({ text }: { text: string }) {
+  return <p className="tm-quote">&ldquo;{text}&rdquo;</p>;
+}
 
 export default function Testimonials() {
   return (
@@ -110,61 +126,75 @@ export default function Testimonials() {
           line-height: 1.2;
           margin: 0 0 12px;
         }
-        .tm-sub { font-size: 16px; color: #64748B; line-height: 1.6; margin: 0; }
+        .tm-sub { font-size: 16px; color: #64748B; line-height: 1.6; margin: 0 auto; max-width: 520px; }
 
+        /* 3 columns: featured card + one beside it, then three across — no holes */
         .tm-grid {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(2, minmax(0, 1fr));
           gap: 20px;
         }
+        .tm-card-span-2 { grid-column: span 2; }
         @media (min-width: 900px) {
-          .tm-grid { grid-template-columns: repeat(3, 1fr); }
-          .tm-card-span-2 { grid-column: span 2; }
-          .tm-card-span-2-under { grid-column: 2 / span 2; }
+          .tm-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
         }
         @media (max-width: 600px) {
-          .tm-grid { grid-template-columns: 1fr; }
+          .tm-grid { grid-template-columns: 1fr; gap: 14px; }
           .tm-card-span-2 { grid-column: span 1; }
-          .tm-card-span-2-under { grid-column: span 1; }
         }
 
         .tm-card {
-          background: #F8FAFC;
+          display: flex;
+          flex-direction: column;
+          background: #FFFFFF;
           border: 1px solid #E2E8F0;
           border-radius: 16px;
           padding: 24px 26px;
-          box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-          transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+          box-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 12px 28px -18px rgba(49,46,129,0.18);
           position: relative;
           overflow: hidden;
         }
-        .tm-card:hover {
-          border-color: #CBD5E1;
-          box-shadow: 0 8px 28px rgba(0,0,0,0.08);
-          transform: translateY(-2px);
+
+        .tm-result {
+          margin-bottom: 14px;
+          padding-bottom: 14px;
+          border-bottom: 1px solid #EEF2F7;
+        }
+        .tm-result-value {
+          font-size: 30px;
+          font-weight: 800;
+          color: rgb(79, 70, 229);
+          letter-spacing: -0.03em;
+          line-height: 1.1;
+          font-variant-numeric: tabular-nums;
+        }
+        .tm-result-value-lg { font-size: 42px; letter-spacing: -0.04em; line-height: 1; }
+        .tm-result-label { font-size: 14px; font-weight: 600; color: #64748B; margin-top: 6px; }
+
+        .tm-quote {
+          flex-grow: 1;
+          font-size: 15px;
+          color: #334155;
+          line-height: 1.65;
+          margin: 0;
         }
 
-        .tm-metric-value {
-          font-size: 42px;
-          font-weight: 900;
-          color: rgb(79, 70, 229);
-          letter-spacing: -0.04em;
-          line-height: 1;
-          margin-bottom: 4px;
-        }
-        .tm-metric-label { font-size: 14px; font-weight: 600; color: #64748B; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid #E2E8F0; }
         .tm-metric-card-inner {
           display: flex;
           gap: 28px;
           align-items: stretch;
+          height: 100%;
         }
-        .tm-metric-card-left { flex: 1; min-width: 0; }
+        .tm-metric-card-left { flex: 1; min-width: 0; display: flex; flex-direction: column; }
         .tm-metric-card-right {
           flex-shrink: 0;
           display: flex;
           flex-direction: column;
           align-items: center;
+          justify-content: center;
           text-align: center;
+          padding-left: 28px;
+          border-left: 1px solid #EEF2F7;
         }
         .tm-metric-photo {
           width: 100px;
@@ -176,38 +206,16 @@ export default function Testimonials() {
         }
         .tm-metric-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .tm-metric-author-name { font-size: 14px; font-weight: 800; color: #0F172A; margin: 0; }
-        .tm-metric-author-link { font-size: 13px; font-weight: 600; color: rgb(79, 70, 229); text-decoration: none; margin-top: 4px; }
-        .tm-metric-author-link:hover { text-decoration: underline; }
-        @media (max-width: 768px) {
-          .tm-metric-card-inner { flex-direction: column; gap: 20px; }
-          .tm-metric-card-right { align-items: flex-start; text-align: left; }
-          .tm-metric-value { font-size: 36px; }
-          .tm-metric-photo { width: 80px; height: 80px; }
-          .tm-card.tm-card-span-2 { padding: 20px 22px; }
-        }
-        @media (max-width: 640px) {
-          .tm-metric-card-inner { gap: 18px; }
-          .tm-metric-value { font-size: 32px; }
-          .tm-metric-photo { width: 72px; height: 72px; }
-        }
-        .tm-quote-card-title { font-size: 24px; font-weight: 800; color: rgb(79, 70, 229); letter-spacing: -0.02em; margin: 0 0 4px; }
-        .tm-quote-card-label { font-size: 14px; font-weight: 600; color: #64748B; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid #E2E8F0; }
-        .tm-quote-card-title.tm-quote-card-title-alone { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid #E2E8F0; }
-        .tm-quote {
-          font-size: 15px;
-          color: #334155;
-          line-height: 1.65;
-          margin: 0;
-        }
-        .tm-quote-mark { color: #E2E8F0; }
+        .tm-metric-card-right .tm-who { display: flex; flex-direction: column; align-items: inherit; }
+        .tm-card-span-2 .tm-quote { font-size: 17px; line-height: 1.6; color: #1E293B; }
 
-        .tm-profile-footer {
+        .tm-footer {
           display: flex;
           align-items: center;
           gap: 12px;
           margin-top: 20px;
           padding-top: 18px;
-          border-top: 1px solid #F1F5F9;
+          border-top: 1px solid #EEF2F7;
         }
         .tm-avatar {
           width: 44px;
@@ -215,7 +223,7 @@ export default function Testimonials() {
           border-radius: 50%;
           overflow: hidden;
           flex-shrink: 0;
-          background: #E2E8F0;
+          background: #F1F5F9;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -224,54 +232,65 @@ export default function Testimonials() {
           color: #64748B;
         }
         .tm-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .tm-who { min-width: 0; }
         .tm-name { font-size: 14px; font-weight: 800; color: #0F172A; }
         .tm-handle { font-size: 12px; color: #64748B; margin-top: 1px; }
         .tm-link {
           font-size: 13px; font-weight: 600;
           color: rgb(79, 70, 229);
           text-decoration: none;
-          margin-left: auto;
+          white-space: nowrap;
+          border-radius: 4px;
+          transition: color 0.15s ease;
         }
-        .tm-link:hover { text-decoration: underline; }
+        .tm-footer .tm-link { margin-left: auto; }
+        .tm-link:hover { color: rgb(67, 56, 202); text-decoration: underline; }
+        .tm-link:active { color: rgb(55, 48, 163); }
+        .tm-link:focus-visible { outline: 2px solid rgb(79, 70, 229); outline-offset: 2px; }
+        .tm-metric-card-right .tm-link { margin-top: 4px; }
 
-        .tm-team-row {
-          display: flex;
-          align-items: flex-end;
-          gap: 10px;
-          margin-top: 18px;
-          padding-top: 18px;
-          border-top: 1px solid #F1F5F9;
+        .tm-price-card { background: linear-gradient(160deg, #F5F4FF 0%, #ECEBFE 100%); border-color: rgba(79,70,229,0.18); }
+        .tm-price-card .tm-result { border-bottom-color: rgba(79,70,229,0.14); }
+
+        @media (max-width: 768px) {
+          .tm-metric-card-inner { flex-direction: column; gap: 0; }
+          .tm-metric-card-right {
+            flex-direction: row;
+            justify-content: flex-start;
+            gap: 12px;
+            text-align: left;
+            padding: 18px 0 0;
+            margin-top: 20px;
+            border-left: 0;
+            border-top: 1px solid #EEF2F7;
+          }
+          .tm-metric-photo { width: 44px; height: 44px; margin: 0; flex-shrink: 0; }
+          .tm-metric-card-right .tm-who { align-items: flex-start; }
+          .tm-metric-card-right .tm-link { margin-top: 2px; }
+          .tm-result-value-lg { font-size: 36px; }
+          .tm-card-span-2 .tm-quote { font-size: 16px; }
         }
-        .tm-team-logo {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          background: #F1F5F9;
-          flex-shrink: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 18px;
-          font-weight: 800;
-          color: rgb(79, 70, 229);
-          overflow: hidden;
+        @media (max-width: 600px) {
+          #testimonials { padding: 64px 16px 72px !important; }
+          .tm-header { margin-bottom: 32px; }
+          .tm-sub { font-size: 15px; }
+          .tm-card { padding: 20px; }
+          .tm-result-value { font-size: 28px; }
+          .tm-result-value-lg { font-size: 32px; }
+          .tm-quote, .tm-card-span-2 .tm-quote { font-size: 15px; }
+          .tm-link { font-size: 12.5px; }
         }
-        .tm-team-logo img { display: block; }
-        .tm-team-text {
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
-          min-height: 40px;
+        @media (max-width: 380px) {
+          .tm-footer { flex-wrap: wrap; }
+          .tm-footer .tm-link { margin-left: 56px; }
         }
-        .tm-team-name { font-size: 14px; font-weight: 800; color: #0F172A; }
-        .tm-team-desc { font-size: 12px; color: #64748B; margin-top: 1px; }
       `}</style>
 
       <div className="tm-wrap">
         <div className="tm-header">
           <h2 className="tm-title">Trusted by remodelers. <span style={{ color: "rgb(79, 70, 229)" }}>Proven</span> in the field.</h2>
           <p className="tm-sub">
-            Contractors are booking more qualified calls with less back-and-forth. Here&apos;s what they&apos;re saying.
+            Real numbers from kitchen and bath remodelers who hand their leads to FlowQualify.
           </p>
         </div>
 
@@ -283,13 +302,8 @@ export default function Testimonials() {
                 <div key={card.id} className="tm-card tm-card-span-2">
                   <div className="tm-metric-card-inner">
                     <div className="tm-metric-card-left">
-                      <div className="tm-metric-value">{card.value}</div>
-                      <div className="tm-metric-label">{card.label}</div>
-                      <p className="tm-quote">
-                        <span className="tm-quote-mark">&ldquo;</span>
-                        {card.quote}
-                        <span className="tm-quote-mark">&rdquo;</span>
-                      </p>
+                      <ResultHead result={card.result} size="lg" />
+                      <Quote text={card.quote} />
                     </div>
                     {hasRight && (
                       <div className="tm-metric-card-right">
@@ -302,12 +316,14 @@ export default function Testimonials() {
                             style={{ objectFit: "cover", width: "100%", height: "100%" }}
                           />
                         </div>
-                        <div className="tm-metric-author-name">{card.authorName}</div>
-                        {card.website != null ? (
-                          <a href={card.website} target="_blank" rel="noopener noreferrer" className="tm-metric-author-link">
-                            {card.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
-                          </a>
-                        ) : null}
+                        <div className="tm-who">
+                          <div className="tm-metric-author-name">{card.authorName}</div>
+                          {card.website != null ? (
+                            <a href={card.website} target="_blank" rel="noopener noreferrer" className="tm-link">
+                              {domain(card.website)}
+                            </a>
+                          ) : null}
+                        </div>
                       </div>
                     )}
                   </div>
@@ -323,12 +339,9 @@ export default function Testimonials() {
                 .toUpperCase();
               return (
                 <div key={card.id} className="tm-card">
-                  <p className="tm-quote">
-                    <span className="tm-quote-mark">&ldquo;</span>
-                    {card.quote}
-                    <span className="tm-quote-mark">&rdquo;</span>
-                  </p>
-                  <div className="tm-profile-footer">
+                  <ResultHead result={card.result} />
+                  <Quote text={card.quote} />
+                  <div className="tm-footer">
                     <div className="tm-avatar">
                       {card.image ? (
                         <Image
@@ -342,18 +355,13 @@ export default function Testimonials() {
                         initials
                       )}
                     </div>
-                    <div>
+                    <div className="tm-who">
                       <div className="tm-name">{card.author.name}</div>
                       <div className="tm-handle">{card.author.handle}</div>
                     </div>
                     {card.author.website && (
-                      <a
-                        href={card.author.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="tm-link"
-                      >
-                        {card.author.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")} →
+                      <a href={card.author.website} target="_blank" rel="noopener noreferrer" className="tm-link">
+                        {domain(card.author.website)} →
                       </a>
                     )}
                   </div>
@@ -362,51 +370,38 @@ export default function Testimonials() {
             }
             if (card.type === "quote") {
               return (
-                <div key={card.id} className={`tm-card${card.id === "quote1" ? " tm-card-span-2" : ""}`}>
-                  {card.title != null && (
-                    <>
-                      <div className={`tm-quote-card-title${card.label == null ? " tm-quote-card-title-alone" : ""}`}>{card.title}</div>
-                      {card.label != null && <div className="tm-quote-card-label">{card.label}</div>}
-                    </>
-                  )}
-                  <p className="tm-quote">
-                    <span className="tm-quote-mark">&ldquo;</span>
-                    {card.quote}
-                    <span className="tm-quote-mark">&rdquo;</span>
-                  </p>
+                <div key={card.id} className="tm-card tm-price-card">
+                  <ResultHead result={card.result} />
+                  <Quote text={card.quote} />
                 </div>
               );
             }
             if (card.type === "team") {
-              const initial = card.team.charAt(0);
               return (
-                <div key={card.id} className={`tm-card${card.id === "team1" ? " tm-card-span-2 tm-card-span-2-under" : ""}`}>
-                  <p className="tm-quote">
-                    <span className="tm-quote-mark">&ldquo;</span>
-                    {card.quote}
-                    <span className="tm-quote-mark">&rdquo;</span>
-                  </p>
-                  <div className="tm-team-row">
-                    <div className="tm-team-logo">
+                <div key={card.id} className="tm-card">
+                  <ResultHead result={card.result} />
+                  <Quote text={card.quote} />
+                  <div className="tm-footer">
+                    <div className="tm-avatar">
                       {card.logoImage ? (
                         <Image
                           src={card.logoImage}
                           alt={card.team}
-                          width={40}
-                          height={40}
+                          width={44}
+                          height={44}
                           style={{ objectFit: "contain", width: "100%", height: "100%" }}
                         />
                       ) : (
-                        initial
+                        card.team.charAt(0)
                       )}
                     </div>
-                    <div className="tm-team-text">
-                      <div className="tm-team-name">{card.team}</div>
-                      <div className="tm-team-desc">{card.description}</div>
+                    <div className="tm-who">
+                      <div className="tm-name">{card.team}</div>
+                      <div className="tm-handle">{card.description}</div>
                     </div>
                     {card.website && (
-                      <a href={card.website} target="_blank" rel="noopener noreferrer" className="tm-link" style={{ marginLeft: "auto" }}>
-                        {card.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")} →
+                      <a href={card.website} target="_blank" rel="noopener noreferrer" className="tm-link">
+                        {domain(card.website)} →
                       </a>
                     )}
                   </div>

@@ -201,6 +201,18 @@ export default function ApplyPage() {
               font-weight: 700; font-size: 15px; color: #92400E;
               width: fit-content; margin: 0 auto;
             }
+            .apl-crm-inner, .apl-crm-branches, .apl-crm-tags, .apl-tag-row { display: flex; }
+            /* phones: the CRM box and its branches stack instead of sitting side by side,
+               which pushed the row ~30px past both edges of the screen */
+            @media (max-width: 640px) {
+              .apl-pill { padding: 12px 22px; font-size: 14px; }
+              .apl-crm-loop, .apl-crm-spacer, .apl-crm-bracket { display: none !important; }
+              .apl-crm-inner { flex-direction: column; gap: 10px !important; }
+              .apl-crm-box { padding: 12px 22px; font-size: 14px; }
+              .apl-crm-tags { align-items: center; }
+              .apl-tag-row { flex-wrap: wrap; justify-content: center; }
+              .apl-branch-tag { font-size: 12.5px; padding: 7px 12px; }
+            }
           `}</style>
 
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
@@ -219,29 +231,29 @@ export default function ApplyPage() {
 
             {/* CRM + branches row */}
             <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", gap: 0, width: "100%" }}>
-              <svg width="28" height="284" viewBox="0 0 28 284" fill="none" style={{ flexShrink: 0, marginTop: "6px", opacity: 0.3 }}>
+              <svg className="apl-crm-loop" width="28" height="284" viewBox="0 0 28 284" fill="none" style={{ flexShrink: 0, marginTop: "6px", opacity: 0.3 }}>
                 <path d="M 22 8 C 6 8 6 272 22 272" stroke="#64748B" strokeWidth="2" strokeDasharray="5 4" fill="none" strokeLinecap="round"/>
                 <polyline points="16,2 22,8 28,2" stroke="#64748B" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+                <div className="apl-crm-inner" style={{ alignItems: "center", gap: "16px" }}>
                   <div className="apl-crm-box">
                     <span style={{ fontSize: "18px" }}>⚙️</span> Auto Syncs Into CRM
                   </div>
-                  <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                    <svg width="24" height="108" viewBox="0 0 24 108" fill="none" style={{ flexShrink: 0 }}>
+                  <div className="apl-crm-branches" style={{ alignItems: "center", gap: "10px" }}>
+                    <svg className="apl-crm-bracket" width="24" height="108" viewBox="0 0 24 108" fill="none" style={{ flexShrink: 0 }}>
                       <line x1="2" y1="18" x2="22" y2="18" stroke="#CBD5E1" strokeWidth="1.5"/>
                       <line x1="2" y1="54" x2="22" y2="54" stroke="#CBD5E1" strokeWidth="1.5"/>
                       <line x1="2" y1="90" x2="22" y2="90" stroke="#CBD5E1" strokeWidth="1.5"/>
                       <line x1="2" y1="18" x2="2" y2="90" stroke="#CBD5E1" strokeWidth="1.5"/>
                     </svg>
-                    <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                      <div style={{ display: "flex", gap: "8px" }}>
+                    <div className="apl-crm-tags" style={{ flexDirection: "column", gap: "8px" }}>
+                      <div className="apl-tag-row" style={{ gap: "8px" }}>
                         <span className="apl-branch-tag">Lead Details</span>
                         <span className="apl-branch-tag">Photo Analysis</span>
                       </div>
                       <span className="apl-branch-tag">Estimator Brief</span>
-                      <div style={{ display: "flex", gap: "8px" }}>
+                      <div className="apl-tag-row" style={{ gap: "8px" }}>
                         <span className="apl-branch-tag">Auto Follow-Up</span>
                         <span className="apl-branch-tag">Raw Conversation</span>
                       </div>
@@ -261,7 +273,7 @@ export default function ApplyPage() {
                   <span style={{ fontSize: "18px" }}>🧍</span> Walk In Prepared
                 </div>
               </div>
-              <div style={{ width: "28px", flexShrink: 0 }} />
+              <div className="apl-crm-spacer" style={{ width: "28px", flexShrink: 0 }} />
             </div>
           </div>
         </div>

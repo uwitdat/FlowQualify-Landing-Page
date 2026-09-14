@@ -70,6 +70,15 @@ export default function DoorCta() {
         .door-cta-btn:hover .door-cta-arrow {
           transform: translateX(3px);
         }
+        .door-cta-btn:active { transform: scale(0.98); }
+        .door-cta-btn:focus-visible { outline: 2px solid ${BUTTON_PRIMARY}; outline-offset: 3px; }
+        @media (max-width: 640px) {
+          .door-cta-section { padding: 48px 20px 64px; }
+          .door-cta-visual svg { width: 210px; height: 180px; }
+          .door-cta-headline { font-size: 30px; margin: 16px 0 14px; }
+          .door-cta-sub { font-size: 15.5px; margin-bottom: 28px; }
+          .door-cta-btn { width: 100%; max-width: 360px; justify-content: center; padding: 16px 24px; }
+        }
       `}</style>
 
       <section className="door-cta-section">
@@ -105,7 +114,7 @@ export default function DoorCta() {
         </svg>
         </div>
 
-        <h2 className="door-cta-headline">Get started — right away.</h2>
+        <h2 className="door-cta-headline">Get started&nbsp;— right away.</h2>
         <p className="door-cta-sub">
           Tell us about your business. We'll reach out within 24 hours to see if we're a fit.
         </p>

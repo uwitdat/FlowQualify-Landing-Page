@@ -89,6 +89,13 @@ export default function PitchBanner() {
           opacity: 0;
           transform: translateY(-6px);
         }
+        @media (max-width: 640px) {
+          .pb-section { padding-bottom: 40px; }
+          .pb-curve { padding: 44px 0; border-radius: 20px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .pb-content, .pb-word { transition-duration: 0.01ms; }
+        }
       `}</style>
       <div
         ref={sectionRef}

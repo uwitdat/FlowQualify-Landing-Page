@@ -8,7 +8,9 @@ export default function Footer() {
         .footer-link {
           font-size: 13px; font-weight: 500; color: #64748B;
           text-decoration: none; transition: color 0.15s;
+          display: inline-block; padding: 12px 6px; /* 44px tap target */
         }
+        .footer-link:focus-visible { outline: 2px solid ${BUTTON_PRIMARY}; outline-offset: -4px; border-radius: 6px; }
         .footer-link:hover { color: ${BUTTON_PRIMARY}; }
       `}</style>
 

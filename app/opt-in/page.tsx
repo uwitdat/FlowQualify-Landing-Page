@@ -45,7 +45,8 @@ export default function OptInPage() {
 
         @media (max-width: 640px) {
           .opt-in-content { padding-top: 60px !important; padding-left: 20px !important; padding-right: 20px !important; padding-bottom: 100px !important; }
-          .opt-in-h1 { font-size: 22px !important; margin-bottom: 14px !important; }
+          .opt-in-attn { font-size: 15px !important; letter-spacing: 0.02em !important; margin-bottom: 12px !important; }
+          .opt-in-h1 { font-size: 24px !important; margin-bottom: 14px !important; }
           .opt-in-price { font-size: 20px !important; margin-bottom: 14px !important; }
           .opt-in-cta-btn { width: 100% !important; padding: 16px 24px !important; font-size: 17px !important; }
           .proof-section { padding: 44px 20px 44px; }
@@ -77,7 +78,7 @@ export default function OptInPage() {
         }}
       >
         {/* Attention */}
-        <p style={{
+        <p className="opt-in-attn" style={{
           textAlign: "center",
           fontSize: "clamp(20px, 2.8vw, 28px)",
           fontWeight: 900,

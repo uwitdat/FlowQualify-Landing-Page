@@ -4,7 +4,6 @@ import HowItWorks from "./sections/how-it-works";
 import Testimonials from "./sections/testimonials";
 import DoorCta from "./sections/door-cta";
 import PerformanceMetrics from "./sections/performance-metrics";
-import AdSpendGrowth from "./sections/ad-spend-growth";
 import FadeIn from "./components/fade-in";
 import Footer from "./components/footer";
 import StripeLayoutWrapper from "./components/StripeLayoutWrapper";
@@ -12,7 +11,7 @@ import StripeSectionWrapper from "./components/StripeSectionWrapper";
 
 import { META_DESCRIPTION } from "./config/constants";
 import PitchBanner from "./sections/pitch-banner";
-import AppPanels from "./sections/app-panels";
+import PlatformTour from "./sections/platform-tour";
 //
 
 export const metadata = {
@@ -26,7 +25,7 @@ export default function Home() {
       <Hero />
       <StripeSectionWrapper>
         <PitchBanner />
-        <AppPanels />
+        <PlatformTour />
       </StripeSectionWrapper>
       <StripeLayoutWrapper>
         <FadeIn>
@@ -38,9 +37,6 @@ export default function Home() {
         <Benchmarks />
         <FadeIn>
           <PerformanceMetrics />
-        </FadeIn>
-        <FadeIn>
-          <AdSpendGrowth />
         </FadeIn>
         <FadeIn>
           <DoorCta />

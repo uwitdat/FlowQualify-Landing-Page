@@ -56,6 +56,10 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Even out heading lines and avoid one-word last lines — matters most on phones */
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+
 body {
   background: var(--page-bg);
   color: var(--foreground);

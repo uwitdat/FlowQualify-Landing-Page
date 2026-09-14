@@ -61,8 +61,6 @@ VSL4.mp4
 # Development screenshots (working copies)
 temporary screenshots/
 
-# Next.js app remnants
-app/
 
 # Development/utility scripts
 *.mjs

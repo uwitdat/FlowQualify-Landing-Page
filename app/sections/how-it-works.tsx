@@ -36,6 +36,10 @@ function useTypewriter(totalChars: number, active: boolean, charDelayMs = 28) {
   useEffect(() => {
     if (!active || startedRef.current) return;
     startedRef.current = true;
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const t = setTimeout(() => setVisibleChars(totalChars), 0);
+      return () => clearTimeout(t);
+    }
     let count = 0;
     const id = setInterval(() => {
       count += 1;
@@ -112,7 +116,8 @@ export default function HowItWorks() {
   const p2Len = P2_PARTS.map((p) => p.text).join("").length;
   const totalChars = p1Len + p2Len;
   const p2Start = p1Len;
-  const visibleChars = useTypewriter(totalChars, inView, 26);
+  // Finish in ~2.4s so it's fully typed before a phone visitor scrolls past.
+  const visibleChars = useTypewriter(totalChars, inView, Math.min(26, 2400 / totalChars));
 
   return (
     <>
@@ -169,9 +174,9 @@ export default function HowItWorks() {
         }
         .hiw2-grid-sq { fill: rgba(156, 163, 175, 0.06); }
         @media (max-width: 540px) {
-          .hiw2-section { padding: 60px 18px; }
-          .hiw2-p1, .hiw2-main { font-size: 22px; }
-          .hiw2-p1 { margin-bottom: 40px; }
+          .hiw2-section { padding: 64px 20px; }
+          .hiw2-p1, .hiw2-main { font-size: 23px; line-height: 1.3; }
+          .hiw2-p1 { margin-bottom: 28px; }
         }
       `}</style>
 

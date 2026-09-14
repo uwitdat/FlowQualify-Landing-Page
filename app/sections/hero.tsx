@@ -152,6 +152,11 @@ export const Hero = () => {
           white-space: nowrap;
           border: 1px solid ${BUTTON_PRIMARY};
         }
+        .hero-btn-primary:focus-visible, .hero-btn-ghost:focus-visible {
+          outline: 2px solid ${BUTTON_PRIMARY};
+          outline-offset: 3px;
+        }
+        .hero-btn-primary:active, .hero-btn-ghost:active { transform: scale(0.98); }
         .hero-btn-primary:hover {
           transform: translateY(-2px);
           background: ${BUTTON_PRIMARY_HOVER};
@@ -305,11 +310,13 @@ export const Hero = () => {
           .hero-right-col { display: none; }
         }
         @media (max-width: 520px) {
-          .hero-h1 { margin-bottom: 18px; }
-          .hero-subhead { font-size: 14px; margin-bottom: 22px; }
+          .hero-h1 { margin-bottom: 16px; }
+          .hero-subhead { font-size: 15px; margin-bottom: 24px; }
           .hero-cta-row { margin-bottom: 20px; }
-          .hero-tagline { display: none; }
-          .hero-btn-primary, .hero-btn-ghost { font-size: 13px; padding: 9px 16px; }
+          /* keep the $500/mo hook on phones — it's the offer */
+          .hero-tagline { display: block; text-align: center; text-wrap: balance; font-size: 12.5px; letter-spacing: 0.01em; margin: 0 auto 14px; }
+          .hero-tagline svg { display: none; }
+          .hero-btn-primary, .hero-btn-ghost { font-size: 15px; padding: 0 22px; min-height: 48px; }
           .hero-stat-row { flex-direction: row; flex-wrap: nowrap; justify-content: center; gap: 12px; margin-top: 28px; }
           .hero-stat-card { flex: none; max-width: none; min-width: 0; padding: 0; background: transparent; border-left: none; border-radius: 0; box-shadow: none; }
           .hero-stat-card:nth-child(1), .hero-stat-card:nth-child(2), .hero-stat-card:nth-child(3) { background: transparent; }
@@ -327,10 +334,10 @@ export const Hero = () => {
           .hero-section { padding: 72px 16px 24px; overflow-x: hidden; }
           .hero-container { overflow-x: hidden; flex: 1; min-height: 0; }
           .hero-left { margin: 0; padding: 0; }
-          .hero-h1 { font-size: 26px; margin-bottom: 16px; }
-          .hero-subhead { font-size: 13px; margin-bottom: 20px; line-height: 1.55; }
+          .hero-h1 { font-size: 28px; margin-bottom: 14px; }
+          .hero-subhead { font-size: 14.5px; margin-bottom: 22px; line-height: 1.55; }
           .hero-cta-row { margin-bottom: 20px; gap: 8px; }
-          .hero-btn-primary, .hero-btn-ghost { font-size: 12px; padding: 8px 14px; }
+          .hero-btn-primary, .hero-btn-ghost { font-size: 14.5px; padding: 0 18px; min-height: 48px; }
           .hero-stat-row { margin-top: 24px; }
           .hero-right-col { display: none; }
         }
