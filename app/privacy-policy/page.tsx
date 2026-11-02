@@ -20,11 +20,15 @@ export default function PrivacyPolicy() {
         <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
           {COMPANY_NAME} Privacy Policy
         </h1>
+        <p className="mt-4 text-lg text-text-secondary">
+          <strong className="text-foreground">Last updated:</strong> November 2026
+        </p>
         <div className="mt-10 space-y-6 text-lg text-text-secondary">
           <p>
             {COMPANY_NAME} processes messages sent to Facebook Pages and
-            Instagram accounts in order to provide automated responses on behalf
-            of businesses.
+            Instagram accounts, and text messages (SMS) with people who ask the
+            businesses we work with for a quote, in order to provide automated
+            responses on behalf of those businesses.
           </p>
 
           <h2 className="mt-8 text-xl font-semibold text-foreground">
@@ -45,6 +49,38 @@ export default function PrivacyPolicy() {
             respond to inquiries and improve service quality. We do not use this
             data for advertising or share it with third parties for their
             marketing.
+          </p>
+
+          <h2 className="mt-8 text-xl font-semibold text-foreground">
+            Text messaging (SMS)
+          </h2>
+          <p>
+            When someone asks a business that uses {COMPANY_NAME} for a quote
+            (for example, through a Facebook or Instagram lead form or a website
+            form) and agrees to be contacted by text, we receive their name,
+            mobile number, and the project details they submitted. We use this
+            information, and the text messages exchanged, only to follow up on
+            that request on the business’s behalf, to schedule next steps, and to
+            show the conversation to that business. Messages are delivered
+            through our SMS provider. We also send account notifications, such as
+            new-lead alerts, to the mobile numbers businesses give us.
+          </p>
+          <p>
+            No mobile information will be shared with third parties or affiliates
+            for marketing or promotional purposes. Text messaging opt-in data and
+            consent are excluded from any other sharing described in this policy
+            and will not be shared with any third parties.
+          </p>
+          <p>
+            You can stop receiving text messages at any time by replying STOP.
+            Reply HELP for help, or contact us at{" "}
+            <a
+              href="mailto:ben@flowqualify.app"
+              className="text-accent hover:underline"
+            >
+              ben@flowqualify.app
+            </a>
+            . Message and data rates may apply.
           </p>
 
           <h2 className="mt-8 text-xl font-semibold text-foreground">
@@ -128,16 +164,17 @@ export default function PrivacyPolicy() {
           </h2>
           <p>
             If you messaged a Facebook Page or Instagram account that uses{" "}
-            {COMPANY_NAME} and want your conversation data deleted, contact us
-            at{" "}
+            {COMPANY_NAME}, or texted with a business that uses it, and want your
+            conversation data deleted, contact us at{" "}
             <a
-              href="mailto:support@flowqualify.app"
+              href="mailto:ben@flowqualify.app"
               className="text-accent hover:underline"
             >
-              support@flowqualify.app
+              ben@flowqualify.app
             </a>
-            . Please include the Facebook or Instagram account you used, or the
-            name/handle of the Page or Instagram account you messaged. We will
+            . Please include the Facebook or Instagram account you used, the
+            name/handle of the Page or Instagram account you messaged, or the
+            mobile number you texted from. We will
             process your request and delete your data within 30 days. For more
             details, see our{" "}
             <Link href="/data-deletion" className="text-accent hover:underline">
@@ -154,8 +191,22 @@ export default function PrivacyPolicy() {
             standard security practices.
           </p>
 
+          <h2 className="mt-8 text-xl font-semibold text-foreground">
+            Contact
+          </h2>
+          <p>
+            FlowQualify Inc., 2-181 Parktree Dr, Vaughan, Ontario L6A 5B1,
+            Canada.{" "}
+            <a
+              href="mailto:ben@flowqualify.app"
+              className="text-accent hover:underline"
+            >
+              ben@flowqualify.app
+            </a>
+          </p>
+
           <p className="mt-10 text-base text-text-secondary/80">
-            © 2026 FlowQualify, Inc. All rights reserved.
+            © 2026 FlowQualify Inc. All rights reserved.
           </p>
         </div>
       </div>

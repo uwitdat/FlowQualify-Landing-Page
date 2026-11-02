@@ -21,7 +21,7 @@ export default function TermsOfService() {
           Terms of Service
         </h1>
         <p className="mt-4 text-lg text-text-secondary">
-          <strong className="text-foreground">Last updated:</strong> February 2026
+          <strong className="text-foreground">Last updated:</strong> November 2026
         </p>
 
         <div className="mt-10 space-y-6 text-lg text-text-secondary">
@@ -177,7 +177,62 @@ export default function TermsOfService() {
           <hr className="border-border" />
 
           <h2 className="mt-8 text-xl font-semibold text-foreground">
-            7. Third-Party Services
+            7. SMS Messaging Program
+          </h2>
+          <p>
+            When you ask a home-renovation business that uses {COMPANY_NAME}{" "}
+            for a quote or estimate (for example, through a Facebook or
+            Instagram lead form or a website form) and agree to be contacted by
+            text, you will receive text messages from, or sent by{" "}
+            {COMPANY_NAME} on behalf of, that business about your request. These
+            include questions about your project, follow-ups, and help
+            scheduling next steps. Businesses that use {COMPANY_NAME} may also
+            receive account notifications, such as new-lead alerts, at the
+            mobile number they provide.
+          </p>
+          <ul className="list-disc space-y-2 pl-6">
+            <li>Message frequency varies.</li>
+            <li>Message and data rates may apply.</li>
+            <li>
+              Reply <strong className="text-foreground">STOP</strong> at any time
+              to stop receiving messages. You will receive one message confirming
+              you have opted out, and no further messages after that.
+            </li>
+            <li>
+              Reply <strong className="text-foreground">HELP</strong> for help, or
+              contact us at{" "}
+              <a
+                href="mailto:ben@flowqualify.app"
+                className="text-accent hover:underline"
+              >
+                ben@flowqualify.app
+              </a>
+              .
+            </li>
+            <li>
+              Agreeing to receive text messages is not a condition of any
+              purchase.
+            </li>
+            <li>
+              Carriers are not liable for delayed or undelivered messages.
+            </li>
+            <li>
+              How we handle your mobile number and messages is described in our{" "}
+              <Link
+                href="/privacy-policy"
+                className="text-accent hover:underline"
+              >
+                Privacy Policy
+              </Link>
+              . We do not share mobile numbers or text messaging opt-in data
+              with third parties for marketing purposes.
+            </li>
+          </ul>
+
+          <hr className="border-border" />
+
+          <h2 className="mt-8 text-xl font-semibold text-foreground">
+            8. Third-Party Services
           </h2>
           <p>
             The Service may integrate with or link to third-party services (e.g.,
@@ -190,7 +245,7 @@ export default function TermsOfService() {
           <hr className="border-border" />
 
           <h2 className="mt-8 text-xl font-semibold text-white">
-            8. Google Calendar integration
+            9. Google Calendar integration
           </h2>
 
           <h3 className="mt-6 text-lg font-semibold text-white">
@@ -242,7 +297,7 @@ export default function TermsOfService() {
           <hr className="border-white/10" />
 
           <h2 className="mt-8 text-xl font-semibold text-white">
-            9. Intellectual Property
+            10. Intellectual Property
           </h2>
           <p>
             We own or license the Service, including its design, software, and
@@ -256,7 +311,7 @@ export default function TermsOfService() {
           <hr className="border-border" />
 
           <h2 className="mt-8 text-xl font-semibold text-white">
-            10. Disclaimers
+            11. Disclaimers
           </h2>
           <p className="uppercase tracking-wide text-foreground/90">
             THE SERVICE IS PROVIDED “AS IS” AND “AS AVAILABLE.” WE DISCLAIM ALL
@@ -269,7 +324,7 @@ export default function TermsOfService() {
           <hr className="border-border" />
 
           <h2 className="mt-8 text-xl font-semibold text-foreground">
-            11. Limitation of Liability
+            12. Limitation of Liability
           </h2>
           <p className="uppercase tracking-wide text-foreground/90">
             TO THE MAXIMUM EXTENT PERMITTED BY LAW, FLOWQUALIFY AND ITS
@@ -286,7 +341,7 @@ export default function TermsOfService() {
           <hr className="border-border" />
 
           <h2 className="mt-8 text-xl font-semibold text-white">
-            12. Indemnification
+            13. Indemnification
           </h2>
           <p>
             You agree to indemnify and hold harmless {COMPANY_NAME} and its
@@ -301,7 +356,7 @@ export default function TermsOfService() {
           <hr className="border-border" />
 
           <h2 className="mt-8 text-xl font-semibold text-white">
-            13. Changes to the Terms
+            14. Changes to the Terms
           </h2>
           <p>
             We may update these Terms from time to time. We will post the
@@ -314,14 +369,14 @@ export default function TermsOfService() {
           <hr className="border-border" />
 
           <h2 className="mt-8 text-xl font-semibold text-white">
-            14. General
+            15. General
           </h2>
           <ul className="list-disc space-y-2 pl-6">
             <li>
               <strong className="text-foreground">Governing law.</strong> These
-              Terms are governed by the laws of the jurisdiction in which{" "}
-              {COMPANY_NAME} operates, without regard to conflict of law
-              principles.
+              Terms are governed by the laws of the Province of Ontario and the
+              federal laws of Canada applicable therein, without regard to
+              conflict of law principles.
             </li>
             <li>
               <strong className="text-foreground">Entire agreement.</strong> These
@@ -336,12 +391,13 @@ export default function TermsOfService() {
             </li>
             <li>
               <strong className="text-foreground">Contact.</strong> For questions
-              about these Terms or the Service, contact us at{" "}
+              about these Terms or the Service, contact FlowQualify Inc., 2-181
+              Parktree Dr, Vaughan, Ontario L6A 5B1, Canada, at{" "}
               <a
-                href="mailto:emails@flowqualify.app"
+                href="mailto:ben@flowqualify.app"
                 className="text-accent hover:underline"
               >
-                emails@flowqualify.app
+                ben@flowqualify.app
               </a>
               .
             </li>
@@ -350,7 +406,7 @@ export default function TermsOfService() {
           <hr className="border-border" />
 
           <p className="mt-10 text-base text-text-secondary/80">
-            © {COMPANY_NAME}. All rights reserved.
+            © 2026 FlowQualify Inc. All rights reserved.
           </p>
         </div>
       </div>
