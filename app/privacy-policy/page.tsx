@@ -21,7 +21,7 @@ export default function PrivacyPolicy() {
           {COMPANY_NAME} Privacy Policy
         </h1>
         <p className="mt-4 text-lg text-text-secondary">
-          <strong className="text-foreground">Last updated:</strong> November 2026
+          <strong className="text-foreground">Last updated:</strong> November 2, 2026
         </p>
         <div className="mt-10 space-y-6 text-lg text-text-secondary">
           <p>
@@ -55,32 +55,39 @@ export default function PrivacyPolicy() {
             Text messaging (SMS)
           </h2>
           <p>
-            When someone asks a business that uses {COMPANY_NAME} for a quote
-            (for example, through a Facebook or Instagram lead form or a website
-            form) and agrees to be contacted by text, we receive their name,
-            mobile number, and the project details they submitted. We use this
-            information, and the text messages exchanged, only to follow up on
-            that request on the business’s behalf, to schedule next steps, and to
-            show the conversation to that business. Messages are delivered
-            through our SMS provider. We also send account notifications, such as
-            new-lead alerts, to the mobile numbers businesses give us.
+            <strong className="text-foreground">FlowQualify lead alerts.</strong>{" "}
+            Businesses that use {COMPANY_NAME} can choose to receive text alerts
+            about their own new leads by entering their mobile number in their
+            account settings. We use that number only to send those alerts.
           </p>
           <p>
-            No mobile information will be shared with third parties or affiliates
-            for marketing or promotional purposes. Text messaging opt-in data and
-            consent are excluded from any other sharing described in this policy
-            and will not be shared with any third parties.
+            <strong className="text-foreground">Texts from businesses that use {COMPANY_NAME}.</strong>{" "}
+            When you ask a business for a quote and agree to be texted by that
+            business, the business uses {COMPANY_NAME} to text you about your
+            request. We process your name, mobile number, project details and
+            the messages exchanged only to provide that conversation to that
+            business. We never sell leads or contact details, and we don&apos;t
+            use them for anyone else.
           </p>
           <p>
-            You can stop receiving text messages at any time by replying STOP.
-            Reply HELP for help, or contact us at{" "}
+            We do not share, sell, or provide your mobile phone number or text
+            messaging opt-in and consent data to third parties or affiliates for
+            marketing or promotional purposes. Text messaging opt-in data and
+            consent are excluded from any other sharing described in this
+            policy. Messages are delivered through our SMS provider only to send
+            them.
+          </p>
+          <p>
+            Message frequency varies. Message and data rates may apply. Reply
+            STOP at any time to stop receiving texts, or HELP for help. You can
+            also contact us at{" "}
             <a
               href="mailto:ben@flowqualify.app"
               className="text-accent hover:underline"
             >
               ben@flowqualify.app
             </a>
-            . Message and data rates may apply.
+            .
           </p>
 
           <h2 className="mt-8 text-xl font-semibold text-foreground">

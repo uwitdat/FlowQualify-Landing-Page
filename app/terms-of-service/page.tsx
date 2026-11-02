@@ -21,7 +21,7 @@ export default function TermsOfService() {
           Terms of Service
         </h1>
         <p className="mt-4 text-lg text-text-secondary">
-          <strong className="text-foreground">Last updated:</strong> November 2026
+          <strong className="text-foreground">Last updated:</strong> November 2, 2026
         </p>
 
         <div className="mt-10 space-y-6 text-lg text-text-secondary">
@@ -177,18 +177,25 @@ export default function TermsOfService() {
           <hr className="border-border" />
 
           <h2 className="mt-8 text-xl font-semibold text-foreground">
-            7. SMS Messaging Program
+            7. SMS Terms: FlowQualify Lead Alerts
           </h2>
           <p>
-            When you ask a home-renovation business that uses {COMPANY_NAME}{" "}
-            for a quote or estimate (for example, through a Facebook or
-            Instagram lead form or a website form) and agree to be contacted by
-            text, you will receive text messages from, or sent by{" "}
-            {COMPANY_NAME} on behalf of, that business about your request. These
-            include questions about your project, follow-ups, and help
-            scheduling next steps. Businesses that use {COMPANY_NAME} may also
-            receive account notifications, such as new-lead alerts, at the
-            mobile number they provide.
+            <strong className="text-foreground">Program.</strong>{" "}
+            FlowQualify Lead Alerts sends account notifications to businesses
+            that use {COMPANY_NAME}: a text when a new lead arrives for their
+            business, and another when that lead is ready for their call, with a
+            link to the lead in their {COMPANY_NAME} account. You join by
+            entering your mobile number for lead alerts in your account
+            settings, where these terms are shown. Joining is separate from, and
+            not required by, your service agreement.
+          </p>
+          <p>
+            <strong className="text-foreground">Texts from businesses using {COMPANY_NAME}.</strong>{" "}
+            A homeowner who asks a business for a quote and agrees to be texted
+            by that business receives texts from that business about their
+            request, sent through {COMPANY_NAME}. That business is the sender and
+            its own terms apply; {COMPANY_NAME} does not sell, rent or share
+            leads or contact details.
           </p>
           <ul className="list-disc space-y-2 pl-6">
             <li>Message frequency varies.</li>
@@ -224,8 +231,9 @@ export default function TermsOfService() {
               >
                 Privacy Policy
               </Link>
-              . We do not share mobile numbers or text messaging opt-in data
-              with third parties for marketing purposes.
+              . We do not share, sell, or provide your mobile phone number or
+              text messaging opt-in and consent data to third parties or
+              affiliates for marketing or promotional purposes.
             </li>
           </ul>
 
