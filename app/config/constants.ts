@@ -1,11 +1,13 @@
 export const COMPANY_NAME = "FlowQualify";
 export const COMPANY_NAME_SHORT = "FlowQualify";
 
+// Where this site actually lives. flowqualify.app redirects to the CRM's login, so pointing the canonical
+// URL, sitemap and robots.txt there told Google to index the login page instead of this one.
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://flowqualify.app";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://welcome.flowqualify.app";
 
 export const META_DESCRIPTION =
-  "Qualified leads. Closed deals. FlowQualify runs Meta and Instagram ads to bring in leads, then qualifies them 24/7 with AI—scoring, image analysis, and automated booking so only the right appointments hit your calendar.";
+  "FlowQualify runs Meta and Instagram ads for renovation contractors, then AI texts and qualifies every lead, so only real, ready jobs reach you.";
 
 /** Page canvas — cool gray (light mode default). */
 export const PAGE_BACKGROUND = "#f3f4f6";
