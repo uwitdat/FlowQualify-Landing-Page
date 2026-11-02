@@ -13,7 +13,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const title = `${COMPANY_NAME} - AI-Powered Lead Qualification for Contractors`;
+const title = `Lead Generation for Renovation Contractors | ${COMPANY_NAME}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
