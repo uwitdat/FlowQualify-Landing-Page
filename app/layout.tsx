@@ -48,9 +48,6 @@ export const metadata: Metadata = {
     title,
     description: META_DESCRIPTION,
   },
-  icons: {
-    icon: "/icon.svg",
-  },
   robots: {
     index: true,
     follow: true,
@@ -73,7 +70,7 @@ const jsonLd = {
       "@id": `${SITE_URL}/#organization`,
       name: COMPANY_NAME,
       url: SITE_URL,
-      logo: `${SITE_URL}/icon.svg`,
+      logo: `${SITE_URL}/icon.png`,
       contactPoint: {
         "@type": "ContactPoint",
         email: "emails@flowqualify.app",
